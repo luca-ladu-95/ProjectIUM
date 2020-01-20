@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">ProjectIUM</string>
-    <string name="drawerOpen">Aperto</string>
-    <string name="drawerClose">Chiuso</string>
+    <string name="drawerOpen">open</string>
+    <string name="drawerClose">close</string>
 </resources>
