@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_Calendario"
+            android:icon="@drawable/ic_today_black_24dp"
+            android:title="Calendario" />
+        <item
+            android:id="@+id/nav_Mappa"
+            android:icon="@drawable/ic_place_black_24dp"
+            android:title="Mappa" />
+        <item
+            android:id="@+id/nav_Impostazioni"
+            android:icon="@drawable/ic_settings_black_24dp"
+            android:title="Impostazioni" />
+    </group>
+
+    <item android:title="Opzioni Aggiuntive">
+        <menu>
+            <item
+                android:id="@+id/nav_Contatti"
+                android:icon="@drawable/ic_contacts_black_24dp"
+                android:title="Contattaci" />
+            <item
+                android:id="@+id/nav_Aiuto"
+                android:icon="@drawable/ic_help_black_24dp"
+                android:title="Aiuto" />
+
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/ic_power_settings_new_black_24dp"
+                android:title="Esci"
+                />
+
+
+
+        </menu>
+    </item>
+
+
+</menu>

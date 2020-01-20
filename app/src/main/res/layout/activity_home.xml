@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:openDrawer="start"
+    android:id="@+id/drawer"
+
+    tools:context=".Home">
+
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar"
+        android:background="@drawable/side_nav_bar"
+
+        >
+
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="40dp"
+
+        >
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="154dp"
+            android:src="@drawable/calciatore" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="25dp" />
+
+        <TextView
+            android:id="@+id/homeNome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textAlignment="center"
+            android:textColor="@color/nero"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="35dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="20dp"
+
+            >
+
+
+            <Button
+                android:id="@+id/buttonNewPartita"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="crea partita"
+                android:textSize="15dp" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="15dp" />
+
+            <Button
+                android:id="@+id/buttonFindPartita"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="cerca partita" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="15dp" />
+
+            <Button
+                android:id="@+id/buttonMappaCampi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="mappa dei campi" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="15dp" />
+
+            <Button
+                android:id="@+id/buttonPrenotazioni"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="prenotazioni effettuate" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>
+
+
+
+
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/navigationView"
+        app:menu="@menu/drawermenu"
+        app:headerLayout="@layout/header"
+        android:background="@color/bianco"
+        android:layout_gravity="start"
+        app:itemTextColor="@color/nero"/>
+
+</androidx.drawerlayout.widget.DrawerLayout>
