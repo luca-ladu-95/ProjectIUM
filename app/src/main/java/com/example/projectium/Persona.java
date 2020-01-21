@@ -4,23 +4,37 @@ import java.io.Serializable;
 import java.util.Calendar;
 
 public class Persona implements Serializable {
+    private String userId;
     private String nome;
     private String cognome;
     private String passowrd;
-    private String userId;
+    private String cpassword;
+    private String email;
 
     public Persona(){
+        this.setUserId("");
         this.setNome("");
         this.setCognome("");
-        this.setPassowrd("");
-        this.setUserId("");
+        this.setPassword("");
+        this.setCPassword("");
+        this.setEmail("");
     }
 
-    public Persona(String username, String nome, String cognome, String password) {
+    public Persona(String userId, String nome, String cognome, String password, String cpassword, String email) {
+        this.setUserId(userId);
         this.setNome(nome);
         this.setCognome(cognome);
-        this.setPassowrd(password);
-        this.setUserId(username);
+        this.setPassword(password);
+        this.setCPassword(cpassword);
+        this.setEmail(email);
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getNome() {
@@ -43,15 +57,25 @@ public class Persona implements Serializable {
         return passowrd;
     }
 
-    public void setPassowrd(String passowrd) {
+    public void setPassword(String passowrd) {
         this.passowrd = passowrd;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getCpassword() {
+        return cpassword;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setCPassword(String cpassword) {
+        this.cpassword = cpassword;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+
 }

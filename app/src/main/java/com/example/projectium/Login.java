@@ -12,10 +12,10 @@ import android.widget.TextView;
 import java.util.HashMap;
 public class Login extends AppCompatActivity {
 
-    Button loginButton,registratiButton;
+    Button loginButton;
     EditText username,password;
     Persona utente;
-    TextView errorText;
+    TextView errorText, registrati;
     static HashMap<String, Persona> utenti = new HashMap<String, Persona>();
 
     public static final String PERSON_DA_PASSARE = "package com.example.projectium";
@@ -28,13 +28,15 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         utente = new Persona();
-        username=findViewById(R.id.editUsername);
-        password=findViewById(R.id.editPassword);
-        loginButton=findViewById(R.id.buttonLogin);
-        registratiButton=findViewById(R.id.buttonRegistrati);
+        errorText = findViewById(R.id.errorText);
+        username = findViewById(R.id.editUsername);
+        password = findViewById(R.id.editPassword);
+        loginButton = findViewById(R.id.buttonLogin);
+        registrati = findViewById(R.id.registrazione); //cambiato da bottone a parola
+
         /*Debug codice*/
-        Persona persona1= new Persona("luca","Luca","Ladu","1234");
-        utenti.put("luca",persona1);
+        //Persona persona1= new Persona("luca","Luca","Ladu","1234");
+        //utenti.put("luca",persona1);
 
         /*Fine debug*/
 
@@ -56,11 +58,16 @@ public class Login extends AppCompatActivity {
                     showHOME.putExtra(PERSON_DA_PASSARE, utente);
                     //richiamo activity
                     startActivity(showHOME);
-
-
                 }
+            }
+        });
 
+        registrati.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent collegamento = new Intent(Login.this, Registrazione.class);
 
+                startActivity(collegamento);
             }
         });
     }
@@ -72,7 +79,8 @@ public class Login extends AppCompatActivity {
     private boolean checkInput() {
         boolean flag = true;
         if (username.getText() == null || username.getText().length() == 0) {
-            username.setError("Inserisci l'username");
+            //username.setError("Inserisci l'username");
+            printError3();
             flag = false;
         } else {
             username.setError(null);
@@ -80,7 +88,8 @@ public class Login extends AppCompatActivity {
         }
 
         if (password.getText() == null || password.getText().length() == 0) {
-            password.setError("Inserisci la password");
+            //password.setError("Inserisci la password");
+            printError3();
             flag = false;
         } else {
             password.setError(null);
@@ -96,7 +105,9 @@ public class Login extends AppCompatActivity {
 
         if (map.get(us) == null) {
             //non esiste proprio l'utente
-            username.setError("Lo username inserito non è valido");
+            //username.setError("Lo username inserito non è valido");
+            printError1();
+
             flag = false;
         } else {
             //Salvo la persona e controllo la password
@@ -106,16 +117,31 @@ public class Login extends AppCompatActivity {
             //controllo se la password inserita corrsponde a quella nel set
             if (!temp.getPassowrd().equals(password.getText().toString())) {
                 flag = false;
-                password.setError("La password inserita non corrisponde");
+                //password.setError("La password inserita non corrisponde");
+                printError2();
             } else {
                 password.setError(null);
-
-
             }
 
         }
 
         return flag;
+    }
+
+    //Queste 3 procedure banalmente servono a gestire un messaggio di errore differente in base alla situazione
+    void printError1(){
+        errorText.setVisibility(View.VISIBLE);
+        errorText.setText("Username inesistente");
+    }
+
+    void printError2(){
+        errorText.setVisibility(View.VISIBLE);
+        errorText.setText("La password inserita non è valida");
+    }
+
+    void printError3(){
+        errorText.setVisibility(View.VISIBLE);
+        errorText.setText("Inserire Username e Password");
     }
 
 
