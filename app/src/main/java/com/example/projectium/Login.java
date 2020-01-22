@@ -35,8 +35,9 @@ public class Login extends AppCompatActivity {
         registrati = findViewById(R.id.registrazione); //cambiato da bottone a parola
 
         /*Debug codice*/
-        //Persona persona1= new Persona("luca","Luca","Ladu","1234");
-        //utenti.put("luca",persona1);
+
+        Persona persona1= new Persona("luca","Luca","Ladu","1234","1234","laduluca95@hotm.it");
+        utenti.put("luca",persona1);
 
         /*Fine debug*/
 
@@ -58,6 +59,8 @@ public class Login extends AppCompatActivity {
                     showHOME.putExtra(PERSON_DA_PASSARE, utente);
                     //richiamo activity
                     startActivity(showHOME);
+                    finish();
+
                 }
             }
         });

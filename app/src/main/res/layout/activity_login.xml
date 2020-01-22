@@ -18,7 +18,7 @@
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="220dp"
-            android:src="@drawable/calciatore_viola" />
+            android:src="@drawable/calciatore2" />
 
         <Space
             android:layout_width="match_parent"

@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import static com.example.projectium.Login.PERSON_DA_PASSARE;
 import static com.example.projectium.Login.utenti;
 
 
@@ -51,10 +52,10 @@ public class Registrazione extends AppCompatActivity {
                     utenti.put(utente.getUserId(), utente);
 
                     //creo l'oggetto di tipo intent che ci serve per far comunicare le 2 activity
-                    Intent collegamento = new Intent(Registrazione.this, Login.class);
+                    Intent collegamento = new Intent(Registrazione.this, Home.class);
 
                     //inserisco i dati di persona dentro il nuovo intent
-                    collegamento.putExtra(PERSON_DA_PASSARE2, utente);
+                    collegamento.putExtra(PERSON_DA_PASSARE, utente);
 
                     //richiama l'activity che vogliamo visualizzare (da ripetere per i bottoni)
                     startActivity(collegamento);

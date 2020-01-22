@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,12 +20,14 @@ import com.google.android.material.navigation.NavigationView;
 
 import java.io.Serializable;
 
+import static com.example.projectium.Login.PERSON_DA_PASSARE;
+
 public class Home extends AppCompatActivity   implements NavigationView.OnNavigationItemSelectedListener {
 
 
     DrawerLayout drawerLayout;
 
-    Persona persona;
+    public Persona persona;
     Toolbar toolbar;
     NavigationView navigationView;
     ActionBarDrawerToggle toggle;
@@ -32,6 +35,7 @@ public class Home extends AppCompatActivity   implements NavigationView.OnNaviga
     Button nuovaPartita,cercaPartita,mappaCampi,prenotazioneEffettuate;
     TextView nomeCognome,nomeNavigationBar;
 
+    public static final String PERSON_DA_PASSARE_2 = "package com.example.projectium";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +50,13 @@ public class Home extends AppCompatActivity   implements NavigationView.OnNaviga
         nomeNavigationBar=findViewById(R.id.nomeNavigationBar);
         drawerLayout=findViewById(R.id.drawer);
 
+        /*Quando clicchi su un icona del menu a tendina bisogna aprire un fragment*/
+        navigationView=findViewById(R.id.navigationView);
+
+        navigationView.setNavigationItemSelectedListener(this);
+
+
+        /*Parte del menu a scorrimento */
         toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -56,9 +67,9 @@ public class Home extends AppCompatActivity   implements NavigationView.OnNaviga
         toggle.setDrawerIndicatorEnabled(true);
 
         toggle.syncState();
-
+         /*Richiamo l'intent per recuperare i dati dell'utente*/
         Intent intent = getIntent();
-        Serializable obj = intent.getSerializableExtra(Login.PERSON_DA_PASSARE);
+        Serializable obj = intent.getSerializableExtra(PERSON_DA_PASSARE);
 
         if (obj instanceof Persona) {
             persona = (Persona) obj;
@@ -67,7 +78,6 @@ public class Home extends AppCompatActivity   implements NavigationView.OnNaviga
         }
 
         nomeCognome.setText("Benvenuto, "+persona.getNome());
-
 
 
 
@@ -89,15 +99,35 @@ public class Home extends AppCompatActivity   implements NavigationView.OnNaviga
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()){
             case R.id.nav_home:
+
+                Intent showHOME = new Intent(Home.this, Profilo.class);
+                //Inserisco la persona dentro l'intent
+                showHOME.putExtra(PERSON_DA_PASSARE_2, persona);
+                //richiamo activity
+                startActivity(showHOME);
+
+
                 break;
 
 
             case  R.id.nav_Impostazioni:
                 break;
 
+            case R.id.nav_logout:
+
+                persona = null;
+
+
+
+                Intent showLogin = new Intent(Home.this, Login.class);
+                showLogin.putExtra(PERSON_DA_PASSARE, persona);
+                startActivity(showLogin);
+                finish();
+
         }
 
         menuItem.setChecked(true);
+
         drawerLayout.closeDrawer(GravityCompat.START);
 
         return true;
