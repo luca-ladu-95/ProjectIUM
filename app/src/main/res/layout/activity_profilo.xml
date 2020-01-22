@@ -30,11 +30,24 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nickname"
+                android:textColor="@color/nero"
+                android:textSize="25dp" />
+
+            <TextView
+                android:id="@+id/userName_fragment_profilo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/nero"
+                android:textSize="20dp" />
+
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="20dp">
-
-            </Space>
+                android:layout_height="15dp" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -112,22 +125,55 @@
                 android:text=""
                 android:textSize="20dp"/>
 
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="15dp" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Partite giocate"
+                android:textColor="@color/nero"
+                android:textSize="25dp" />
+
+            <TextView
+                android:id="@+id/partite_fragmewnt_profilo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/nero"
+                android:textSize="20dp" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="15dp" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="15dp"
                 android:orientation="vertical">
 
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp" />
-
                 <Button
                     android:id="@+id/button_profilo_home"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Home" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp" />
             </LinearLayout>
+
+            <Button
+                android:id="@+id/button_elimina_profilo"
+                android:layout_width="133dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/rosso"
+                android:gravity="center"
+                android:text="elimina profilo"
+                android:textColor="@color/bianco" />
 
 
         </LinearLayout>

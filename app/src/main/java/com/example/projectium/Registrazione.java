@@ -126,7 +126,7 @@ public class Registrazione extends AppCompatActivity {
         this.utente.setPassword(this.pass.getText().toString());
         this.utente.setCPassword(this.cpass.getText().toString());
         this.utente.setEmail(this.email.getText().toString());
-
+        this.utente.setPartite("0");
     }
 
 }

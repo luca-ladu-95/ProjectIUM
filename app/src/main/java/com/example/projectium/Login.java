@@ -34,12 +34,12 @@ public class Login extends AppCompatActivity {
         loginButton = findViewById(R.id.buttonLogin);
         registrati = findViewById(R.id.registrazione); //cambiato da bottone a parola
 
-        /*Debug codice*/
+        /*Debug codice
 
-        Persona persona1= new Persona("luca","Luca","Ladu","1234","1234","laduluca95@hotm.it");
+        Persona persona1= new Persona("luca","Luca","Ladu","1234","1234","laduluca95@hotm.it","0");
         utenti.put("luca",persona1);
 
-        /*Fine debug*/
+        Fine debug*/
 
 
         loginButton.setOnClickListener(new View.OnClickListener() {

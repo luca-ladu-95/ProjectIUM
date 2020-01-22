@@ -1,7 +1,9 @@
 package com.example.projectium;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,12 +13,13 @@ import android.widget.TextView;
 import java.io.Serializable;
 
 import static com.example.projectium.Login.PERSON_DA_PASSARE;
+import static com.example.projectium.Login.utenti;
 
 public class Profilo extends AppCompatActivity {
 
     Persona persona;
-    TextView nome,cognome,email,passowrd;
-    Button esci;
+    TextView nome,cognome,email,passowrd,partite;
+    Button esci,eliminaProfilo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +31,8 @@ public class Profilo extends AppCompatActivity {
         email=findViewById(R.id.email_fragment_profilo);
         passowrd=findViewById(R.id.password_fragment_profilo);
         esci=findViewById(R.id.button_profilo_home);
+        partite=findViewById(R.id.partite_fragmewnt_profilo);
+        eliminaProfilo=findViewById(R.id.button_elimina_profilo);
 
 
         Intent intent = getIntent();
@@ -39,10 +44,13 @@ public class Profilo extends AppCompatActivity {
             persona = new Persona();
         }
 
+
         nome.setText(persona.getNome());
         cognome.setText(persona.getCognome());
         email.setText(persona.getEmail());
         passowrd.setText(persona.getPassowrd());
+        partite.setText(persona.getPartite());
+
 
 
         esci.setOnClickListener(new View.OnClickListener() {
@@ -57,5 +65,49 @@ public class Profilo extends AppCompatActivity {
             }
         });
 
+        eliminaProfilo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //Richiamo la
+                AlertDialog diaBox = AskOption();
+                diaBox.show();
+
+            }
+        });
+
+    }
+
+    private AlertDialog AskOption()
+    {
+        AlertDialog myQuittingDialogBox = new AlertDialog.Builder(this)
+                // finestra di conferma eliminazione
+                .setTitle("Attenzione")
+                .setMessage("Vuoi davvero eliminare il profilo e tutti i suoi dati associati?")
+
+
+                .setPositiveButton("elimina", new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        utenti.remove(persona.getUserId());
+                        persona=null;
+                        Intent showHOME = new Intent(Profilo.this, Login.class);
+                        startActivity(showHOME);
+                        finish();
+
+                        dialog.dismiss();
+                    }
+
+                })
+                .setNegativeButton("annulla", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        dialog.dismiss();
+
+                    }
+                })
+                .create();
+
+        return myQuittingDialogBox;
     }
 }

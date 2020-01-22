@@ -2,12 +2,14 @@ package com.example.projectium;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -21,6 +23,7 @@ import com.google.android.material.navigation.NavigationView;
 import java.io.Serializable;
 
 import static com.example.projectium.Login.PERSON_DA_PASSARE;
+import static com.example.projectium.Login.utenti;
 
 public class Home extends AppCompatActivity   implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -105,6 +108,7 @@ public class Home extends AppCompatActivity   implements NavigationView.OnNaviga
                 showHOME.putExtra(PERSON_DA_PASSARE_2, persona);
                 //richiamo activity
                 startActivity(showHOME);
+                finish();
 
 
                 break;
@@ -115,14 +119,8 @@ public class Home extends AppCompatActivity   implements NavigationView.OnNaviga
 
             case R.id.nav_logout:
 
-                persona = null;
-
-
-
-                Intent showLogin = new Intent(Home.this, Login.class);
-                showLogin.putExtra(PERSON_DA_PASSARE, persona);
-                startActivity(showLogin);
-                finish();
+                AlertDialog diaBox = AskOption();
+                diaBox.show();
 
         }
 
@@ -131,5 +129,37 @@ public class Home extends AppCompatActivity   implements NavigationView.OnNaviga
         drawerLayout.closeDrawer(GravityCompat.START);
 
         return true;
+    }
+
+    private AlertDialog AskOption()
+    {
+        AlertDialog myQuittingDialogBox = new AlertDialog.Builder(this)
+                // finestra di conferma eliminazione
+                .setTitle("Esci")
+                .setMessage("Non sei "+persona.getNome()+" "+persona.getCognome()+"?")
+
+
+                .setPositiveButton("esci", new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        persona = null;
+                        Intent showLogin = new Intent(Home.this, Login.class);
+                        showLogin.putExtra(PERSON_DA_PASSARE, persona);
+                        startActivity(showLogin);
+                        finish();
+                        dialog.dismiss();
+                    }
+
+                })
+                .setNegativeButton("annulla", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        dialog.dismiss();
+
+                    }
+                })
+                .create();
+
+        return myQuittingDialogBox;
     }
 }

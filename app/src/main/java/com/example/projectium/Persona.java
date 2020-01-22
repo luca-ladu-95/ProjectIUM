@@ -10,6 +10,7 @@ public class Persona implements Serializable {
     private String passowrd;
     private String cpassword;
     private String email;
+    private String partite;
 
     public Persona(){
         this.setUserId("");
@@ -18,15 +19,17 @@ public class Persona implements Serializable {
         this.setPassword("");
         this.setCPassword("");
         this.setEmail("");
+        this.setPartite("0");
     }
 
-    public Persona(String userId, String nome, String cognome, String password, String cpassword, String email) {
+    public Persona(String userId, String nome, String cognome, String password, String cpassword, String email,String partite) {
         this.setUserId(userId);
         this.setNome(nome);
         this.setCognome(cognome);
         this.setPassword(password);
         this.setCPassword(cpassword);
         this.setEmail(email);
+        this.setPartite("0");
     }
 
     public String getUserId() {
@@ -78,4 +81,11 @@ public class Persona implements Serializable {
     }
 
 
+    public String getPartite() {
+        return partite;
+    }
+
+    public void setPartite(String partite) {
+        this.partite = partite;
+    }
 }
