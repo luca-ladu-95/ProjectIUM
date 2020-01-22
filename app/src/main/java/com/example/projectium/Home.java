@@ -83,6 +83,21 @@ public class Home extends AppCompatActivity   implements NavigationView.OnNaviga
         nomeCognome.setText("Benvenuto, "+persona.getNome());
 
 
+        //Parte del codice quando clicco nuova partita
+        nuovaPartita.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent showNuovaPartita = new Intent(Home.this, NuovaPartita.class);
+                //Inserisco la persona dentro l'intent
+                showNuovaPartita.putExtra(PERSON_DA_PASSARE_2, persona);
+                //richiamo activity
+                startActivity(showNuovaPartita);
+                finish();
+
+            }
+        });
+
+
 
 
 
@@ -99,6 +114,8 @@ public class Home extends AppCompatActivity   implements NavigationView.OnNaviga
 
 
     @Override
+    /*Questa è la funzione dei tasti del menu a tendina , funziona come un onclicklistener
+    * nello switch metti gli ID dei cosi del menu*/
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()){
             case R.id.nav_home:
@@ -119,6 +136,7 @@ public class Home extends AppCompatActivity   implements NavigationView.OnNaviga
 
             case R.id.nav_logout:
 
+                //Apre il messaggio di conferma uscita
                 AlertDialog diaBox = AskOption();
                 diaBox.show();
 
@@ -131,6 +149,7 @@ public class Home extends AppCompatActivity   implements NavigationView.OnNaviga
         return true;
     }
 
+    /*Questa funzione apre finestre di dialogo, di solito è usata per le allerte , doppia conferma*/
     private AlertDialog AskOption()
     {
         AlertDialog myQuittingDialogBox = new AlertDialog.Builder(this)

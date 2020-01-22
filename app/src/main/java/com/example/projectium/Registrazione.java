@@ -55,6 +55,7 @@ public class Registrazione extends AppCompatActivity {
                     Intent collegamento = new Intent(Registrazione.this, Home.class);
 
                     //inserisco i dati di persona dentro il nuovo intent
+
                     collegamento.putExtra(PERSON_DA_PASSARE, utente);
 
                     //richiama l'activity che vogliamo visualizzare (da ripetere per i bottoni)
