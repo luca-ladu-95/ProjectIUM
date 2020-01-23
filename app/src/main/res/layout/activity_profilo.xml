@@ -9,14 +9,15 @@
 
     <TextView
         android:id="@+id/profilo_text_alto"
-        android:paddingTop="10dp"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:text="PROFILO"
-        android:textColor="@color/nero"
+        android:textColor="@color/bianco"
         android:textSize="35dp"
-        android:textStyle="bold" />
+        android:textStyle="italic"
+        android:background="@drawable/side_nav_bar"/>
 
     <ScrollView
 

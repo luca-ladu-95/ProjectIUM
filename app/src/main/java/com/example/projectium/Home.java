@@ -99,6 +99,17 @@ public class Home extends AppCompatActivity   implements NavigationView.OnNaviga
 
 
 
+        cercaPartita.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent showCercaPartita = new Intent(Home.this, Partecipa_partita.class);
+                //Inserisco la persona dentro l'intent
+                showCercaPartita.putExtra(PERSON_DA_PASSARE_2, persona);
+                //richiamo activity
+                startActivity(showCercaPartita);
+                finish();
+            }
+        });
 
 
 
@@ -155,7 +166,7 @@ public class Home extends AppCompatActivity   implements NavigationView.OnNaviga
         AlertDialog myQuittingDialogBox = new AlertDialog.Builder(this)
                 // finestra di conferma eliminazione
                 .setTitle("Esci")
-                .setMessage("Non sei "+persona.getNome()+" "+persona.getCognome()+"?")
+                .setMessage("Sei sicuro di voler uscire?")
 
 
                 .setPositiveButton("esci", new DialogInterface.OnClickListener() {

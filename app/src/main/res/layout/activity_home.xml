@@ -27,6 +27,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/toolbar"
         android:background="@drawable/side_nav_bar"
+        app:titleTextColor="@color/bianco"
 
         >
 

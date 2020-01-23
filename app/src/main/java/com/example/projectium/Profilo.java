@@ -18,7 +18,7 @@ import static com.example.projectium.Login.utenti;
 public class Profilo extends AppCompatActivity {
 
     Persona persona;
-    TextView nome,cognome,email,passowrd,partite;
+    TextView nome,cognome,email,passowrd,partite,nickname;
     Button esci,eliminaProfilo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +33,7 @@ public class Profilo extends AppCompatActivity {
         esci=findViewById(R.id.button_profilo_home);
         partite=findViewById(R.id.partite_fragmewnt_profilo);
         eliminaProfilo=findViewById(R.id.button_elimina_profilo);
+        nickname=findViewById(R.id.userName_fragment_profilo);
 
 
         Intent intent = getIntent();
@@ -50,6 +51,7 @@ public class Profilo extends AppCompatActivity {
         email.setText(persona.getEmail());
         passowrd.setText(persona.getPassowrd());
         partite.setText(persona.getPartite());
+        nickname.setText(persona.getUserId());
 
 
 

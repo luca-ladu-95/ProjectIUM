@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 public class Login extends AppCompatActivity {
 
@@ -17,13 +18,20 @@ public class Login extends AppCompatActivity {
     Persona utente;
     TextView errorText, registrati;
     static HashMap<String, Persona> utenti = new HashMap<String, Persona>();
+    static ArrayList<CampoDaCalcio> listaCampi = new ArrayList<>();
 
     public static final String PERSON_DA_PASSARE = "package com.example.projectium";
 
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        //creo campi da calcio
+        setListaCampi(listaCampi);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
@@ -150,5 +158,17 @@ public class Login extends AppCompatActivity {
 
     public void setUtenti(HashMap<String, Persona> utenti) {
         this.utenti = utenti;
+    }
+
+    public void setListaCampi(ArrayList<CampoDaCalcio> campi){
+        CampoDaCalcio bonaria = new CampoDaCalcio("Bonaria","2.00",10,"Via Ravenna, 09125 Cagliari CA");
+        CampoDaCalcio ossigeno = new CampoDaCalcio("Ossigeno","2,50",10,"Viale Cimitero, 29, 09125 Cagliari CA");
+        CampoDaCalcio terrapieno= new CampoDaCalcio("Terrapieno","1,50",10,"Viale Regina Elena, 14, 09124 Cagliari CA");
+
+        CampoDaCalcio salesiani= new CampoDaCalcio("Salesiani","2,00",10," Via Sant'Ignazio da Laconi, 09123 Cagliari CA");
+        campi.add(bonaria);
+        campi.add(ossigeno);
+        campi.add(terrapieno);
+        campi.add(salesiani);
     }
 }
