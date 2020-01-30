@@ -6,6 +6,7 @@ import androidx.annotation.Nullable;
 import java.io.Serializable;
 
 public class Prenotazione implements Serializable {
+    private CampoDaCalcio campo;
     private Persona creatore;
     private String nome_evento;
     private String descrizione;
@@ -94,5 +95,13 @@ public class Prenotazione implements Serializable {
         } else {
             return false;
         }
+    }
+
+    public CampoDaCalcio getCampo() {
+        return campo;
+    }
+
+    public void setCampo(CampoDaCalcio campo) {
+        this.campo = campo;
     }
 }

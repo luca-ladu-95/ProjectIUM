@@ -118,7 +118,7 @@
                     android:textSize="25dp" />
 
                 <TextView
-                    android:id="@+id/partecipa_partita_ora"
+                    android:id="@+id/prenota_partita_ora"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/nero"

@@ -53,7 +53,7 @@ public class Partecipa_partita extends AppCompatActivity {
 
 
         /*Prendo le partite NON ANNULLATE*/
-        final ArrayList<Prenotazione> prenotazioniInCorso = PrenotazioneFactory.getInstance().getPrenotazioniInCorso(listaPrenotazioni,persona);
+         ArrayList<Prenotazione> prenotazioniInCorso = PrenotazioneFactory.getInstance().getPrenotazioniInCorso(listaPrenotazioni,persona);
 
         int i =0;
 

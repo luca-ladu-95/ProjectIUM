@@ -3,7 +3,9 @@ package com.example.projectium;
 
 import androidx.annotation.Nullable;
 
-public class CampoDaCalcio {
+import java.io.Serializable;
+
+public class CampoDaCalcio implements Serializable {
 
     private String nome;
     private int posti;

@@ -1,11 +1,12 @@
 package com.example.projectium;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import static com.example.projectium.Login.utenti;
 
-public class PrenotazioneFactory {
+public class PrenotazioneFactory  implements Serializable {
 
     private  int contatoreID = 0;
 
@@ -31,6 +32,7 @@ public class PrenotazioneFactory {
         prenotazione.setNome_evento(nome);
         prenotazione.setDescrizione(descrizione);
         prenotazione.setOra_evento(ora);
+        prenotazione.setCampo(campo);
 
         contatoreID++;
 
