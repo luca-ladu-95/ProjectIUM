@@ -81,7 +81,7 @@ public class Partecipa_partita extends AppCompatActivity {
               public void onClick(View v) {
 
 
-                  Intent showNuovaPartita = new Intent(Partecipa_partita.this, ProvaDebug.class);
+                  Intent showNuovaPartita = new Intent(Partecipa_partita.this, Prenota_da_Partecipa_partita.class);
                   //Inserisco la persona dentro l'intent
                   showNuovaPartita.putExtra(PERSON_DA_PASSARE_2, persona);
                   showNuovaPartita.putExtra(EVENTO_DA_PASSARE,p);
