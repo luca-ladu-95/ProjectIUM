@@ -39,7 +39,7 @@ public class Partecipa_partita extends AppCompatActivity {
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.lineraDinamicCercaPartita);
 
         /*Richiamo l'intent per recuperare i dati dell'utente*/
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
         Serializable obj = intent.getSerializableExtra(PERSON_DA_PASSARE);
 
         if (obj instanceof Persona) {
@@ -83,8 +83,14 @@ public class Partecipa_partita extends AppCompatActivity {
 
                   Intent showNuovaPartita = new Intent(Partecipa_partita.this, Prenota_da_Partecipa_partita.class);
                   //Inserisco la persona dentro l'intent
-                  showNuovaPartita.putExtra(PERSON_DA_PASSARE_2, persona);
-                  showNuovaPartita.putExtra(EVENTO_DA_PASSARE,p);
+
+                  Bundle extras = new Bundle();
+
+                  extras.putSerializable(PERSON_DA_PASSARE_2,persona);
+                  extras.putSerializable(EVENTO_DA_PASSARE,p);
+
+
+                  showNuovaPartita.putExtra("KEY_BUNDLE_VALUE", extras);
                   //richiamo activity
                   startActivity(showNuovaPartita);
                   finish();

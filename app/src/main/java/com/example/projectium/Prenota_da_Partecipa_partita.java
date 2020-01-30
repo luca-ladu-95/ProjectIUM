@@ -44,12 +44,15 @@ public class Prenota_da_Partecipa_partita extends AppCompatActivity {
 
 
 
-        /*Richiamo l'intent per recuperare i dati dell'utente*/
-        Intent intent = getIntent();
 
-        Serializable obj = intent.getSerializableExtra(PERSON_DA_PASSARE_2);
 
-        Serializable obj2 = intent.getSerializableExtra(EVENTO_DA_PASSARE);
+        Bundle bundle = getIntent().getBundleExtra("KEY_BUNDLE_VALUE");
+
+
+        Serializable obj = bundle.getSerializable(PERSON_DA_PASSARE_2);
+
+
+        Serializable obj2 = bundle.getSerializable(EVENTO_DA_PASSARE);
 
 
         if (obj instanceof Persona) {
