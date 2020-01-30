@@ -22,15 +22,7 @@ public class Persona implements Serializable {
         this.setPartite("0");
     }
 
-    public Persona(String userId, String nome, String cognome, String password, String cpassword, String email,String partite) {
-        this.setUserId(userId);
-        this.setNome(nome);
-        this.setCognome(cognome);
-        this.setPassword(password);
-        this.setCPassword(cpassword);
-        this.setEmail(email);
-        this.setPartite("0");
-    }
+
 
     public String getUserId() {
         return userId;

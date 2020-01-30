@@ -45,14 +45,7 @@ public class CampoDaCalcio {
 
     /*
     * */
-    public CampoDaCalcio(String nome,String prezzo_a_persona,int posti,String via){
 
-        this.setNome(nome);
-        this.setPosti(posti);
-        this.setPrezzo_a_persona(prezzo_a_persona);
-        this.setVia(via);
-
-    }
 
     public int getValutazione() {
         return valutazione;

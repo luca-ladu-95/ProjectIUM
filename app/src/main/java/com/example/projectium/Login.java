@@ -20,7 +20,7 @@ public class Login extends AppCompatActivity {
     Persona utente;
     TextView errorText, registrati;
     static HashMap<String, Persona> utenti = new HashMap<String, Persona>();
-    static HashMap<String,CampoDaCalcio> listaCampi = new HashMap<>();
+    static HashSet<CampoDaCalcio> listaCampi = new HashSet<>();
 
     public static final String PERSON_DA_PASSARE = "package com.example.projectium";
 
@@ -31,8 +31,10 @@ public class Login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        //creo campi da calcio
-        setListaCampi(listaCampi);
+
+        CampoDaCalcioFactory.getInstance().setCampiDefault(listaCampi);
+
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
@@ -46,7 +48,7 @@ public class Login extends AppCompatActivity {
 
         /*Debug codice*/
 
-        Persona persona1= new Persona("luca","Luca","Ladu","1234","1234","laduluca95@hotm.it","0");
+        Persona persona1= PersonaFactory.getInstance().creaPersona("luca","Luca","Ladu","1234","1234","laduluca95@hotm.it","0");
         utenti.put("luca",persona1);
 
         /*Fine debug*/
@@ -162,15 +164,5 @@ public class Login extends AppCompatActivity {
         this.utenti = utenti;
     }
 
-    public void setListaCampi(HashMap<String,CampoDaCalcio> campi){
-        CampoDaCalcio bonaria = new CampoDaCalcio("Bonaria","2.00",10,"Via Ravenna, 09125 Cagliari CA");
-        CampoDaCalcio ossigeno = new CampoDaCalcio("Ossigeno","2,50",10,"Viale Cimitero, 29, 09125 Cagliari CA");
-        CampoDaCalcio terrapieno= new CampoDaCalcio("Terrapieno","1,50",10,"Viale Regina Elena, 14, 09124 Cagliari CA");
 
-        CampoDaCalcio salesiani= new CampoDaCalcio("Salesiani","2,00",10," Via Sant'Ignazio da Laconi, 09123 Cagliari CA");
-        campi.put(bonaria.getNome(),bonaria);
-        campi.put(ossigeno.getNome(),ossigeno);
-        campi.put(terrapieno.getNome(),terrapieno);
-        campi.put(salesiani.getNome(),salesiani);
-    }
 }

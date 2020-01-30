@@ -1,5 +1,7 @@
 package com.example.projectium;
 
+import java.util.ArrayList;
+
 public class PrenotazioneFactory {
 
     private  int contatoreID = 0;
@@ -30,6 +32,17 @@ public class PrenotazioneFactory {
 
         return prenotazione;
 
+
+    }
+
+
+    public void setPrenotazioniStandard(ArrayList<Prenotazione> lista){
+
+        if(lista== null ||lista.isEmpty()){
+
+
+
+        }
 
     }
 
