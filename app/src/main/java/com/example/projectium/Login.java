@@ -21,6 +21,7 @@ public class Login extends AppCompatActivity {
     TextView errorText, registrati;
     static HashMap<String, Persona> utenti = new HashMap<String, Persona>();
     static HashSet<CampoDaCalcio> listaCampi = new HashSet<>();
+    static  ArrayList<Prenotazione> listaPrenotazioni = new ArrayList<>();
 
     public static final String PERSON_DA_PASSARE = "package com.example.projectium";
 
@@ -33,6 +34,11 @@ public class Login extends AppCompatActivity {
 
 
         CampoDaCalcioFactory.getInstance().setCampiDefault(listaCampi);
+
+        PersonaFactory.getInstance().setPersoneDefault(utenti);
+
+        PrenotazioneFactory.getInstance().setPrenotazioniStandard(listaPrenotazioni,utenti);
+
 
 
 
@@ -48,7 +54,7 @@ public class Login extends AppCompatActivity {
 
         /*Debug codice*/
 
-       PersonaFactory.getInstance().setPersoneDefault(utenti);
+
 
         /*Fine debug*/
 
