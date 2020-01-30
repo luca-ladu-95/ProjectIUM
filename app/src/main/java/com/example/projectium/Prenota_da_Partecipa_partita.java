@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.io.Serializable;
@@ -15,12 +16,18 @@ public class Prenota_da_Partecipa_partita extends AppCompatActivity {
 
     Persona persona;
     Prenotazione prenotazione;
-    TextView nome, data;
+    TextView nomeEvento, data, nomeCreatore, ora, numeroGiocatori, prezzo, descrizione ;
+    Button prenotati,home;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prenota_da__partecipa_partita);
+
+        /*Associo le text e i bottoni*/
+
+
+
 
         /*Richiamo l'intent per recuperare i dati dell'utente*/
         Intent intent = getIntent();
@@ -41,7 +48,7 @@ public class Prenota_da_Partecipa_partita extends AppCompatActivity {
             prenotazione = new Prenotazione();
         }
 
-        nome.setText(prenotazione.getNome_evento());
+        nomeEvento.setText(prenotazione.getNome_evento());
         data.setText(prenotazione.getData_evento());
 
 

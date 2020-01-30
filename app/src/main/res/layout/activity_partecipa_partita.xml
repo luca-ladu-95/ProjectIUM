@@ -19,7 +19,7 @@
                 android:id="@+id/textView5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Partite del giorno"
+                android:text="Eventi disponibili"
                 android:textColor="@color/bianco"
                 android:background="@drawable/side_nav_bar"
                 android:textAlignment="center"
