@@ -1,5 +1,7 @@
 package com.example.projectium;
 
+import androidx.annotation.Nullable;
+
 import java.io.Serializable;
 import java.util.Calendar;
 
@@ -79,5 +81,19 @@ public class Persona implements Serializable {
 
     public void setPartite(String partite) {
         this.partite = partite;
+    }
+
+    @Override
+    public boolean equals(@Nullable Object obj) {
+        if ((obj instanceof Persona)) {
+            Persona temp = (Persona) obj;
+            if (this.getUserId().equals(temp.getUserId())) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
     }
 }
