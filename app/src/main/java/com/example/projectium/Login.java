@@ -48,8 +48,7 @@ public class Login extends AppCompatActivity {
 
         /*Debug codice*/
 
-        Persona persona1= PersonaFactory.getInstance().creaPersona("luca","Luca","Ladu","1234","1234","laduluca95@hotm.it","0");
-        utenti.put("luca",persona1);
+       PersonaFactory.getInstance().setPersoneDefault(utenti);
 
         /*Fine debug*/
 

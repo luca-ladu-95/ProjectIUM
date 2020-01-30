@@ -49,7 +49,7 @@ public class Registrazione extends AppCompatActivity {
                     //aggiorno il contenuto di persona
                     updatePerson();
 
-                    utenti.put(utente.getUserId(), utente);
+                    PersonaFactory.getInstance().aggiungiUtente(utenti,utente);
 
                     //creo l'oggetto di tipo intent che ci serve per far comunicare le 2 activity
                     Intent collegamento = new Intent(Registrazione.this, Home.class);

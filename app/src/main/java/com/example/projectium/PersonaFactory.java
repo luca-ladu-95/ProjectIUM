@@ -29,7 +29,25 @@ public class PersonaFactory {
         return user;
     }
 
+    public void aggiungiUtente(HashMap<String,Persona> map,Persona persona){
+        map.put(persona.getUserId(),persona);
+    }
+
+
     public  void setPersoneDefault(HashMap<String,Persona> map){
+
+        Persona persona1 = this.creaPersona("luca","Luca","Ladu","1234","1234","laduluca95@hotm.it","0");
+
+        Persona persona2 = this.creaPersona("frank","Francesco","Podda","1234","1234","frk@hotmail.it","0");
+
+        Persona persona3 = this.creaPersona("Dshot92","Daniele","Stochino","1234","1234","Dshot92@hotmail.it","3");
+
+        Persona persona4 = this.creaPersona("Iorge","Giorgio","Fanni","1234","1234","Gf96@hotm.it","23");
+
+        map.put(persona1.getUserId(),persona1);
+        map.put(persona2.getUserId(),persona2);
+        map.put(persona3.getUserId(),persona3);
+        map.put(persona4.getUserId(),persona4);
 
 
     }
