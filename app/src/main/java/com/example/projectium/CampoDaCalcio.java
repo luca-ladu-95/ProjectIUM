@@ -1,12 +1,15 @@
 package com.example.projectium;
 
 
+import androidx.annotation.Nullable;
+
 public class CampoDaCalcio {
 
     private String nome;
     private int posti;
     private String via;
     private String prezzo_a_persona;
+    private int valutazione;
 
     public String getNome() {
         return nome;
@@ -49,5 +52,34 @@ public class CampoDaCalcio {
         this.setPrezzo_a_persona(prezzo_a_persona);
         this.setVia(via);
 
+    }
+
+    public int getValutazione() {
+        return valutazione;
+    }
+
+    public void setValutazione(int valutazione) {
+        this.valutazione = valutazione;
+    }
+
+
+    @Override
+    public boolean equals(@Nullable Object obj) {
+        if ((obj instanceof CampoDaCalcio)) {
+            CampoDaCalcio temp = (CampoDaCalcio) obj;
+            if (this.getNome().equals(temp.getNome()) && this.getVia().equals(temp.getVia())) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
+
+    @Override
+    public int hashCode() {
+        return this.getNome().hashCode();
     }
 }

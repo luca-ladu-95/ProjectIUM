@@ -17,6 +17,8 @@ import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
+
 import static com.example.projectium.Login.listaCampi;
 public class Partecipa_partita extends AppCompatActivity {
 
@@ -25,6 +27,11 @@ public class Partecipa_partita extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_partecipa_partita);
         ArrayList<Button> buttons = new ArrayList<>();
+
+        int i =0;
+
+        /**************** E TUTTO DEBUG NON CONSIDERATE IL CODICE*******************************/
+        Iterator <CampoDaCalcio> campi = listaCampi.iterator();
 
         /*Data attuale questo è da rivedere perchè il giorno dell'esame che facciamo??? direi di prestabilire date fisse io
         Date d = new Date();
@@ -40,24 +47,34 @@ public class Partecipa_partita extends AppCompatActivity {
         /*Allora in pratica questo è solo debug per vedere se funziona, devo ancora creare le pertite
         * per adesso stampo solo i nomi dei campi in text view dinamiche , e funziona porco maometto
         * Ho risolto il problema di come creare gli id per identificarli quando si cliccano */
-      for (int i=0; i < listaCampi.size();i++) {
+
+      while (campi.hasNext()){
+
+          CampoDaCalcio campoDaCalcio = campi.next();
           Button bottone = new Button(this);
           bottone.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
           bottone.setTextColor(getResources().getColor(R.color.nero));
           bottone.setGravity(Gravity.CENTER);
           bottone.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 25);
           bottone.setId(i);
-          bottone.setText(listaCampi.get(i).getNome());
+          bottone.setText(campoDaCalcio.getNome());
           linearLayout.addView(bottone);
           buttons.add(bottone);
+          bottone.setOnClickListener(new View.OnClickListener() {
+              @Override
+              public void onClick(View v) {
+                  //Questa parte e da fare piu tardi prima bisogna creare le prenotazioni in modo tale da passarle dentro un intent
+              }
+          });
+          i++;
       }
+      i=0;
       //Test per vedere se set Id funziona
-      int b0 = buttons.get(0).getId();
-      int cavolo = buttons.get(1).getId();
-        int b2 = buttons.get(2).getId();
 
 
 
-        
+
+
+
     }
 }

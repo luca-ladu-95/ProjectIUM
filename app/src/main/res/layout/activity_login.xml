@@ -16,8 +16,8 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="220dp"
+            android:layout_width="wrap_content"
+            android:layout_height="191dp"
             android:src="@drawable/calciatore2" />
 
         <Space
@@ -120,8 +120,8 @@
                     android:textStyle="bold"/>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="337dp"
+                    android:layout_height="131dp"
                     android:orientation="vertical"
                     android:padding="35dp">
 
@@ -133,7 +133,7 @@
                         android:textAlignment="center"
                         android:textColor="@color/nero"
                         android:textSize="20sp"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
 
                 </LinearLayout>
             </LinearLayout>
