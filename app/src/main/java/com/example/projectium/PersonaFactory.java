@@ -1,6 +1,10 @@
 package com.example.projectium;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Set;
 
 public class PersonaFactory {
 
@@ -49,6 +53,16 @@ public class PersonaFactory {
         map.put(persona3.getUserId(),persona3);
         map.put(persona4.getUserId(),persona4);
 
+
+    }
+
+    public ArrayList<Persona> getUtentiArray( HashMap<String,Persona> map){
+
+
+        Collection<Persona> set = map.values();
+        ArrayList<Persona> utenti = new ArrayList<>(set);
+
+        return  utenti;
 
     }
 

@@ -1,5 +1,6 @@
 package com.example.projectium;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 
 public class CampoDaCalcioFactory {
@@ -39,6 +40,19 @@ public class CampoDaCalcioFactory {
             set.add(creaCampo("Salesiani","2,00",10," Via Sant'Ignazio da Laconi, 09123 Cagliari CA"));
 
         }
+
+    }
+
+
+    public ArrayList<CampoDaCalcio> getCampiDefault(){
+
+        ArrayList<CampoDaCalcio> def = new ArrayList<>();
+        def.add(creaCampo("Bonaria","2.00",10,"Via Ravenna, 09125 Cagliari CA"));
+        def.add(creaCampo("Ossigeno","2,50",10,"Viale Cimitero, 29, 09125 Cagliari CA"));
+        def.add(creaCampo("Terrapieno","1,50",10,"Viale Regina Elena, 14, 09124 Cagliari CA"));
+        def.add(creaCampo("Salesiani","2,00",10," Via Sant'Ignazio da Laconi, 09123 Cagliari CA"));
+
+        return def;
 
     }
 
