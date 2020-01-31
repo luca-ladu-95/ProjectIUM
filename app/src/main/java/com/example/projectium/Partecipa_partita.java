@@ -66,41 +66,51 @@ public class Partecipa_partita extends AppCompatActivity {
 
         /*Creo dinamicamente un bottone per ogni evento  ed un click on view*/
 
-      for ( i = 0 ; i < prenotazioniInCorso.size(); i++){
+        if(prenotazioniInCorso!= null || !prenotazioniInCorso.isEmpty()) {
+            for (i = 0; i < prenotazioniInCorso.size(); i++) {
 
 
-          Button bottone = new Button(this);
-          bottone.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-          bottone.setTextColor(getResources().getColor(R.color.nero));
-          bottone.setGravity(Gravity.CENTER);
-          bottone.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 25);
-          bottone.setId(i);
-          bottone.setText(listaPrenotazioni.get(i).getNome_evento());
-          linearLayout.addView(bottone);
-          final  Prenotazione p = prenotazioniInCorso.get(i);
+                Button bottone = new Button(this);
+                bottone.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                bottone.setTextColor(getResources().getColor(R.color.nero));
+                bottone.setGravity(Gravity.CENTER);
+                bottone.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 25);
+                bottone.setId(i);
+                bottone.setText(listaPrenotazioni.get(i).getNome_evento());
+                linearLayout.addView(bottone);
+                final Prenotazione p = prenotazioniInCorso.get(i);
 
-          bottone.setOnClickListener(new View.OnClickListener() {
-              @Override
-              public void onClick(View v) {
-
-
-                  Intent showPrenota_partita = new Intent(Partecipa_partita.this, Prenota_da_Partecipa_partita.class);
-                  //Inserisco la persona dentro l'intent
+                bottone.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
 
 
-
-                  showPrenota_partita.putExtra(PERSON_DA_PASSARE_2,persona);
-                  showPrenota_partita.putExtra(PRENOTAZIONE,p);
-
+                        Intent showPrenota_partita = new Intent(Partecipa_partita.this, Prenota_da_Partecipa_partita.class);
+                        //Inserisco la persona dentro l'intent
 
 
+                        showPrenota_partita.putExtra(PERSON_DA_PASSARE_2, persona);
+                        showPrenota_partita.putExtra(PRENOTAZIONE, p);
 
-                  startActivity(showPrenota_partita);
-                  finish();
-              }
-          });
 
-      }
+                        startActivity(showPrenota_partita);
+                        finish();
+                    }
+                });
+
+
+            }
+        }else{
+
+            TextView testo = new Button(this);
+            testo.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+            testo.setTextColor(getResources().getColor(R.color.rosso));
+            testo.setGravity(Gravity.CENTER);
+            testo.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 25);
+            testo.setText("Non c'e nessuna partita");
+            linearLayout.addView(testo);
+
+        }
 
 
       indietro.setOnClickListener(new View.OnClickListener() {

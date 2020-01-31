@@ -61,7 +61,7 @@ public class PrenotazioneFactory  implements Serializable {
             );
 
             Prenotazione p3 = creaPrenotazione(utentiStandard.get(2),campi.get(1),
-                    "Prova3","Semplice calcio","22-03-2020",10,false,"13:00"
+                    "Prova3","Semplice calcio","22-03-2020",10,true,"13:00"
             );
 
 
@@ -70,13 +70,24 @@ public class PrenotazioneFactory  implements Serializable {
             );
 
 
-            Prenotazione p5 = creaPrenotazione(utentiStandard.get(3),campi.get(1),
-                    "Prova5","Semplice calcio","2-03-2020",10,false,"11:00"
+            Prenotazione p5 = creaPrenotazione(utentiStandard.get(2),campi.get(1),
+                    "Prova5","Semplice calcio","2-03-2020",10,true,"11:00"
             );
 
-            Prenotazione p6 = creaPrenotazione(utentiStandard.get(3),campi.get(1),
+            Prenotazione p6 = creaPrenotazione(utentiStandard.get(0),campi.get(1),
                     "Prova Annullata","Semplice calcio","2-03-2020",9,true,"11:00"
             );
+
+            p1.getIscritti().add(utentiStandard.get(2));
+            p1.getIscritti().add(utentiStandard.get(3));
+
+
+
+            p2.getIscritti().add(utentiStandard.get(3));
+
+            p6.getIscritti().add(utentiStandard.get(3));
+            p5.getIscritti().add(utentiStandard.get(3));
+
 
             lista.add(p1);
 
@@ -141,13 +152,25 @@ public class PrenotazioneFactory  implements Serializable {
         ArrayList<Prenotazione> ritorno = new ArrayList<>();
 
         for(int i = 0 ; i < list.size();i++){
-            if(list.get(i).getCreatore().equals(utente)){
+            if(list.get(i).getCreatore().equals(utente) || controlloIscrizioniEsterne(list.get(i).getIscritti(),utente)){
                 ritorno.add(list.get(i));
             }
         }
 
         return ritorno;
 
+    }
+
+
+    public  void aggiungiIscrittoAllaPartita(Prenotazione p,Persona utente){
+        if(!p.getIscritti().contains(utente))
+            p.getIscritti().add(utente);
+    }
+
+
+    /*Controlla se è presente*/
+    public boolean controlloIscrizioniEsterne(ArrayList<Persona> lista, Persona utente){
+        return lista.contains(utente);
     }
 }
 

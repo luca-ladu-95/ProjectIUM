@@ -99,6 +99,20 @@ public class Home extends AppCompatActivity   implements NavigationView.OnNaviga
         });
 
 
+        prenotazioneEffettuate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent showNuovaPartita = new Intent(Home.this, PrenotazioniEffettuate.class);
+                //Inserisco la persona dentro l'intent
+                showNuovaPartita.putExtra(PERSON_DA_PASSARE_2, persona);
+                //richiamo activity
+                startActivity(showNuovaPartita);
+                finish();
+
+            }
+        });
+
+
 
         cercaPartita.setOnClickListener(new View.OnClickListener() {
             @Override

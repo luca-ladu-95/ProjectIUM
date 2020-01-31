@@ -6,6 +6,7 @@ import androidx.annotation.Nullable;
 
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Prenotazione implements Serializable {
 
@@ -20,6 +21,7 @@ public class Prenotazione implements Serializable {
     private boolean annullata;
     private String ora_evento;
     private int id;
+    private ArrayList<Persona> iscritti = new ArrayList<>();
 
 
 
@@ -108,5 +110,13 @@ public class Prenotazione implements Serializable {
 
     public void setCampo(CampoDaCalcio campo) {
         this.campo = campo;
+    }
+
+    public ArrayList<Persona> getIscritti() {
+        return iscritti;
+    }
+
+    public void setIscritti(ArrayList<Persona> iscritti) {
+        this.iscritti = iscritti;
     }
 }
