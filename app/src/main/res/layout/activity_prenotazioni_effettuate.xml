@@ -118,6 +118,15 @@
                         />
 
 
+                    <TextView
+                        android:id="@+id/testo_nessuna_prenotazione2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="25dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/nero"
+                        android:text="" />
+
 
 
 

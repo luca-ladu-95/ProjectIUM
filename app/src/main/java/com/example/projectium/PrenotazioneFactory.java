@@ -78,7 +78,7 @@ public class PrenotazioneFactory  implements Serializable {
                     "Prova Annullata","Semplice calcio","2-03-2020",9,true,"11:00"
             );
 
-            p1.getIscritti().add(utentiStandard.get(2));
+          /*  p1.getIscritti().add(utentiStandard.get(2));
             p1.getIscritti().add(utentiStandard.get(3));
 
 
@@ -88,7 +88,7 @@ public class PrenotazioneFactory  implements Serializable {
             p6.getIscritti().add(utentiStandard.get(3));
             p5.getIscritti().add(utentiStandard.get(3));
 
-
+*/
             lista.add(p1);
 
             lista.add(p2);
@@ -122,7 +122,8 @@ public class PrenotazioneFactory  implements Serializable {
         ArrayList<Prenotazione> ritorno = new ArrayList<>();
 
         for(int i = 0 ; i < list.size();i++){
-            if(!list.get(i).isAnnullata() && !list.get(i).getCreatore().equals(p) && list.get(i).getNum_giocatori() < 10){
+            if(!list.get(i).isAnnullata() && !list.get(i).getCreatore().equals(p) && list.get(i).getNum_giocatori() < 10
+            && !controlloIscrizioniEsterne(list.get(i).getIscritti(),p)){
                 ritorno.add(list.get(i));
             }
         }

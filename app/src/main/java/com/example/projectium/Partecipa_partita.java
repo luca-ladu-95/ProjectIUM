@@ -76,7 +76,8 @@ public class Partecipa_partita extends AppCompatActivity {
                 bottone.setGravity(Gravity.CENTER);
                 bottone.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 25);
                 bottone.setId(i);
-                bottone.setText(listaPrenotazioni.get(i).getNome_evento());
+                bottone.setText(prenotazioniInCorso.get(i).getNome_evento());
+                String debug = prenotazioniInCorso.get(i).getNome_evento();
                 linearLayout.addView(bottone);
                 final Prenotazione p = prenotazioniInCorso.get(i);
 

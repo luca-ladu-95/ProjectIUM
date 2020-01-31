@@ -23,6 +23,8 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
 
     Persona persona;
     ArrayList<Prenotazione> prenotazioni;
+    TextView nessunaP,nessunaP2;
+    Button indietro;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +33,9 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
         /*Recupero i lay dove stampare dinamicamente i bottoni degli eventi */
         LinearLayout linearLayout1 = (LinearLayout) findViewById(R.id.layout_prenotazioni_in_corso);
         LinearLayout linearLayout2 = (LinearLayout) findViewById(R.id.layout_prenotazioni_annullate);
+        nessunaP=findViewById(R.id.testo_nessuna_prenotazione1);
+        nessunaP2=findViewById(R.id.testo_nessuna_prenotazione2);
+        indietro=findViewById(R.id.button_return_prenotazioni_effettuate);
         int i=0;
 
 
@@ -61,6 +66,7 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
                 bottone.setGravity(Gravity.CENTER);
                 bottone.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 25);
                 bottone.setId(i);
+                String debug = prenotazioni.get(i).getNome_evento();
                 bottone.setText(prenotazioni.get(i).getNome_evento());
 
                 if(!prenotazioni.get(i).isAnnullata()){
@@ -86,11 +92,26 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
             }
         }else{
 
+            nessunaP.setText("Nessuna prenotazione presente");
+            nessunaP2.setText("Nessuna prenotazione presente");
+
 
 
         }
 
 
+        indietro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent showHOME = new Intent(PrenotazioniEffettuate.this, Home.class);
+                //Inserisco la persona dentro l'intent
+                //ATTENZIONE ho messo person_da_passare e NON person_da_passare2 perchè il login va a pescare sul primo
+                showHOME.putExtra(PERSON_DA_PASSARE, persona);
+                //richiamo activity
+                startActivity(showHOME);
+                finish();
+            }
+        });
 
 
     }
