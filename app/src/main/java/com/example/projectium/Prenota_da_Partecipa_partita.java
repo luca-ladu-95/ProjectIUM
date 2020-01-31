@@ -14,14 +14,15 @@ import java.io.Serializable;
 
 import static com.example.projectium.Home.PERSON_DA_PASSARE_2;
 import static com.example.projectium.Login.PERSON_DA_PASSARE;
-import static com.example.projectium.Partecipa_partita.EVENTO_DA_PASSARE;
+
+import static com.example.projectium.Prenotazione.PRENOTAZIONE;
 import static com.example.projectium.Registrazione.PERSON_DA_PASSARE2;
 
 public class Prenota_da_Partecipa_partita extends AppCompatActivity {
 
     Persona persona;
     Prenotazione prenotazione;
-    TextView nomeEvento, data, nomeCreatore, ora, numeroGiocatori, prezzo, descrizione ;
+    TextView nomeEvento, data, nomeCreatore, ora, numeroGiocatori, prezzo, descrizione,campo ;
     Button prenotati,home;
 
     @Override
@@ -40,19 +41,22 @@ public class Prenota_da_Partecipa_partita extends AppCompatActivity {
         descrizione=findViewById(R.id.prenota_partita_descrizione);
         prenotati=findViewById(R.id.button_prenota_partita);
         home=findViewById(R.id.button_return_prenota_partita);
+        campo = findViewById(R.id.prenota_partita_nome_campo);
 
 
 
 
 
 
-        Bundle bundle = getIntent().getBundleExtra("KEY_BUNDLE_VALUE");
 
 
-        Serializable obj = bundle.getSerializable(PERSON_DA_PASSARE_2);
+        Intent intent = getIntent();
 
 
-        Serializable obj2 = bundle.getSerializable(EVENTO_DA_PASSARE);
+        Serializable obj = intent.getSerializableExtra(PERSON_DA_PASSARE_2);
+
+
+        Serializable obj2 = intent.getSerializableExtra(PRENOTAZIONE);
 
 
         if (obj instanceof Persona) {
@@ -62,18 +66,21 @@ public class Prenota_da_Partecipa_partita extends AppCompatActivity {
         }
 
         if (obj2 instanceof Prenotazione) {
-            prenotazione = (Prenotazione) obj;
+            prenotazione = (Prenotazione) obj2;
         } else {
             prenotazione = new Prenotazione();
         }
+
+        Integer numG = prenotazione.getNum_giocatori();
 
         nomeEvento.setText(prenotazione.getNome_evento());
         data.setText(prenotazione.getData_evento());
         nomeCreatore.setText(prenotazione.getCreatore().getNome());
         ora.setText(prenotazione.getOra_evento());
-        numeroGiocatori.setText(prenotazione.getNum_giocatori());
+        numeroGiocatori.setText(numG.toString());
         prezzo.setText(prenotazione.getCampo().getPrezzo_a_persona());
         descrizione.setText(prenotazione.getDescrizione());
+        campo.setText(prenotazione.getCampo().getNome());
 
         String message = "Sei sicuro di voler prenotare in data " + prenotazione.getData_evento() + (" per" +
                 "le ore "+prenotazione.getOra_evento()+" la partita: "+prenotazione.getNome_evento()+"?");

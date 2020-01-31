@@ -3,9 +3,14 @@ package com.example.projectium;
 
 import androidx.annotation.Nullable;
 
+
+
 import java.io.Serializable;
 
 public class Prenotazione implements Serializable {
+
+    public static final String PRENOTAZIONE = "package com.example.projectium.Prenotazione";
+
     private CampoDaCalcio campo;
     private Persona creatore;
     private String nome_evento;

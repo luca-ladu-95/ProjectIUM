@@ -23,11 +23,13 @@ import java.util.Iterator;
 import static com.example.projectium.Home.PERSON_DA_PASSARE_2;
 import static com.example.projectium.Login.PERSON_DA_PASSARE;
 import static com.example.projectium.Login.listaPrenotazioni;
+import static com.example.projectium.Prenotazione.PRENOTAZIONE;
 
 
 public class Partecipa_partita extends AppCompatActivity {
 
-    public static final String EVENTO_DA_PASSARE = "package com.example.projectium";
+
+    Button indietro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +53,7 @@ public class Partecipa_partita extends AppCompatActivity {
 
 
 
+        indietro=findViewById(R.id.button_return_partecipa_partita);
 
         /*Prendo le partite NON ANNULLATE*/
          ArrayList<Prenotazione> prenotazioniInCorso = PrenotazioneFactory.getInstance().getPrenotazioniInCorso(listaPrenotazioni,persona);
@@ -81,23 +84,37 @@ public class Partecipa_partita extends AppCompatActivity {
               public void onClick(View v) {
 
 
-                  Intent showNuovaPartita = new Intent(Partecipa_partita.this, Prenota_da_Partecipa_partita.class);
+                  Intent showPrenota_partita = new Intent(Partecipa_partita.this, Prenota_da_Partecipa_partita.class);
                   //Inserisco la persona dentro l'intent
 
-                  Bundle extras = new Bundle();
-
-                  extras.putSerializable(PERSON_DA_PASSARE_2,persona);
-                  extras.putSerializable(EVENTO_DA_PASSARE,p);
 
 
-                  showNuovaPartita.putExtra("KEY_BUNDLE_VALUE", extras);
-                  //richiamo activity
-                  startActivity(showNuovaPartita);
+                  showPrenota_partita.putExtra(PERSON_DA_PASSARE_2,persona);
+                  showPrenota_partita.putExtra(PRENOTAZIONE,p);
+
+
+
+
+                  startActivity(showPrenota_partita);
                   finish();
               }
           });
 
       }
+
+
+      indietro.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+              Intent showHOME = new Intent(Partecipa_partita.this, Home.class);
+              //Inserisco la persona dentro l'intent
+              //ATTENZIONE ho messo person_da_passare e NON person_da_passare2 perchè il login va a pescare sul primo
+              showHOME.putExtra(PERSON_DA_PASSARE, persona);
+              //richiamo activity
+              startActivity(showHOME);
+              finish();
+          }
+      });
 
 
 
