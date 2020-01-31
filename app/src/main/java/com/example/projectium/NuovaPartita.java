@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.SeekBar;
+import android.widget.TextView;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
@@ -23,6 +25,12 @@ public class NuovaPartita extends AppCompatActivity {
     DatePickerFragment datePickerFragment;
     EditText nomePartita,dataPartita;
     Button indietro;
+    TextView numeroGiocatori;
+    SeekBar seekBar;
+
+    int MinValue=0;
+    int maxValue=9;
+    int modValue=0;
 
 
     @Override
@@ -34,8 +42,14 @@ public class NuovaPartita extends AppCompatActivity {
 
         dataPartita=findViewById(R.id.input_data_evento_nuovaP);
 
+        seekBar=findViewById(R.id.seekBarGiocatori);
+
+        numeroGiocatori = findViewById(R.id.seekNumeroGiocatori);
 
         indietro= findViewById(R.id.button_return_nuova_partita);
+
+        seekBar.setMax(9);
+
 
         Intent intent = getIntent();
         Serializable obj = intent.getSerializableExtra(PERSON_DA_PASSARE2);
@@ -95,7 +109,45 @@ public class NuovaPartita extends AppCompatActivity {
         });
 
 
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 
+                UpdateValue(seekBar.getProgress());
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+
+
+
+
+
+    }
+
+    protected void UpdateValue(int newVal){
+
+
+        if(this.seekBar.getProgress() != modValue){
+            this.seekBar.setProgress(modValue);
+        }
+        newVal = newVal > maxValue ? maxValue : newVal;
+
+        newVal = newVal < MinValue ? MinValue : newVal;
+
+
+        this.modValue = newVal;
+
+        numeroGiocatori.setText(""+this.modValue);
     }
 
 }
