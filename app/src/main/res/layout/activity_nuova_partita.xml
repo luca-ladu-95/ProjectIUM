@@ -17,22 +17,46 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="15dp">
+            >
 
-            <TextView
-                android:id="@+id/textView9"
+            <androidx.appcompat.widget.Toolbar
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Crea una nuova partita"
-                android:textColor="@color/nero"
-                android:textSize="30dp"
-                android:textAlignment="center"/>
+                android:id="@+id/toolbar"
+                android:background="@drawable/side_nav_bar"
+                app:titleTextColor="@color/bianco"
+
+                >
+
+                <Button
+                    android:id="@+id/button_return_nuova_partita"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/ic_arrow_back_black_24dp"
+
+
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nuova Partita"
+                    android:textSize="30dp"
+                    android:textColor="@color/bianco"
+                    android:layout_gravity="center"
+                    android:id="@+id/toolbar_title" />
+
+            </androidx.appcompat.widget.Toolbar>
+
+
+
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="398dp"
-                android:padding="10dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="15dp">
 
                 <Space
                     android:layout_width="match_parent"
@@ -89,14 +113,14 @@
                     android:textSize="25dp" />
 
                 <EditText
+                    android:id="@+id/input_data_evento_nuovaP"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:focusableInTouchMode="false"
-                    android:id="@+id/input_data_evento_nuovaP"
-                    android:textColor="@color/nero"
-                    android:textSize="25dp"
+                    android:hint="es. 01/01/1995"
                     android:inputType="date"
-                    android:hint="es. 01/01/1995" />
+                    android:textColor="@color/nero"
+                    android:textSize="25dp" />
 
 
             </LinearLayout>

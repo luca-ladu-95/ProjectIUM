@@ -82,7 +82,7 @@ public class Prenota_da_Partecipa_partita extends AppCompatActivity {
         descrizione.setText(prenotazione.getDescrizione());
         campo.setText(prenotazione.getCampo().getNome());
 
-        String message = "Sei sicuro di voler prenotare in data " + prenotazione.getData_evento() + (" per" +
+        final String message = "Sei sicuro di voler prenotare in data " + prenotazione.getData_evento() + (" per " +
                 "le ore "+prenotazione.getOra_evento()+" la partita: "+prenotazione.getNome_evento()+"?");
 
 
@@ -96,6 +96,15 @@ public class Prenota_da_Partecipa_partita extends AppCompatActivity {
                 //richiamo activity
                 startActivity(showCercaPartita);
                 finish();
+            }
+        });
+
+        prenotati.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Apre il messaggio di conferma uscita
+                AlertDialog diaBox = AskOption(message);
+                diaBox.show();
             }
         });
 

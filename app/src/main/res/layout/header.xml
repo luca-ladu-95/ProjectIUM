@@ -25,12 +25,12 @@
         app:civ_border_width="4dp" />
 
     <TextView
-        android:paddingLeft="10dp"
         android:id="@+id/nomeNavigationBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Benvenuto!"
+        android:paddingLeft="10dp"
+        android:text="Benvenuto"
         android:textColor="#fff"
         android:textSize="25dp"
         android:textStyle="bold" />

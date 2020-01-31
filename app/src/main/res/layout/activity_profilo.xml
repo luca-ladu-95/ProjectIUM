@@ -7,17 +7,37 @@
     android:layout_height="match_parent"
     tools:context=".Profilo">
 
-    <TextView
-        android:id="@+id/profilo_text_alto"
-
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/side_nav_bar"
         android:textAlignment="center"
-        android:text="PROFILO"
-        android:textColor="@color/bianco"
-        android:textSize="35dp"
-        android:textStyle="italic"
-        android:background="@drawable/side_nav_bar"/>
+        app:titleTextColor="@color/bianco"
+
+        >
+
+
+        <Button
+            android:id="@+id/button_profilo_home"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/ic_arrow_back_black_24dp"
+
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Profilo"
+            android:textSize="30dp"
+            android:textColor="@color/bianco"
+            android:layout_gravity="center"
+            android:id="@+id/toolbar_title" />
+
+
+    </androidx.appcompat.widget.Toolbar>
 
     <ScrollView
 
@@ -155,15 +175,7 @@
                 android:padding="15dp"
                 android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/button_profilo_home"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Home" />
 
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="20dp" />
             </LinearLayout>
 
             <Button
@@ -179,6 +191,12 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
 
 
 </LinearLayout>

@@ -83,6 +83,7 @@ public class Home extends AppCompatActivity   implements NavigationView.OnNaviga
         nomeCognome.setText("Benvenuto, "+persona.getNome());
 
 
+
         //Parte del codice quando clicco nuova partita
         nuovaPartita.setOnClickListener(new View.OnClickListener() {
             @Override
