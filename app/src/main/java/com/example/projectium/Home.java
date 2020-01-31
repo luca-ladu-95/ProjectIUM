@@ -93,7 +93,7 @@ public class Home extends AppCompatActivity   implements NavigationView.OnNaviga
                 showNuovaPartita.putExtra(PERSON_DA_PASSARE_2, persona);
                 //richiamo activity
                 startActivity(showNuovaPartita);
-                finish();
+                //finish();
 
             }
         });
@@ -107,7 +107,7 @@ public class Home extends AppCompatActivity   implements NavigationView.OnNaviga
                 showNuovaPartita.putExtra(PERSON_DA_PASSARE_2, persona);
                 //richiamo activity
                 startActivity(showNuovaPartita);
-                finish();
+               // finish();
 
             }
         });
@@ -122,7 +122,7 @@ public class Home extends AppCompatActivity   implements NavigationView.OnNaviga
                 showCercaPartita.putExtra(PERSON_DA_PASSARE_2, persona);
                 //richiamo activity
                 startActivity(showCercaPartita);
-                finish();
+                //finish();
             }
         });
 
@@ -191,7 +191,7 @@ public class Home extends AppCompatActivity   implements NavigationView.OnNaviga
                         Intent showLogin = new Intent(Home.this, Login.class);
                         showLogin.putExtra(PERSON_DA_PASSARE, persona);
                         startActivity(showLogin);
-                        finish();
+                       // finish();
                         dialog.dismiss();
                     }
 

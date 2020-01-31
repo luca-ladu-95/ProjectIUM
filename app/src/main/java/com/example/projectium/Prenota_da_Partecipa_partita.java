@@ -95,7 +95,7 @@ public class Prenota_da_Partecipa_partita extends AppCompatActivity {
                 showCercaPartita.putExtra(PERSON_DA_PASSARE, persona);
                 //richiamo activity
                 startActivity(showCercaPartita);
-                finish();
+               // finish();
             }
         });
 
