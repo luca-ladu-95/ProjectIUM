@@ -150,4 +150,15 @@ public class NuovaPartita extends AppCompatActivity {
         numeroGiocatori.setText(""+this.modValue);
     }
 
+
+    @Override
+    public void onBackPressed() {
+        Intent showHOME = new Intent(NuovaPartita.this, Home.class);
+        //Inserisco la persona dentro l'intent
+        //ATTENZIONE ho messo person_da_passare e NON person_da_passare2 perchè il login va a pescare sul primo
+        showHOME.putExtra(PERSON_DA_PASSARE, persona);
+        //richiamo activity
+        startActivity(showHOME);
+        finish();
+    }
 }

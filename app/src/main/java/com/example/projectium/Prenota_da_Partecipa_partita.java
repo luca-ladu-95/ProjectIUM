@@ -95,7 +95,7 @@ public class Prenota_da_Partecipa_partita extends AppCompatActivity {
                 showCercaPartita.putExtra(PERSON_DA_PASSARE, persona);
                 //richiamo activity
                 startActivity(showCercaPartita);
-               // finish();
+                finish();
             }
         });
 
@@ -142,5 +142,17 @@ public class Prenota_da_Partecipa_partita extends AppCompatActivity {
                 .create();
 
         return myQuittingDialogBox;
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        /*Utilizzo person da passare perche nell altra activity usa quella*/
+        Intent showCercaPartita = new Intent(Prenota_da_Partecipa_partita.this, Partecipa_partita.class);
+        //Inserisco la persona dentro l'intent
+        showCercaPartita.putExtra(PERSON_DA_PASSARE, persona);
+        //richiamo activity
+        startActivity(showCercaPartita);
+        finish();
     }
 }

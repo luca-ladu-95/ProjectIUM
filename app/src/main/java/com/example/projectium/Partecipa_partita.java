@@ -30,11 +30,13 @@ public class Partecipa_partita extends AppCompatActivity {
 
 
     Button indietro;
+    public Persona p1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         final Persona persona;
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_partecipa_partita);
 
@@ -49,6 +51,8 @@ public class Partecipa_partita extends AppCompatActivity {
         } else {
             persona = new Persona();
         }
+
+        p1=persona;
 
 
 
@@ -134,5 +138,21 @@ public class Partecipa_partita extends AppCompatActivity {
 
 
 
+
+
+
+
     }
+
+
+    public void onBackPressed(){
+        Intent showHOME = new Intent(Partecipa_partita.this, Home.class);
+        //Inserisco la persona dentro l'intent
+        //ATTENZIONE ho messo person_da_passare e NON person_da_passare2 perchè il login va a pescare sul primo
+        showHOME.putExtra(PERSON_DA_PASSARE, p1);
+        //richiamo activity
+        startActivity(showHOME);
+        finish();
+    }
+
 }
