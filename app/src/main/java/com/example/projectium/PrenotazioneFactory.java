@@ -104,6 +104,28 @@ public class PrenotazioneFactory  implements Serializable {
 
     }
 
+    public  void eliminaPrenotazioneOpuureDisdiciPrenotazione(ArrayList<Prenotazione> lista,int idPrenotazione, Persona p){
+        if(lista!=null) {
+
+
+
+            for (int i = 0; i < lista.size(); i++) {
+
+                //Se è il titolare
+                if(lista.get(i).getId()==idPrenotazione && lista.get(i).getCreatore().equals(p)){
+                    //Rimuovo completamente la prenotazione
+                    lista.remove(i);
+                }else{
+                    //Semplice iscritto
+                    lista.get(i).getIscritti().remove(p);
+                    lista.get(i).setNum_giocatori(lista.get(i).getNum_giocatori()-1);
+                }
+
+            }
+        }
+
+    }
+
     //Prende la lista generale delle prenotazioni , l id della prenotazione a cui si vuole aggiungere e la persona da aggiungere
     //Matcha id ed aggiunge
     public void aggiungiPartecipante(ArrayList<Prenotazione> lista,int idPrenotazione, Persona p){
@@ -113,6 +135,7 @@ public class PrenotazioneFactory  implements Serializable {
 
                 if(lista.get(i).getId()==idPrenotazione){
                     lista.get(i).getIscritti().add(p);
+                    lista.get(i).setNum_giocatori(lista.get(i).getNum_giocatori()+1);
                 }
 
             }

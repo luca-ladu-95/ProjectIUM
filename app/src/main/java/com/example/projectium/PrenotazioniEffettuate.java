@@ -1,7 +1,9 @@
 package com.example.projectium;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.TypedValue;
@@ -84,7 +86,16 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
 
+                        String message = "Nome partita: "+p.getNome_evento()+" " +
+                                "ora partita: "+p.getOra_evento()+" " +
+                                "" +
+                                "campo: "+p.getCampo().getNome()+" " +
+                                "situtato in via: "+p.getCampo().getVia()+" " +
+                                "prezzo: "+p.getCampo().getPrezzo_a_persona()+
+                                " evento realizzato da: "+p.getCreatore().getNome();
 
+                        AlertDialog diaBox = AskOption(message);
+                        diaBox.show();
                     }
                 });
 
@@ -125,4 +136,43 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
         startActivity(showHOME);
         finish();
     }
+
+
+
+    private AlertDialog AskOption(String message)
+    {
+        AlertDialog myQuittingDialogBox = new AlertDialog.Builder(this)
+                // finestra di conferma eliminazione
+                .setTitle("Riepilogo prenotaziane")
+
+                .setMessage(message)
+
+
+                .setPositiveButton("Disdici", new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int whichButton) {
+
+
+
+                        Intent showLogin = new Intent(PrenotazioniEffettuate.this, PrenotazioniEffettuate.class);
+                        showLogin.putExtra(PERSON_DA_PASSARE_2, persona);
+                        startActivity(showLogin);
+                        finish();
+                        dialog.dismiss();
+                    }
+
+                })
+                .setNegativeButton("Indietro", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        dialog.dismiss();
+
+                    }
+                })
+                .create();
+
+        return myQuittingDialogBox;
+    }
+
+
 }
