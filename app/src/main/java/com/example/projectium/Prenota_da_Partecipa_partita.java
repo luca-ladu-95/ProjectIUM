@@ -15,6 +15,7 @@ import java.io.Serializable;
 import static com.example.projectium.Home.PERSON_DA_PASSARE_2;
 import static com.example.projectium.Login.PERSON_DA_PASSARE;
 
+import static com.example.projectium.Login.listaPrenotazioni;
 import static com.example.projectium.Prenotazione.PRENOTAZIONE;
 import static com.example.projectium.Registrazione.PERSON_DA_PASSARE2;
 
@@ -123,7 +124,8 @@ public class Prenota_da_Partecipa_partita extends AppCompatActivity {
                 .setPositiveButton("Conferma", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int whichButton) {
-                        persona = null;
+                        //Aggiungo la persona alla prenotazione e lo riporto alla home
+                        PrenotazioneFactory.getInstance().aggiungiPartecipante(listaPrenotazioni,prenotazione.getId(),persona);
                         Intent showLogin = new Intent(Prenota_da_Partecipa_partita.this, Home.class);
                         showLogin.putExtra(PERSON_DA_PASSARE, persona);
                         startActivity(showLogin);

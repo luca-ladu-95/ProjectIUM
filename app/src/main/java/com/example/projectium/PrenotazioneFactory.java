@@ -104,6 +104,21 @@ public class PrenotazioneFactory  implements Serializable {
 
     }
 
+    //Prende la lista generale delle prenotazioni , l id della prenotazione a cui si vuole aggiungere e la persona da aggiungere
+    //Matcha id ed aggiunge
+    public void aggiungiPartecipante(ArrayList<Prenotazione> lista,int idPrenotazione, Persona p){
+
+        if(lista!=null) {
+            for (int i = 0; i < lista.size(); i++) {
+
+                if(lista.get(i).getId()==idPrenotazione){
+                    lista.get(i).getIscritti().add(p);
+                }
+
+            }
+        }
+    }
+
     /*Aggiunge una prenotazione*/
     public boolean   aggiungiPrenotazione (ArrayList<Prenotazione> lista, Prenotazione p){
 

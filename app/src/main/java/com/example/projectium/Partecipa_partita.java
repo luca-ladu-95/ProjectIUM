@@ -31,16 +31,18 @@ public class Partecipa_partita extends AppCompatActivity {
 
     Button indietro;
     public Persona p1;
+    TextView nessunaPartita;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         final Persona persona;
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_partecipa_partita);
 
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.lineraDinamicCercaPartita);
+
+        nessunaPartita=findViewById(R.id.testo_nessuna_partita);
 
         /*Richiamo l'intent per recuperare i dati dell'utente*/
         final Intent intent = getIntent();
@@ -70,7 +72,7 @@ public class Partecipa_partita extends AppCompatActivity {
 
         /*Creo dinamicamente un bottone per ogni evento  ed un click on view*/
 
-        if(prenotazioniInCorso!= null || !prenotazioniInCorso.isEmpty()) {
+        if(prenotazioniInCorso!= null && prenotazioniInCorso.size() > 0) {
             for (i = 0; i < prenotazioniInCorso.size(); i++) {
 
 
@@ -107,13 +109,9 @@ public class Partecipa_partita extends AppCompatActivity {
             }
         }else{
 
-            TextView testo = new Button(this);
-            testo.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-            testo.setTextColor(getResources().getColor(R.color.rosso));
-            testo.setGravity(Gravity.CENTER);
-            testo.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 25);
-            testo.setText("Non c'e nessuna partita");
-            linearLayout.addView(testo);
+            String s = "Nessuna partita disponibile";
+            nessunaPartita.setText(s);
+
 
         }
 

@@ -52,9 +52,14 @@
             </androidx.appcompat.widget.Toolbar>
 
 
-            <Space
+            <TextView
+                android:id="@+id/testo_nessuna_partita"
                 android:layout_width="match_parent"
-                android:layout_height="35dp" />
+                android:layout_height="wrap_content"
+                android:textColor="@color/nero"
+                android:textSize="25dp"
+                android:textAlignment="center"
+                android:text=""/>
 
             <LinearLayout
                 android:layout_width="match_parent"
