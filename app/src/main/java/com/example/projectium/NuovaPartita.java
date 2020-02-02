@@ -8,8 +8,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.NumberPicker;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
@@ -23,14 +25,19 @@ public class NuovaPartita extends AppCompatActivity {
 
     Persona persona;
     DatePickerFragment datePickerFragment;
-    EditText nomePartita,dataPartita;
+    EditText nomePartita,dataPartita,descrizione,ora;
     Button indietro;
     TextView numeroGiocatori;
     SeekBar seekBar;
+    NumberPicker np;
+    Button scegliCampo;
+    String debug,debug3 ;
+    Prenotazione prenotazione;
 
     int MinValue=0;
     int maxValue=9;
     int modValue=0;
+    int numGiocatori;
 
 
     @Override
@@ -38,7 +45,12 @@ public class NuovaPartita extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nuova_partita);
 
+        nomePartita = findViewById(R.id.edit_nome_partita);
         datePickerFragment = new DatePickerFragment();
+
+        descrizione=findViewById(R.id.descrizione_nuova_partita);
+
+        scegliCampo = findViewById(R.id.button_scegli_il_campo_nuova_partita);
 
         dataPartita=findViewById(R.id.input_data_evento_nuovaP);
 
@@ -47,8 +59,30 @@ public class NuovaPartita extends AppCompatActivity {
         numeroGiocatori = findViewById(R.id.seekNumeroGiocatori);
 
         indietro= findViewById(R.id.button_return_nuova_partita);
+        final NumberPicker np = findViewById(R.id.oraPicker);
+
+        //Array che viene passato al numb picker per mascherare i valori effettivi
+        final String[] values = {"9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00","17:00","18:00",
+                "19:00","20:00","21:00","22:00"};
+        np.setMinValue(0);
+        np.setMaxValue(values.length -1 );
+
+
+
+        np.setDisplayedValues(values);
+
+        //Gets whether the selector wheel wraps when reaching the min/max value.
+        np.setWrapSelectorWheel(true);
+
+
+
+
 
         seekBar.setMax(9);
+
+
+
+
 
 
         Intent intent = getIntent();
@@ -60,6 +94,38 @@ public class NuovaPartita extends AppCompatActivity {
             persona = new Persona();
         }
 
+
+
+
+
+        scegliCampo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(!checkInput()){
+
+                    numGiocatori = seekBar.getProgress();
+                    //Funzionano gli input ... l'idea è di inserirli in una prenotazione temporanea per poterla
+                    // passare dopo alla successiva activity e solo dopo che si sceglie il campo creare una prenotazione
+                    // con la funzione crea prenotazione
+
+
+
+
+                    debug = values[np.getValue()]; //Funziona per l'ora
+                    SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+                    debug3 =  format.format(datePickerFragment.getDate().getTime());
+
+                    prenotazione.setAnnullata(false);
+                    prenotazione.setNum_giocatori(numGiocatori);
+                    prenotazione.setCreatore(persona);
+                    prenotazione.setData_evento(debug3);
+                    prenotazione.setOra_evento(debug);
+                    //Gli id e l'array dei partecipanti verra generato dopo ora la utilizzo solo come appoggio
+
+                }
+            }
+        });
 
         indietro.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -160,5 +226,32 @@ public class NuovaPartita extends AppCompatActivity {
         //richiamo activity
         startActivity(showHOME);
         finish();
+    }
+
+    private boolean checkInput(){
+        boolean errors = false;
+
+        if(nomePartita.getText() == null || nomePartita.getText().length() == 0){
+            errors = true;
+            nomePartita.setError("Inserisci il nome della partita");
+        }else
+            nomePartita.setError(null);
+
+
+        if(dataPartita.getText() == null || dataPartita.getText().length()==0){
+            errors = true;
+            dataPartita.setError("Inserisci la data");
+        }else
+            dataPartita.setError(null);
+
+        if(descrizione.getText()==null || descrizione.getText().length()==0){
+            descrizione.setError("Inserisci descrizione");
+            errors = true;
+        }else
+            descrizione.setError(null);
+
+
+
+        return errors;
     }
 }

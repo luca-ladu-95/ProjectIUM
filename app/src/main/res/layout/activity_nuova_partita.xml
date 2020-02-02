@@ -50,11 +50,9 @@
             </androidx.appcompat.widget.Toolbar>
 
 
-
-
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="398dp"
+                android:layout_height="437dp"
                 android:orientation="vertical"
                 android:padding="15dp">
 
@@ -105,7 +103,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
-                    android:textColor="@color/nero"/>
+                    android:textColor="@color/nero" />
 
                 <Space
                     android:layout_width="match_parent"
@@ -129,8 +127,70 @@
                     android:textColor="@color/nero"
                     android:textSize="25dp" />
 
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp" />
+
+                <TextView
+                    android:id="@+id/tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ora"
+                    android:textColor="@color/nero"
+                    android:textSize="25dp" />
+
+
+
+                <NumberPicker
+                    android:id="@+id/oraPicker"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbarSize="20dp" />
+
+
+
 
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="15dp">
+
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Descrizione"
+                    android:textSize="25dp"
+                    android:textColor="@color/nero"
+                    />
+
+                <EditText
+                    android:id="@+id/descrizione_nuova_partita"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="es. partita tra amici"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/nero"
+                    android:textSize="20dp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp" />
+                <Button
+                    android:id="@+id/button_scegli_il_campo_nuova_partita"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="scegli il campo" />
+
+            </LinearLayout>
+
+
+
 
         </LinearLayout>
 
