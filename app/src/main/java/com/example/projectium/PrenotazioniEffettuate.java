@@ -59,6 +59,14 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
         /*Creo dinamicamente un bottone per ogni evento  ed un click on view*/
 
         if(prenotazioni!= null && prenotazioni.size()>0) {
+
+            //Controllo prenotazioni annullate fa schifo questa funzione, era gia fatta e la ho usata
+            // in pratica controllo le lunghezze delle due liste , se sono uguli vuol dire che sono tutte annullate
+            if(PrenotazioneFactory.getInstance().getPrenotazioniAnnullate(prenotazioni).size()==prenotazioni.size()){
+                nessunaP.setText("Nessuna prenotazione presente");
+
+            }
+
             for (i = 0; i < prenotazioni.size(); i++) {
 
 
@@ -68,7 +76,7 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
                 bottone.setGravity(Gravity.CENTER);
                 bottone.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 25);
                 bottone.setId(i);
-                String debug = prenotazioni.get(i).getNome_evento();
+
                 bottone.setText(prenotazioni.get(i).getNome_evento());
 
                 if(!prenotazioni.get(i).isAnnullata()){
@@ -86,16 +94,32 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
 
-                        String message = "Nome partita: "+p.getNome_evento()+" " +
-                                "ora partita: "+p.getOra_evento()+" " +
-                                "" +
-                                "campo: "+p.getCampo().getNome()+" " +
-                                "situtato in via: "+p.getCampo().getVia()+" " +
-                                "prezzo: "+p.getCampo().getPrezzo_a_persona()+
-                                " evento realizzato da: "+p.getCreatore().getNome();
+                        /*Apro la descrizione delle partite in una nuova activity*/
 
-                        AlertDialog diaBox = AskOption(message);
-                        diaBox.show();
+
+                        //Se non è annullata
+
+                        if(!p.isAnnullata()) {
+                            Intent showRiepilogo_partita = new Intent(PrenotazioniEffettuate.this, Riepilogo_partita.class);
+                            //Inserisco la persona dentro l'intent
+
+
+                            showRiepilogo_partita.putExtra(PERSON_DA_PASSARE_2, persona);
+                            showRiepilogo_partita.putExtra(PRENOTAZIONE, p);
+
+
+                            startActivity(showRiepilogo_partita);
+                            finish();
+                        }else{
+
+                            //Faccio vedere il motivo dell'annullamento
+
+
+                            AlertDialog diaBox = AskOption(p.getDescrizione());
+                            diaBox.show();
+
+                        }
+
                     }
                 });
 
@@ -138,31 +162,16 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
     }
 
 
-
     private AlertDialog AskOption(String message)
     {
         AlertDialog myQuittingDialogBox = new AlertDialog.Builder(this)
                 // finestra di conferma eliminazione
-                .setTitle("Riepilogo prenotaziane")
-
-                .setMessage(message)
-
-
-                .setPositiveButton("Disdici", new DialogInterface.OnClickListener() {
-
-                    public void onClick(DialogInterface dialog, int whichButton) {
+                .setTitle("Infromazioni")
+                .setMessage("Motivo di annullamento: "+message)
 
 
 
-                        Intent showLogin = new Intent(PrenotazioniEffettuate.this, PrenotazioniEffettuate.class);
-                        showLogin.putExtra(PERSON_DA_PASSARE_2, persona);
-                        startActivity(showLogin);
-                        finish();
-                        dialog.dismiss();
-                    }
-
-                })
-                .setNegativeButton("Indietro", new DialogInterface.OnClickListener() {
+                .setNegativeButton("idietro", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
 
                         dialog.dismiss();
@@ -170,6 +179,8 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
                     }
                 })
                 .create();
+
+
 
         return myQuittingDialogBox;
     }

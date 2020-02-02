@@ -61,7 +61,7 @@ public class PrenotazioneFactory  implements Serializable {
             );
 
             Prenotazione p3 = creaPrenotazione(utentiStandard.get(2),campi.get(1),
-                    "Prova3","Semplice calcio","22-03-2020",10,true,"13:00"
+                    "Prova3","Annullata per infortunio","22-03-2020",10,true,"13:00"
             );
 
 
@@ -71,11 +71,11 @@ public class PrenotazioneFactory  implements Serializable {
 
 
             Prenotazione p5 = creaPrenotazione(utentiStandard.get(2),campi.get(1),
-                    "Prova5","Semplice calcio","2-03-2020",10,true,"11:00"
+                    "Prova5","Annullata per mancanza giocatori","2-03-2020",10,true,"11:00"
             );
 
             Prenotazione p6 = creaPrenotazione(utentiStandard.get(0),campi.get(1),
-                    "Prova Annullata","Semplice calcio","2-03-2020",9,true,"11:00"
+                    "Prova Annullata","Annullata per mal tempo","2-03-2020",9,true,"11:00"
             );
 
           /*  p1.getIscritti().add(utentiStandard.get(2));
@@ -113,13 +113,20 @@ public class PrenotazioneFactory  implements Serializable {
 
                 //Se è il titolare
                 if(lista.get(i).getId()==idPrenotazione && lista.get(i).getCreatore().equals(p)){
-                    //Rimuovo completamente la prenotazione
-                    lista.remove(i);
-                }else{
-                    //Semplice iscritto
-                    lista.get(i).getIscritti().remove(p);
-                    lista.get(i).setNum_giocatori(lista.get(i).getNum_giocatori()-1);
+                    //Rimuovo completamente la prenotazione nel senso setto il booleano
+                    lista.get(i).setAnnullata(true);
+                }else {
+                    //Iscritto normale devo ciclare tutto l'array interno
+
+                    if(lista.get(i).getId()==idPrenotazione && lista.get(i).getIscritti().contains(p)){
+                        lista.get(i).getIscritti().remove(p);
+                        lista.get(i).setNum_giocatori(lista.get(i).getNum_giocatori()-1);
+                    }
+
                 }
+
+
+
 
             }
         }

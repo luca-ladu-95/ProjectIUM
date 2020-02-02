@@ -4,18 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Prenota_da_Partecipa_partita">
-
+    tools:context=".Riepilogo_partita">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp">
-
-
+        android:orientation="vertical">
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -26,20 +21,18 @@
             >
 
             <Button
-                android:id="@+id/button_return_prenota_partita"
+                android:id="@+id/button_return_riepilogo_prenotazioni"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:background="@drawable/ic_arrow_back_black_24dp"
 
 
 
-
                 />
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Info partita"
+                android:text="Riepilogo"
                 android:textSize="30dp"
                 android:textColor="@color/bianco"
                 android:layout_gravity="center"
@@ -47,8 +40,6 @@
 
 
         </androidx.appcompat.widget.Toolbar>
-
-
 
         <ScrollView
             android:layout_width="match_parent"
@@ -65,7 +56,7 @@
                     android:layout_height="15dp" />
 
                 <TextView
-                    android:id="@+id/riepilogo_partita_nome"
+                    android:id="@+id/riepilogo_partita_nome_2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text=""
@@ -87,7 +78,7 @@
                     android:textSize="25dp" />
 
                 <TextView
-                    android:id="@+id/prenota_partita_nome_capo"
+                    android:id="@+id/riepilogo_partita_nome_capo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/nero"
@@ -106,7 +97,7 @@
                     android:textSize="25dp" />
 
                 <TextView
-                    android:id="@+id/prenota_partita_nome_campo"
+                    android:id="@+id/riepilogo_partita_nome_campo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/nero"
@@ -125,7 +116,7 @@
                     android:textSize="25dp" />
 
                 <TextView
-                    android:id="@+id/prenota_partita_data"
+                    android:id="@+id/riepilogo_partita_data"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/nero"
@@ -144,7 +135,7 @@
                     android:textSize="25dp" />
 
                 <TextView
-                    android:id="@+id/prenota_partita_ora"
+                    android:id="@+id/rieplogo_partita_ora"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/nero"
@@ -163,7 +154,7 @@
                     android:textSize="25dp" />
 
                 <TextView
-                    android:id="@+id/prenota_partita_numero_G"
+                    android:id="@+id/riepilogo_partita_numero_G"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/nero"
@@ -182,7 +173,7 @@
                     android:textSize="25dp" />
 
                 <TextView
-                    android:id="@+id/prenota_partita_prezzo"
+                    android:id="@+id/riepilogo_partita_prezzo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/nero"
@@ -201,7 +192,7 @@
                     android:textSize="25dp" />
 
                 <TextView
-                    android:id="@+id/prenota_partita_descrizione"
+                    android:id="@+id/riepilogo_partita_descrizione"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/nero"
@@ -218,11 +209,13 @@
                         android:layout_height="15dp" />
 
                     <Button
-                        android:id="@+id/button_prenota_partita"
+                        android:id="@+id/button_disdici_partita_riepilogo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Prenotati"
+                        android:textColor="@color/bianco"
+                        android:background="@color/rosso"
+                        android:text=" annulla prenotazione "
                         android:textSize="25dp" />
 
                     <Space
@@ -233,5 +226,11 @@
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>
+
+
+
+
+
+
     </LinearLayout>
 </LinearLayout>
