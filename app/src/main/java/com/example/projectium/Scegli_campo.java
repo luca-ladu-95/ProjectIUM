@@ -80,6 +80,7 @@ public class Scegli_campo extends AppCompatActivity {
                 bottone.setText(campiDaCalcio.get(i).getNome());
                 linearLayout.addView(bottone);
 
+                final  CampoDaCalcio campo = campiDaCalcio.get(i);
 
                 bottone.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -87,6 +88,19 @@ public class Scegli_campo extends AppCompatActivity {
 
 
                         //devo indirizzarlo ai campi
+                        prenotazione.setCampo(campo);
+                        // carico la prenotazione ATTENZIONE ANCORA non la creo perchè non ha confermato il campo
+                        //Se torna indietro puo annullare
+
+                        Intent showCampo = new Intent(Scegli_campo.this, Informazioni_campo.class);
+                        //Inserisco la persona dentro l'intent
+
+
+                        showCampo.putExtra(PRENOTAZIONE, prenotazione);
+                        //richiamo activity
+                        startActivity(showCampo);
+                        finish();
+
 
 
                     }

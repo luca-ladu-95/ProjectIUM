@@ -3,12 +3,14 @@ package com.example.projectium;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.Serializable;
 
@@ -112,6 +114,13 @@ public class Riepilogo_partita extends AppCompatActivity {
 
                         /*Elimino evento*/
                         PrenotazioneFactory.getInstance().eliminaPrenotazioneOpuureDisdiciPrenotazione(listaPrenotazioni,prenotazione.getId(),persona);
+
+                        Context context = getApplicationContext();
+                        CharSequence text = "Prenotazione disdetta con successo";
+                        int duration = Toast.LENGTH_SHORT;
+
+                        Toast toast = Toast.makeText(context, text, duration);
+                        toast.show();
 
                         Intent showLogin = new Intent(Riepilogo_partita.this, PrenotazioniEffettuate.class);
                         showLogin.putExtra(PERSON_DA_PASSARE_2, persona);

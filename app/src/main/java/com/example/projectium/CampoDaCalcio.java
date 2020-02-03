@@ -11,7 +11,9 @@ public class CampoDaCalcio implements Serializable {
     private int posti;
     private String via;
     private String prezzo_a_persona;
-    private int valutazione;
+    private String valutazione;
+    private String materiale;
+    private String telefono;
 
     public String getNome() {
         return nome;
@@ -49,11 +51,11 @@ public class CampoDaCalcio implements Serializable {
     * */
 
 
-    public int getValutazione() {
+    public String getValutazione() {
         return valutazione;
     }
 
-    public void setValutazione(int valutazione) {
+    public void setValutazione(String valutazione) {
         this.valutazione = valutazione;
     }
 
@@ -76,5 +78,21 @@ public class CampoDaCalcio implements Serializable {
     @Override
     public int hashCode() {
         return this.getNome().hashCode();
+    }
+
+    public String getMateriale() {
+        return materiale;
+    }
+
+    public void setMateriale(String materiale) {
+        this.materiale = materiale;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 }

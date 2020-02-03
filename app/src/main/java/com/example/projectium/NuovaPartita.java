@@ -123,6 +123,8 @@ public class NuovaPartita extends AppCompatActivity {
                     prenotazione.setCreatore(persona);
                     prenotazione.setData_evento(debug3);
                     prenotazione.setOra_evento(debug);
+                    prenotazione.setNome_evento(nomePartita.getText().toString());
+                    prenotazione.setDescrizione(descrizione.getText().toString());
                     //Gli id e l'array dei partecipanti verra generato dopo ora la utilizzo solo come appoggio
                     //Ora carico tutto nella macro e la passo per fare scegliere il campo
 

@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Scegli_campo"></activity>
+        <activity android:name=".Informazioni_campo"></activity>
+        <activity android:name=".Scegli_campo" />
         <activity android:name=".Riepilogo_partita" />
         <activity android:name=".PrenotazioniEffettuate" />
         <activity android:name=".Prenota_da_Partecipa_partita" />
