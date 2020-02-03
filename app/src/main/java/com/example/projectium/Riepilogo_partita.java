@@ -32,7 +32,7 @@ public class Riepilogo_partita extends AppCompatActivity {
 
 
         TextView nomeEvento, data, nomeCreatore, ora, numeroGiocatori, prezzo, descrizione,campo ;
-        Button disdici,home;
+        Button disdici,indietro;
 
 
         /*Associo le text e i bottoni*/
@@ -45,7 +45,7 @@ public class Riepilogo_partita extends AppCompatActivity {
         prezzo=findViewById(R.id.riepilogo_partita_prezzo);
         descrizione=findViewById(R.id.riepilogo_partita_descrizione);
         disdici=findViewById(R.id.button_disdici_partita_riepilogo);
-        home=findViewById(R.id.button_return_riepilogo_prenotazioni);
+        indietro=findViewById(R.id.button_return_riepilogo_prenotazioni);
         campo = findViewById(R.id.riepilogo_partita_nome_campo);
 
 
@@ -94,6 +94,16 @@ public class Riepilogo_partita extends AppCompatActivity {
                 //Apre il messaggio di conferma uscita
                 AlertDialog diaBox = AskOption(message);
                 diaBox.show();
+            }
+        });
+
+        indietro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent showLogin = new Intent(Riepilogo_partita.this, PrenotazioniEffettuate.class);
+                showLogin.putExtra(PERSON_DA_PASSARE_2, persona);
+                startActivity(showLogin);
+                finish();
             }
         });
     }
