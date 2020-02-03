@@ -1,0 +1,132 @@
+package com.example.projectium;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.TypedValue;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+
+import static com.example.projectium.Home.PERSON_DA_PASSARE_2;
+import static com.example.projectium.Login.PERSON_DA_PASSARE;
+import static com.example.projectium.Login.listaCampi;
+import static com.example.projectium.Login.listaPrenotazioni;
+import static com.example.projectium.Prenotazione.PRENOTAZIONE;
+
+public class Scegli_campo extends AppCompatActivity {
+
+    Prenotazione prenotazione;
+    Persona persona;
+    TextView nessunCampo;
+    ArrayList<CampoDaCalcio> campiDaCalcio;
+    Button indietro;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_scegli_campo);
+
+        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.layout_campi_disponibili);
+
+        nessunCampo=findViewById(R.id.nessun_campo_disponibile);
+
+        Intent intent = getIntent();
+
+        Serializable obj2 = intent.getSerializableExtra(PRENOTAZIONE);
+
+
+        indietro=findViewById(R.id.button_return_scegli_campo);
+
+
+
+
+        if (obj2 instanceof Prenotazione) {
+            prenotazione = (Prenotazione) obj2;
+        } else {
+            prenotazione = new Prenotazione();
+        }
+
+       //cosi ho anche la persona
+        persona=prenotazione.getCreatore();
+
+
+        /*Prendo le partite NON ANNULLATE*/
+        ArrayList<Prenotazione> prenotazioniInCorso = PrenotazioneFactory.getInstance().getPrenotazioniInCorso(listaPrenotazioni,persona);
+
+
+        //COntrollo i campi disponibili
+        campiDaCalcio = PrenotazioneFactory.getInstance().ricercaCampiLiberi(prenotazione,listaPrenotazioni,listaCampi);
+        //Ora avro i campi disponibili
+
+
+
+        if(campiDaCalcio!= null && campiDaCalcio.size() > 0) {
+            for (int i = 0; i < campiDaCalcio.size(); i++) {
+
+
+                Button bottone = new Button(this);
+                bottone.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                bottone.setTextColor(getResources().getColor(R.color.nero));
+                bottone.setGravity(Gravity.CENTER);
+                bottone.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 25);
+                bottone.setId(i);
+                String debug = campiDaCalcio.get(i).getNome();
+                bottone.setText(campiDaCalcio.get(i).getNome());
+                linearLayout.addView(bottone);
+
+
+                bottone.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+
+                        //devo indirizzarlo ai campi
+
+
+                    }
+                });
+
+
+            }
+        }else{
+
+            String s = "Nessun campo disponibile";
+            nessunCampo.setText(s);
+
+
+        }
+
+        indietro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent showHOME = new Intent(Scegli_campo.this, NuovaPartita.class);
+                //Inserisco la persona dentro l'intent
+
+
+                showHOME.putExtra(PERSON_DA_PASSARE_2, persona);
+                //richiamo activity
+                startActivity(showHOME);
+                finish();
+            }
+        });
+
+
+    }
+
+    public void onBackPressed() {
+        Intent showHOME = new Intent(Scegli_campo.this, NuovaPartita.class);
+        //Inserisco la persona dentro l'intent
+
+
+        showHOME.putExtra(PERSON_DA_PASSARE_2, persona);
+        //richiamo activity
+        startActivity(showHOME);
+        finish();
+    }
+}

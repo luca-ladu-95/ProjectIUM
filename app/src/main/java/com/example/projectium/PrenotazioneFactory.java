@@ -3,6 +3,7 @@ package com.example.projectium;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 
 import static com.example.projectium.Login.utenti;
 
@@ -53,29 +54,29 @@ public class PrenotazioneFactory  implements Serializable {
 
 
             Prenotazione p1 = creaPrenotazione(utentiStandard.get(1),campi.get(1),
-                    "Prova1","Semplice calcio","22-03-2020",7,false,"11:00"
+                    "Prova1","Semplice calcio","22/03/2020",7,false,"11:00"
                     );
 
             Prenotazione p2 = creaPrenotazione(utentiStandard.get(2),campi.get(2),
-                    "Prova2","Semplice calcio","21-03-2020",8,false,"13:00"
+                    "Prova2","Semplice calcio","21/03/2020",8,false,"13:00"
             );
 
             Prenotazione p3 = creaPrenotazione(utentiStandard.get(2),campi.get(1),
-                    "Prova3","Annullata per infortunio","22-03-2020",10,true,"13:00"
+                    "Prova3","Annullata per infortunio","22/03/2020",10,true,"13:00"
             );
 
 
             Prenotazione p4 = creaPrenotazione(utentiStandard.get(3),campi.get(3),
-                    "Prova4","Semplice calcio","12-03-2020",9,false,"15:00"
+                    "Prova4","Semplice calcio","12/03/2020",9,false,"15:00"
             );
 
 
             Prenotazione p5 = creaPrenotazione(utentiStandard.get(2),campi.get(1),
-                    "Prova5","Annullata per mancanza giocatori","2-03-2020",10,true,"11:00"
+                    "Prova5","Annullata per mancanza giocatori","2/03/2020",10,true,"11:00"
             );
 
             Prenotazione p6 = creaPrenotazione(utentiStandard.get(0),campi.get(1),
-                    "Prova Annullata","Annullata per mal tempo","2-03-2020",9,true,"11:00"
+                    "Prova Annullata","Annullata per mal tempo","2/03/2020",9,true,"11:00"
             );
 
           /*  p1.getIscritti().add(utentiStandard.get(2));
@@ -217,6 +218,56 @@ public class PrenotazioneFactory  implements Serializable {
     /*Controlla se è presente*/
     public boolean controlloIscrizioniEsterne(ArrayList<Persona> lista, Persona utente){
         return lista.contains(utente);
+    }
+
+    /*Scansiono tutte le prenotazioni , se trovo una per la stessa ora per lo stesso campo e per la stessa data impedisco all'utente
+    * di creare un nuovo evento */
+    public ArrayList<CampoDaCalcio> ricercaCampiLiberi(Prenotazione p, ArrayList<Prenotazione> prenotazioni,HashSet<CampoDaCalcio> listacampi){
+
+        ArrayList<CampoDaCalcio> campi = new ArrayList<>(listacampi);
+        HashSet<CampoDaCalcio> ritorno = new HashSet<>();
+        for(int i=0;i<prenotazioni.size();i++){
+
+            if(!prenotazioni.get(i).isAnnullata()){
+
+                //Bisogna tassativamente rispettare l'ordine di inserimento nel controllo ...
+                //Il controllo in pratica se trova una corrsipondenza rimuove il duplicato dalla lista geneerale dei campi
+                if(controlloDataOraNuovaPartita(prenotazioni.get(i),p,campi)){
+
+                    //DEbug
+                    String ora1 = prenotazioni.get(i).getOra_evento();
+                    String ora2 = p.getOra_evento();
+                    String data1 = prenotazioni.get(i).getData_evento();
+                    String data2 = p.getData_evento();
+                    ritorno.add(prenotazioni.get(i).getCampo());
+                    //Rimuovo eventuale duplicato
+                    campi.remove(prenotazioni.get(i).getCampo());
+                }
+
+            }
+
+        }
+
+
+        //Puo capitare che nessun campo sia in una prenotazone quindi lo aggiungo ... tanto se ce gia il set mi impedisce di aggiungerlo
+        for(int i=0;i<campi.size();i++){
+
+            ritorno.add(campi.get(i));
+        }
+
+        return new ArrayList<CampoDaCalcio>(ritorno);
+    }
+
+
+    /*Prende due prenotazoni e la lista generale dei campi , se le prenotazioni sono alla stessa ora rimuovo il campo */
+    public boolean controlloDataOraNuovaPartita(Prenotazione p1 ,Prenotazione p2, ArrayList<CampoDaCalcio> campi){
+
+        if(p1.getOra_evento().equals(p2.getOra_evento()) && p1.getData_evento().equals(p2.getData_evento())) {
+            campi.remove(p1.getCampo());
+            return false;
+        }else
+            return true;
+
     }
 }
 

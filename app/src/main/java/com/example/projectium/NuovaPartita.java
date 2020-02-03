@@ -18,7 +18,9 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 
+import static com.example.projectium.Home.PERSON_DA_PASSARE_2;
 import static com.example.projectium.Login.PERSON_DA_PASSARE;
+import static com.example.projectium.Prenotazione.PRENOTAZIONE;
 import static com.example.projectium.Registrazione.PERSON_DA_PASSARE2;
 
 public class NuovaPartita extends AppCompatActivity {
@@ -32,7 +34,7 @@ public class NuovaPartita extends AppCompatActivity {
     NumberPicker np;
     Button scegliCampo;
     String debug,debug3 ;
-    Prenotazione prenotazione;
+    Prenotazione prenotazione = new Prenotazione();
 
     int MinValue=0;
     int maxValue=9;
@@ -86,7 +88,7 @@ public class NuovaPartita extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-        Serializable obj = intent.getSerializableExtra(PERSON_DA_PASSARE2);
+        Serializable obj = intent.getSerializableExtra(PERSON_DA_PASSARE_2);
 
         if (obj instanceof Persona) {
             persona = (Persona) obj;
@@ -122,6 +124,17 @@ public class NuovaPartita extends AppCompatActivity {
                     prenotazione.setData_evento(debug3);
                     prenotazione.setOra_evento(debug);
                     //Gli id e l'array dei partecipanti verra generato dopo ora la utilizzo solo come appoggio
+                    //Ora carico tutto nella macro e la passo per fare scegliere il campo
+
+                    Intent showPrenota_partita = new Intent(NuovaPartita.this, Scegli_campo.class);
+                    //Inserisco la persona dentro l'intent
+
+                    //La persona non la passo perchè me la ricavo dal creatore
+                    showPrenota_partita.putExtra(PRENOTAZIONE, prenotazione);
+
+
+                    startActivity(showPrenota_partita);
+                    finish();
 
                 }
             }
