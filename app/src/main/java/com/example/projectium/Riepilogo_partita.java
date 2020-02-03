@@ -119,6 +119,8 @@ public class Riepilogo_partita extends AppCompatActivity {
                         CharSequence text = "Prenotazione disdetta con successo";
                         int duration = Toast.LENGTH_SHORT;
 
+
+
                         Toast toast = Toast.makeText(context, text, duration);
                         toast.show();
 

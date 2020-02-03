@@ -114,8 +114,10 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
 
                             //Faccio vedere il motivo dell'annullamento
 
+                            final String message = "Prenotazione del " + p.getData_evento() + (" per " +
+                                    "le ore "+p.getOra_evento()+",campo: "+p.getCampo().getNome());
 
-                            AlertDialog diaBox = AskOption(p.getDescrizione());
+                            AlertDialog diaBox = AskOption(message);
                             diaBox.show();
 
                         }
@@ -166,8 +168,8 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
     {
         AlertDialog myQuittingDialogBox = new AlertDialog.Builder(this)
                 // finestra di conferma eliminazione
-                .setTitle("Infromazioni")
-                .setMessage("Motivo di annullamento: "+message)
+                .setTitle("Partita annullata")
+                .setMessage(message)
 
 
 
