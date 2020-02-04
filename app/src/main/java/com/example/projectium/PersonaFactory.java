@@ -3,6 +3,7 @@ package com.example.projectium;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -63,6 +64,27 @@ public class PersonaFactory {
         ArrayList<Persona> utenti = new ArrayList<>(set);
 
         return  utenti;
+
+    }
+
+    public void rimuoviUtente(HashMap<String, Persona> utenti , ArrayList<Prenotazione> listaPrenotazioni,Persona utente){
+
+        //Rimuovo tutte le prenotazioni
+        for(int i=0 ; i< listaPrenotazioni.size();i++){
+
+            if(listaPrenotazioni.get(i).getCreatore().equals(utente)){
+                listaPrenotazioni.remove(listaPrenotazioni.get(i));
+            }else{
+
+                if(listaPrenotazioni.get(i).getIscritti().contains(utente)){
+                    listaPrenotazioni.get(i).getIscritti().remove(utente);
+                }
+            }
+
+
+        }
+
+       utenti.remove(utente.getUserId());
 
     }
 

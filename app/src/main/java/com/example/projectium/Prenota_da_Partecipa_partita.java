@@ -3,12 +3,14 @@ package com.example.projectium;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.Serializable;
 
@@ -125,6 +127,12 @@ public class Prenota_da_Partecipa_partita extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         //Aggiungo la persona alla prenotazione e lo riporto alla home
                         PrenotazioneFactory.getInstance().aggiungiPartecipante(listaPrenotazioni,prenotazione.getId(),persona);
+                        Context context = getApplicationContext();
+                        CharSequence text = "Prenotazione effettuata con successo ";
+                        int duration = Toast.LENGTH_SHORT;
+
+                        Toast toast = Toast.makeText(context, text, duration);
+                        toast.show();
                         Intent showLogin = new Intent(Prenota_da_Partecipa_partita.this, Home.class);
                         showLogin.putExtra(PERSON_DA_PASSARE, persona);
                         startActivity(showLogin);

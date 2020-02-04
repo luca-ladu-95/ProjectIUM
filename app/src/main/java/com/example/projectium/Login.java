@@ -1,5 +1,6 @@
 package com.example.projectium;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -33,12 +34,16 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
 
-        CampoDaCalcioFactory.getInstance().setCampiDefault(listaCampi);
+        if(listaCampi== null || listaCampi.isEmpty()) {
+            CampoDaCalcioFactory.getInstance().setCampiDefault(listaCampi);
+        }
+        if(utenti==null || utenti.isEmpty()) {
+            PersonaFactory.getInstance().setPersoneDefault(utenti);
+        }
 
-        PersonaFactory.getInstance().setPersoneDefault(utenti);
-
-        PrenotazioneFactory.getInstance().setPrenotazioniStandard(listaPrenotazioni,utenti);
-
+        if(listaPrenotazioni == null || listaPrenotazioni.isEmpty()) {
+            PrenotazioneFactory.getInstance().setPrenotazioniStandard(listaPrenotazioni, utenti);
+        }
 
 
 
@@ -165,8 +170,9 @@ public class Login extends AppCompatActivity {
     }
 
 
-    public void setUtenti(HashMap<String, Persona> utenti) {
-        this.utenti = utenti;
+    public void onBackPressed() {
+
+        finish();
     }
 
 

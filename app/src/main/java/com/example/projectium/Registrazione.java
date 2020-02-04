@@ -2,11 +2,13 @@ package com.example.projectium;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import static com.example.projectium.Login.PERSON_DA_PASSARE;
 import static com.example.projectium.Login.utenti;
@@ -51,6 +53,12 @@ public class Registrazione extends AppCompatActivity {
 
                     PersonaFactory.getInstance().aggiungiUtente(utenti,utente);
 
+                    Context context = getApplicationContext();
+                    CharSequence text = "Registrazione effettuata con successo ";
+                    int duration = Toast.LENGTH_SHORT;
+
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
                     //creo l'oggetto di tipo intent che ci serve per far comunicare le 2 activity
                     Intent collegamento = new Intent(Registrazione.this, Home.class);
 

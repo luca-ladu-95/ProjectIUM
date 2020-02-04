@@ -191,8 +191,9 @@ public class Home extends AppCompatActivity   implements NavigationView.OnNaviga
                         Intent showLogin = new Intent(Home.this, Login.class);
                         showLogin.putExtra(PERSON_DA_PASSARE, persona);
                         startActivity(showLogin);
-                       // finish();
                         dialog.dismiss();
+                        finish();
+
                     }
 
                 })
@@ -217,5 +218,6 @@ public class Home extends AppCompatActivity   implements NavigationView.OnNaviga
         //Apre il messaggio di conferma uscita
         AlertDialog diaBox = AskOption();
         diaBox.show();
+        finish();
     }
 }

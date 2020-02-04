@@ -13,6 +13,7 @@ import android.widget.TextView;
 import java.io.Serializable;
 
 import static com.example.projectium.Login.PERSON_DA_PASSARE;
+import static com.example.projectium.Login.listaPrenotazioni;
 import static com.example.projectium.Login.utenti;
 
 public class Profilo extends AppCompatActivity {
@@ -92,7 +93,9 @@ public class Profilo extends AppCompatActivity {
                 .setPositiveButton("elimina", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int whichButton) {
-                        utenti.remove(persona.getUserId());
+
+                        PersonaFactory.getInstance().rimuoviUtente(utenti,listaPrenotazioni,persona);
+
                         persona=null;
                         Intent showHOME = new Intent(Profilo.this, Login.class);
                         startActivity(showHOME);

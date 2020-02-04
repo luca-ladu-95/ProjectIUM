@@ -80,7 +80,8 @@ public class NuovaPartita extends AppCompatActivity {
 
 
 
-        seekBar.setMax(9);
+
+        seekBar.setMax(10);
 
 
 
@@ -119,7 +120,7 @@ public class NuovaPartita extends AppCompatActivity {
                     debug3 =  format.format(datePickerFragment.getDate().getTime());
 
                     prenotazione.setAnnullata(false);
-                    prenotazione.setNum_giocatori(numGiocatori);
+                    prenotazione.setNum_giocatori(numGiocatori+1);
                     prenotazione.setCreatore(persona);
                     prenotazione.setData_evento(debug3);
                     prenotazione.setOra_evento(debug);
