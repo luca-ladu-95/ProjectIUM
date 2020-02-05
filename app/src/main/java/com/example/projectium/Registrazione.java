@@ -7,36 +7,36 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
-import static com.example.projectium.Login.PERSON_DA_PASSARE;
+import com.google.android.material.textfield.TextInputLayout;
+
 import static com.example.projectium.Login.utenti;
 
 
 public class Registrazione extends AppCompatActivity {
 
 
-    EditText username, name, surname, pass, cpass, email;
+    TextInputLayout username, nome, cognome, pass, cpass, email;
     Button registrati;
     Persona utente;
 
-    public static final String PERSON_DA_PASSARE2 = "package com.example.projectium";
+    public static final String PERSON_DA_PASSARE2 = "package com.example.esempio";
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrazione);
-        //getSupportActionBar().hide();
+
 
         //creo l'oggetto Persona
         utente = new Persona();
 
         //recupero gli id per i vari campi
         username = findViewById(R.id.inputUsername);
-        name = findViewById(R.id.inputNome);
-        surname = findViewById(R.id.inputCognome);
+        nome = findViewById(R.id.inputNome);
+        cognome = findViewById(R.id.inputCognome);
         pass = findViewById(R.id.inputPass);
         cpass = findViewById(R.id.inputCPass);
         email = findViewById(R.id.inputEmail);
@@ -51,7 +51,8 @@ public class Registrazione extends AppCompatActivity {
                     //aggiorno il contenuto di persona
                     updatePerson();
 
-                    PersonaFactory.getInstance().aggiungiUtente(utenti,utente);
+                    utenti.put(utente.getUserId(), utente);
+
 
                     Context context = getApplicationContext();
                     CharSequence text = "Registrazione effettuata con successo ";
@@ -60,11 +61,11 @@ public class Registrazione extends AppCompatActivity {
                     Toast toast = Toast.makeText(context, text, duration);
                     toast.show();
                     //creo l'oggetto di tipo intent che ci serve per far comunicare le 2 activity
-                    Intent collegamento = new Intent(Registrazione.this, Home.class);
+                    Intent collegamento = new Intent(Registrazione.this, Login.class);
 
                     //inserisco i dati di persona dentro il nuovo intent
 
-                    collegamento.putExtra(PERSON_DA_PASSARE, utente);
+                    collegamento.putExtra(PERSON_DA_PASSARE2, utente);
 
                     //richiama l'activity che vogliamo visualizzare (da ripetere per i bottoni)
                     startActivity(collegamento);
@@ -78,7 +79,7 @@ public class Registrazione extends AppCompatActivity {
     private boolean checkInput(){
         //controllo per lo username
         boolean errors = false;
-        if(username.getText() == null || username.getText().length() == 0){
+        if(username.getEditText().getText() == null || username.getEditText().getText().length() == 0){
             username.setError("Inserire username");
             errors = true;
         }else{
@@ -86,23 +87,23 @@ public class Registrazione extends AppCompatActivity {
         }
 
         //controllo per il nome
-        if(name.getText() == null || name.getText().length() == 0){
-            name.setError("Inserire il nome");
+        if(nome.getEditText().getText() == null || nome.getEditText().getText().length() == 0){
+            nome.setError("Inserire il nome");
             errors = true;
         }else{
-            name.setError(null);
+            nome.setError(null);
         }
 
         //controllo per il cognome
-        if(surname.getText() == null || surname.getText().length() == 0){
-            surname.setError("Inserire il cognome");
+        if(cognome.getEditText().getText() == null || cognome.getEditText().getText().length() == 0){
+            cognome.setError("Inserire il cognome");
             errors = true;
         }else{
-            surname.setError(null);
+            cognome.setError(null);
         }
 
         //controllo per la password
-        if(pass.getText() == null || pass.getText().length() == 0){
+        if(pass.getEditText().getText() == null || pass.getEditText().getText().length() == 0){
             pass.setError("Inserire password");
             errors = true;
         }else{
@@ -110,7 +111,7 @@ public class Registrazione extends AppCompatActivity {
         }
 
         //controllo per l'inserimento della password di conferma
-        if(cpass.getText() == null || cpass.getText().length() == 0 || !(cpass.getText().toString().equals(pass.getText().toString()))){
+        if(cpass.getEditText().getText() == null || cpass.getEditText().getText().length() == 0 || !(cpass.getEditText().getText().toString().equals(pass.getEditText().getText().toString()))){
             cpass.setError("Inserire la stessa password");
             errors = true;
         }else{
@@ -118,9 +119,12 @@ public class Registrazione extends AppCompatActivity {
         }
 
         //controllo per l'email
-        if(email.getText() == null || email.getText().length() == 0){
+        String emailPattern = "[a-zA-Z-9._-]+@[a-z]+\\.+[a-z]+";
+        if(email.getEditText().getText() == null || email.getEditText().getText().length() == 0){
             email.setError("Inserire email");
             errors = true;
+        }else if (!email.getEditText().getText().toString().matches(emailPattern)){
+            email.setError("L'email inserita non è valida");
         }else{
             email.setError(null);
         }
@@ -129,13 +133,12 @@ public class Registrazione extends AppCompatActivity {
 
     private void updatePerson(){
         //aggiorno il contenuto di persona usando i dati inseriti dall'utente in fase di registrazione
-        this.utente.setUserId(this.username.getText().toString());
-        this.utente.setNome(this.name.getText().toString());
-        this.utente.setCognome(this.surname.getText().toString());
-        this.utente.setPassword(this.pass.getText().toString());
-        this.utente.setCPassword(this.cpass.getText().toString());
-        this.utente.setEmail(this.email.getText().toString());
+        this.utente.setUserId(this.username.getEditText().getText().toString());
+        this.utente.setNome(this.nome.getEditText().getText().toString());
+        this.utente.setCognome(this.cognome.getEditText().getText().toString());
+        this.utente.setPassword(this.pass.getEditText().getText().toString());
+        this.utente.setCPassword(this.cpass.getEditText().getText().toString());
+        this.utente.setEmail(this.email.getEditText().getText().toString());
         this.utente.setPartite("0");
     }
-
 }

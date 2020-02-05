@@ -1,14 +1,19 @@
 package com.example.projectium;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Pair;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,22 +22,20 @@ import java.util.HashSet;
 public class Login extends AppCompatActivity {
 
     Button loginButton;
-    EditText username,password;
+    ImageView image;
+    TextInputLayout username,password;
+    TextView logo_text, registrati;
     Persona utente;
-    TextView errorText, registrati;
+
     static HashMap<String, Persona> utenti = new HashMap<String, Persona>();
     static HashSet<CampoDaCalcio> listaCampi = new HashSet<>();
-    static  ArrayList<Prenotazione> listaPrenotazioni = new ArrayList<>();
+    static ArrayList<Prenotazione> listaPrenotazioni = new ArrayList<>();
 
     public static final String PERSON_DA_PASSARE = "package com.example.projectium";
 
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
 
         if(listaCampi== null || listaCampi.isEmpty()) {
             CampoDaCalcioFactory.getInstance().setCampiDefault(listaCampi);
@@ -46,22 +49,17 @@ public class Login extends AppCompatActivity {
         }
 
 
-
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
 
         utente = new Persona();
-        errorText = findViewById(R.id.errorText);
         username = findViewById(R.id.editUsername);
         password = findViewById(R.id.editPassword);
+        image = findViewById(R.id.logo_image);
+        logo_text = findViewById(R.id.logo_name);
         loginButton = findViewById(R.id.buttonLogin);
-        registrati = findViewById(R.id.registrazione); //cambiato da bottone a parola
-
-        /*Debug codice*/
-
-
-
-        /*Fine debug*/
+        registrati = findViewById(R.id.registrazione);
 
 
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -69,11 +67,11 @@ public class Login extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                if (checkInput() && checkUtente(username.getText().toString(), utenti)) {
+                if (checkInput() && checkUtente(username.getEditText().getText().toString(), utenti)) {
 
 
                     // Mi prendo la persona dalla lista
-                    utente = utenti.get(username.getText().toString());
+                    utente = utenti.get(username.getEditText().getText().toString());
 
                     //creo oggetto per far comunicare le activity
                     Intent showHOME = new Intent(Login.this, Home.class);
@@ -87,39 +85,44 @@ public class Login extends AppCompatActivity {
             }
         });
 
+
         registrati.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent collegamento = new Intent(Login.this, Registrazione.class);
+                Intent intent = new Intent( Login.this, Registrazione.class);
 
-                startActivity(collegamento);
+                Pair[] pairs = new Pair[6];
+                pairs[0] = new Pair<View, String>(image, "logo_image");
+                pairs[1] = new Pair<View, String>(logo_text, "logo_text");
+                pairs[2] = new Pair<View, String>(username, "user_transition");
+                pairs[3] = new Pair<View, String>(password, "pass_transition");
+                pairs[4] = new Pair<View, String>(loginButton, "button_transition");
+                pairs[5] = new Pair<View, String>(registrati, "reg_transition");
+
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+                    ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(Login.this, pairs);
+                    startActivity(intent, options.toBundle());
+                }
             }
         });
     }
 
-
-
-
-
     private boolean checkInput() {
         boolean flag = true;
-        if (username.getText() == null || username.getText().length() == 0) {
-            //username.setError("Inserisci l'username");
-            printError3();
+        if (username.getEditText().getText() == null || username.getEditText().getText().length() == 0) {
+            username.setError("Inserisci l'username");
             flag = false;
         } else {
             username.setError(null);
 
         }
 
-        if (password.getText() == null || password.getText().length() == 0) {
-            //password.setError("Inserisci la password");
-            printError3();
+        if (password.getEditText().getText() == null || password.getEditText().getText().length() == 0) {
+            password.setError("Inserisci la password");
             flag = false;
         } else {
             password.setError(null);
         }
-
 
         return flag;
     }
@@ -130,20 +133,17 @@ public class Login extends AppCompatActivity {
 
         if (map.get(us) == null) {
             //non esiste proprio l'utente
-            //username.setError("Lo username inserito non è valido");
-            printError1();
-
+            username.setError("Lo username inserito non è valido");
             flag = false;
         } else {
             //Salvo la persona e controllo la password
             temp = map.get(us);
             username.setError(null);
-            username.setText(username.getText());
+            username.getEditText().getText();
             //controllo se la password inserita corrsponde a quella nel set
-            if (!temp.getPassowrd().equals(password.getText().toString())) {
+            if (!temp.getPassword().equals(password.getEditText().getText().toString())) {
                 flag = false;
-                //password.setError("La password inserita non corrisponde");
-                printError2();
+                password.setError("La password inserita non corrisponde");
             } else {
                 password.setError(null);
             }
@@ -153,27 +153,9 @@ public class Login extends AppCompatActivity {
         return flag;
     }
 
-    //Queste 3 procedure banalmente servono a gestire un messaggio di errore differente in base alla situazione
-    void printError1(){
-        errorText.setVisibility(View.VISIBLE);
-        errorText.setText("Username inesistente");
-    }
-
-    void printError2(){
-        errorText.setVisibility(View.VISIBLE);
-        errorText.setText("La password inserita non è valida");
-    }
-
-    void printError3(){
-        errorText.setVisibility(View.VISIBLE);
-        errorText.setText("Inserire Username e Password");
-    }
-
-
     public void onBackPressed() {
 
         finish();
     }
-
 
 }

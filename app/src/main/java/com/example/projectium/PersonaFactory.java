@@ -47,7 +47,7 @@ public class PersonaFactory {
 
         Persona persona3 = this.creaPersona("Dshot92","Daniele","Stochino","1234","1234","Dshot92@hotmail.it","3");
 
-        Persona persona4 = this.creaPersona("Iorge","Giorgio","Fanni","1234","1234","Gf96@hotm.it","23");
+        Persona persona4 = this.creaPersona("Jorge","Giorgio","Fanni","1234","1234","Gf96@hotm.it","23");
 
         map.put(persona1.getUserId(),persona1);
         map.put(persona2.getUserId(),persona2);

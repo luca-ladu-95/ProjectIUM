@@ -50,7 +50,7 @@ public class Profilo extends AppCompatActivity {
         nome.setText(persona.getNome());
         cognome.setText(persona.getCognome());
         email.setText(persona.getEmail());
-        passowrd.setText(persona.getPassowrd());
+        passowrd.setText(persona.getPassword());
         partite.setText(persona.getPartite());
         nickname.setText(persona.getUserId());
 

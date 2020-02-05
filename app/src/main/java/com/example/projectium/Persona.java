@@ -50,7 +50,7 @@ public class Persona implements Serializable {
         this.cognome = cognome;
     }
 
-    public String getPassowrd() {
+    public String getPassword() {
         return passowrd;
     }
 
