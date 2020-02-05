@@ -26,9 +26,9 @@ public class Login extends AppCompatActivity {
     TextInputLayout username,password;
     TextView logo_text, registrati;
     Persona utente;
-
-    static HashMap<String, Persona> utenti = new HashMap<String, Persona>();
-    static HashSet<CampoDaCalcio> listaCampi = new HashSet<>();
+/*ATTENZIONE QUESTE SONO LE 3 STRUTTURE DATI SU CUI SI APPOGGIA TUTTO IL PROGRAMMA  */
+    static HashMap<String, Persona> utenti = new HashMap<String, Persona>(); //Contiente tutti gli utenti
+    static HashSet<CampoDaCalcio> listaCampi = new HashSet<>(); // Contiente tutti i campi
     static ArrayList<Prenotazione> listaPrenotazioni = new ArrayList<>();
 
     public static final String PERSON_DA_PASSARE = "package com.example.projectium";
@@ -37,6 +37,7 @@ public class Login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        /*Gli popolo solo se prima erano vuoti */
         if(listaCampi== null || listaCampi.isEmpty()) {
             CampoDaCalcioFactory.getInstance().setCampiDefault(listaCampi);
         }
