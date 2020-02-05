@@ -99,6 +99,14 @@ public class Home extends AppCompatActivity   implements NavigationView.OnNaviga
         });
 
 
+        mappaCampi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+
         prenotazioneEffettuate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -155,6 +163,11 @@ public class Home extends AppCompatActivity   implements NavigationView.OnNaviga
 
 
                 break;
+
+            case R.id.nav_Mappa:
+
+                break;
+
 
 
             case  R.id.nav_Impostazioni:
@@ -218,6 +231,6 @@ public class Home extends AppCompatActivity   implements NavigationView.OnNaviga
         //Apre il messaggio di conferma uscita
         AlertDialog diaBox = AskOption();
         diaBox.show();
-        finish();
+
     }
 }
