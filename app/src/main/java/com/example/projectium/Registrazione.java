@@ -21,7 +21,7 @@ public class Registrazione extends AppCompatActivity {
     Button registrati;
     Persona utente;
 
-    public static final String PERSON_DA_PASSARE2 = "package com.example.esempio";
+    public static final String PERSON_DA_PASSARE2 = "package com.example.projectium";
 
 
     @Override
