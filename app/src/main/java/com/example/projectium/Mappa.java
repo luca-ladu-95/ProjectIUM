@@ -26,7 +26,6 @@ import java.io.Serializable;
 
 import static com.example.projectium.Home.PERSON_DA_PASSARE_2;
 import static com.example.projectium.Login.PERSON_DA_PASSARE;
-import static com.example.projectium.Login.listaCampi;
 
 public class Mappa extends FragmentActivity implements OnMapReadyCallback {
 
@@ -34,6 +33,8 @@ public class Mappa extends FragmentActivity implements OnMapReadyCallback {
     private Button back;
     public Persona persona;
     Intent intent;
+    final int requestCode=100;
+
 
     public static final String NOME_CAMPO_DA_PASSARE = "package com.example.projectium.mappa";
 
@@ -61,18 +62,15 @@ public class Mappa extends FragmentActivity implements OnMapReadyCallback {
         }
 
 
-        if (ContextCompat.checkSelfPermission(Mappa.this,
-                Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED){
-            if (ActivityCompat.shouldShowRequestPermissionRationale(Mappa.this,
-                    Manifest.permission.ACCESS_FINE_LOCATION)){
-                ActivityCompat.requestPermissions(Mappa.this,
-                        new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+/*
+        if (ContextCompat.checkSelfPermission(Mappa.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED){
+            if (ActivityCompat.shouldShowRequestPermissionRationale(Mappa.this, Manifest.permission.ACCESS_FINE_LOCATION)){
+                ActivityCompat.requestPermissions(Mappa.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
             }else{
-                ActivityCompat.requestPermissions(Mappa.this,
-                        new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+                ActivityCompat.requestPermissions(Mappa.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
             }
         }
-
+*/
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,6 +89,7 @@ public class Mappa extends FragmentActivity implements OnMapReadyCallback {
                 finish();
             }
         });
+
     }
 
     /**
@@ -232,5 +231,6 @@ public class Mappa extends FragmentActivity implements OnMapReadyCallback {
 
         return myQuittingDialogBox;
     }
+
 }
 

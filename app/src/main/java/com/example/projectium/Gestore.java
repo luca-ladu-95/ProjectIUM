@@ -45,6 +45,18 @@ public class Gestore extends AppCompatActivity {
 
 
 
+        inserisci_campo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent showHOME = new Intent(Gestore.this, Inserisci_campo.class);
+                //Inserisco la persona dentro l'intent
+                showHOME.putExtra(PERSON_DA_PASSARE_2, persona);
+                //richiamo activity
+                startActivity(showHOME);
+                finish();
+            }
+        });
+
         prenotazioni.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

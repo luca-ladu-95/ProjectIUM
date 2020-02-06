@@ -87,6 +87,8 @@ public class Calendario extends AppCompatActivity {
                 //Controllo prenotazioni annullate fa schifo questa funzione, era gia fatta e la ho usata
                 // in pratica controllo le lunghezze delle due liste , se sono uguli vuol dire che sono tutte annullate
 
+                linearLayout1.removeAllViews();
+
                 for (int i = 0; i < listaPrenotazioni.size(); i++) {
 
                     space = new Space(Calendario.this);

@@ -1,9 +1,13 @@
 package com.example.projectium;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.app.ActivityOptions;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Pair;
 import android.view.View;
@@ -36,6 +40,15 @@ public class Login extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+        if (ContextCompat.checkSelfPermission(Login.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED){
+            if (ActivityCompat.shouldShowRequestPermissionRationale(Login.this, Manifest.permission.ACCESS_FINE_LOCATION)){
+                ActivityCompat.requestPermissions(Login.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+            }else{
+                ActivityCompat.requestPermissions(Login.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+            }
+        }
 
         /*Gli popolo solo se prima erano vuoti */
         if(listaCampi== null || listaCampi.isEmpty()) {
@@ -74,14 +87,16 @@ public class Login extends AppCompatActivity {
                     // Mi prendo la persona dalla lista
                     utente = utenti.get(username.getEditText().getText().toString());
 
-                    if(!utente.isGestore()){
-                    //creo oggetto per far comunicare le activity
-                    Intent showHOME = new Intent(Login.this, Home.class);
-                    //Inserisco la persona dentro l'intent
-                    showHOME.putExtra(PERSON_DA_PASSARE, utente);
-                    //richiamo activity
-                    startActivity(showHOME);
-                    finish();}else{
+                    if(!utente.isGestore()) {
+                        //creo oggetto per far comunicare le activity
+                        Intent showHOME = new Intent(Login.this, Home.class);
+                        //Inserisco la persona dentro l'intent
+                        showHOME.putExtra(PERSON_DA_PASSARE, utente);
+                        //richiamo activity
+                        startActivity(showHOME);
+                        finish();
+                    }
+                    else{
                         Intent showHOME = new Intent(Login.this, Gestore.class);
                         //Inserisco la persona dentro l'intent
                         showHOME.putExtra(PERSON_DA_PASSARE, utente);

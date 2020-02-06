@@ -88,18 +88,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:text="Prenotazioni in corso"
                             android:textColor="@color/nero"
                             android:textSize="30dp" />
-
-                        <TextView
-                            android:id="@+id/testo_nessuna_prenotazione1"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text=""
-                            android:textAlignment="center"
-                            android:textColor="@color/nero"
-                            android:textSize="25dp" />
 
 
                     </LinearLayout>

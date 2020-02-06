@@ -45,10 +45,6 @@ public class Informazioni_campo extends AppCompatActivity {
         prezzoAPersona = findViewById(R.id.info_prezzo_a_persona);
         viaCampo = findViewById(R.id.info_via_campo);
 
-
-
-
-
         if (obj2 instanceof Prenotazione) {
             prenotazione = (Prenotazione) obj2;
         } else {
