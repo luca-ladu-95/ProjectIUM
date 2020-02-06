@@ -34,7 +34,7 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
         setContentView(R.layout.activity_prenotazioni_effettuate);
 
         /*Recupero i lay dove stampare dinamicamente i bottoni degli eventi */
-        LinearLayout linearLayout1 = (LinearLayout) findViewById(R.id.layout_prenotazioni_in_corso);
+        LinearLayout linearLayout1 = (LinearLayout) findViewById(R.id.layout_prenotazioni_del_giorno);
         LinearLayout linearLayout2 = (LinearLayout) findViewById(R.id.layout_prenotazioni_annullate);
         nessunaP=findViewById(R.id.testo_nessuna_prenotazione1);
         nessunaP2=findViewById(R.id.testo_nessuna_prenotazione2);
