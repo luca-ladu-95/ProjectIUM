@@ -1,14 +1,18 @@
 package com.example.projectium;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -18,9 +22,17 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.io.Serializable;
+
+import static com.example.projectium.Home.PERSON_DA_PASSARE_2;
+import static com.example.projectium.Login.PERSON_DA_PASSARE;
+
 public class Mappa extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    private Button back;
+    public Persona persona;
+    Intent intent;
 
     public static final String NOME_CAMPO_DA_PASSARE = "package com.example.projectium.mappa";
 
@@ -33,6 +45,19 @@ public class Mappa extends FragmentActivity implements OnMapReadyCallback {
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        back = findViewById(R.id.button_return_mappa);
+
+
+        final Intent intent = getIntent();
+
+        Serializable obj = intent.getSerializableExtra(PERSON_DA_PASSARE_2);
+
+        if (obj instanceof Persona) {
+            persona = (Persona) obj;
+        } else {
+            persona = new Persona();
+        }
 
 
         if (ContextCompat.checkSelfPermission(Mappa.this,
@@ -47,6 +72,24 @@ public class Mappa extends FragmentActivity implements OnMapReadyCallback {
             }
         }
 
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent showHome = new Intent(Mappa.this, Home.class);
+                //Inserisco la persona dentro l'intent
+
+                //Inserisco la persona dentro l'intent
+                //ATTENZIONE ho messo person_da_passare e NON person_da_passare2 perchè il login va a pescare sul primo
+                showHome.putExtra(PERSON_DA_PASSARE, persona);
+                //richiamo activity
+
+
+                //richiamo activity
+                startActivity(showHome);
+                finish();
+            }
+        });
     }
 
     /**
@@ -104,12 +147,13 @@ public class Mappa extends FragmentActivity implements OnMapReadyCallback {
             public void onInfoWindowClick(Marker marker) {
 
                 // Da qua prendo il dato del marker e lo passo nellìintend, posso passare gio che voglio, anche un ID volendo
-
                 String nomeCampo = marker.getTitle();
 
-                Intent showField = new Intent(Mappa.this, Mostra_Campo.class);
-                showField.putExtra(NOME_CAMPO_DA_PASSARE, nomeCampo);
-                startActivity(showField);
+
+                AlertDialog diaBox = AskOption(nomeCampo);
+                diaBox.show();
+
+
             }
         });
 
@@ -129,7 +173,59 @@ public class Mappa extends FragmentActivity implements OnMapReadyCallback {
         // ----------------------------------------------------------------------------------------------------------------------------
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent showHome = new Intent(Mappa.this, Home.class);
+        //Inserisco la persona dentro l'intent
+
+        //Inserisco la persona dentro l'intent
+        //ATTENZIONE ho messo person_da_passare e NON person_da_passare2 perchè il login va a pescare sul primo
+        showHome.putExtra(PERSON_DA_PASSARE, persona);
+        //richiamo activity
 
 
+        //richiamo activity
+        startActivity(showHome);
+        finish();
+    }
+
+    private AlertDialog AskOption(final String marker)
+    {
+        AlertDialog myQuittingDialogBox = new AlertDialog.Builder(this)
+                // finestra di conferma eliminazione
+                .setTitle("Cosa vuoi fare?")
+                .setMessage("Scegli se creare o partecipare a una partita ")
+
+
+                .setPositiveButton("Nuova partita", new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int whichButton) {
+
+                        dialog.dismiss();
+                        finish();
+
+                    }
+
+                })
+                .setNegativeButton("Partecipa", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        String nomeCampo = marker;
+                        Intent showField = new Intent(Mappa.this, Partecipa_partita.class);
+                        showField.putExtra(NOME_CAMPO_DA_PASSARE, nomeCampo);
+                        showField.putExtra(PERSON_DA_PASSARE,persona);
+
+                        startActivity(showField);
+                        dialog.dismiss();
+                        finish();
+
+                    }
+                })
+                .create();
+
+
+
+        return myQuittingDialogBox;
+    }
 }
 

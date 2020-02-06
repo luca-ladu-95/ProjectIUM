@@ -23,6 +23,7 @@ import java.util.Iterator;
 import static com.example.projectium.Home.PERSON_DA_PASSARE_2;
 import static com.example.projectium.Login.PERSON_DA_PASSARE;
 import static com.example.projectium.Login.listaPrenotazioni;
+import static com.example.projectium.Mappa.NOME_CAMPO_DA_PASSARE;
 import static com.example.projectium.Prenotazione.PRENOTAZIONE;
 
 
@@ -32,10 +33,12 @@ public class Partecipa_partita extends AppCompatActivity {
     Button indietro;
     public Persona p1;
     TextView nessunaPartita;
+    ArrayList<Prenotazione> prenotazioniInCorso;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        String nomeCampo;
         final Persona persona;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_partecipa_partita);
@@ -47,6 +50,14 @@ public class Partecipa_partita extends AppCompatActivity {
         /*Richiamo l'intent per recuperare i dati dell'utente*/
         final Intent intent = getIntent();
         Serializable obj = intent.getSerializableExtra(PERSON_DA_PASSARE);
+        Serializable obj2 = intent.getSerializableExtra(NOME_CAMPO_DA_PASSARE);
+
+
+        if (obj2 instanceof String) {
+            nomeCampo = (String) obj2;
+        } else {
+            nomeCampo = null;
+        }
 
         if (obj instanceof Persona) {
             persona = (Persona) obj;
@@ -56,14 +67,15 @@ public class Partecipa_partita extends AppCompatActivity {
 
         p1=persona;
 
-
-
-
         indietro=findViewById(R.id.button_return_partecipa_partita);
 
         /*Prendo le partite NON ANNULLATE*/
-         ArrayList<Prenotazione> prenotazioniInCorso = PrenotazioneFactory.getInstance().getPrenotazioniInCorso(listaPrenotazioni,persona);
+        if(nomeCampo == null || nomeCampo.isEmpty()) {
+            prenotazioniInCorso = PrenotazioneFactory.getInstance().getPrenotazioniInCorso(listaPrenotazioni, persona);
+        }else{
 
+          prenotazioniInCorso = PrenotazioneFactory.getInstance().getPrenotazioniPerCampo(listaPrenotazioni, persona,nomeCampo);
+        }
         int i =0;
 
 
@@ -128,17 +140,6 @@ public class Partecipa_partita extends AppCompatActivity {
               finish();
           }
       });
-
-
-
-
-
-
-
-
-
-
-
 
     }
 

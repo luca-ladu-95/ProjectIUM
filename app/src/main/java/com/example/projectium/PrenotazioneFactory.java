@@ -177,6 +177,21 @@ public class PrenotazioneFactory  implements Serializable {
         return ritorno;
     }
 
+
+    public ArrayList<Prenotazione> getPrenotazioniPerCampo(ArrayList<Prenotazione> list,Persona p,String nome){
+
+        ArrayList<Prenotazione> ritorno = new ArrayList<>();
+
+        for(int i = 0 ; i < list.size();i++){
+            if(!list.get(i).isAnnullata() && !list.get(i).getCreatore().equals(p) && list.get(i).getNum_giocatori() < 10
+                    && !controlloIscrizioniEsterne(list.get(i).getIscritti(),p) && list.get(i).getCampo().getNome().equals(nome)){
+                ritorno.add(list.get(i));
+            }
+        }
+
+        return ritorno;
+    }
+
     /*Restituisce partite ANNULLATE*/
 
     public ArrayList<Prenotazione> getPrenotazioniAnnullate(ArrayList<Prenotazione> list){
