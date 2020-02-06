@@ -72,6 +72,8 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/nero"
                     android:textSize="15dp"
+                    android:background="@drawable/rounded_corner"
+                    android:padding="6dp"
                     app:fontFamily="@font/bungee"
                     android:textAlignment="center"/>
 
@@ -85,6 +87,8 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/nero"
                     app:fontFamily="@font/bungee"
+                    android:background="@drawable/rounded_corner"
+                    android:padding="6dp"
                     android:textSize="15dp"
                     />
 
@@ -98,6 +102,8 @@
                     android:layout_height="wrap_content"
                     app:fontFamily="@font/bungee"
                     android:textColor="@color/nero"
+                    android:background="@drawable/rounded_corner"
+                    android:padding="6dp"
                     android:textSize="15dp"
                     />
                 <Space
@@ -110,6 +116,8 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/nero"
                     app:fontFamily="@font/bungee"
+                    android:background="@drawable/rounded_corner"
+                    android:padding="6dp"
                     android:textSize="15dp"
                     />
 
@@ -124,6 +132,8 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/nero"
                     app:fontFamily="@font/bungee"
+                    android:background="@drawable/rounded_corner"
+                    android:padding="6dp"
                     android:textSize="15dp"
                     />
 
@@ -136,6 +146,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/nero"
+                    android:background="@drawable/rounded_corner"
+                    android:padding="6dp"
                     app:fontFamily="@font/bungee"
                     android:textSize="15dp"
                     />
