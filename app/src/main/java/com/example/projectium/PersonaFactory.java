@@ -45,7 +45,7 @@ public class PersonaFactory {
 
         Persona persona2 = this.creaPersona("frank","Francesco","Podda","1234","1234","frk@hotmail.it","0");
 
-        Persona persona3 = this.creaPersona("Dshot92","Daniele","Stochino","1234","1234","Dshot92@hotmail.it","3");
+        Persona persona3 = this.creaPersona("d","Daniele","Stochino","d","d","Dshot92@hotmail.it","3");
 
         Persona persona4 = this.creaPersona("Jorge","Giorgio","Fanni","1234","1234","Gf96@hotm.it","23");
 

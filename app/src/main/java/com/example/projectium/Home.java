@@ -102,8 +102,12 @@ public class Home extends AppCompatActivity   implements NavigationView.OnNaviga
         mappaCampi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-            }
+                Intent showMappa = new Intent(Home.this, Mappa.class);
+                //Inserisco la persona dentro l'intent
+                showMappa.putExtra(PERSON_DA_PASSARE_2, persona);
+                //richiamo activity
+                startActivity(showMappa);
+                }
         });
 
 
