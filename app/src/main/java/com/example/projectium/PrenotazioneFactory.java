@@ -284,5 +284,18 @@ public class PrenotazioneFactory  implements Serializable {
             return true;
 
     }
+
+    public boolean checkCampoOccupato (Prenotazione p,ArrayList<Prenotazione> prenotazioni){
+
+        boolean flag = false;
+        for(int i = 0 ; i<prenotazioni.size();i++){
+            if(p.getCampo().getNome().equals(prenotazioni.get(i).getCampo().getNome()) && p.getData_evento().equals(prenotazioni.get(i).getData_evento())
+            && p.getOra_evento().equals(prenotazioni.get(i).getOra_evento())){
+                return true;
+            }
+        }
+
+        return flag;
+    }
 }
 

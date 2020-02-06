@@ -26,6 +26,7 @@ import java.io.Serializable;
 
 import static com.example.projectium.Home.PERSON_DA_PASSARE_2;
 import static com.example.projectium.Login.PERSON_DA_PASSARE;
+import static com.example.projectium.Login.listaCampi;
 
 public class Mappa extends FragmentActivity implements OnMapReadyCallback {
 
@@ -201,9 +202,13 @@ public class Mappa extends FragmentActivity implements OnMapReadyCallback {
 
                     public void onClick(DialogInterface dialog, int whichButton) {
 
+                        Intent showField = new Intent(Mappa.this, Nuova_partita_da_mappa.class);
+                        showField.putExtra(NOME_CAMPO_DA_PASSARE, marker);
+                        showField.putExtra(PERSON_DA_PASSARE,persona);
+
+                        startActivity(showField);
                         dialog.dismiss();
                         finish();
-
                     }
 
                 })
