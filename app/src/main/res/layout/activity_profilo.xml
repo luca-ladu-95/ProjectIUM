@@ -63,6 +63,8 @@
             <TextView
                 android:id="@+id/userName_fragment_profilo"
                 android:layout_width="match_parent"
+                android:padding="6dp"
+                android:background="@drawable/rounded_corner"
                 android:layout_height="wrap_content"
                 android:fadingEdge="horizontal|vertical"
                 android:textColor="@color/nero"
@@ -85,7 +87,9 @@
                 android:id="@+id/nome_fragment_profilo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text=""
+                android:background="@drawable/rounded_corner"
+
+                android:padding="6dp"
                 android:textColor="@color/nero"
                 android:textSize="20dp"/>
 
@@ -105,8 +109,10 @@
             <TextView
                 android:id="@+id/cognome_frament_prfilo"
                 android:layout_width="match_parent"
+                android:background="@drawable/rounded_corner"
                 android:layout_height="wrap_content"
                 android:text=""
+                android:padding="6dp"
                 android:textColor="@color/nero"
                 android:textSize="20dp"/>
 
@@ -127,7 +133,9 @@
                 android:id="@+id/password_fragment_profilo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/rounded_corner"
                 android:textColor="@color/nero"
+                android:padding="6dp"
                 android:text=""
                 android:textSize="20dp"/>
 
@@ -148,8 +156,10 @@
                 android:id="@+id/email_fragment_profilo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/rounded_corner"
                 android:textColor="@color/nero"
                 android:text=""
+                android:padding="6dp"
                 android:textSize="20dp"/>
 
             <Space
@@ -169,6 +179,8 @@
                 android:id="@+id/partite_fragmewnt_profilo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/rounded_corner"
+                android:padding="6dp"
                 android:textColor="@color/nero"
                 android:textSize="20dp" />
 

@@ -61,6 +61,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text=""
+
                     android:textColor="@color/nero"
                     android:textSize="30dp"
                     app:fontFamily="@font/bungee"
@@ -84,6 +85,8 @@
                     android:id="@+id/riepilogo_partita_nome_capo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_corner"
+                    android:padding="6dp"
                     android:textColor="@color/nero"
                     android:textSize="20dp" />
 
@@ -104,6 +107,8 @@
                     android:id="@+id/riepilogo_partita_nome_campo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_corner"
+                    android:padding="6dp"
                     android:textColor="@color/nero"
                     android:textSize="20dp" />
 
@@ -124,6 +129,8 @@
                     android:id="@+id/riepilogo_partita_data"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_corner"
+                    android:padding="6dp"
                     android:textColor="@color/nero"
                     android:textSize="20dp" />
 
@@ -144,6 +151,8 @@
                     android:id="@+id/rieplogo_partita_ora"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_corner"
+                    android:padding="6dp"
                     android:textColor="@color/nero"
                     android:textSize="20dp" />
 
@@ -164,6 +173,8 @@
                     android:id="@+id/riepilogo_partita_numero_G"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_corner"
+                    android:padding="6dp"
                     android:textColor="@color/nero"
                     android:textSize="20dp" />
 
@@ -184,6 +195,8 @@
                     android:id="@+id/riepilogo_partita_prezzo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_corner"
+                    android:padding="6dp"
                     android:textColor="@color/nero"
                     android:textSize="20dp" />
 
@@ -204,6 +217,8 @@
                     android:id="@+id/riepilogo_partita_descrizione"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_corner"
+                    android:padding="6dp"
                     android:textColor="@color/nero"
                     android:textSize="20dp" />
 
