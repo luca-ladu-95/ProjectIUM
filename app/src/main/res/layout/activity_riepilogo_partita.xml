@@ -34,6 +34,7 @@
                 android:layout_height="wrap_content"
                 android:text="Riepilogo"
                 android:textSize="30dp"
+                app:fontFamily="@font/bungee"
                 android:textColor="@color/bianco"
                 android:layout_gravity="center"
                 android:id="@+id/toolbar_title" />
@@ -62,6 +63,7 @@
                     android:text=""
                     android:textColor="@color/nero"
                     android:textSize="30dp"
+                    app:fontFamily="@font/bungee"
                     android:textAlignment="center"
                     />
 
@@ -73,7 +75,8 @@
                     android:id="@+id/textView15"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Capo partita"
+                    android:text="Creatore partita"
+                    app:fontFamily="@font/bungee"
                     android:textColor="@color/nero"
                     android:textSize="25dp" />
 
@@ -92,6 +95,7 @@
                     android:id="@+id/textView17"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:fontFamily="@font/bungee"
                     android:text="Campo da gioco"
                     android:textColor="@color/nero"
                     android:textSize="25dp" />
@@ -112,6 +116,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Data partita"
+                    app:fontFamily="@font/bungee"
                     android:textColor="@color/nero"
                     android:textSize="25dp" />
 
@@ -131,6 +136,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Ora partita"
+                    app:fontFamily="@font/bungee"
                     android:textColor="@color/nero"
                     android:textSize="25dp" />
 
@@ -150,6 +156,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Numero Giocatori"
+                    app:fontFamily="@font/bungee"
                     android:textColor="@color/nero"
                     android:textSize="25dp" />
 
@@ -169,6 +176,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Prezzo"
+                    app:fontFamily="@font/bungee"
                     android:textColor="@color/nero"
                     android:textSize="25dp" />
 
@@ -188,6 +196,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Descrizione"
+                    app:fontFamily="@font/bungee"
                     android:textColor="@color/nero"
                     android:textSize="25dp" />
 

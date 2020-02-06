@@ -40,6 +40,7 @@
                     android:layout_height="wrap_content"
                     android:text="Nuova Partita"
                     android:textSize="30dp"
+                    app:fontFamily="@font/bungee"
                     android:textColor="@color/bianco"
                     android:layout_gravity="center"
                     android:id="@+id/toolbar_title" />
@@ -62,6 +63,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Nome evento"
+                    app:fontFamily="@font/bungee"
                     android:textColor="@color/nero"
                     android:textSize="25dp" />
 
@@ -70,6 +72,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
+
                     android:hint="inserisci il nome della partita"
                     android:inputType="textPersonName" />
 
@@ -81,6 +84,7 @@
                     android:id="@+id/textView13"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:fontFamily="@font/bungee"
                     android:text="Numero di giocatori"
                     android:textColor="@color/nero"
                     android:textSize="25dp" />
@@ -110,6 +114,7 @@
                     android:id="@+id/textView14"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:fontFamily="@font/bungee"
                     android:text="Data evento"
                     android:textColor="@color/nero"
                     android:textSize="25dp" />
@@ -133,6 +138,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Ora"
+                    app:fontFamily="@font/bungee"
                     android:textColor="@color/nero"
                     android:textSize="25dp" />
 
@@ -161,6 +167,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Descrizione"
+                    app:fontFamily="@font/bungee"
                     android:textSize="25dp"
                     android:textColor="@color/nero"
                     />

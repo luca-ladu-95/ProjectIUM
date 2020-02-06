@@ -33,6 +33,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Prenotazioni "
+                app:fontFamily="@font/bungee"
                 android:textSize="30dp"
                 android:textColor="@color/bianco"
                 android:layout_gravity="center"
@@ -70,7 +71,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Prenotazioni in corso"
-                        android:textSize="30dp"
+                        app:fontFamily="@font/bungee"
+                        android:textSize="25dp"
                         android:textColor="@color/nero"
                         android:layout_gravity="center"
                          />
@@ -113,7 +115,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Prenotazioni annullate"
-                        android:textSize="30dp"
+                        app:fontFamily="@font/bungee"
+                        android:textSize="25dp"
                         android:textColor="@color/rosso"
                         android:layout_gravity="center"
                         />
