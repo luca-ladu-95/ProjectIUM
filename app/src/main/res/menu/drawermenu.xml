@@ -14,7 +14,8 @@
         <item
             android:id="@+id/nav_Mappa"
             android:icon="@drawable/ic_place_black_24dp"
-            android:title="Mappa" />
+            android:title="Mappa"
+            />
         <item
             android:id="@+id/nav_Impostazioni"
             android:icon="@drawable/ic_settings_black_24dp"

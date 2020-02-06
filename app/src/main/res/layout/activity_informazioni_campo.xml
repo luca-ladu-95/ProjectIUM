@@ -34,7 +34,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Info campo"
-                android:textSize="30dp"
+                android:textSize="25dp"
+                app:fontFamily="@font/bungee"
                 android:textColor="@color/bianco"
                 android:layout_gravity="center"
                 android:id="@+id/toolbar_title" />
@@ -70,7 +71,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/nero"
-                    android:textSize="25dp"
+                    android:textSize="15dp"
+                    android:background="@drawable/rounded_corner"
+                    android:padding="6dp"
+                    app:fontFamily="@font/bungee"
                     android:textAlignment="center"/>
 
                 <Space
@@ -82,7 +86,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/nero"
-                    android:textSize="25dp"
+                    app:fontFamily="@font/bungee"
+                    android:background="@drawable/rounded_corner"
+                    android:padding="6dp"
+                    android:textSize="15dp"
                     />
 
                 <Space
@@ -93,8 +100,11 @@
                     android:id="@+id/info_prezzo_a_persona"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:fontFamily="@font/bungee"
                     android:textColor="@color/nero"
-                    android:textSize="25dp"
+                    android:background="@drawable/rounded_corner"
+                    android:padding="6dp"
+                    android:textSize="15dp"
                     />
                 <Space
                     android:layout_width="match_parent"
@@ -105,7 +115,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/nero"
-                    android:textSize="25dp"
+                    app:fontFamily="@font/bungee"
+                    android:background="@drawable/rounded_corner"
+                    android:padding="6dp"
+                    android:textSize="15dp"
                     />
 
 
@@ -118,7 +131,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/nero"
-                    android:textSize="25dp"
+                    app:fontFamily="@font/bungee"
+                    android:background="@drawable/rounded_corner"
+                    android:padding="6dp"
+                    android:textSize="15dp"
                     />
 
                 <Space
@@ -130,7 +146,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/nero"
-                    android:textSize="25dp"
+                    android:background="@drawable/rounded_corner"
+                    android:padding="6dp"
+                    app:fontFamily="@font/bungee"
+                    android:textSize="15dp"
                     />
 
                 <Space

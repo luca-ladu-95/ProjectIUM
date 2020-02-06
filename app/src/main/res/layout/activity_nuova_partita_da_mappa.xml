@@ -39,7 +39,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Nuova Partita"
-                    android:textSize="30dp"
+                    android:textSize="25dp"
+                    app:fontFamily="@font/bungee"
                     android:textColor="@color/bianco"
                     android:layout_gravity="center"
                     android:id="@+id/toolbar_title" />
@@ -49,7 +50,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="437dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="15dp">
 
@@ -63,13 +64,15 @@
                     android:layout_height="wrap_content"
                     android:text="Nome evento"
                     android:textColor="@color/nero"
-                    android:textSize="25dp" />
+                    android:textSize="25dp"
+                    app:fontFamily="@font/bungee" />
 
                 <EditText
                     android:id="@+id/edit_nome_partita_da_mappa"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
+
                     android:hint="inserisci il nome della partita"
                     android:inputType="textPersonName" />
 
@@ -83,7 +86,8 @@
                     android:layout_height="wrap_content"
                     android:text="Numero di giocatori"
                     android:textColor="@color/nero"
-                    android:textSize="25dp" />
+                    android:textSize="25dp"
+                    app:fontFamily="@font/bungee" />
 
                 <Space
                     android:layout_width="match_parent"
@@ -112,7 +116,8 @@
                     android:layout_height="wrap_content"
                     android:text="Data evento"
                     android:textColor="@color/nero"
-                    android:textSize="25dp" />
+                    android:textSize="25dp"
+                    app:fontFamily="@font/bungee" />
 
                 <EditText
                     android:id="@+id/input_data_evento_nuovaP_da_mappa"
@@ -130,28 +135,26 @@
 
                 <TextView
                     android:id="@+id/tv"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Ora"
                     android:textColor="@color/nero"
-                    android:textSize="25dp" />
-
+                    android:textSize="25dp"
+                    app:fontFamily="@font/bungee" />
 
 
                 <NumberPicker
                     android:id="@+id/oraPicker_da_mappa"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="97dp"
                     android:scrollbarSize="20dp" />
-
-
 
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="15dp">
 
@@ -161,9 +164,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Descrizione"
-                    android:textSize="25dp"
                     android:textColor="@color/nero"
-                    />
+                    android:textSize="25dp"
+                    app:fontFamily="@font/bungee" />
 
                 <EditText
                     android:id="@+id/descrizione_nuova_partita_da_mappa"
@@ -177,18 +180,22 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="15dp" />
+                    android:layout_height="30dp" />
+
                 <Button
                     android:id="@+id/button_conferma_prenotazione_da_mappa"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/textbox"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
+                    android:background="@drawable/textbox"
                     android:text="CONFERMA"
-                    app:fontFamily="@font/bungee"
+                    android:textColor="#fff"
                     android:textSize="20sp"
-                    android:textColor="#fff"/>
+                    app:fontFamily="@font/bungee" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp" />
 
             </LinearLayout>
 
