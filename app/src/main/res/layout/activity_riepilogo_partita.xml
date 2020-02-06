@@ -212,11 +212,16 @@
                         android:id="@+id/button_disdici_partita_riepilogo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/textbox"
+                        android:layout_marginLeft="15dp"
+                        android:backgroundTint="@color/rosso"
                         android:layout_gravity="center"
-                        android:textColor="@color/bianco"
-                        android:background="@color/rosso"
-                        android:text=" annulla prenotazione "
-                        android:textSize="25dp" />
+                        android:layout_marginRight="15dp"
+                        android:layout_marginTop="30dp"
+                        android:text="  ANNULLA PRENOTAZIONE  "
+                        app:fontFamily="@font/bungee"
+                        android:textSize="20sp"
+                        android:textColor="#fff" />
 
                     <Space
                         android:layout_width="match_parent"

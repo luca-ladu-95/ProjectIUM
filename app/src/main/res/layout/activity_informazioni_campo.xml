@@ -141,7 +141,13 @@
                     android:id="@+id/button_info_prenota_campo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Prenota" />
+                    android:background="@drawable/textbox"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:text="PRENOTA"
+                    app:fontFamily="@font/bungee"
+                    android:textSize="20sp"
+                    android:textColor="#fff" />
 
 
             </LinearLayout>

@@ -3,6 +3,7 @@ package com.example.projectium;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.Layout;
 import android.text.format.DateFormat;
@@ -11,6 +12,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Space;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -88,15 +90,19 @@ public class Partecipa_partita extends AppCompatActivity {
             for (i = 0; i < prenotazioniInCorso.size(); i++) {
 
 
+                Space space = new Space(this);
+                space.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,20));
                 Button bottone = new Button(this);
                 bottone.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-                bottone.setTextColor(getResources().getColor(R.color.nero));
                 bottone.setGravity(Gravity.CENTER);
+                bottone.setTextColor(getResources().getColor(R.color.bianco));
+                bottone.setBackgroundResource(R.drawable.textbox);
                 bottone.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 25);
                 bottone.setId(i);
                 bottone.setText(prenotazioniInCorso.get(i).getNome_evento());
                 String debug = prenotazioniInCorso.get(i).getNome_evento();
                 linearLayout.addView(bottone);
+                linearLayout.addView(space);
                 final Prenotazione p = prenotazioniInCorso.get(i);
 
                 bottone.setOnClickListener(new View.OnClickListener() {

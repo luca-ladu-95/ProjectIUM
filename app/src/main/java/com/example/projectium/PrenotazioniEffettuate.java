@@ -11,6 +11,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Space;
 import android.widget.TextView;
 
 import java.io.Serializable;
@@ -70,9 +71,12 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
             for (i = 0; i < prenotazioni.size(); i++) {
 
 
+                Space space = new Space(this);
+                space.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,20));
                 Button bottone = new Button(this);
                 bottone.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-                bottone.setTextColor(getResources().getColor(R.color.nero));
+                bottone.setTextColor(getResources().getColor(R.color.bianco));
+                bottone.setBackgroundResource(R.drawable.textbox);
                 bottone.setGravity(Gravity.CENTER);
                 bottone.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 25);
                 bottone.setId(i);
@@ -82,9 +86,10 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
                 if(!prenotazioni.get(i).isAnnullata()){
 
                     linearLayout1.addView(bottone);
+                    linearLayout1.addView(space);
                 }else{
                     linearLayout2.addView(bottone);
-
+                    linearLayout2.addView(space);
                 }
 
 
@@ -173,7 +178,7 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
 
 
 
-                .setNegativeButton("idietro", new DialogInterface.OnClickListener() {
+                .setNegativeButton("indietro", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
 
                         dialog.dismiss();

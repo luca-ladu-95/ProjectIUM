@@ -221,9 +221,12 @@
                         android:id="@+id/button_prenota_partita"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/textbox"
                         android:layout_gravity="center"
-                        android:text="Prenotati"
-                        android:textSize="25dp" />
+                        android:text=" PRENOTATI "
+                        app:fontFamily="@font/bungee"
+                        android:textSize="20sp"
+                        android:textColor="#fff" />
 
                     <Space
                         android:layout_width="match_parent"

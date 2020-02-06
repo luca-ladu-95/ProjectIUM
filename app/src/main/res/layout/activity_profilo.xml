@@ -182,11 +182,17 @@
                 android:id="@+id/button_elimina_profilo"
                 android:layout_width="133dp"
                 android:layout_height="wrap_content"
+
+                android:background="@drawable/textbox"
+                android:layout_marginLeft="15dp"
+                android:backgroundTint="@color/rosso"
                 android:layout_gravity="center"
-                android:background="@color/rosso"
-                android:gravity="center"
-                android:text="elimina profilo"
-                android:textColor="@color/bianco" />
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="30dp"
+                android:text="ELIMINA PROFILO"
+                app:fontFamily="@font/bungee"
+                android:textSize="20sp"
+                android:textColor="#fff" />
 
 
         </LinearLayout>

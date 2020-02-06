@@ -182,7 +182,13 @@
                     android:id="@+id/button_conferma_prenotazione_da_mappa"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Conferma" />
+                    android:background="@drawable/textbox"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:text="CONFERMA"
+                    app:fontFamily="@font/bungee"
+                    android:textSize="20sp"
+                    android:textColor="#fff"/>
 
             </LinearLayout>
 

@@ -9,6 +9,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Space;
 import android.widget.TextView;
 
 import java.io.Serializable;
@@ -70,15 +71,20 @@ public class Scegli_campo extends AppCompatActivity {
             for (int i = 0; i < campiDaCalcio.size(); i++) {
 
 
+                Space space = new Space(this);
+                space.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,20));
+
                 Button bottone = new Button(this);
                 bottone.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-                bottone.setTextColor(getResources().getColor(R.color.nero));
+                bottone.setTextColor(getResources().getColor(R.color.bianco));
+                bottone.setBackgroundResource(R.drawable.textbox);
                 bottone.setGravity(Gravity.CENTER);
                 bottone.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 25);
                 bottone.setId(i);
                 String debug = campiDaCalcio.get(i).getNome();
                 bottone.setText(campiDaCalcio.get(i).getNome());
                 linearLayout.addView(bottone);
+                linearLayout.addView(space);
 
                 final  CampoDaCalcio campo = campiDaCalcio.get(i);
 

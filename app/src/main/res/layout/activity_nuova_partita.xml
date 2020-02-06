@@ -185,7 +185,13 @@
                     android:id="@+id/button_scegli_il_campo_nuova_partita"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="scegli il campo" />
+                    android:background="@drawable/textbox"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:text="SCEGLI IL CAMPO"
+                    app:fontFamily="@font/bungee"
+                    android:textSize="20sp"
+                    android:textColor="#fff"/>
 
             </LinearLayout>
 
