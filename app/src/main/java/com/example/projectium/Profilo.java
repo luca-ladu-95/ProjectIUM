@@ -59,13 +59,23 @@ public class Profilo extends AppCompatActivity {
         esci.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent showHOME = new Intent(Profilo.this, Home.class);
-                //Inserisco la persona dentro l'intent
-                //ATTENZIONE ho messo person_da_passare e NON person_da_passare2 perchè il login va a pescare sul primo
-                showHOME.putExtra(PERSON_DA_PASSARE, persona);
-                //richiamo activity
-                startActivity(showHOME);
-                finish();
+                if(persona.isGestore()){
+                    Intent showHOME = new Intent(Profilo.this, Gestore.class);
+                    //Inserisco la persona dentro l'intent
+                    //ATTENZIONE ho messo person_da_passare e NON person_da_passare2 perchè il login va a pescare sul primo
+                    showHOME.putExtra(PERSON_DA_PASSARE, persona);
+                    //richiamo activity
+                    startActivity(showHOME);
+                    finish();
+                }else {
+                    Intent showHOME = new Intent(Profilo.this, Home.class);
+                    //Inserisco la persona dentro l'intent
+                    //ATTENZIONE ho messo person_da_passare e NON person_da_passare2 perchè il login va a pescare sul primo
+                    showHOME.putExtra(PERSON_DA_PASSARE, persona);
+                    //richiamo activity
+                    startActivity(showHOME);
+                    finish();
+                }
             }
         });
 
@@ -120,13 +130,23 @@ public class Profilo extends AppCompatActivity {
 
     public void onBackPressed(){
 
-        Intent showHOME = new Intent(Profilo.this, Home.class);
-        //Inserisco la persona dentro l'intent
-        //ATTENZIONE ho messo person_da_passare e NON person_da_passare2 perchè il login va a pescare sul primo
-        showHOME.putExtra(PERSON_DA_PASSARE, persona);
-        //richiamo activity
-        startActivity(showHOME);
-        finish();
+        if(persona.isGestore()){
+            Intent showHOME = new Intent(Profilo.this, Gestore.class);
+            //Inserisco la persona dentro l'intent
+            //ATTENZIONE ho messo person_da_passare e NON person_da_passare2 perchè il login va a pescare sul primo
+            showHOME.putExtra(PERSON_DA_PASSARE, persona);
+            //richiamo activity
+            startActivity(showHOME);
+            finish();
+        }else {
+            Intent showHOME = new Intent(Profilo.this, Home.class);
+            //Inserisco la persona dentro l'intent
+            //ATTENZIONE ho messo person_da_passare e NON person_da_passare2 perchè il login va a pescare sul primo
+            showHOME.putExtra(PERSON_DA_PASSARE, persona);
+            //richiamo activity
+            startActivity(showHOME);
+            finish();
+        }
 
     }
 }

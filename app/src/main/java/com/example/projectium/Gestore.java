@@ -19,7 +19,7 @@ public class Gestore extends AppCompatActivity {
 
     Persona persona;
     TextView nome;
-    Button prenotazioni,inserisci_campo,indietro;
+    Button prenotazioni,inserisci_campo,indietro,profilo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +30,7 @@ public class Gestore extends AppCompatActivity {
         inserisci_campo=findViewById(R.id.gestore_inserisci_campo);
         nome = findViewById(R.id.nome_gestore);
         indietro=findViewById(R.id.gestore_esci);
+        profilo=findViewById(R.id.gestore_profilo);
 
         Intent intent = getIntent();
         Serializable obj = intent.getSerializableExtra(PERSON_DA_PASSARE);
@@ -64,6 +65,18 @@ public class Gestore extends AppCompatActivity {
             }
         });
 
+        profilo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent showHOME = new Intent(Gestore.this, Profilo.class);
+                //Inserisco la persona dentro l'intent
+                showHOME.putExtra(PERSON_DA_PASSARE_2, persona);
+                //richiamo activity
+                startActivity(showHOME);
+                finish();
+            }
+        });
 
     }
 

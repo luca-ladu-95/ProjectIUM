@@ -176,9 +176,7 @@ public class Home extends AppCompatActivity   implements NavigationView.OnNaviga
                 startActivity(showMappa);
                 break;
 
-            case R.id.nav_Calendario:
 
-                break;
 
             case  R.id.nav_Impostazioni:
                 break;

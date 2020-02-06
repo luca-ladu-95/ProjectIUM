@@ -16,7 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Nuova_partita_da_mappa"></activity>
+        <activity android:name=".Inserisci_campo"></activity>
+        <activity android:name=".Nuova_partita_da_mappa" />
         <activity android:name=".Mostra_Campo" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -30,9 +31,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity
-            android:name=".Mappa"
-            />
+        <activity android:name=".Mappa" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -49,11 +48,11 @@
         <activity android:name=".Partecipa_partita" />
         <activity android:name=".NuovaPartita" />
         <activity android:name=".Profilo" />
-        <activity android:name=".Gestore"/>
+        <activity android:name=".Gestore" />
         <activity android:name=".Home" />
         <activity android:name=".Registrazione" />
         <activity android:name=".Login" />
-        <activity android:name=".Calendario"/>
+        <activity android:name=".Calendario" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
