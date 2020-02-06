@@ -73,14 +73,14 @@ public class Calendario extends AppCompatActivity {
             public void onSelectedDayChange(CalendarView view, int year, int month,
                                             int dayOfMonth) {
                 int conto_partite_prenotate = 0;
-               /* if (month < 10 ) {
+                if (month < 10 ) {
                     correctedMonth = "0" + (++month);
-                    Toast.makeText(getApplicationContext(), "" + dayOfMonth + "/" + correctedMonth + "/" + year, 0).show();// TODO Auto-generated method stub
+                   // Toast.makeText(getApplicationContext(), "" + dayOfMonth + "/" + correctedMonth + "/" + year, 0).show();// TODO Auto-generated method stub
                 }else {
-                    Toast.makeText(getApplicationContext(), "" + dayOfMonth + "/" + (month) + "/" + year, 0).show();// TODO Auto-generated method stub
+                  //  Toast.makeText(getApplicationContext(), "" + dayOfMonth + "/" + (month) + "/" + year, 0).show();// TODO Auto-generated method stub
 
                 }
-                */
+
 
                 String giornoPremuto = ""+dayOfMonth+ "/" + correctedMonth + "/" + year;
 
