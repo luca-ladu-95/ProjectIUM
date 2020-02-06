@@ -32,7 +32,7 @@
 
         <activity
             android:name=".Mappa"
-            android:label="@string/title_activity_mappa" />
+            />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -49,9 +49,11 @@
         <activity android:name=".Partecipa_partita" />
         <activity android:name=".NuovaPartita" />
         <activity android:name=".Profilo" />
+        <activity android:name=".Gestore"/>
         <activity android:name=".Home" />
         <activity android:name=".Registrazione" />
         <activity android:name=".Login" />
+        <activity android:name=".Calendario"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

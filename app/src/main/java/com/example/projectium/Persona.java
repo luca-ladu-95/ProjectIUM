@@ -13,6 +13,7 @@ public class Persona implements Serializable {
     private String cpassword;
     private String email;
     private String partite;
+    private boolean gestore;
 
     public Persona(){
         this.setUserId("");
@@ -95,5 +96,13 @@ public class Persona implements Serializable {
         } else {
             return false;
         }
+    }
+
+    public boolean isGestore() {
+        return gestore;
+    }
+
+    public void setGestore(boolean gestore) {
+        this.gestore = gestore;
     }
 }

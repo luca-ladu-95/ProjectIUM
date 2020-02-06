@@ -28,6 +28,7 @@ import java.util.Date;
 
 import static com.example.projectium.Home.PERSON_DA_PASSARE_2;
 import static com.example.projectium.Login.PERSON_DA_PASSARE;
+import static com.example.projectium.Login.listaPrenotazioni;
 import static com.example.projectium.Prenotazione.PRENOTAZIONE;
 
 public class Calendario extends AppCompatActivity {
@@ -41,7 +42,7 @@ public class Calendario extends AppCompatActivity {
     Space space;
     Button bottone;
     String correctedMonth;
-    ArrayList<Prenotazione> prenotazioni = PrenotazioneFactory.getInstance().setPrenotazioniComplete();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,19 +73,21 @@ public class Calendario extends AppCompatActivity {
             public void onSelectedDayChange(CalendarView view, int year, int month,
                                             int dayOfMonth) {
                 int conto_partite_prenotate = 0;
-                if (month < 10 ) {
+               /* if (month < 10 ) {
                     correctedMonth = "0" + (++month);
                     Toast.makeText(getApplicationContext(), "" + dayOfMonth + "/" + correctedMonth + "/" + year, 0).show();// TODO Auto-generated method stub
                 }else {
                     Toast.makeText(getApplicationContext(), "" + dayOfMonth + "/" + (month) + "/" + year, 0).show();// TODO Auto-generated method stub
 
                 }
+                */
+
                 String giornoPremuto = ""+dayOfMonth+ "/" + correctedMonth + "/" + year;
 
                 //Controllo prenotazioni annullate fa schifo questa funzione, era gia fatta e la ho usata
                 // in pratica controllo le lunghezze delle due liste , se sono uguli vuol dire che sono tutte annullate
 
-                for (int i = 0; i < prenotazioni.size(); i++) {
+                for (int i = 0; i < listaPrenotazioni.size(); i++) {
 
                     space = new Space(Calendario.this);
                     bottone = new Button(Calendario.this);
@@ -97,9 +100,9 @@ public class Calendario extends AppCompatActivity {
                     bottone.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 25);
                     bottone.setId(i);
 
-                    bottone.setText(prenotazioni.get(i).getNome_evento());
+                    bottone.setText(listaPrenotazioni.get(i).getNome_evento());
 
-                    if (!prenotazioni.get(i).isAnnullata() && prenotazioni.get(i).getData_evento().equals(giornoPremuto)) {
+                    if (!listaPrenotazioni.get(i).isAnnullata() && listaPrenotazioni.get(i).getData_evento().equals(giornoPremuto)) {
                         conto_partite_prenotate++;
                         linearLayout1.addView(bottone);
                         linearLayout1.addView(space);
@@ -108,7 +111,7 @@ public class Calendario extends AppCompatActivity {
                     //SVUOTA LISTA SE NON CI SONO PRENOTAZIONI
                     if(conto_partite_prenotate == 0) linearLayout1.removeAllViews();
 
-                    final Prenotazione p = prenotazioni.get(i);
+                    final Prenotazione p = listaPrenotazioni.get(i);
 
                     bottone.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -139,7 +142,7 @@ public class Calendario extends AppCompatActivity {
         indietro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent showHOME = new Intent(Calendario.this, Home.class);
+                Intent showHOME = new Intent(Calendario.this, Gestore.class);
                 //Inserisco la persona dentro l'intent
                 //ATTENZIONE ho messo person_da_passare e NON person_da_passare2 perchè il login va a pescare sul primo
                 showHOME.putExtra(PERSON_DA_PASSARE, persona);
@@ -177,7 +180,7 @@ public class Calendario extends AppCompatActivity {
     }
 
     public void onBackPressed(){
-        Intent showHOME = new Intent(Calendario.this, Home.class);
+        Intent showHOME = new Intent(Calendario.this, Gestore.class);
         //Inserisco la persona dentro l'intent
         //ATTENZIONE ho messo person_da_passare e NON person_da_passare2 perchè il login va a pescare sul primo
         //richiamo activity

@@ -21,7 +21,7 @@ public class PersonaFactory {
     }
 
 
-    public Persona creaPersona(String userId, String nome, String cognome, String password, String cpassword, String email,String partite) {
+    public Persona creaPersona(String userId, String nome, String cognome, String password, String cpassword, String email,String partite,boolean gestore) {
         Persona user = new Persona();
         user.setUserId(userId);
         user.setNome(nome);
@@ -29,7 +29,8 @@ public class PersonaFactory {
         user.setPassword(password);
         user.setCPassword(cpassword);
         user.setEmail(email);
-        user.setPartite("0");
+        user.setPartite(partite);
+        user.setGestore(gestore);
 
         return user;
     }
@@ -40,19 +41,25 @@ public class PersonaFactory {
 
 
     public  void setPersoneDefault(HashMap<String,Persona> map){
+ boolean gestore = true;
+ boolean utente = false;
 
-        Persona persona1 = this.creaPersona("luca","Luca","Ladu","1234","1234","laduluca95@hotm.it","0");
+        Persona persona1 = this.creaPersona("luca","Luca","Ladu","1234","1234","laduluca95@hotm.it","0",utente);
 
-        Persona persona2 = this.creaPersona("frank","Francesco","Podda","1234","1234","frk@hotmail.it","0");
+        Persona persona2 = this.creaPersona("frank","Francesco","Podda","1234","1234","frk@hotmail.it","0",utente);
 
-        Persona persona3 = this.creaPersona("d","Daniele","Stochino","d","d","Dshot92@hotmail.it","3");
+        Persona persona3 = this.creaPersona("d","Daniele","Stochino","d","d","Dshot92@hotmail.it","3",utente);
 
-        Persona persona4 = this.creaPersona("Jorge","Giorgio","Fanni","1234","1234","Gf96@hotm.it","23");
+        Persona persona4 = this.creaPersona("Jorge","Giorgio","Fanni","1234","1234","Gf96@hotm.it","23",utente);
+
+
+        Persona persona5 = this.creaPersona("Z","Admin","admin","admin","admin","Gf96@hotm.it","23",gestore);
 
         map.put(persona1.getUserId(),persona1);
         map.put(persona2.getUserId(),persona2);
         map.put(persona3.getUserId(),persona3);
         map.put(persona4.getUserId(),persona4);
+        map.put(persona5.getUserId(),persona5);
 
 
     }

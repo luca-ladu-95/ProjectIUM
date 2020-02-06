@@ -100,10 +100,18 @@ public class Riepilogo_partita extends AppCompatActivity {
         indietro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent showLogin = new Intent(Riepilogo_partita.this, PrenotazioniEffettuate.class);
-                showLogin.putExtra(PERSON_DA_PASSARE_2, persona);
-                startActivity(showLogin);
-                finish();
+                if(!persona.isGestore()) {
+                    Intent showLogin = new Intent(Riepilogo_partita.this, PrenotazioniEffettuate.class);
+                    showLogin.putExtra(PERSON_DA_PASSARE_2, persona);
+                    startActivity(showLogin);
+                    finish();
+                }else{
+
+                    Intent showLogin = new Intent(Riepilogo_partita.this, Calendario.class);
+                    showLogin.putExtra(PERSON_DA_PASSARE_2, persona);
+                    startActivity(showLogin);
+                    finish();
+                }
             }
         });
     }
@@ -123,8 +131,11 @@ public class Riepilogo_partita extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int whichButton) {
 
                         /*Elimino evento*/
-                        PrenotazioneFactory.getInstance().eliminaPrenotazioneOpuureDisdiciPrenotazione(listaPrenotazioni,prenotazione.getId(),persona);
-
+                        if(persona.isGestore()){
+                            PrenotazioneFactory.getInstance().elimnaPrenotazioneGestore(listaPrenotazioni,prenotazione.getId());
+                        }else {
+                            PrenotazioneFactory.getInstance().eliminaPrenotazioneOpuureDisdiciPrenotazione(listaPrenotazioni, prenotazione.getId(), persona);
+                        }
                         Context context = getApplicationContext();
                         CharSequence text = "Prenotazione disdetta con successo";
                         int duration = Toast.LENGTH_SHORT;
@@ -134,11 +145,18 @@ public class Riepilogo_partita extends AppCompatActivity {
                         Toast toast = Toast.makeText(context, text, duration);
                         toast.show();
 
+                        if(!persona.isGestore()){
                         Intent showLogin = new Intent(Riepilogo_partita.this, PrenotazioniEffettuate.class);
                         showLogin.putExtra(PERSON_DA_PASSARE_2, persona);
                         startActivity(showLogin);
                         finish();
-                        dialog.dismiss();
+                        dialog.dismiss();}else{
+
+                            Intent showLogin = new Intent(Riepilogo_partita.this, Gestore.class);
+                            showLogin.putExtra(PERSON_DA_PASSARE_2, persona);
+                            startActivity(showLogin);
+                            finish();
+                        }
                     }
 
                 })
@@ -157,10 +175,17 @@ public class Riepilogo_partita extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent showLogin = new Intent(Riepilogo_partita.this, PrenotazioniEffettuate.class);
-        showLogin.putExtra(PERSON_DA_PASSARE_2, persona);
-        startActivity(showLogin);
-        finish();
+        if(!persona.isGestore()) {
+            Intent showLogin = new Intent(Riepilogo_partita.this, PrenotazioniEffettuate.class);
+            showLogin.putExtra(PERSON_DA_PASSARE_2, persona);
+            startActivity(showLogin);
+            finish();
+        }else{
 
+            Intent showLogin = new Intent(Riepilogo_partita.this, Calendario.class);
+            showLogin.putExtra(PERSON_DA_PASSARE_2, persona);
+            startActivity(showLogin);
+            finish();
+        }
     }
 }

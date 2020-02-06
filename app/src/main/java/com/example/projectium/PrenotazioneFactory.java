@@ -91,6 +91,20 @@ public class PrenotazioneFactory  implements Serializable {
         }
     }
 
+    public void elimnaPrenotazioneGestore(ArrayList<Prenotazione> lista,int idPrenotazione){
+        if(lista!=null) {
+            for (int i = 0; i < lista.size(); i++) {
+
+
+                if(lista.get(i).getId()==idPrenotazione ){
+                    //Rimuovo completamente la prenotazione nel senso setto il booleano
+                    lista.get(i).setAnnullata(true);
+                }
+            }
+        }
+
+    }
+
     //Prende la lista generale delle prenotazioni , l id della prenotazione a cui si vuole aggiungere e la persona da aggiungere
     //Matcha id ed aggiunge
     public void aggiungiPartecipante(ArrayList<Prenotazione> lista,int idPrenotazione, Persona p){

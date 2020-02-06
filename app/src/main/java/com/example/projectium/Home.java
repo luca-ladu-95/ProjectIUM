@@ -177,11 +177,7 @@ public class Home extends AppCompatActivity   implements NavigationView.OnNaviga
                 break;
 
             case R.id.nav_Calendario:
-                Intent showCalendario = new Intent(Home.this, Calendario.class);
-                //Inserisco la persona dentro l'intent
-                showCalendario.putExtra(PERSON_DA_PASSARE_2, persona);
-                //richiamo activity
-                startActivity(showCalendario);
+
                 break;
 
             case  R.id.nav_Impostazioni:

@@ -74,13 +74,22 @@ public class Login extends AppCompatActivity {
                     // Mi prendo la persona dalla lista
                     utente = utenti.get(username.getEditText().getText().toString());
 
+                    if(!utente.isGestore()){
                     //creo oggetto per far comunicare le activity
                     Intent showHOME = new Intent(Login.this, Home.class);
                     //Inserisco la persona dentro l'intent
                     showHOME.putExtra(PERSON_DA_PASSARE, utente);
                     //richiamo activity
                     startActivity(showHOME);
-                    finish();
+                    finish();}else{
+                        Intent showHOME = new Intent(Login.this, Gestore.class);
+                        //Inserisco la persona dentro l'intent
+                        showHOME.putExtra(PERSON_DA_PASSARE, utente);
+                        //richiamo activity
+                        startActivity(showHOME);
+
+                        finish();
+                    }
 
                 }
             }
