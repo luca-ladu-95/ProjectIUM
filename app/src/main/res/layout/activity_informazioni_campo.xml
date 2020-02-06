@@ -34,7 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Info campo"
-                android:textSize="30dp"
+                android:textSize="25dp"
                 app:fontFamily="@font/bungee"
                 android:textColor="@color/bianco"
                 android:layout_gravity="center"

@@ -43,7 +43,7 @@
                     android:layout_height="wrap_content"
                     android:text="Nuova Partita"
                     app:fontFamily="@font/bungee"
-                    android:textSize="30dp"
+                    android:textSize="25dp"
                     android:textColor="@color/bianco"
                     android:layout_gravity="center"
                     android:id="@+id/toolbar_title" />
@@ -53,7 +53,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="437dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="15dp">
 
@@ -66,9 +66,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Nome evento"
-                    app:fontFamily="@font/bungee"
                     android:textColor="@color/nero"
-                    android:textSize="25dp" />
+                    android:textSize="25dp"
+                    app:fontFamily="@font/bungee" />
 
                 <EditText
                     android:id="@+id/edit_nome_partita"
@@ -87,9 +87,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Numero di giocatori"
-                    app:fontFamily="@font/bungee"
                     android:textColor="@color/nero"
-                    android:textSize="25dp" />
+                    android:textSize="25dp"
+                    app:fontFamily="@font/bungee" />
 
                 <Space
                     android:layout_width="match_parent"
@@ -117,9 +117,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Data evento"
-                    app:fontFamily="@font/bungee"
                     android:textColor="@color/nero"
-                    android:textSize="25dp" />
+                    android:textSize="25dp"
+                    app:fontFamily="@font/bungee" />
 
                 <EditText
                     android:id="@+id/input_data_evento_nuovaP"
@@ -137,22 +137,19 @@
 
                 <TextView
                     android:id="@+id/tv"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Ora"
-                    app:fontFamily="@font/bungee"
                     android:textColor="@color/nero"
-                    android:textSize="25dp" />
-
+                    android:textSize="25dp"
+                    app:fontFamily="@font/bungee" />
 
 
                 <NumberPicker
                     android:id="@+id/oraPicker"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="97dp"
                     android:scrollbarSize="20dp" />
-
-
 
 
             </LinearLayout>
@@ -186,7 +183,7 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="15dp" />
+                    android:layout_height="30dp" />
                 <Button
                     android:id="@+id/button_scegli_il_campo_nuova_partita"
                     android:layout_width="match_parent"
@@ -198,6 +195,9 @@
                     app:fontFamily="@font/bungee"
                     android:textSize="20sp"
                     android:textColor="#fff"/>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
 
             </LinearLayout>
 

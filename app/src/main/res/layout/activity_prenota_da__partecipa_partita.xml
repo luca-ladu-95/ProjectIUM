@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:text="Info partita"
                 app:fontFamily="@font/bungee"
-                android:textSize="30dp"
+                android:textSize="25dp"
                 android:textColor="@color/bianco"
                 android:layout_gravity="center"
                 android:id="@+id/toolbar_title" />
@@ -218,24 +218,25 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="138dp"
-                    android:orientation="vertical">
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="15dp">
 
 
                     <Space
                         android:layout_width="match_parent"
-                        android:layout_height="15dp" />
+                        android:layout_height="30dp" />
 
                     <Button
                         android:id="@+id/button_prenota_partita"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/textbox"
                         android:layout_gravity="center"
+                        android:background="@drawable/textbox"
                         android:text=" PRENOTATI "
-                        app:fontFamily="@font/bungee"
+                        android:textColor="#fff"
                         android:textSize="20sp"
-                        android:textColor="#fff" />
+                        app:fontFamily="@font/bungee" />
 
                     <Space
                         android:layout_width="match_parent"

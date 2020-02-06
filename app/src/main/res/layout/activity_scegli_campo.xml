@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:text="Campi disponibili"
                 app:fontFamily="@font/bungee"
-                android:textSize="30dp"
+                android:textSize="25dp"
                 android:textColor="@color/bianco"
                 android:layout_gravity="center"
                 android:id="@+id/toolbar_title" />

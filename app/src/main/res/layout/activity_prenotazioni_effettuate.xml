@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:text="Prenotazioni "
                 app:fontFamily="@font/bungee"
-                android:textSize="30dp"
+                android:textSize="25dp"
                 android:textColor="@color/bianco"
                 android:layout_gravity="center"
                 android:id="@+id/toolbar_title" />
@@ -116,7 +116,7 @@
                         android:layout_height="wrap_content"
                         android:text="Prenotazioni annullate"
                         app:fontFamily="@font/bungee"
-                        android:textSize="25dp"
+                        android:textSize="23dp"
                         android:textColor="@color/rosso"
                         android:layout_gravity="center"
                         />

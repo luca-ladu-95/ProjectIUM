@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:text="Profilo"
             app:fontFamily="@font/bungee"
-            android:textSize="30dp"
+            android:textSize="25dp"
             android:textColor="@color/bianco"
             android:layout_gravity="center"
             android:id="@+id/toolbar_title" />
@@ -64,6 +64,7 @@
                 android:id="@+id/userName_fragment_profilo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fadingEdge="horizontal|vertical"
                 android:textColor="@color/nero"
                 android:textSize="20dp" />
 
@@ -117,10 +118,10 @@
                 android:id="@+id/textView8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:fontFamily="@font/bungee"
                 android:text="Password"
                 android:textColor="@color/nero"
-                android:textSize="25dp" />
+                android:textSize="25dp"
+                app:fontFamily="@font/bungee" />
 
             <TextView
                 android:id="@+id/password_fragment_profilo"
@@ -186,19 +187,19 @@
 
             <Button
                 android:id="@+id/button_elimina_profilo"
-                android:layout_width="133dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:background="@drawable/textbox"
-                android:layout_marginLeft="15dp"
-                android:backgroundTint="@color/rosso"
                 android:layout_gravity="center"
-                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
                 android:layout_marginTop="30dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/textbox"
+                android:backgroundTint="@color/rosso"
                 android:text="ELIMINA PROFILO"
-                app:fontFamily="@font/bungee"
+                android:textColor="#fff"
                 android:textSize="20sp"
-                android:textColor="#fff" />
+                app:fontFamily="@font/bungee" />
 
 
         </LinearLayout>
