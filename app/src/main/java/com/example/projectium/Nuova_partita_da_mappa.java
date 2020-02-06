@@ -157,7 +157,7 @@ public class Nuova_partita_da_mappa extends AppCompatActivity {
                     //Gli id e l'array dei partecipanti verra generato dopo ora la utilizzo solo come appoggio
                     //Ora carico tutto nella macro e la passo per fare scegliere il campo
 
-                    if(checkInput2()) {
+                    if(!checkInput2()) {
                         final String message = "Sei sicuro di voler prenotare in data " + prenotazione.getData_evento() + (" per " +
                                 "le ore " + prenotazione.getOra_evento() + " la partita: " + prenotazione.getNome_evento() + "?");
 
@@ -300,11 +300,14 @@ public class Nuova_partita_da_mappa extends AppCompatActivity {
 
     private boolean checkInput2(){
        boolean errors=false;
-        if( !PrenotazioneFactory.getInstance().checkCampoOccupato(prenotazione,listaPrenotazioni)){
+        if( PrenotazioneFactory.getInstance().checkCampoOccupato(prenotazione,listaPrenotazioni)){
             dataPartita.setError("Inserisci una data diversa");
             Context context = getApplicationContext();
-            CharSequence text = "Il campo è gia prenotato per quella data";
+            CharSequence text = "Il campo è gia prenotato per quell'ora e quella data";
             int duration = Toast.LENGTH_SHORT;
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+
             errors = true;
         }else dataPartita.setError(null);
         return errors;
