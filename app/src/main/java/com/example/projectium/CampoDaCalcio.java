@@ -1,7 +1,8 @@
 package com.example.projectium;
 
-
 import androidx.annotation.Nullable;
+
+import com.google.android.gms.maps.model.LatLng;
 
 import java.io.Serializable;
 
@@ -14,6 +15,7 @@ public class CampoDaCalcio implements Serializable {
     private String valutazione;
     private String materiale;
     private String telefono;
+    private LatLng posizione;
 
     public String getNome() {
         return nome;
@@ -47,10 +49,6 @@ public class CampoDaCalcio implements Serializable {
         this.prezzo_a_persona = prezzo_a_persona;
     }
 
-    /*
-    * */
-
-
     public String getValutazione() {
         return valutazione;
     }
@@ -59,6 +57,13 @@ public class CampoDaCalcio implements Serializable {
         this.valutazione = valutazione;
     }
 
+    public LatLng getPosizione() {
+        return posizione;
+    }
+
+    public void setPosizione(LatLng posizione) {
+        this.posizione = posizione;
+    }
 
     @Override
     public boolean equals(@Nullable Object obj) {
@@ -73,7 +78,6 @@ public class CampoDaCalcio implements Serializable {
             return false;
         }
     }
-
 
     @Override
     public int hashCode() {
@@ -95,4 +99,6 @@ public class CampoDaCalcio implements Serializable {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
+
+
 }

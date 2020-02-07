@@ -1,15 +1,15 @@
 package com.example.projectium;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
-import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 
+import java.util.*;
+
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -23,6 +23,8 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.function.Consumer;
 
 import static com.example.projectium.Home.PERSON_DA_PASSARE_2;
 import static com.example.projectium.Login.PERSON_DA_PASSARE;
@@ -101,6 +103,7 @@ public class Mappa extends FragmentActivity implements OnMapReadyCallback {
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
      */
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void onMapReady(GoogleMap googleMap) {
 
@@ -114,31 +117,37 @@ public class Mappa extends FragmentActivity implements OnMapReadyCallback {
 
         // Fattore Zoom mappa ( 0 = Tutto il mondo -> 21 sara un metro per schermata)
         float zoomLevel = 13.5f; //This goes up to 21
-
+/*
         LatLng bonariaLocation = new LatLng(39.209651,9.126720);
         Marker bonaria = mMap.addMarker(new MarkerOptions().position(bonariaLocation).title("Bonaria").snippet("Campi Bonaria"));
-
         LatLng ossigenoLocation = new LatLng(39.212714,9.124624);
         Marker ossigeno = mMap.addMarker(new MarkerOptions().position(ossigenoLocation).title("Ossigeno").snippet("Campi Ossigeno"));
-
         LatLng montesantoLocation = new LatLng(39.236863,9.102035);
         Marker montesanto = mMap.addMarker(new MarkerOptions().position(montesantoLocation).title("Monte Santo").snippet("Campi Monte Santo"));
-
         LatLng terrapienoLocation = new LatLng(39.219123,9.117656);
         Marker terrapieno = mMap.addMarker(new MarkerOptions().position(terrapienoLocation).title("Terrapieno").snippet("Campi Terrapieno"));
-
         LatLng argonneLocation = new LatLng(39.233013,9.105147);
         Marker argonne = mMap.addMarker(new MarkerOptions().position(argonneLocation).title("Argonne").snippet("Campi Argonne"));
-
         LatLng biasiLocation = new LatLng(39.233054,9.123792);
         Marker biasi = mMap.addMarker(new MarkerOptions().position(biasiLocation).title("Biasi").snippet("Campi Via Biasi"));
-
         LatLng giovanniLocation = new LatLng(39.228087,9.125191);
         Marker giovanni = mMap.addMarker(new MarkerOptions().position(giovanniLocation).title("Giovanni XXIII").snippet("ampi Piazza Giovanni XXIII"));
+*/
+        ArrayList<CampoDaCalcio> listaCampi = CampoDaCalcioFactory.getInstance().getCampiDefault();
 
+        listaCampi.forEach(new Consumer<CampoDaCalcio>() {
+            @Override
+            public void accept(CampoDaCalcio c) {
+                mMap.addMarker(new MarkerOptions().position(c.getPosizione()).title(c.getNome()).snippet(c.getVia()));
+            }
+        });
+        for (int i = 0 ; i < listaCampi.size() ; i++){
+            CampoDaCalcio aux = listaCampi.get(i);
+            mMap.addMarker(new MarkerOptions().position(aux.getPosizione()).title(aux.getNome()).snippet(aux.getVia()));
+            aux = null;
+        }
+        //Zoom Mappa Centrato sulla posizione del device al momento dell'apertura della pagiana
 
-
-        //Zoom Mappa Centrato sulla posizione del device al momento dell'apertura della pagina
 
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom( new LatLng(39.223843,9.121661) , zoomLevel));
 
