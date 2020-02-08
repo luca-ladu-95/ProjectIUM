@@ -69,24 +69,12 @@ public class NuovaPartita extends AppCompatActivity {
         np.setMinValue(0);
         np.setMaxValue(values.length -1 );
 
-
-
         np.setDisplayedValues(values);
 
         //Gets whether the selector wheel wraps when reaching the min/max value.
         np.setWrapSelectorWheel(true);
 
-
-
-
-
-
         seekBar.setMax(10);
-
-
-
-
-
 
         Intent intent = getIntent();
         Serializable obj = intent.getSerializableExtra(PERSON_DA_PASSARE_2);
@@ -96,10 +84,6 @@ public class NuovaPartita extends AppCompatActivity {
         } else {
             persona = new Persona();
         }
-
-
-
-
 
         scegliCampo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,9 +95,6 @@ public class NuovaPartita extends AppCompatActivity {
                     //Funzionano gli input ... l'idea è di inserirli in una prenotazione temporanea per poterla
                     // passare dopo alla successiva activity e solo dopo che si sceglie il campo creare una prenotazione
                     // con la funzione crea prenotazione
-
-
-
 
                     debug = values[np.getValue()]; //Funziona per l'ora
                     SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
@@ -135,10 +116,8 @@ public class NuovaPartita extends AppCompatActivity {
                     //La persona non la passo perchè me la ricavo dal creatore
                     showPrenota_partita.putExtra(PRENOTAZIONE, prenotazione);
 
-
                     startActivity(showPrenota_partita);
                     finish();
-
                 }
             }
         });
@@ -194,42 +173,32 @@ public class NuovaPartita extends AppCompatActivity {
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-
                 UpdateValue(seekBar.getProgress());
             }
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
             }
         });
-
-
-
-
-
-
     }
 
     protected void UpdateValue(int newVal){
 
-
-        if(this.seekBar.getProgress() != modValue){
-            this.seekBar.setProgress(modValue);
-        }
         newVal = newVal > maxValue ? maxValue : newVal;
 
         newVal = newVal < MinValue ? MinValue : newVal;
 
-
         this.modValue = newVal;
 
         numeroGiocatori.setText(""+this.modValue);
+
+        if(this.seekBar.getProgress() != modValue){
+            this.seekBar.setProgress(modValue);
+        }
     }
 
 
@@ -253,7 +222,6 @@ public class NuovaPartita extends AppCompatActivity {
         }else
             nomePartita.setError(null);
 
-
         if(dataPartita.getText() == null || dataPartita.getText().length()==0){
             errors = true;
             dataPartita.setError("Inserisci la data");
@@ -265,8 +233,6 @@ public class NuovaPartita extends AppCompatActivity {
             errors = true;
         }else
             descrizione.setError(null);
-
-
 
         return errors;
     }
