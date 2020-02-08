@@ -70,12 +70,13 @@
                     android:id="@+id/info_nome_campo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_corner"
+                    android:gravity="center"
+                    android:padding="6dp"
+                    android:textAlignment="center"
                     android:textColor="@color/nero"
                     android:textSize="15dp"
-                    android:background="@drawable/rounded_corner"
-                    android:padding="6dp"
-                    app:fontFamily="@font/bungee"
-                    android:textAlignment="center"/>
+                    app:fontFamily="@font/bungee" />
 
                 <Space
                     android:layout_width="match_parent"
@@ -85,12 +86,12 @@
                     android:id="@+id/info_via_campo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/nero"
-                    app:fontFamily="@font/bungee"
                     android:background="@drawable/rounded_corner"
+                    android:gravity="center"
                     android:padding="6dp"
+                    android:textColor="@color/nero"
                     android:textSize="15dp"
-                    />
+                    app:fontFamily="@font/bungee" />
 
                 <Space
                     android:layout_width="match_parent"
@@ -100,12 +101,12 @@
                     android:id="@+id/info_prezzo_a_persona"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:fontFamily="@font/bungee"
-                    android:textColor="@color/nero"
                     android:background="@drawable/rounded_corner"
+                    android:gravity="center"
                     android:padding="6dp"
+                    android:textColor="@color/nero"
                     android:textSize="15dp"
-                    />
+                    app:fontFamily="@font/bungee" />
                 <Space
                     android:layout_width="match_parent"
                     android:layout_height="5dp" />
@@ -114,12 +115,12 @@
                     android:id="@+id/info_numero_telefono"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/nero"
-                    app:fontFamily="@font/bungee"
                     android:background="@drawable/rounded_corner"
+                    android:gravity="center"
                     android:padding="6dp"
+                    android:textColor="@color/nero"
                     android:textSize="15dp"
-                    />
+                    app:fontFamily="@font/bungee" />
 
 
                 <Space
@@ -130,12 +131,12 @@
                     android:id="@+id/info_valutazione"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/nero"
-                    app:fontFamily="@font/bungee"
                     android:background="@drawable/rounded_corner"
+                    android:gravity="center"
                     android:padding="6dp"
+                    android:textColor="@color/nero"
                     android:textSize="15dp"
-                    />
+                    app:fontFamily="@font/bungee" />
 
                 <Space
                     android:layout_width="match_parent"
@@ -145,12 +146,12 @@
                     android:id="@+id/info_tipo_di_campo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/nero"
                     android:background="@drawable/rounded_corner"
+                    android:gravity="center"
                     android:padding="6dp"
-                    app:fontFamily="@font/bungee"
+                    android:textColor="@color/nero"
                     android:textSize="15dp"
-                    />
+                    app:fontFamily="@font/bungee" />
 
                 <Space
                     android:layout_width="match_parent"

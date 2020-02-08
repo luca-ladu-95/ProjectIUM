@@ -65,6 +65,7 @@
                     android:id="@+id/textView11"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:text="Nome evento"
                     android:textColor="@color/nero"
                     android:textSize="25dp"
@@ -75,6 +76,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:gravity="center"
                     android:hint="inserisci il nome della partita"
                     android:inputType="textPersonName" />
 
@@ -86,6 +88,7 @@
                     android:id="@+id/textView13"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:text="Numero di giocatori"
                     android:textColor="@color/nero"
                     android:textSize="25dp"
@@ -116,6 +119,7 @@
                     android:id="@+id/textView14"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:text="Data evento"
                     android:textColor="@color/nero"
                     android:textSize="25dp"
@@ -126,6 +130,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:focusableInTouchMode="false"
+                    android:gravity="center"
                     android:hint="es. 01/01/1995"
                     android:inputType="date"
                     android:textColor="@color/nero"
@@ -139,6 +144,7 @@
                     android:id="@+id/tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:text="Ora"
                     android:textColor="@color/nero"
                     android:textSize="25dp"
@@ -147,8 +153,10 @@
 
                 <NumberPicker
                     android:id="@+id/oraPicker"
-                    android:layout_width="match_parent"
+                    android:layout_width="147dp"
                     android:layout_height="97dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
                     android:scrollbarSize="20dp" />
 
 
@@ -165,17 +173,18 @@
                     android:id="@+id/textView9"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:text="Descrizione"
-                    app:fontFamily="@font/bungee"
-                    android:textSize="25dp"
                     android:textColor="@color/nero"
-                    />
+                    android:textSize="25dp"
+                    app:fontFamily="@font/bungee" />
 
                 <EditText
                     android:id="@+id/descrizione_nuova_partita"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:gravity="center"
                     android:hint="es. partita tra amici"
                     android:inputType="textPersonName"
                     android:textColor="@color/nero"

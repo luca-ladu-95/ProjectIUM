@@ -48,16 +48,11 @@ public class Riepilogo_partita extends AppCompatActivity {
         indietro=findViewById(R.id.button_return_riepilogo_prenotazioni);
         campo = findViewById(R.id.riepilogo_partita_nome_campo);
 
-
-
         Intent intent = getIntent();
-
 
         Serializable obj = intent.getSerializableExtra(PERSON_DA_PASSARE_2);
 
-
         Serializable obj2 = intent.getSerializableExtra(PRENOTAZIONE);
-
 
         if (obj instanceof Persona) {
             persona = (Persona) obj;
