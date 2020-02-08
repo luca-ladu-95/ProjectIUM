@@ -76,16 +76,18 @@
                     android:id="@+id/textView15"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:text="Creatore partita"
-                    app:fontFamily="@font/bungee"
                     android:textColor="@color/nero"
-                    android:textSize="25dp" />
+                    android:textSize="25dp"
+                    app:fontFamily="@font/bungee" />
 
                 <TextView
                     android:id="@+id/riepilogo_partita_nome_capo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/rounded_corner"
+                    android:gravity="center"
                     android:padding="6dp"
                     android:textColor="@color/nero"
                     android:textSize="20dp" />
@@ -98,16 +100,18 @@
                     android:id="@+id/textView17"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:fontFamily="@font/bungee"
+                    android:gravity="center"
                     android:text="Campo da gioco"
                     android:textColor="@color/nero"
-                    android:textSize="25dp" />
+                    android:textSize="25dp"
+                    app:fontFamily="@font/bungee" />
 
                 <TextView
                     android:id="@+id/riepilogo_partita_nome_campo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/rounded_corner"
+                    android:gravity="center"
                     android:padding="6dp"
                     android:textColor="@color/nero"
                     android:textSize="20dp" />
@@ -120,16 +124,18 @@
                     android:id="@+id/textView19"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:text="Data partita"
-                    app:fontFamily="@font/bungee"
                     android:textColor="@color/nero"
-                    android:textSize="25dp" />
+                    android:textSize="25dp"
+                    app:fontFamily="@font/bungee" />
 
                 <TextView
                     android:id="@+id/riepilogo_partita_data"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/rounded_corner"
+                    android:gravity="center"
                     android:padding="6dp"
                     android:textColor="@color/nero"
                     android:textSize="20dp" />
@@ -142,16 +148,18 @@
                     android:id="@+id/textView21"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:text="Ora partita"
-                    app:fontFamily="@font/bungee"
                     android:textColor="@color/nero"
-                    android:textSize="25dp" />
+                    android:textSize="25dp"
+                    app:fontFamily="@font/bungee" />
 
                 <TextView
                     android:id="@+id/rieplogo_partita_ora"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/rounded_corner"
+                    android:gravity="center"
                     android:padding="6dp"
                     android:textColor="@color/nero"
                     android:textSize="20dp" />
@@ -164,16 +172,18 @@
                     android:id="@+id/textView23"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:text="Numero Giocatori"
-                    app:fontFamily="@font/bungee"
                     android:textColor="@color/nero"
-                    android:textSize="25dp" />
+                    android:textSize="25dp"
+                    app:fontFamily="@font/bungee" />
 
                 <TextView
                     android:id="@+id/riepilogo_partita_numero_G"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/rounded_corner"
+                    android:gravity="center"
                     android:padding="6dp"
                     android:textColor="@color/nero"
                     android:textSize="20dp" />
@@ -186,16 +196,18 @@
                     android:id="@+id/Prezzo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:text="Prezzo"
-                    app:fontFamily="@font/bungee"
                     android:textColor="@color/nero"
-                    android:textSize="25dp" />
+                    android:textSize="25dp"
+                    app:fontFamily="@font/bungee" />
 
                 <TextView
                     android:id="@+id/riepilogo_partita_prezzo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/rounded_corner"
+                    android:gravity="center"
                     android:padding="6dp"
                     android:textColor="@color/nero"
                     android:textSize="20dp" />
@@ -208,16 +220,18 @@
                     android:id="@+id/textView27"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:text="Descrizione"
-                    app:fontFamily="@font/bungee"
                     android:textColor="@color/nero"
-                    android:textSize="25dp" />
+                    android:textSize="25dp"
+                    app:fontFamily="@font/bungee" />
 
                 <TextView
                     android:id="@+id/riepilogo_partita_descrizione"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/rounded_corner"
+                    android:gravity="center"
                     android:padding="6dp"
                     android:textColor="@color/nero"
                     android:textSize="20dp" />
