@@ -107,6 +107,7 @@ public class Home extends AppCompatActivity   implements NavigationView.OnNaviga
                 showMappa.putExtra(PERSON_DA_PASSARE_2, persona);
                 //richiamo activity
                 startActivity(showMappa);
+                finish();
                 }
         });
 
@@ -174,6 +175,7 @@ public class Home extends AppCompatActivity   implements NavigationView.OnNaviga
                 showMappa.putExtra(PERSON_DA_PASSARE_2, persona);
                 //richiamo activity
                 startActivity(showMappa);
+                finish();
                 break;
 
 

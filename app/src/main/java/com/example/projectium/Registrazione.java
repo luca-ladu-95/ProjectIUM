@@ -40,7 +40,7 @@ public class Registrazione extends AppCompatActivity {
         pass = findViewById(R.id.inputPass);
         cpass = findViewById(R.id.inputCPass);
         email = findViewById(R.id.inputEmail);
-        registrati = findViewById(R.id.button_reg);
+        registrati = findViewById(R.id.button_gestore_conferma);
 
 
 

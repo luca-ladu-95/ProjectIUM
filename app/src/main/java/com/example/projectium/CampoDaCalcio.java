@@ -15,7 +15,8 @@ public class CampoDaCalcio implements Serializable {
     private String valutazione;
     private String materiale;
     private String telefono;
-    private LatLng posizione;
+   private double latitudine;
+   private double longitudine;
 
     public String getNome() {
         return nome;
@@ -57,13 +58,9 @@ public class CampoDaCalcio implements Serializable {
         this.valutazione = valutazione;
     }
 
-    public LatLng getPosizione() {
-        return posizione;
-    }
 
-    public void setPosizione(LatLng posizione) {
-        this.posizione = posizione;
-    }
+
+
 
     @Override
     public boolean equals(@Nullable Object obj) {
@@ -101,4 +98,19 @@ public class CampoDaCalcio implements Serializable {
     }
 
 
+    public double getLatitudine() {
+        return latitudine;
+    }
+
+    public void setLatitudine(double latitudine) {
+        this.latitudine = latitudine;
+    }
+
+    public double getLongitudine() {
+        return longitudine;
+    }
+
+    public void setLongitudine(double longitudine) {
+        this.longitudine = longitudine;
+    }
 }

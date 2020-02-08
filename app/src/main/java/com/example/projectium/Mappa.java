@@ -4,11 +4,14 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.FragmentActivity;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 
 import java.util.*;
 
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -62,7 +65,6 @@ public class Mappa extends FragmentActivity implements OnMapReadyCallback {
         } else {
             persona = new Persona();
         }
-
 
 /*
         if (ContextCompat.checkSelfPermission(Mappa.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED){
@@ -133,19 +135,28 @@ public class Mappa extends FragmentActivity implements OnMapReadyCallback {
         LatLng giovanniLocation = new LatLng(39.228087,9.125191);
         Marker giovanni = mMap.addMarker(new MarkerOptions().position(giovanniLocation).title("Giovanni XXIII").snippet("ampi Piazza Giovanni XXIII"));
 */
-        ArrayList<CampoDaCalcio> listaCampi = CampoDaCalcioFactory.getInstance().getCampiDefault();
+        ArrayList<CampoDaCalcio> listaCampi = new ArrayList<>(Login.listaCampi);
 
         listaCampi.forEach(new Consumer<CampoDaCalcio>() {
             @Override
             public void accept(CampoDaCalcio c) {
-                mMap.addMarker(new MarkerOptions().position(c.getPosizione()).title(c.getNome()).snippet(c.getVia()));
+                LatLng posizione = new LatLng(c.getLatitudine(),c.getLongitudine());
+                mMap.addMarker(new MarkerOptions().position(posizione).title(c.getNome()).snippet(c.getVia()));
             }
         });
         for (int i = 0 ; i < listaCampi.size() ; i++){
             CampoDaCalcio aux = listaCampi.get(i);
-            mMap.addMarker(new MarkerOptions().position(aux.getPosizione()).title(aux.getNome()).snippet(aux.getVia()));
+            LatLng posizione2 = new LatLng(aux.getLatitudine(),aux.getLongitudine());
+            mMap.addMarker(new MarkerOptions().position(posizione2).title(aux.getNome()).snippet(aux.getVia()));
             aux = null;
         }
+/*
+        LatLng address = getLocationFromAddress(this, "Via Cadello 2, Cagliari, 09121");
+        mMap.addMarker(new MarkerOptions().position(address).title("Test").snippet("Test procedural marker"));
+
+        LatLng address2 = getLocationFromAddress(this, "via Liguria");
+        mMap.addMarker(new MarkerOptions().position(address2).title("Test").snippet("Home"));
+*/
         //Zoom Mappa Centrato sulla posizione del device al momento dell'apertura della pagiana
 
 
@@ -241,5 +252,40 @@ public class Mappa extends FragmentActivity implements OnMapReadyCallback {
         return myQuittingDialogBox;
     }
 
+
+    ///------------------------------
+    public LatLng getLocationFromAddress(Context context, String strAddress)
+    {
+        Geocoder coder= new Geocoder(context);
+        List<Address> address;
+        LatLng p1 = null;
+
+        try
+        {
+            address = coder.getFromLocationName(strAddress, 5);
+            if(address==null)
+            {
+                return null;
+            }
+            Address location = address.get(0);
+            location.getLatitude();
+            location.getLongitude();
+
+            p1 = new LatLng(location.getLatitude(), location.getLongitude());
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return p1;
+
+    }
+    ///------------------------------
+
+    public SupportMapFragment getMapFragment(){
+
+       return (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+    }
 }
 

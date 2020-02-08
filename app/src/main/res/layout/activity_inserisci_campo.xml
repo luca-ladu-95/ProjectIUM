@@ -10,10 +10,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/toolbar"
             android:background="@drawable/side_nav_bar"
             app:titleTextColor="@color/bianco"
 
@@ -23,17 +24,17 @@
                 android:id="@+id/button_return_gestore_inserisci_campo"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:background="@drawable/ic_arrow_back_black_24dp"
-                />
+                android:background="@drawable/ic_arrow_back_black_24dp" />
+
             <TextView
+                android:id="@+id/toolbar_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Inserisci campo"
-                app:fontFamily="@font/bungee"
-                android:textSize="30dp"
-                android:textColor="@color/bianco"
                 android:layout_gravity="center"
-                android:id="@+id/toolbar_title" />
+                android:text="Inserisci campo"
+                android:textColor="@color/bianco"
+                android:textSize="30dp"
+                app:fontFamily="@font/bungee" />
         </androidx.appcompat.widget.Toolbar>
 
 
@@ -51,9 +52,10 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nomeCampo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"/>
+                android:inputType="text" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -67,9 +69,10 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/via_campo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"/>
+                android:inputType="text" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -83,9 +86,10 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/prezzo_campo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"/>
+                android:inputType="text" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -95,16 +99,20 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:hint="Valutazione"
+            android:hint="Valutazione da 1 a 5"
             app:passwordToggleEnabled="true"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/valutazione_campo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"/>
+                android:inputType="text" />
 
         </com.google.android.material.textfield.TextInputLayout>
+
+
+
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/gestore_materiale_campo"
@@ -117,9 +125,10 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/materiale_campo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"/>
+                android:inputType="text" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -133,15 +142,16 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/telefono"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"/>
+                android:inputType="text" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
 
         <Button
-            android:id="@+id/button_reg"
+            android:id="@+id/button_gestore_conferma"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/textbox"
@@ -153,6 +163,10 @@
             android:textSize="20sp"
             android:textColor="#fff"/>
 
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/mapView"
+            android:layout_width="match_parent"
+            android:layout_height="214dp" />
 
 
     </LinearLayout>
