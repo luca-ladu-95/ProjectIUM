@@ -1,6 +1,7 @@
 package com.example.projectium;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.view.View;
 import android.widget.Button;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,9 +25,16 @@ public class Inserisci_campo extends AppCompatActivity {
 
     Persona persona;
     LatLng coordinate;
-    TextInputLayout nomeCampo,viaCampo,importoCampo,valutazione,materiale,telefono;
+    TextInputLayout nomeCampo,viaCampo,importoCampo,materiale,telefono;
     Button indietro,conferma;
+    SeekBar seekBarValutazione;
+    TextView valoreValutazione;
     CampoDaCalcio campo;
+
+    int MinValue=0;
+    int maxValue=5;
+    int modValue=0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,10 +43,11 @@ public class Inserisci_campo extends AppCompatActivity {
         nomeCampo = findViewById(R.id.gestore_nome_campo);
         viaCampo = findViewById(R.id.gestore_via_campo);
         importoCampo=findViewById(R.id.gestore_prezzo_campo);
-        valutazione=findViewById(R.id.gestore_valutazione_campo);
+        seekBarValutazione = findViewById(R.id.seekBarValutazione);
         materiale=findViewById(R.id.gestore_materiale_campo);
         telefono=findViewById(R.id.gestore_telefono);
         conferma=findViewById(R.id.button_gestore_conferma);
+        valoreValutazione = findViewById(R.id.valoreValutazione);
 
         indietro=findViewById(R.id.button_return_gestore_inserisci_campo);
 
@@ -64,7 +74,14 @@ public class Inserisci_campo extends AppCompatActivity {
 
 
                     campo = CampoDaCalcioFactory.getInstance().creaCampo(
-                            nomeCampo.getEditText().getText().toString(),importoCampo.getEditText().getText().toString(),10,viaCampo.getEditText().getText().toString(),telefono.getEditText().getText().toString(),materiale.getEditText().getText().toString(),valutazione.getEditText().getText().toString(),coordinate.latitude,coordinate.longitude
+                            nomeCampo.getEditText().getText().toString(),
+                            importoCampo.getEditText().getText().toString(),
+                            10,viaCampo.getEditText().getText().toString(),
+                            telefono.getEditText().getText().toString(),
+                            materiale.getEditText().getText().toString(),
+                            valoreValutazione.getText().toString(),
+                            coordinate.latitude,
+                            coordinate.longitude
                     );
 
 
@@ -112,9 +129,38 @@ public class Inserisci_campo extends AppCompatActivity {
             }
         });
 
+        seekBarValutazione.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                UpdateValue(seekBar.getProgress());
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
+        });
 
     }
 
+    @SuppressLint("SetTextI18n")
+    protected void UpdateValue(int newVal){
+
+        newVal = newVal > maxValue ? maxValue : newVal;
+
+        newVal = newVal < MinValue ? MinValue : newVal;
+
+        this.modValue = newVal;
+
+        valoreValutazione.setText(""+this.modValue);
+
+        if(this.seekBarValutazione.getProgress() != modValue){
+            this.seekBarValutazione.setProgress(modValue);
+        }
+    }
 
     public boolean checkInput(){
         boolean flag = false;
@@ -140,14 +186,6 @@ public class Inserisci_campo extends AppCompatActivity {
             flag = true;
         }else
             importoCampo.setError(null);
-
-
-        if(valutazione.getEditText().getText()==null || valutazione.getEditText().getText().length()==0){
-
-            valutazione.setError("Inserire la valutazione");
-            flag = true;
-        }else
-            valutazione.setError(null);
 
         if(materiale.getEditText().getText()==null || materiale.getEditText().getText().length()==0){
 
