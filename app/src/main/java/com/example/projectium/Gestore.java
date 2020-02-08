@@ -65,6 +65,7 @@ public class Gestore extends AppCompatActivity {
                 showCalendario.putExtra(PERSON_DA_PASSARE_2, persona);
                 //richiamo activity
                 startActivity(showCalendario);
+                finish();
             }
         });
 
@@ -132,6 +133,7 @@ public class Gestore extends AppCompatActivity {
         //Apre il messaggio di conferma uscita
         AlertDialog diaBox = AskOption();
         diaBox.show();
+
 
     }
 }
