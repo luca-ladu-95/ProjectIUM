@@ -18,7 +18,10 @@ import android.widget.TextView;
 import org.w3c.dom.Text;
 
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
 
@@ -86,44 +89,63 @@ public class Partecipa_partita extends AppCompatActivity {
 
         /*Creo dinamicamente un bottone per ogni evento  ed un click on view*/
 
+        Date currentTime,dataEvento;
+        boolean flagdata = false;
+
+
+
         if(prenotazioniInCorso!= null && prenotazioniInCorso.size() > 0) {
             for (i = 0; i < prenotazioniInCorso.size(); i++) {
 
 
-                Space space = new Space(this);
-                space.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,20));
-                Button bottone = new Button(this);
-                bottone.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-                bottone.setGravity(Gravity.CENTER);
-                bottone.setTextColor(getResources().getColor(R.color.bianco));
-                bottone.setBackgroundResource(R.drawable.textbox);
-                bottone.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 25);
-                bottone.setId(i);
-                bottone.setText(prenotazioniInCorso.get(i).getNome_evento());
-                String debug = prenotazioniInCorso.get(i).getNome_evento();
-                linearLayout.addView(bottone);
-                linearLayout.addView(space);
-                final Prenotazione p = prenotazioniInCorso.get(i);
+                SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 
-                bottone.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+                currentTime = Calendar.getInstance().getTime();
+                try {
+                    dataEvento = format.parse(prenotazioniInCorso.get(i).getData_evento());
+                    flagdata = dataEvento.after(currentTime);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
 
 
-                        Intent showPrenota_partita = new Intent(Partecipa_partita.this, Prenota_da_Partecipa_partita.class);
-                        //Inserisco la persona dentro l'intent
+                if (flagdata) {
+
+                    Space space = new Space(this);
+                    space.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 20));
+                    Button bottone = new Button(this);
+                    bottone.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                    bottone.setGravity(Gravity.CENTER);
+                    bottone.setTextColor(getResources().getColor(R.color.bianco));
+                    bottone.setBackgroundResource(R.drawable.textbox);
+                    bottone.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 25);
+                    bottone.setId(i);
+                    bottone.setText(prenotazioniInCorso.get(i).getNome_evento());
+                    String debug = prenotazioniInCorso.get(i).getNome_evento();
+                    linearLayout.addView(bottone);
+                    linearLayout.addView(space);
+                    final Prenotazione p = prenotazioniInCorso.get(i);
+
+                    bottone.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
 
 
-                        showPrenota_partita.putExtra(PERSON_DA_PASSARE_2, persona);
-                        showPrenota_partita.putExtra(PRENOTAZIONE, p);
+                            Intent showPrenota_partita = new Intent(Partecipa_partita.this, Prenota_da_Partecipa_partita.class);
+                            //Inserisco la persona dentro l'intent
 
 
-                        startActivity(showPrenota_partita);
-                        finish();
-                    }
-                });
+                            showPrenota_partita.putExtra(PERSON_DA_PASSARE_2, persona);
+                            showPrenota_partita.putExtra(PRENOTAZIONE, p);
 
 
+                            startActivity(showPrenota_partita);
+                            finish();
+                        }
+                    });
+
+
+                }
             }
         }else{
 
