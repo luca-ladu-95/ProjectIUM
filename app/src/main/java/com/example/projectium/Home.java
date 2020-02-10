@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.google.android.material.navigation.NavigationView;
 
 import java.io.Serializable;
+import java.util.Calendar;
 
 import static com.example.projectium.Login.PERSON_DA_PASSARE;
 import static com.example.projectium.Login.utenti;
@@ -57,7 +58,6 @@ public class Home extends AppCompatActivity   implements NavigationView.OnNaviga
         navigationView=findViewById(R.id.navigationView);
 
         navigationView.setNavigationItemSelectedListener(this);
-
 
         /*Parte del menu a scorrimento */
         toolbar=findViewById(R.id.toolbar);
@@ -158,15 +158,21 @@ public class Home extends AppCompatActivity   implements NavigationView.OnNaviga
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()){
             case R.id.nav_home:
-
                 Intent showHOME = new Intent(Home.this, Profilo.class);
                 //Inserisco la persona dentro l'intent
                 showHOME.putExtra(PERSON_DA_PASSARE_2, persona);
                 //richiamo activity
                 startActivity(showHOME);
                 finish();
+                break;
 
-
+            case R.id.nav_Calendario:
+                Intent showCalendario= new Intent(Home.this, Calendario.class);
+                //Inserisco la persona dentro l'intent
+                showCalendario.putExtra(PERSON_DA_PASSARE_2, persona);
+                //richiamo activity
+                startActivity(showCalendario);
+                finish();
                 break;
 
             case R.id.nav_Mappa:

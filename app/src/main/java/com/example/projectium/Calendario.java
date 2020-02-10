@@ -89,53 +89,109 @@ public class Calendario extends AppCompatActivity {
 
                 linearLayout1.removeAllViews();
 
-                for (int i = 0; i < listaPrenotazioni.size(); i++) {
 
-                    space = new Space(Calendario.this);
-                    bottone = new Button(Calendario.this);
+                //CASO PERSONA è GESTORE
+                if(persona.isGestore()) {
+                    for (int i = 0; i < listaPrenotazioni.size(); i++) {
 
-                    space.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 20));
-                    bottone.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-                    bottone.setTextColor(getResources().getColor(R.color.bianco));
-                    bottone.setBackgroundResource(R.drawable.textbox);
-                    bottone.setGravity(Gravity.CENTER);
-                    bottone.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 25);
-                    bottone.setId(i);
+                        space = new Space(Calendario.this);
+                        bottone = new Button(Calendario.this);
 
-                    bottone.setText(listaPrenotazioni.get(i).getNome_evento());
+                        space.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 20));
+                        bottone.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                        bottone.setTextColor(getResources().getColor(R.color.bianco));
+                        bottone.setBackgroundResource(R.drawable.textbox);
+                        bottone.setGravity(Gravity.CENTER);
+                        bottone.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 25);
+                        bottone.setId(i);
 
-                    if (!listaPrenotazioni.get(i).isAnnullata() && listaPrenotazioni.get(i).getData_evento().equals(giornoPremuto)) {
-                        conto_partite_prenotate++;
-                        linearLayout1.addView(bottone);
-                        linearLayout1.addView(space);
+                        bottone.setText(listaPrenotazioni.get(i).getNome_evento());
+
+                        if (!listaPrenotazioni.get(i).isAnnullata() && listaPrenotazioni.get(i).getData_evento().equals(giornoPremuto)) {
+                            conto_partite_prenotate++;
+                            linearLayout1.addView(bottone);
+                            linearLayout1.addView(space);
+                        }
+
+                        //SVUOTA LISTA SE NON CI SONO PRENOTAZIONI
+                        if (conto_partite_prenotate == 0) linearLayout1.removeAllViews();
+
+                        final Prenotazione p = listaPrenotazioni.get(i);
+
+                        bottone.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                /*Apro la descrizione delle partite in una nuova activity*/
+                                //Se non è annullata
+                                if (!p.isAnnullata()) {
+                                    Intent showRiepilogo_partita = new Intent(Calendario.this, Riepilogo_partita.class);
+                                    //Inserisco la persona dentro l'intent
+                                    showRiepilogo_partita.putExtra(PERSON_DA_PASSARE_2, persona);
+                                    showRiepilogo_partita.putExtra(PRENOTAZIONE, p);
+                                    startActivity(showRiepilogo_partita);
+                                    finish();
+                                } else {
+                                    //Faccio vedere il motivo dell'annullamento
+                                    final String message = "Prenotazione del " + p.getData_evento() + (" per " +
+                                            "le ore " + p.getOra_evento() + ",campo: " + p.getCampo().getNome());
+                                    AlertDialog diaBox = AskOption(message);
+                                    diaBox.show();
+                                }
+                            }
+                        });
+                    }
+                }else{   //CASO PERSONA è UTENTE
+
+                    ArrayList<Prenotazione> listaPrenotazione_Utente = PrenotazioneFactory.getInstance().getPrenotazioneUtente(listaPrenotazioni,persona);
+                    for (int i = 0; i < listaPrenotazione_Utente.size(); i++) {
+
+                        space = new Space(Calendario.this);
+                        bottone = new Button(Calendario.this);
+
+                        space.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 20));
+                        bottone.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                        bottone.setTextColor(getResources().getColor(R.color.bianco));
+                        bottone.setBackgroundResource(R.drawable.textbox);
+                        bottone.setGravity(Gravity.CENTER);
+                        bottone.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 25);
+                        bottone.setId(i);
+
+                        bottone.setText(listaPrenotazione_Utente.get(i).getNome_evento());
+
+                        if (!listaPrenotazione_Utente.get(i).isAnnullata() && listaPrenotazione_Utente.get(i).getData_evento().equals(giornoPremuto)) {
+                            conto_partite_prenotate++;
+                            linearLayout1.addView(bottone);
+                            linearLayout1.addView(space);
+                        }
+
+                        //SVUOTA LISTA SE NON CI SONO PRENOTAZIONI
+                        if (conto_partite_prenotate == 0) linearLayout1.removeAllViews();
+
+                        final Prenotazione p = listaPrenotazione_Utente.get(i);
+
+                        bottone.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                /*Apro la descrizione delle partite in una nuova activity*/
+                                //Se non è annullata
+                                if (!p.isAnnullata()) {
+                                    Intent showRiepilogo_partita = new Intent(Calendario.this, Riepilogo_partita.class);
+                                    //Inserisco la persona dentro l'intent
+                                    showRiepilogo_partita.putExtra(PERSON_DA_PASSARE_2, persona);
+                                    showRiepilogo_partita.putExtra(PRENOTAZIONE, p);
+                                    startActivity(showRiepilogo_partita);
+                                    finish();
+                                } else {
+                                    //Faccio vedere il motivo dell'annullamento
+                                    final String message = "Prenotazione del " + p.getData_evento() + (" per " +
+                                            "le ore " + p.getOra_evento() + ",campo: " + p.getCampo().getNome());
+                                    AlertDialog diaBox = AskOption(message);
+                                    diaBox.show();
+                                }
+                            }
+                        });
                     }
 
-                    //SVUOTA LISTA SE NON CI SONO PRENOTAZIONI
-                    if(conto_partite_prenotate == 0) linearLayout1.removeAllViews();
-
-                    final Prenotazione p = listaPrenotazioni.get(i);
-
-                    bottone.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            /*Apro la descrizione delle partite in una nuova activity*/
-                            //Se non è annullata
-                            if (!p.isAnnullata()) {
-                                Intent showRiepilogo_partita = new Intent(Calendario.this, Riepilogo_partita.class);
-                                //Inserisco la persona dentro l'intent
-                                showRiepilogo_partita.putExtra(PERSON_DA_PASSARE_2, persona);
-                                showRiepilogo_partita.putExtra(PRENOTAZIONE, p);
-                                startActivity(showRiepilogo_partita);
-                                finish();
-                            } else {
-                                //Faccio vedere il motivo dell'annullamento
-                                final String message = "Prenotazione del " + p.getData_evento() + (" per " +
-                                        "le ore " + p.getOra_evento() + ",campo: " + p.getCampo().getNome());
-                                AlertDialog diaBox = AskOption(message);
-                                diaBox.show();
-                            }
-                        }
-                    });
                 }
             }
 
@@ -144,13 +200,25 @@ public class Calendario extends AppCompatActivity {
         indietro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent showHOME = new Intent(Calendario.this, Gestore.class);
-                //Inserisco la persona dentro l'intent
-                //ATTENZIONE ho messo person_da_passare e NON person_da_passare2 perchè il login va a pescare sul primo
-                showHOME.putExtra(PERSON_DA_PASSARE, persona);
-                //richiamo activity
-                startActivity(showHOME);
-                finish();
+                if( persona.isGestore() ){
+                    Intent showHOME = new Intent(Calendario.this, Gestore.class);
+                    //Inserisco la persona dentro l'intent
+                    //ATTENZIONE ho messo person_da_passare e NON person_da_passare2 perchè il login va a pescare sul primo
+                    //richiamo activity
+                    showHOME.putExtra(PERSON_DA_PASSARE, persona);
+
+                    startActivity(showHOME);
+                    finish();
+                } else {
+                    Intent showHOME = new Intent(Calendario.this, Home.class);
+                    //Inserisco la persona dentro l'intent
+                    //ATTENZIONE ho messo person_da_passare e NON person_da_passare2 perchè il login va a pescare sul primo
+                    //richiamo activity
+                    showHOME.putExtra(PERSON_DA_PASSARE, persona);
+
+                    startActivity(showHOME);
+                    finish();
+                }
             }
         });
     }
@@ -182,6 +250,8 @@ public class Calendario extends AppCompatActivity {
     }
 
     public void onBackPressed(){
+
+        if( persona.isGestore() ){
         Intent showHOME = new Intent(Calendario.this, Gestore.class);
         //Inserisco la persona dentro l'intent
         //ATTENZIONE ho messo person_da_passare e NON person_da_passare2 perchè il login va a pescare sul primo
@@ -190,5 +260,15 @@ public class Calendario extends AppCompatActivity {
 
         startActivity(showHOME);
         finish();
+        } else {
+            Intent showHOME = new Intent(Calendario.this, Home.class);
+            //Inserisco la persona dentro l'intent
+            //ATTENZIONE ho messo person_da_passare e NON person_da_passare2 perchè il login va a pescare sul primo
+            //richiamo activity
+            showHOME.putExtra(PERSON_DA_PASSARE, persona);
+
+            startActivity(showHOME);
+            finish();
+        }
     }
 }

@@ -9,6 +9,11 @@
             android:title="Profilo" />
 
         <item
+            android:id="@+id/nav_Calendario"
+            android:icon="@drawable/ic_place_black_24dp"
+            android:title="Calendario"
+            />
+        <item
             android:id="@+id/nav_Mappa"
             android:icon="@drawable/ic_place_black_24dp"
             android:title="Mappa"
