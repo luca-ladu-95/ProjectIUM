@@ -36,8 +36,8 @@ public class NuovaPartita extends AppCompatActivity {
     String debug,debug3 ;
     Prenotazione prenotazione = new Prenotazione();
 
-    int MinValue=0;
-    int maxValue=9;
+    int MinValue=1;
+    int maxValue=10;
     int modValue=0;
     int numGiocatori;
 

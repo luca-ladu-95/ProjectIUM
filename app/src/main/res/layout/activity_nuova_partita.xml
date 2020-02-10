@@ -75,10 +75,15 @@
                     android:id="@+id/edit_nome_partita"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
                     android:ems="10"
                     android:gravity="center"
                     android:hint="inserisci il nome della partita"
-                    android:inputType="textPersonName" />
+                    android:inputType="textPersonName"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="0dp" />
 
                 <Space
                     android:layout_width="match_parent"
@@ -102,7 +107,12 @@
                     android:id="@+id/seekBarGiocatori"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:max="10" />
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:max="10"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="0dp" />
 
                 <TextView
                 android:id="@+id/seekNumeroGiocatori"
@@ -129,10 +139,15 @@
                     android:id="@+id/input_data_evento_nuovaP"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
                     android:focusableInTouchMode="false"
                     android:gravity="center"
                     android:hint="es. 01/01/1995"
                     android:inputType="date"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="0dp"
                     android:textColor="@color/nero"
                     android:textSize="25dp" />
 
@@ -183,10 +198,15 @@
                     android:id="@+id/descrizione_nuova_partita"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
                     android:ems="10"
                     android:gravity="center"
                     android:hint="es. partita tra amici"
                     android:inputType="textPersonName"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="0dp"
                     android:textColor="@color/nero"
                     android:textSize="20dp" />
 
@@ -204,9 +224,10 @@
                     app:fontFamily="@font/bungee"
                     android:textSize="20sp"
                     android:textColor="#fff"/>
+
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="10dp" />
+                    android:layout_height="40dp" />
 
             </LinearLayout>
 
