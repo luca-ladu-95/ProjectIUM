@@ -125,6 +125,7 @@ public class Registrazione extends AppCompatActivity {
             errors = true;
         }else if (!email.getEditText().getText().toString().matches(emailPattern)){
             email.setError("L'email inserita non è valida");
+            errors = true;
         }else{
             email.setError(null);
         }
