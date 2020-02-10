@@ -191,7 +191,7 @@ public class Calendario extends AppCompatActivity {
                                 /*Apro la descrizione delle partite in una nuova activity*/
                                 //Se non è annullata
                                 if (!p.isAnnullata()) {
-                                    Intent showRiepilogo_partita = new Intent(Calendario.this, Riepilogo_partita.class);
+                                    Intent showRiepilogo_partita = new Intent(Calendario.this, Prenota_da_Partecipa_partita.class);
                                     //Inserisco la persona dentro l'intent
                                     showRiepilogo_partita.putExtra(PERSON_DA_PASSARE_2, persona);
                                     showRiepilogo_partita.putExtra(PRENOTAZIONE, p);
