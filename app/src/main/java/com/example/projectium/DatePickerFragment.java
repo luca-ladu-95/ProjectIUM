@@ -24,6 +24,7 @@ public class DatePickerFragment extends DialogFragment {
     //creo il listener (vedi metodi interfaccia)
     private DatePickerFragmentListener listener;
 
+
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         super.onCreateDialog(savedInstanceState);//uso il metodo di Dialog
 
@@ -36,6 +37,7 @@ public class DatePickerFragment extends DialogFragment {
         }
 
         final DatePicker datePicker = new DatePicker(getActivity()); //come costruttore prende il contesto
+        datePicker.setMinDate(System.currentTimeMillis());
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity()); //è il dialog (la finestra vuota) su cui
         // mettere il datepicker, contiene anche i bottoni
 
@@ -45,6 +47,7 @@ public class DatePickerFragment extends DialogFragment {
         builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) { //quando premiamo ok stiamo assegnando a date
+
                 date.set(Calendar.YEAR, datePicker.getYear()); //mese, giorno e anno selezionato
                 date.set(Calendar.MONTH, datePicker.getMonth());
                 date.set(Calendar.DAY_OF_MONTH, datePicker.getDayOfMonth());

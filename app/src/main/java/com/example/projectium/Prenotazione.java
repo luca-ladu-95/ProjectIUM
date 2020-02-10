@@ -20,6 +20,7 @@ public class Prenotazione implements Serializable {
     private int num_giocatori;
     private boolean annullata;
     private String ora_evento;
+    private boolean valutata;
     private int id;
     private ArrayList<Persona> iscritti = new ArrayList<>();
 
@@ -118,5 +119,13 @@ public class Prenotazione implements Serializable {
 
     public void setIscritti(ArrayList<Persona> iscritti) {
         this.iscritti = iscritti;
+    }
+
+    public boolean isValutata() {
+        return valutata;
+    }
+
+    public void setValutata(boolean valutata) {
+        this.valutata = valutata;
     }
 }

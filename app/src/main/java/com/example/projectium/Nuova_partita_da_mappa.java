@@ -151,6 +151,7 @@ public class Nuova_partita_da_mappa extends AppCompatActivity {
                     prenotazione.setNome_evento(nomePartita.getText().toString());
                     prenotazione.setDescrizione(descrizione.getText().toString());
                     prenotazione.setCampo(campo);
+                    prenotazione.setValutata(false);
 
 
 
@@ -329,7 +330,7 @@ public class Nuova_partita_da_mappa extends AppCompatActivity {
                         //Creo una nuova prenotazione
                         Prenotazione finale = PrenotazioneFactory.getInstance().creaPrenotazione(persona,prenotazione.getCampo(),
                                 prenotazione.getNome_evento(),prenotazione.getDescrizione(),prenotazione.getData_evento(),prenotazione.getNum_giocatori(),
-                                false,prenotazione.getOra_evento());
+                                false,prenotazione.getOra_evento(),prenotazione.isValutata());
                         PrenotazioneFactory.getInstance().aggiungiPrenotazione(listaPrenotazioni,finale);
                         //Torno alla home
                         Context context = getApplicationContext();

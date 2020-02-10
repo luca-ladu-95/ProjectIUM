@@ -3,6 +3,7 @@ package com.example.projectium;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,9 +14,14 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Space;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 import static com.example.projectium.Home.PERSON_DA_PASSARE_2;
 import static com.example.projectium.Login.PERSON_DA_PASSARE;
@@ -23,11 +29,12 @@ import static com.example.projectium.Login.listaPrenotazioni;
 import static com.example.projectium.Prenotazione.PRENOTAZIONE;
 
 public class PrenotazioniEffettuate extends AppCompatActivity {
-
+    Date currentTime,dataEvento;
     Persona persona;
     ArrayList<Prenotazione> prenotazioni;
     TextView nessunaP,nessunaP2;
     Button indietro;
+    boolean flagdata;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +43,7 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
         /*Recupero i lay dove stampare dinamicamente i bottoni degli eventi */
         LinearLayout linearLayout1 = (LinearLayout) findViewById(R.id.layout_prenotazioni_del_giorno);
         LinearLayout linearLayout2 = (LinearLayout) findViewById(R.id.layout_prenotazioni_annullate);
+        LinearLayout linearLayout3 = (LinearLayout) findViewById(R.id.layout_prenotazioni_da_valutare);
         nessunaP=findViewById(R.id.testo_nessuna_prenotazione1);
         nessunaP2=findViewById(R.id.testo_nessuna_prenotazione2);
         indietro=findViewById(R.id.button_return_prenotazioni_effettuate);
@@ -83,13 +91,37 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
 
                 bottone.setText(prenotazioni.get(i).getNome_evento());
 
-                if(!prenotazioni.get(i).isAnnullata()){
+
+// CONFRONTO LE DATE DEGLI EVENTI A QUELLA ODIERNA SE SONO PASSATE SONO DA VALUTARE
+                SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+
+                currentTime = Calendar.getInstance().getTime();
+                try {
+                    dataEvento = format.parse(prenotazioni.get(i).getData_evento());
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                flagdata = dataEvento.after(currentTime);
+
+//FINE CONFRONTO DATE
+                if(!prenotazioni.get(i).isAnnullata() && flagdata){
 
                     linearLayout1.addView(bottone);
                     linearLayout1.addView(space);
                 }else{
+
+                    if(prenotazioni.get(i).isAnnullata() && flagdata){
                     linearLayout2.addView(bottone);
                     linearLayout2.addView(space);
+                }else {
+
+
+                            linearLayout3.addView(bottone);
+                            linearLayout3.addView(space);
+
+
+                    }
                 }
 
 
@@ -102,9 +134,25 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
                         /*Apro la descrizione delle partite in una nuova activity*/
 
 
-                        //Se non è annullata
 
-                        if(!p.isAnnullata()) {
+                        final SimpleDateFormat format2 = new SimpleDateFormat("dd/MM/yyyy");
+
+                        //Se non è annullata
+                        currentTime = Calendar.getInstance().getTime();
+
+                        final Date dataEvento2;
+                        try {
+                            dataEvento2 = format2.parse(p.getData_evento());
+                            flagdata = dataEvento2.after(currentTime);
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+
+
+
+
+
+                        if(!p.isAnnullata() && flagdata) {
                             Intent showRiepilogo_partita = new Intent(PrenotazioniEffettuate.this, Riepilogo_partita.class);
                             //Inserisco la persona dentro l'intent
 
@@ -115,16 +163,40 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
 
                             startActivity(showRiepilogo_partita);
                             finish();
-                        }else{
+                        }else {
+                            if(p.isAnnullata()){
+                                //Faccio vedere il motivo dell'annullamento
 
-                            //Faccio vedere il motivo dell'annullamento
+                                final String message = "Prenotazione del " + p.getData_evento() + (" per " +
+                                        "le ore " + p.getOra_evento() + ",campo: " + p.getCampo().getNome());
 
-                            final String message = "Prenotazione del " + p.getData_evento() + (" per " +
-                                    "le ore "+p.getOra_evento()+",campo: "+p.getCampo().getNome());
+                                AlertDialog diaBox = AskOption(message);
+                                diaBox.show();
+                            }else {
 
-                            AlertDialog diaBox = AskOption(message);
-                            diaBox.show();
+                                if(p.isValutata()){
 
+                                    Context context = getApplicationContext();
+                                    CharSequence text = "Hai già valutato questo evento";
+                                    int duration = Toast.LENGTH_SHORT;
+
+                                    Toast toast = Toast.makeText(context, text, duration);
+                                    toast.show();
+                                }else{
+
+                                    Intent showValutazione_partita = new Intent(PrenotazioniEffettuate.this, Valutazione.class);
+                                    //Inserisco la persona dentro l'intent
+
+
+                                    showValutazione_partita.putExtra(PERSON_DA_PASSARE_2, persona);
+                                    showValutazione_partita.putExtra(PRENOTAZIONE, p);
+
+
+                                    startActivity( showValutazione_partita);
+                                    finish();
+                                }
+
+                            }
                         }
 
                     }

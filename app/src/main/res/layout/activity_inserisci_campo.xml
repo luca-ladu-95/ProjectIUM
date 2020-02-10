@@ -128,29 +128,6 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Valutazione"
-            android:textColor="@color/nero"
-            android:textSize="25dp"
-            app:fontFamily="@font/bungee" >
-        </TextView>
-
-        <SeekBar
-            android:id="@+id/seekBarValutazione"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:max="5" />
-
-        <TextView
-            android:id="@+id/valoreValutazione"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textColor="@color/nero" />
-
         <Space
             android:layout_width="match_parent"
             android:layout_height="15dp" />

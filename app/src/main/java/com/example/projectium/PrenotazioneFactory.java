@@ -23,7 +23,7 @@ public class PrenotazioneFactory  implements Serializable {
     }
 
     /*Permette di creare una prenotazione*/
-    public Prenotazione creaPrenotazione(Persona user, CampoDaCalcio campo, String nome , String descrizione , String data , int num_G , boolean annulla , String ora){
+    public Prenotazione creaPrenotazione(Persona user, CampoDaCalcio campo, String nome , String descrizione , String data , int num_G , boolean annulla , String ora,boolean valutata){
 
         Prenotazione prenotazione = new Prenotazione();
         prenotazione.setCreatore(user);
@@ -35,6 +35,7 @@ public class PrenotazioneFactory  implements Serializable {
         prenotazione.setDescrizione(descrizione);
         prenotazione.setOra_evento(ora);
         prenotazione.setCampo(campo);
+        prenotazione.setValutata(valutata);
 
         contatoreID++;
 
@@ -49,12 +50,15 @@ public class PrenotazioneFactory  implements Serializable {
             ArrayList<Persona> utentiStandard = PersonaFactory.getInstance().getUtentiArray(utenti);
             ArrayList<CampoDaCalcio> campi = CampoDaCalcioFactory.getInstance().getCampiDefault();
 
-            Prenotazione p1 = creaPrenotazione(utentiStandard.get(1),campi.get(1),"Prova1","Semplice calcio","22/03/2020",7,false,"11:00");
-            Prenotazione p2 = creaPrenotazione(utentiStandard.get(2),campi.get(2),"Prova2","Semplice calcio","21/03/2020",8,false,"13:00");
-            Prenotazione p3 = creaPrenotazione(utentiStandard.get(2),campi.get(1),"Prova3","Annullata per infortunio","22/03/2020",10,true,"13:00");
-            Prenotazione p4 = creaPrenotazione(utentiStandard.get(3),campi.get(3),"Prova4","Semplice calcio","12/03/2020",9,false,"15:00");
-            Prenotazione p5 = creaPrenotazione(utentiStandard.get(2),campi.get(1),"Prova5","Annullata per mancanza giocatori","2/03/2020",10,true,"11:00");
-            Prenotazione p6 = creaPrenotazione(utentiStandard.get(0),campi.get(1),"Prova Annullata","Annullata per mal tempo","2/03/2020",9,true,"11:00");
+            Prenotazione p1 = creaPrenotazione(utentiStandard.get(1),campi.get(1),"Prova1","Semplice calcio","22/03/2020",7,false,"11:00",false);
+            Prenotazione p2 = creaPrenotazione(utentiStandard.get(2),campi.get(2),"Prova2","Semplice calcio","21/03/2020",8,false,"13:00",false);
+            Prenotazione p3 = creaPrenotazione(utentiStandard.get(2),campi.get(1),"Prova3","Annullata per infortunio","22/03/2020",10,true,"13:00",false);
+            Prenotazione p4 = creaPrenotazione(utentiStandard.get(3),campi.get(3),"Prova4","Semplice calcio","12/03/2020",9,false,"15:00",false);
+            Prenotazione p5 = creaPrenotazione(utentiStandard.get(2),campi.get(1),"Prova5","Annullata per mancanza giocatori","2/03/2020",10,true,"11:00",false);
+            Prenotazione p6 = creaPrenotazione(utentiStandard.get(0),campi.get(1),"Prova Annullata","Annullata per mal tempo","2/03/2020",9,true,"11:00",false);
+            Prenotazione p7 = creaPrenotazione(utentiStandard.get(2),campi.get(4),"Vecchia","Semplice calcio","21/03/2019",8,false,"13:00",false);
+
+            Prenotazione p8 = creaPrenotazione(utentiStandard.get(2),campi.get(4),"Vecchia2","Semplice calcio","22/03/2019",8,false,"13:00",false);
             /*
             p1.getIscritti().add(utentiStandard.get(2));
             p1.getIscritti().add(utentiStandard.get(3));
@@ -68,6 +72,8 @@ public class PrenotazioneFactory  implements Serializable {
             lista.add(p4);
             lista.add(p5);
             lista.add(p6);
+            lista.add(p7);
+            lista.add(p8);
         }
     }
 
@@ -267,12 +273,12 @@ public ArrayList<Prenotazione> setPrenotazioniComplete(){
         ArrayList<Persona> utentiStandard = PersonaFactory.getInstance().getUtentiArray(utenti);
         ArrayList<CampoDaCalcio> campi = CampoDaCalcioFactory.getInstance().getCampiDefault();
 
-        Prenotazione p1 = creaPrenotazione(utentiStandard.get(1),campi.get(1),"Prova1","Semplice calcio","22/03/2020",7,false,"11:00");
-        Prenotazione p2 = creaPrenotazione(utentiStandard.get(2),campi.get(2),"Prova2","Semplice calcio","21/03/2020",8,false,"13:00");
-        Prenotazione p3 = creaPrenotazione(utentiStandard.get(2),campi.get(1),"Prova3","Annullata per infortunio","22/03/2020",10,true,"13:00");
-        Prenotazione p4 = creaPrenotazione(utentiStandard.get(3),campi.get(3),"Prova4","Semplice calcio","12/03/2020",9,false,"15:00");
-        Prenotazione p5 = creaPrenotazione(utentiStandard.get(2),campi.get(1),"Prova5","Annullata per mancanza giocatori","2/03/2020",10,true,"11:00");
-        Prenotazione p6 = creaPrenotazione(utentiStandard.get(0),campi.get(1),"Prova Annullata","Annullata per mal tempo","2/03/2020",9,true,"11:00");
+        Prenotazione p1 = creaPrenotazione(utentiStandard.get(1),campi.get(1),"Prova1","Semplice calcio","22/03/2020",7,false,"11:00",false);
+        Prenotazione p2 = creaPrenotazione(utentiStandard.get(2),campi.get(2),"Prova2","Semplice calcio","21/03/2020",8,false,"13:00",false);
+        Prenotazione p3 = creaPrenotazione(utentiStandard.get(2),campi.get(1),"Prova3","Annullata per infortunio","22/03/2020",10,true,"13:00",false);
+        Prenotazione p4 = creaPrenotazione(utentiStandard.get(3),campi.get(3),"Prova4","Semplice calcio","12/03/2020",9,false,"15:00",false);
+        Prenotazione p5 = creaPrenotazione(utentiStandard.get(2),campi.get(1),"Prova5","Annullata per mancanza giocatori","2/03/2020",10,true,"11:00",false);
+        Prenotazione p6 = creaPrenotazione(utentiStandard.get(0),campi.get(1),"Prova Annullata","Annullata per mal tempo","2/03/2020",9,true,"11:00",true);
             /*
             p1.getIscritti().add(utentiStandard.get(2));
             p1.getIscritti().add(utentiStandard.get(3));

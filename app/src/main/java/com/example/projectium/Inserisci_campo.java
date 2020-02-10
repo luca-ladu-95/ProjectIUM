@@ -43,11 +43,11 @@ public class Inserisci_campo extends AppCompatActivity {
         nomeCampo = findViewById(R.id.gestore_nome_campo);
         viaCampo = findViewById(R.id.gestore_via_campo);
         importoCampo=findViewById(R.id.gestore_prezzo_campo);
-        seekBarValutazione = findViewById(R.id.seekBarValutazione);
+
         materiale=findViewById(R.id.gestore_materiale_campo);
         telefono=findViewById(R.id.gestore_telefono);
         conferma=findViewById(R.id.button_gestore_conferma);
-        valoreValutazione = findViewById(R.id.valoreValutazione);
+
 
         indietro=findViewById(R.id.button_return_gestore_inserisci_campo);
 
@@ -79,7 +79,6 @@ public class Inserisci_campo extends AppCompatActivity {
                             10,viaCampo.getEditText().getText().toString(),
                             telefono.getEditText().getText().toString(),
                             materiale.getEditText().getText().toString(),
-                            valoreValutazione.getText().toString(),
                             coordinate.latitude,
                             coordinate.longitude
                     );
@@ -88,6 +87,8 @@ public class Inserisci_campo extends AppCompatActivity {
                     if(campo!=null){
 
                         CampoDaCalcioFactory.getInstance().aggiungiCampo(listaCampi,campo);
+
+                        Valutazione_campo.getInstance().add_campo(campo);
 
                         Context context = getApplicationContext();
                         CharSequence text = "Inserimento effettuato con successo ";
@@ -129,7 +130,7 @@ public class Inserisci_campo extends AppCompatActivity {
             }
         });
 
-        seekBarValutazione.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+     /*   seekBarValutazione.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 UpdateValue(seekBar.getProgress());
@@ -143,7 +144,7 @@ public class Inserisci_campo extends AppCompatActivity {
             public void onStopTrackingTouch(SeekBar seekBar) {
             }
         });
-
+*/
     }
 
     @SuppressLint("SetTextI18n")

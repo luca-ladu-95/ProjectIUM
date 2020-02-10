@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+
     <color name="bianco">#FFFF</color>
     <color name="giallo">	#ffff00</color>
     <color name="nero">#000</color>
@@ -10,4 +8,11 @@
     <color name="blu">#0000ff</color>
     <color name="giallo2">#FCC702</color>
     <color name="rosso">#cb3234</color>
+
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#e040fb</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="colorActive">#d4d4d4</color>
+    <color name="colorStand">#ffea00</color>
 </resources>

@@ -142,8 +142,54 @@
 
 
 
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp">
+
+                </Space>
 
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/layout_prenotazioni_da_valutare">
+
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp">
+
+                    </Space>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Valutazioni"
+                        app:fontFamily="@font/bungee"
+                        android:textSize="23dp"
+                        android:textColor="@color/nero"
+                        android:layout_gravity="center"
+                        />
+
+
+                    <TextView
+                        android:id="@+id/testo_nessuna_valutazione"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="25dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/nero"
+                        android:text="" />
+
+
+
+
+
+
+
+                </LinearLayout>
 
 
 

@@ -24,6 +24,7 @@ public class Informazioni_campo extends AppCompatActivity {
     Button indietro,prenota;
     Prenotazione prenotazione;
     Persona persona;
+    String valut;
     TextView nomeCampo,numeroCampo,valutazione,tipoDiCampo,prezzoAPersona,viaCampo;
 
     @Override
@@ -56,9 +57,14 @@ public class Informazioni_campo extends AppCompatActivity {
 
 
 
+      //todo-> inserisci la visulaizzazione delle valutazioni
+
+        String value = Valutazione_campo.getInstance().get_valutazione(prenotazione.getCampo()).toString();
+
         nomeCampo.setText(prenotazione.getCampo().getNome());
         numeroCampo.setText("Telefono: "+ prenotazione.getCampo().getTelefono());
-        valutazione.setText(("Valutazione: " + prenotazione.getCampo().getValutazione()));
+
+        valutazione.setText(value);
         tipoDiCampo.setText("Manto: "+prenotazione.getCampo().getMateriale());
         prezzoAPersona.setText("Prezzo a persona: "+prenotazione.getCampo().getPrezzo_a_persona()+" $");
         viaCampo.setText(prenotazione.getCampo().getVia());
@@ -130,7 +136,7 @@ public class Informazioni_campo extends AppCompatActivity {
                         //Creo una nuova prenotazione
                         Prenotazione finale = PrenotazioneFactory.getInstance().creaPrenotazione(persona,prenotazione.getCampo(),
                                 prenotazione.getNome_evento(),prenotazione.getDescrizione(),prenotazione.getData_evento(),prenotazione.getNum_giocatori(),
-                                false,prenotazione.getOra_evento());
+                                false,prenotazione.getOra_evento(),prenotazione.isValutata());
                         PrenotazioneFactory.getInstance().aggiungiPrenotazione(listaPrenotazioni,finale);
                         //Torno alla home
                         Context context = getApplicationContext();

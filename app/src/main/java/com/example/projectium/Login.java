@@ -35,6 +35,9 @@ public class Login extends AppCompatActivity {
     static HashSet<CampoDaCalcio> listaCampi = new HashSet<>(); // Contiente tutti i campi
     static ArrayList<Prenotazione> listaPrenotazioni = new ArrayList<>();
 
+
+
+
     public static final String PERSON_DA_PASSARE = "package com.example.projectium";
 
 
@@ -53,6 +56,7 @@ public class Login extends AppCompatActivity {
         /*Gli popolo solo se prima erano vuoti */
         if(listaCampi== null || listaCampi.isEmpty()) {
             CampoDaCalcioFactory.getInstance().setCampiDefault(listaCampi);
+            Valutazione_campo.getInstance().set_valutazioni_default(listaCampi);
         }
         if(utenti==null || utenti.isEmpty()) {
             PersonaFactory.getInstance().setPersoneDefault(utenti);
@@ -61,6 +65,8 @@ public class Login extends AppCompatActivity {
         if(listaPrenotazioni == null || listaPrenotazioni.isEmpty()) {
             PrenotazioneFactory.getInstance().setPrenotazioniStandard(listaPrenotazioni, utenti);
         }
+
+
 
 
         super.onCreate(savedInstanceState);

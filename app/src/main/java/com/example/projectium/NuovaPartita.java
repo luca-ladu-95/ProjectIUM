@@ -98,6 +98,7 @@ public class NuovaPartita extends AppCompatActivity {
 
                     debug = values[np.getValue()]; //Funziona per l'ora
                     SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+
                     debug3 =  format.format(datePickerFragment.getDate().getTime());
 
                     prenotazione.setAnnullata(false);
@@ -107,6 +108,7 @@ public class NuovaPartita extends AppCompatActivity {
                     prenotazione.setOra_evento(debug);
                     prenotazione.setNome_evento(nomePartita.getText().toString());
                     prenotazione.setDescrizione(descrizione.getText().toString());
+                    prenotazione.setValutata(false);
                     //Gli id e l'array dei partecipanti verra generato dopo ora la utilizzo solo come appoggio
                     //Ora carico tutto nella macro e la passo per fare scegliere il campo
 

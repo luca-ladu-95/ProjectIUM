@@ -19,11 +19,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 import static com.example.projectium.Home.PERSON_DA_PASSARE_2;
@@ -42,6 +45,8 @@ public class Calendario extends AppCompatActivity {
     Space space;
     Button bottone;
     String correctedMonth;
+    Date currentTime,dataEvento;
+    boolean flagdata;
 
 
     @Override
@@ -142,7 +147,7 @@ public class Calendario extends AppCompatActivity {
                     }
                 }else{   //CASO PERSONA è UTENTE
 
-                    ArrayList<Prenotazione> listaPrenotazione_Utente = PrenotazioneFactory.getInstance().getPrenotazioneUtente(listaPrenotazioni,persona);
+                    ArrayList<Prenotazione> listaPrenotazione_Utente =  PrenotazioneFactory.getInstance().getPrenotazioniInCorso(listaPrenotazioni, persona);
                     for (int i = 0; i < listaPrenotazione_Utente.size(); i++) {
 
                         space = new Space(Calendario.this);
@@ -158,7 +163,18 @@ public class Calendario extends AppCompatActivity {
 
                         bottone.setText(listaPrenotazione_Utente.get(i).getNome_evento());
 
-                        if (!listaPrenotazione_Utente.get(i).isAnnullata() && listaPrenotazione_Utente.get(i).getData_evento().equals(giornoPremuto)) {
+                        // CONFRONTO LE DATE DEGLI EVENTI A QUELLA ODIERNA SE SONO PASSATE SONO DA VALUTARE
+                        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+                        currentTime = Calendar.getInstance().getTime();
+                        try {
+                            dataEvento = format.parse(listaPrenotazione_Utente.get(i).getData_evento());
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+
+                        flagdata = dataEvento.after(currentTime);
+
+                        if (flagdata && !listaPrenotazione_Utente.get(i).isAnnullata() && listaPrenotazione_Utente.get(i).getData_evento().equals(giornoPremuto)) {
                             conto_partite_prenotate++;
                             linearLayout1.addView(bottone);
                             linearLayout1.addView(space);

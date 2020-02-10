@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import com.google.android.gms.maps.model.LatLng;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class CampoDaCalcio implements Serializable {
 
@@ -12,10 +13,9 @@ public class CampoDaCalcio implements Serializable {
     private int posti;
     private String via;
     private String prezzo_a_persona;
-    private String valutazione;
     private String materiale;
     private String telefono;
-   private double latitudine;
+    private double latitudine;
    private double longitudine;
 
     public String getNome() {
@@ -50,13 +50,7 @@ public class CampoDaCalcio implements Serializable {
         this.prezzo_a_persona = prezzo_a_persona;
     }
 
-    public String getValutazione() {
-        return valutazione;
-    }
 
-    public void setValutazione(String valutazione) {
-        this.valutazione = valutazione;
-    }
 
 
 
@@ -113,4 +107,6 @@ public class CampoDaCalcio implements Serializable {
     public void setLongitudine(double longitudine) {
         this.longitudine = longitudine;
     }
+
+
 }
