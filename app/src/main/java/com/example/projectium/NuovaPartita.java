@@ -76,6 +76,9 @@ public class NuovaPartita extends AppCompatActivity {
 
         seekBar.setMax(10);
 
+        seekBar.setProgress(1);
+        numeroGiocatori.setText("1");
+
         Intent intent = getIntent();
         Serializable obj = intent.getSerializableExtra(PERSON_DA_PASSARE_2);
 
@@ -102,7 +105,7 @@ public class NuovaPartita extends AppCompatActivity {
                     debug3 =  format.format(datePickerFragment.getDate().getTime());
 
                     prenotazione.setAnnullata(false);
-                    prenotazione.setNum_giocatori(numGiocatori+1);
+                    prenotazione.setNum_giocatori(numGiocatori);
                     prenotazione.setCreatore(persona);
                     prenotazione.setData_evento(debug3);
                     prenotazione.setOra_evento(debug);
