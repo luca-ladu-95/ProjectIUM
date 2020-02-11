@@ -38,7 +38,7 @@ public class NuovaPartita extends AppCompatActivity {
 
     int MinValue=1;
     int maxValue=10;
-    int modValue=0;
+    int modValue=1;
     int numGiocatori;
 
 
