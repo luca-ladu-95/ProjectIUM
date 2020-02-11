@@ -117,9 +117,10 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
                 }else {
 
 
+                        if(!prenotazioni.get(i).isValutata()) {
                             linearLayout3.addView(bottone);
                             linearLayout3.addView(space);
-
+                        }
 
                     }
                 }

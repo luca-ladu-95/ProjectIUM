@@ -135,18 +135,64 @@
             </com.google.android.material.textfield.TextInputLayout>
 
 
-            <Button
-                android:id="@+id/button_gestore_conferma"
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="15dp">
+
+            </Space>
+
+            <RadioGroup
+                android:id="@+id/radio_group"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/textbox"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="30dp"
-                android:text="REGISTRATI"
-                app:fontFamily="@font/bungee"
-                android:textSize="20sp"
-                android:textColor="#fff"/>
+
+                android:orientation="horizontal"
+                android:layout_above="@+id/view_below"
+                android:paddingLeft="15dp"
+               >
+
+                <RadioButton
+                    android:id="@+id/radio_utente"
+                    android:layout_width="0dp"
+                    app:fontFamily="@font/bungee"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Utente" />
+
+                <RadioButton
+                    android:id="@+id/radio_gestore"
+                    android:layout_gravity="center"
+                    android:layout_width="0dp"
+                    app:fontFamily="@font/bungee"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Gestore" />
+            </RadioGroup>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/button_gestore_conferma"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/textbox"
+                    android:text="REGISTRATI"
+                    android:textColor="#fff"
+                    android:textSize="20sp"
+                    app:fontFamily="@font/bungee" />
+
+
+            </LinearLayout>
+
 
         </LinearLayout>
 

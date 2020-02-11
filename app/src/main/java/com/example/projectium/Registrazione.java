@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
@@ -20,6 +22,9 @@ public class Registrazione extends AppCompatActivity {
     TextInputLayout username, nome, cognome, pass, cpass, email;
     Button registrati;
     Persona utente;
+    RadioButton button_gestore,button_utente;
+    RadioGroup radioGroup;
+    boolean isGestore;
 
     public static final String PERSON_DA_PASSARE2 = "package com.example.projectium";
 
@@ -34,6 +39,9 @@ public class Registrazione extends AppCompatActivity {
         utente = new Persona();
 
         //recupero gli id per i vari campi
+        radioGroup=findViewById(R.id.radio_group);
+        button_gestore = findViewById(R.id.radio_gestore);
+        button_utente = findViewById(R.id.radio_utente);
         username = findViewById(R.id.inputUsername);
         nome = findViewById(R.id.inputNome);
         cognome = findViewById(R.id.inputCognome);
@@ -43,6 +51,20 @@ public class Registrazione extends AppCompatActivity {
         registrati = findViewById(R.id.button_gestore_conferma);
 
 
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+        {
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch(checkedId){
+                    case R.id.radio_gestore:
+                        isGestore=true;
+                        break;
+                    case R.id.radio_utente:
+                        // do operations specific to this selection
+                        isGestore=false;
+                        break;
+                }
+            }
+        });
 
         registrati.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,6 +72,8 @@ public class Registrazione extends AppCompatActivity {
                 if(!checkInput()){
                     //aggiorno il contenuto di persona
                     updatePerson();
+
+
 
                     utenti.put(utente.getUserId(), utente);
 
@@ -110,6 +134,7 @@ public class Registrazione extends AppCompatActivity {
             pass.setError(null);
         }
 
+
         //controllo per l'inserimento della password di conferma
         if(cpass.getEditText().getText() == null || cpass.getEditText().getText().length() == 0 || !(cpass.getEditText().getText().toString().equals(pass.getEditText().getText().toString()))){
             cpass.setError("Inserire la stessa password");
@@ -140,6 +165,7 @@ public class Registrazione extends AppCompatActivity {
         this.utente.setPassword(this.pass.getEditText().getText().toString());
         this.utente.setCPassword(this.cpass.getEditText().getText().toString());
         this.utente.setEmail(this.email.getEditText().getText().toString());
+        this.utente.setGestore(isGestore);
         this.utente.setPartite("0");
     }
 }
