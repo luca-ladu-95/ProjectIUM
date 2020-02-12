@@ -146,14 +146,16 @@
                     android:text="Ora"
                     android:textColor="@color/nero"
                     android:textSize="25dp"
-                    app:fontFamily="@font/bungee" />
+                    app:fontFamily="@font/bungee"
+                    android:visibility="gone"/>
 
 
                 <NumberPicker
                     android:id="@+id/oraPicker_da_mappa"
                     android:layout_width="match_parent"
                     android:layout_height="97dp"
-                    android:scrollbarSize="20dp" />
+                    android:scrollbarSize="20dp"
+                    android:visibility="gone"/>
 
 
             </LinearLayout>
