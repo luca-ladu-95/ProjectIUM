@@ -315,6 +315,10 @@ public class Nuova_partita_da_mappa extends AppCompatActivity {
         this.modValue = newVal;
 
         numeroGiocatori.setText(""+this.modValue);
+
+        if(this.seekBar.getProgress() != modValue){
+            this.seekBar.setProgress(modValue);
+        }
     }
 
 
