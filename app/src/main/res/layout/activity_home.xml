@@ -41,9 +41,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="40dp"
-        >
+        android:orientation="vertical">
 
         <Space
             android:layout_width="match_parent"
@@ -61,14 +59,14 @@
 
         <TextView
             android:id="@+id/homeNome"
-            app:fontFamily="@font/bungee"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=""
             android:textAlignment="center"
             android:textColor="@color/nero"
             android:textSize="30dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:fontFamily="@font/bungee" />
 
         <Space
             android:layout_width="match_parent"
@@ -78,7 +76,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="20dp"
 
             >
 
@@ -87,13 +84,13 @@
                 android:id="@+id/buttonNewPartita"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/textbox"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
+                android:background="@drawable/textbox"
                 android:text="NUOVA PARTITA"
-                app:fontFamily="@font/bungee"
+                android:textColor="#fff"
                 android:textSize="20sp"
-                android:textColor="#fff" />
+                app:fontFamily="@font/bungee" />
 
             <Space
                 android:layout_width="match_parent"
@@ -103,13 +100,13 @@
                 android:id="@+id/buttonFindPartita"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/textbox"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
+                android:background="@drawable/textbox"
                 android:text="CERCA PARTITA"
-                app:fontFamily="@font/bungee"
+                android:textColor="#fff"
                 android:textSize="20sp"
-                android:textColor="#fff" />
+                app:fontFamily="@font/bungee" />
 
             <Space
                 android:layout_width="match_parent"
@@ -119,13 +116,13 @@
                 android:id="@+id/buttonMappaCampi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/textbox"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
+                android:background="@drawable/textbox"
                 android:text="MAPPA DEI CAMPI"
-                app:fontFamily="@font/bungee"
+                android:textColor="#fff"
                 android:textSize="20sp"
-                android:textColor="#fff" />
+                app:fontFamily="@font/bungee" />
 
             <Space
                 android:layout_width="match_parent"
@@ -135,13 +132,13 @@
                 android:id="@+id/buttonPrenotazioni"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/textbox"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
+                android:background="@drawable/textbox"
                 android:text="PRENOTAZIONI EFFETTUATE"
-                app:fontFamily="@font/bungee"
+                android:textColor="#fff"
                 android:textSize="20sp"
-                android:textColor="#fff"/>
+                app:fontFamily="@font/bungee" />
         </LinearLayout>
 
 

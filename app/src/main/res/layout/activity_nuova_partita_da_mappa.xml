@@ -72,8 +72,10 @@
                     android:id="@+id/edit_nome_partita_da_mappa"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10"
 
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:ems="10"
                     android:gravity="center"
                     android:hint="inserisci il nome della partita"
                     android:inputType="textPersonName" />
@@ -100,6 +102,8 @@
                     android:id="@+id/seekBarGiocatori_da_mappa"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
                     android:max="10" />
 
                 <TextView
@@ -127,6 +131,8 @@
                     android:id="@+id/input_data_evento_nuovaP_da_mappa"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
                     android:focusableInTouchMode="false"
                     android:gravity="center"
                     android:hint="es. 01/01/1995"
@@ -152,10 +158,12 @@
 
                 <NumberPicker
                     android:id="@+id/oraPicker_da_mappa"
-                    android:layout_width="match_parent"
-                    android:layout_height="97dp"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
                     android:scrollbarSize="20dp"
-                    android:visibility="gone"/>
+                    android:visibility="gone" />
 
 
             </LinearLayout>
@@ -181,12 +189,14 @@
                     android:id="@+id/descrizione_nuova_partita_da_mappa"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
                     android:ems="10"
                     android:gravity="center"
                     android:hint="es. partita tra amici"
                     android:inputType="textPersonName"
                     android:textColor="@color/nero"
-                    android:textSize="20dp" />
+                    android:textSize="20dp"
+                    android:layout_marginRight="30dp" />
 
                 <Space
                     android:layout_width="match_parent"

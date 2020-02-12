@@ -156,8 +156,8 @@
 
             <NumberPicker
                 android:id="@+id/oraPicker"
-                android:layout_width="147dp"
-                android:layout_height="97dp"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:scrollbarSize="20dp"
