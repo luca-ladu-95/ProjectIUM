@@ -97,7 +97,7 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                android:max="10"
+                android:max="9"
                 android:paddingLeft="0dp"
                 android:paddingRight="0dp" />
 
@@ -150,6 +150,7 @@
                 android:text="Ora"
                 android:textColor="@color/nero"
                 android:textSize="25dp"
+                android:visibility="gone"
                 app:fontFamily="@font/bungee" />
 
 
@@ -159,7 +160,8 @@
                 android:layout_height="97dp"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:scrollbarSize="20dp" />
+                android:scrollbarSize="20dp"
+                android:visibility="gone"/>
 
 
 

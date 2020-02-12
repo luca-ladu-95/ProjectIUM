@@ -22,6 +22,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 import static com.example.projectium.Home.PERSON_DA_PASSARE_2;
 import static com.example.projectium.Login.PERSON_DA_PASSARE;
@@ -31,6 +32,8 @@ import static com.example.projectium.Prenotazione.PRENOTAZIONE;
 public class PrenotazioniEffettuate extends AppCompatActivity {
     Date currentTime,dataEvento;
     Persona persona;
+
+    String current,events;
     ArrayList<Prenotazione> prenotazioni;
     TextView nessunaP,nessunaP2;
     Button indietro;
@@ -40,6 +43,7 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prenotazioni_effettuate);
 
+        String currentHours = new SimpleDateFormat("HH:mm", Locale.getDefault()).format(new Date());
         /*Recupero i lay dove stampare dinamicamente i bottoni degli eventi */
         LinearLayout linearLayout1 = (LinearLayout) findViewById(R.id.layout_prenotazioni_del_giorno);
         LinearLayout linearLayout2 = (LinearLayout) findViewById(R.id.layout_prenotazioni_annullate);
@@ -95,14 +99,24 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
 // CONFRONTO LE DATE DEGLI EVENTI A QUELLA ODIERNA SE SONO PASSATE SONO DA VALUTARE
                 SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 
+
                 currentTime = Calendar.getInstance().getTime();
+                String debug1 = format.format(currentTime);
+                String debug2=null ;
                 try {
                     dataEvento = format.parse(prenotazioni.get(i).getData_evento());
+                    debug2 = format.format(dataEvento);
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
 
-                flagdata = dataEvento.after(currentTime);
+
+
+
+                if(debug1.equals(debug2) && prenotazioni.get(i).getOra_evento().compareTo(currentHours)>0 ){
+                    flagdata = true;
+                }else
+                    flagdata = dataEvento.after(currentTime) ;
 
 //FINE CONFRONTO DATE
                 if(!prenotazioni.get(i).isAnnullata() && flagdata){
@@ -142,12 +156,24 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
                         currentTime = Calendar.getInstance().getTime();
 
                         final Date dataEvento2;
+
+
+                        String debug1 = format2.format(currentTime);
+                        String debug2=null ;
+
                         try {
                             dataEvento2 = format2.parse(p.getData_evento());
-                            flagdata = dataEvento2.after(currentTime);
+
+
+                            debug2=format2.format(dataEvento2);
+
+                            if(debug1.equals(debug2)) flagdata=true;
+                            else
+                            flagdata = dataEvento2.after(currentTime) ;
                         } catch (ParseException e) {
                             e.printStackTrace();
                         }
+
 
 
 
@@ -265,5 +291,44 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
         return myQuittingDialogBox;
     }
 
+    public  int get_int_ora(String ora){
+        int i=0;
+        switch (ora){
+            case "09:00":i=9;
+                break;
+            case  "10:00":i=10;
+                break;
+            case "11:00":i=11;
+                break;
+            case "12:00":i=12;
+                break;
+            case "13:00":i=13;
+                break;
+            case  "14:00":i=14;
+                break;
+            case "15:00":i=15;
+                break;
+            case "16:00":i=16;
+                break;
+            case "17:00":i=17;
+                break;
+            case  "18:00":i=18;
+                break;
+            case "19:00":i=19;
+                break;
+            case "20:00":i=20;
+                break;
+            case "21:00":i=21;
+                break;
+            case  "22:00":i=22;
+                break;
 
+        }
+
+        return i;
+    }
+
+    public  boolean confronto_ora(Integer ora_1 ,Integer ora_2){
+        return ora_1>ora_2;
+    }
 }

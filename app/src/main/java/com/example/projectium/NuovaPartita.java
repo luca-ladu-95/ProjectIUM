@@ -16,6 +16,8 @@ import android.widget.Toast;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 
 import static com.example.projectium.Home.PERSON_DA_PASSARE_2;
@@ -27,11 +29,14 @@ public class NuovaPartita extends AppCompatActivity {
 
     Persona persona;
     DatePickerFragment datePickerFragment;
-    EditText nomePartita,dataPartita,descrizione,ora;
+    EditText nomePartita,dataPartita,descrizione;
     Button indietro;
+    Date currentTime;
+    int indice;
     TextView numeroGiocatori;
     SeekBar seekBar;
     NumberPicker np;
+    TextView ora;
     Button scegliCampo;
     String debug,debug3 ;
     Prenotazione prenotazione = new Prenotazione();
@@ -58,26 +63,24 @@ public class NuovaPartita extends AppCompatActivity {
 
         seekBar=findViewById(R.id.seekBarGiocatori);
 
+        ora=findViewById(R.id.tv);
+
         numeroGiocatori = findViewById(R.id.seekNumeroGiocatori);
 
         indietro= findViewById(R.id.button_return_nuova_partita);
         final NumberPicker np = findViewById(R.id.oraPicker);
 
         //Array che viene passato al numb picker per mascherare i valori effettivi
-        final String[] values = {"9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00","17:00","18:00",
+        final String[] values = {"8:00","9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00","17:00","18:00",
                 "19:00","20:00","21:00","22:00"};
-        np.setMinValue(0);
-        np.setMaxValue(values.length -1 );
 
-        np.setDisplayedValues(values);
 
-        //Gets whether the selector wheel wraps when reaching the min/max value.
-        np.setWrapSelectorWheel(true);
 
         seekBar.setMax(10);
 
         seekBar.setProgress(1);
         numeroGiocatori.setText("1");
+
 
         Intent intent = getIntent();
         Serializable obj = intent.getSerializableExtra(PERSON_DA_PASSARE_2);
@@ -87,6 +90,7 @@ public class NuovaPartita extends AppCompatActivity {
         } else {
             persona = new Persona();
         }
+
 
         scegliCampo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,12 +103,14 @@ public class NuovaPartita extends AppCompatActivity {
                     // passare dopo alla successiva activity e solo dopo che si sceglie il campo creare una prenotazione
                     // con la funzione crea prenotazione
 
+                    int debug2 = np.getValue();
                     debug = values[np.getValue()]; //Funziona per l'ora
                     SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 
                     debug3 =  format.format(datePickerFragment.getDate().getTime());
 
                     prenotazione.setAnnullata(false);
+                    if(numGiocatori ==0 ) numGiocatori =1;
                     prenotazione.setNum_giocatori(numGiocatori);
                     prenotazione.setCreatore(persona);
                     prenotazione.setData_evento(debug3);
@@ -144,6 +150,10 @@ public class NuovaPartita extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 datePickerFragment.show(getSupportFragmentManager(), "date picker");
+                np.setVisibility(View.VISIBLE);
+                ora.setVisibility(View.VISIBLE);
+
+
             }
         });
 
@@ -166,6 +176,48 @@ public class NuovaPartita extends AppCompatActivity {
                 // tramite il datepicker
                 SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
                 dataPartita.setText(format.format(date.getTime()));
+
+                Date deb1 = datePickerFragment.getDate().getTime();
+                Date deb2 = Calendar.getInstance().getTime();
+
+                String deb1String = format.format(deb1);
+                String deb2String = format.format(deb2);
+
+
+
+
+                if(deb1String.equals(deb2String)) {
+                    String currentTime = new SimpleDateFormat("HH", Locale.getDefault()).format(new Date());
+
+                    indice = get_indice_data(currentTime);
+
+                    String[] valori = new String[indice];
+
+                    int j = values.length - indice;
+
+                    for (int i = 0; i < valori.length && j <= values.length; i++) {
+                        valori[i] = values[j];
+                        j++;
+                    }
+
+                    np.setMinValue(0);
+                    np.setMaxValue(valori.length - 1);
+                    //Gets whether the selector wheel wraps when reaching the min/max value.
+                    np.setWrapSelectorWheel(true);
+
+
+                    np.setDisplayedValues(valori);
+                }else {
+                    np.setDisplayedValues(null);
+                    np.setMinValue(0);
+                    int debugde= values.length;
+                    np.setMaxValue(values.length - 1);
+                    //Gets whether the selector wheel wraps when reaching the min/max value.
+                    np.setWrapSelectorWheel(true);
+                    np.setDisplayedValues(values);
+                }
+
+
             }
 
             @Override
@@ -198,6 +250,7 @@ public class NuovaPartita extends AppCompatActivity {
         newVal = newVal < MinValue ? MinValue : newVal;
 
         this.modValue = newVal;
+
 
         numeroGiocatori.setText(""+this.modValue);
 
@@ -240,5 +293,44 @@ public class NuovaPartita extends AppCompatActivity {
             descrizione.setError(null);
 
         return errors;
+    }
+
+    public  int get_indice_data(String ora){
+        int i=0;
+        switch (ora){
+            case "08":i=14;
+            break;
+            case "09":i=13;
+                break;
+            case  "10":i=12;
+                break;
+            case "11":i=11;
+                break;
+            case "12":i=10;
+                break;
+            case "13":i=9;
+                break;
+            case  "14":i=8;
+                break;
+            case "15":i=7;
+                break;
+            case "16":i=6;
+                break;
+            case "17":i=5;
+                break;
+            case  "18":i=4;
+                break;
+            case "19":i=3;
+                break;
+            case "20":i=2;
+                break;
+            case "21":i=1;
+                break;
+            case  "22":i=0;
+                break;
+
+        }
+
+        return i;
     }
 }
