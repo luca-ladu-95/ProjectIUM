@@ -15,10 +15,13 @@ import android.widget.Toast;
 import java.io.Serializable;
 
 import static com.example.projectium.Home.PERSON_DA_PASSARE_2;
+import static com.example.projectium.Informazioni_campo_da_mappa.BOOLEANO;
 import static com.example.projectium.Login.PERSON_DA_PASSARE;
 
 import static com.example.projectium.Login.listaPrenotazioni;
+import static com.example.projectium.Mappa.NOME_CAMPO_DA_PASSARE;
 import static com.example.projectium.Prenotazione.PRENOTAZIONE;
+
 
 public class Prenota_da_Partecipa_partita extends AppCompatActivity {
 
@@ -26,6 +29,7 @@ public class Prenota_da_Partecipa_partita extends AppCompatActivity {
     Prenotazione prenotazione;
     TextView nomeEvento, data, nomeCreatore, ora, numeroGiocatori, prezzo, descrizione,campo ;
     Button prenotati,home;
+    Boolean flag_prenotazione;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +64,8 @@ public class Prenota_da_Partecipa_partita extends AppCompatActivity {
 
         Serializable obj2 = intent.getSerializableExtra(PRENOTAZIONE);
 
+        Serializable obj3 = intent.getSerializableExtra(BOOLEANO);
+
 
         if (obj instanceof Persona) {
             persona = (Persona) obj;
@@ -72,6 +78,13 @@ public class Prenota_da_Partecipa_partita extends AppCompatActivity {
         } else {
             prenotazione = new Prenotazione();
         }
+
+        if(obj3 instanceof  Boolean){
+            flag_prenotazione = (Boolean)obj3;
+        }else {
+            flag_prenotazione=false;
+        }
+
 
         Integer numG = prenotazione.getNum_giocatori();
 
@@ -92,12 +105,25 @@ public class Prenota_da_Partecipa_partita extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 /*Utilizzo person da passare perche nell altra activity usa quella*/
+                if(!flag_prenotazione){
                 Intent showCercaPartita = new Intent(Prenota_da_Partecipa_partita.this, Partecipa_partita.class);
                 //Inserisco la persona dentro l'intent
                 showCercaPartita.putExtra(PERSON_DA_PASSARE, persona);
                 //richiamo activity
                 startActivity(showCercaPartita);
                 finish();
+                }else{
+
+                    Intent showCercaPartita = new Intent(Prenota_da_Partecipa_partita.this, Partecipa_partita.class);
+                    //Inserisco la persona dentro l'intent
+                    showCercaPartita.putExtra(PERSON_DA_PASSARE, persona);
+                    showCercaPartita.putExtra(BOOLEANO,flag_prenotazione);
+                    showCercaPartita.putExtra(NOME_CAMPO_DA_PASSARE,prenotazione.getCampo().getNome());
+                    //richiamo activity
+                    startActivity(showCercaPartita);
+                    finish();
+
+                }
             }
         });
 
@@ -156,12 +182,25 @@ public class Prenota_da_Partecipa_partita extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        /*Utilizzo person da passare perche nell altra activity usa quella*/
-        Intent showCercaPartita = new Intent(Prenota_da_Partecipa_partita.this, Partecipa_partita.class);
-        //Inserisco la persona dentro l'intent
-        showCercaPartita.putExtra(PERSON_DA_PASSARE, persona);
-        //richiamo activity
-        startActivity(showCercaPartita);
-        finish();
+        if(!flag_prenotazione){
+            Intent showCercaPartita = new Intent(Prenota_da_Partecipa_partita.this, Partecipa_partita.class);
+            //Inserisco la persona dentro l'intent
+            showCercaPartita.putExtra(PERSON_DA_PASSARE, persona);
+            //richiamo activity
+            startActivity(showCercaPartita);
+            finish();
+        }else{
+
+            Intent showCercaPartita = new Intent(Prenota_da_Partecipa_partita.this, Partecipa_partita.class);
+            //Inserisco la persona dentro l'intent
+            showCercaPartita.putExtra(PERSON_DA_PASSARE, persona);
+            showCercaPartita.putExtra(BOOLEANO,flag_prenotazione);
+            showCercaPartita.putExtra(NOME_CAMPO_DA_PASSARE,prenotazione.getCampo().getNome());
+            //richiamo activity
+            startActivity(showCercaPartita);
+            finish();
+
+        }
+
     }
 }

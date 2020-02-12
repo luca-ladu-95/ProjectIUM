@@ -27,6 +27,8 @@ public class Prenotazione implements Serializable {
 
 
 
+
+
     public Persona getCreatore() {
         return creatore;
     }

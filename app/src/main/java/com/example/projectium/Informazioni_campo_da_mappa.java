@@ -20,11 +20,14 @@ import static com.example.projectium.Login.listaPrenotazioni;
 import static com.example.projectium.Mappa.NOME_CAMPO_DA_PASSARE;
 import static com.example.projectium.Prenotazione.PRENOTAZIONE;
 
+
 public class Informazioni_campo_da_mappa extends AppCompatActivity {
 
+    public static final String BOOLEANO = "package com.example.projectium.Infromazioni_campo_da_mappa";
     Button indietro, partecipa, nuova_partita;
     Prenotazione prenotazione;
     Persona persona;
+    Boolean flag_prenotazione = true;
     String valut;
     String campo_da_intent;
     CampoDaCalcio campo_selezionato;
@@ -71,7 +74,7 @@ public class Informazioni_campo_da_mappa extends AppCompatActivity {
 
         String value = Valutazione_campo.getInstance().get_valutazione(campo_selezionato).toString();
 
-        nomeCampo.setText(campo_selezionato.getNome());
+        nomeCampo.setText(campo_da_intent);
         numeroCampo.setText(campo_selezionato.getTelefono());
 
         valutazione.setText(value);
@@ -105,6 +108,7 @@ public class Informazioni_campo_da_mappa extends AppCompatActivity {
                 showField.putExtra(NOME_CAMPO_DA_PASSARE, campo_da_intent);
                 showField.putExtra(PERSON_DA_PASSARE, persona);
 
+
                 startActivity(showField);
                 finish();
 
@@ -118,7 +122,7 @@ public class Informazioni_campo_da_mappa extends AppCompatActivity {
                 Intent showField = new Intent(Informazioni_campo_da_mappa.this, Partecipa_partita.class);
                 showField.putExtra(NOME_CAMPO_DA_PASSARE, nomeCampo);
                 showField.putExtra(PERSON_DA_PASSARE, persona);
-
+                showField.putExtra(BOOLEANO,flag_prenotazione);
                 startActivity(showField);
                 finish();
 
@@ -133,6 +137,7 @@ public class Informazioni_campo_da_mappa extends AppCompatActivity {
         Intent showCampo = new Intent(Informazioni_campo_da_mappa.this, Mappa.class);
         //Inserisco la persona dentro l'intent
 
+        showCampo.putExtra(PERSON_DA_PASSARE,persona);
         //richiamo activity
         startActivity(showCampo);
         finish();

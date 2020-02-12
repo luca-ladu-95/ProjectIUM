@@ -26,6 +26,7 @@ import java.util.Date;
 import java.util.Iterator;
 
 import static com.example.projectium.Home.PERSON_DA_PASSARE_2;
+import static com.example.projectium.Informazioni_campo_da_mappa.BOOLEANO;
 import static com.example.projectium.Login.PERSON_DA_PASSARE;
 import static com.example.projectium.Login.listaPrenotazioni;
 import static com.example.projectium.Mappa.NOME_CAMPO_DA_PASSARE;
@@ -37,14 +38,18 @@ public class Partecipa_partita extends AppCompatActivity {
 
     Button indietro;
     public Persona p1;
+    Persona persona;
     TextView nessunaPartita;
     ArrayList<Prenotazione> prenotazioniInCorso;
     String data_evento,current_data;
+    Boolean flag_prenotazione;
+     String nomeCampo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        String nomeCampo;
-        final Persona persona;
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_partecipa_partita);
 
@@ -56,7 +61,7 @@ public class Partecipa_partita extends AppCompatActivity {
         final Intent intent = getIntent();
         Serializable obj = intent.getSerializableExtra(PERSON_DA_PASSARE);
         Serializable obj2 = intent.getSerializableExtra(NOME_CAMPO_DA_PASSARE);
-
+        Serializable obj3 = intent.getSerializableExtra(BOOLEANO);
 
         if (obj2 instanceof String) {
             nomeCampo = (String) obj2;
@@ -68,6 +73,12 @@ public class Partecipa_partita extends AppCompatActivity {
             persona = (Persona) obj;
         } else {
             persona = new Persona();
+        }
+
+        if(obj3 instanceof  Boolean){
+            flag_prenotazione = (Boolean)obj3;
+        }else {
+            flag_prenotazione=false;
         }
 
         p1=persona;
@@ -143,6 +154,7 @@ public class Partecipa_partita extends AppCompatActivity {
 
                             showPrenota_partita.putExtra(PERSON_DA_PASSARE_2, persona);
                             showPrenota_partita.putExtra(PRENOTAZIONE, p);
+                            showPrenota_partita.putExtra(BOOLEANO,flag_prenotazione);
 
 
                             startActivity(showPrenota_partita);
@@ -165,13 +177,25 @@ public class Partecipa_partita extends AppCompatActivity {
       indietro.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
-              Intent showHOME = new Intent(Partecipa_partita.this, Home.class);
+
               //Inserisco la persona dentro l'intent
               //ATTENZIONE ho messo person_da_passare e NON person_da_passare2 perchè il login va a pescare sul primo
+              if(!flag_prenotazione){
+                  Intent showHOME = new Intent(Partecipa_partita.this, Home.class);
               showHOME.putExtra(PERSON_DA_PASSARE, persona);
               //richiamo activity
               startActivity(showHOME);
               finish();
+
+              }else {
+
+                  Intent showHOME = new Intent(Partecipa_partita.this, Informazioni_campo_da_mappa.class);
+                  showHOME.putExtra(PERSON_DA_PASSARE, persona);
+                showHOME.putExtra(NOME_CAMPO_DA_PASSARE,nomeCampo);
+                  //richiamo activity
+                  startActivity(showHOME);
+                  finish();
+              }
           }
       });
 
@@ -179,13 +203,22 @@ public class Partecipa_partita extends AppCompatActivity {
 
 
     public void onBackPressed(){
-        Intent showHOME = new Intent(Partecipa_partita.this, Home.class);
-        //Inserisco la persona dentro l'intent
-        //ATTENZIONE ho messo person_da_passare e NON person_da_passare2 perchè il login va a pescare sul primo
-        showHOME.putExtra(PERSON_DA_PASSARE, p1);
-        //richiamo activity
-        startActivity(showHOME);
-        finish();
+        if(!flag_prenotazione){
+            Intent showHOME = new Intent(Partecipa_partita.this, Home.class);
+            showHOME.putExtra(PERSON_DA_PASSARE, persona);
+            //richiamo activity
+            startActivity(showHOME);
+            finish();
+
+        }else {
+
+            Intent showHOME = new Intent(Partecipa_partita.this, Informazioni_campo_da_mappa.class);
+            showHOME.putExtra(PERSON_DA_PASSARE, persona);
+            showHOME.putExtra(NOME_CAMPO_DA_PASSARE,nomeCampo);
+            //richiamo activity
+            startActivity(showHOME);
+            finish();
+        }
     }
 
 }
