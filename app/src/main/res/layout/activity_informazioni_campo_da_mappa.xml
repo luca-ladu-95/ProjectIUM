@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Informazioni_campo">
+    tools:context=".Informazioni_campo_da_mappa">
 
 
     <LinearLayout
@@ -170,6 +170,7 @@
                                         android:id="@+id/info_numero_telefono"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
                                         android:gravity="center"
                                         android:padding="6dp"
                                         android:textColor="@color/nero"
@@ -281,27 +282,44 @@
 
                         </TableRow>
 
-                        <TableRow
-                            android:id="@+id/bottone"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginTop="5dp"
-                            android:gravity="center">
-
-                            <Button
-                                android:id="@+id/button_info_prenota_campo"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/textbox"
-                                android:text="PRENOTA"
-                                android:textColor="#fff"
-                                android:textSize="20sp"
-                                app:fontFamily="@font/bungee" />
-
-                        </TableRow>
-
                     </TableLayout>
+
+                    <TableRow
+                        android:id="@+id/bottone_partecipa"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center">
+
+                        <Button
+                            android:id="@+id/button_info_partecipa"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/textbox"
+                            android:text="PARTECIPA"
+                            android:textColor="#fff"
+                            android:textSize="20sp"
+                            app:fontFamily="@font/bungee" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/bottone_nuova_partita"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp">
+
+                        <Button
+                            android:id="@+id/button_info_nuova_partita"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/textbox"
+                            android:text="NUOVA PARTITA"
+                            android:textColor="#fff"
+                            android:textSize="20sp"
+                            app:fontFamily="@font/bungee" />
+                    </TableRow>
 
                 </LinearLayout>
             </ScrollView>

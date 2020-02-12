@@ -14,31 +14,36 @@ import android.widget.Toast;
 
 import java.io.Serializable;
 
-import static com.example.projectium.Home.PERSON_DA_PASSARE_2;
 import static com.example.projectium.Login.PERSON_DA_PASSARE;
+import static com.example.projectium.Login.listaCampi;
 import static com.example.projectium.Login.listaPrenotazioni;
+import static com.example.projectium.Mappa.NOME_CAMPO_DA_PASSARE;
 import static com.example.projectium.Prenotazione.PRENOTAZIONE;
 
-public class Informazioni_campo extends AppCompatActivity {
+public class Informazioni_campo_da_mappa extends AppCompatActivity {
 
-    Button indietro,prenota;
+    Button indietro, partecipa, nuova_partita;
     Prenotazione prenotazione;
     Persona persona;
     String valut;
+    String campo_da_intent;
+    CampoDaCalcio campo_selezionato;
     TextView nomeCampo,numeroCampo,valutazione,tipoDiCampo,prezzoAPersona,viaCampo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_informazioni_campo);
+        setContentView(R.layout.activity_informazioni_campo_da_mappa);
 
 
         Intent intent = getIntent();
         Serializable obj2 = intent.getSerializableExtra(PRENOTAZIONE);
 
+        campo_selezionato = new CampoDaCalcio();
 
-        indietro=findViewById(R.id.button_return_info_campo);
-        prenota=findViewById(R.id.button_info_prenota_campo);
+        indietro = findViewById(R.id.button_return_info_campo);
+        partecipa = findViewById(R.id.button_info_partecipa);
+        nuova_partita = findViewById(R.id.button_info_nuova_partita);
         nomeCampo = findViewById(R.id.info_nome_campo);
         numeroCampo = findViewById(R.id.info_numero_telefono);
         valutazione = findViewById(R.id.info_valutazione);
@@ -52,67 +57,82 @@ public class Informazioni_campo extends AppCompatActivity {
             prenotazione = new Prenotazione();
         }
 
-        //cosi ho anche la persona
-        persona=prenotazione.getCreatore();
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            campo_da_intent = extras.getString(NOME_CAMPO_DA_PASSARE);
+        }
 
 
+        for (CampoDaCalcio c : listaCampi) {
+            if (c.getNome().equals(campo_da_intent)) {
+                campo_selezionato = c;
+            }
+        }
 
-      //todo-> inserisci la visulaizzazione delle valutazioni
+        String value = Valutazione_campo.getInstance().get_valutazione(campo_selezionato).toString();
 
-        String value = Valutazione_campo.getInstance().get_valutazione(prenotazione.getCampo()).toString();
-
-        nomeCampo.setText(prenotazione.getCampo().getNome());
-        numeroCampo.setText(prenotazione.getCampo().getTelefono());
+        nomeCampo.setText(campo_selezionato.getNome());
+        numeroCampo.setText(campo_selezionato.getTelefono());
 
         valutazione.setText(value);
-        tipoDiCampo.setText(prenotazione.getCampo().getMateriale());
-        prezzoAPersona.setText(prenotazione.getCampo().getPrezzo_a_persona()+" $");
-        viaCampo.setText(prenotazione.getCampo().getVia());
-
-
-
-        prenota.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final String message = "Sei sicuro di voler prenotare in data " + prenotazione.getData_evento() + (" per " +
-                        "le ore "+prenotazione.getOra_evento()+" la partita: "+prenotazione.getNome_evento()+"?");
-
-                //Apre il messaggio di conferma uscita
-                AlertDialog diaBox = AskOption(message);
-                diaBox.show();
-            }
-        });
+        tipoDiCampo.setText(campo_selezionato.getMateriale());
+        prezzoAPersona.setText(campo_selezionato.getPrezzo_a_persona() + " $");
+        viaCampo.setText(campo_selezionato.getVia());
 
         indietro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 //devo indirizzarlo indietro pero col campo vuoto non ho messo null per evitare null pointer
-                prenotazione.setCampo(new CampoDaCalcio());
 
                 //NON devo perdere i dati quindi gli ripasso tutti tranne il campo
-                Intent showCampo = new Intent(Informazioni_campo.this, Scegli_campo.class);
+                Intent showCampo = new Intent(Informazioni_campo_da_mappa.this, Mappa.class);
                 //Inserisco la persona dentro l'intent
 
 
-                showCampo.putExtra(PRENOTAZIONE, prenotazione);
                 //richiamo activity
                 startActivity(showCampo);
                 finish();
+            }
+        });
+
+
+        nuova_partita.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent showField = new Intent(Informazioni_campo_da_mappa.this, Nuova_partita_da_mappa.class);
+                showField.putExtra(NOME_CAMPO_DA_PASSARE, campo_da_intent);
+                showField.putExtra(PERSON_DA_PASSARE, persona);
+
+                startActivity(showField);
+                finish();
+
+            }
+        });
+
+        partecipa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String nomeCampo = campo_da_intent;
+                Intent showField = new Intent(Informazioni_campo_da_mappa.this, Partecipa_partita.class);
+                showField.putExtra(NOME_CAMPO_DA_PASSARE, nomeCampo);
+                showField.putExtra(PERSON_DA_PASSARE, persona);
+
+                startActivity(showField);
+                finish();
+
             }
         });
     }
 
     public void onBackPressed() {
         //devo indirizzarlo indietro pero col campo vuoto non ho messo null per evitare null pointer
-        prenotazione.setCampo(new CampoDaCalcio());
 
         //NON devo perdere i dati quindi gli ripasso tutti tranne il campo
-        Intent showCampo = new Intent(Informazioni_campo.this, Scegli_campo.class);
+        Intent showCampo = new Intent(Informazioni_campo_da_mappa.this, Mappa.class);
         //Inserisco la persona dentro l'intent
 
-
-        showCampo.putExtra(PRENOTAZIONE, prenotazione);
         //richiamo activity
         startActivity(showCampo);
         finish();
@@ -145,7 +165,7 @@ public class Informazioni_campo extends AppCompatActivity {
 
                         Toast toast = Toast.makeText(context, text, duration);
                         toast.show();
-                        Intent showLogin = new Intent(Informazioni_campo.this, Home.class);
+                        Intent showLogin = new Intent(Informazioni_campo_da_mappa.this, Home.class);
                         showLogin.putExtra(PERSON_DA_PASSARE, persona);
                         startActivity(showLogin);
                         finish();

@@ -20,6 +20,8 @@ import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 import static com.example.projectium.Home.PERSON_DA_PASSARE_2;
 import static com.example.projectium.Login.PERSON_DA_PASSARE;
@@ -34,19 +36,23 @@ public class Nuova_partita_da_mappa extends AppCompatActivity {
     Persona persona;
     DatePickerFragment datePickerFragment;
     EditText nomePartita,dataPartita,descrizione,ora;
+    TextView ora2;
     Button indietro;
     TextView numeroGiocatori;
     SeekBar seekBar;
     NumberPicker np;
+    Date data_di_oggi;
+    int indice;
     CampoDaCalcio campo;
     Button scegliCampo;
     String debug,debug3 ;
+    String[] valori = new String[2];
     Prenotazione prenotazione = new Prenotazione();
     ArrayList<CampoDaCalcio> CAMPI=new ArrayList<>(listaCampi);
 
-    int MinValue=0;
-    int maxValue=9;
-    int modValue=0;
+    int MinValue=1;
+    int maxValue=10;
+    int modValue=1;
     int numGiocatori;
 
 
@@ -69,30 +75,37 @@ public class Nuova_partita_da_mappa extends AppCompatActivity {
         numeroGiocatori = findViewById(R.id.seekNumeroGiocatori_da_mappa);
 
         indietro= findViewById(R.id.button_return_nuova_partita_da_mappa);
+        ora2=findViewById(R.id.tv);
 
         final NumberPicker np = findViewById(R.id.oraPicker_da_mappa);
 
         //Array che viene passato al numb picker per mascherare i valori effettivi
         final String[] values = {"9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00","17:00","18:00",
                 "19:00","20:00","21:00","22:00"};
-        np.setMinValue(0);
-        np.setMaxValue(values.length -1 );
+        String currentTime = new SimpleDateFormat("HH", Locale.getDefault()).format(new Date());
 
+        data_di_oggi = Calendar.getInstance().getTime();
 
+        //prendo ora attuale
+        indice = get_indice_data(currentTime);
 
-        np.setDisplayedValues(values);
+        valori = new String[indice];
+        //creo array con gli orari a cui puo entrare
 
-        //Gets whether the selector wheel wraps when reaching the min/max value.
-        np.setWrapSelectorWheel(true);
+        int j = values.length - indice;
 
-
+        for (int i = 0; i < valori.length && j <= values.length; i++) {
+            valori[i] = values[j];
+            j++;
+        }
 
 
 
 
         seekBar.setMax(10);
 
-
+        seekBar.setProgress(1);
+        numeroGiocatori.setText("1");
 
 
 
@@ -117,10 +130,10 @@ public class Nuova_partita_da_mappa extends AppCompatActivity {
 
 
         if(nomeCampo!=null && !nomeCampo.isEmpty()){
-           for(int i =0 ;i < CAMPI.size();i++){
-               if(CAMPI.get(i).getNome().equals(nomeCampo))
-                   campo=CAMPI.get(i);
-           }
+            for(int i =0 ;i < CAMPI.size();i++){
+                if(CAMPI.get(i).getNome().equals(nomeCampo))
+                    campo=CAMPI.get(i);
+            }
         }
 
 
@@ -138,13 +151,24 @@ public class Nuova_partita_da_mappa extends AppCompatActivity {
 
 
 
-
-                    debug = values[np.getValue()]; //Funziona per l'ora
                     SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+
+
+                    Date deb1 = datePickerFragment.getDate().getTime();
+                    Date deb2 = Calendar.getInstance().getTime();
+
+                    String deb1String = format.format(deb1);
+                    String deb2String = format.format(deb2);
+                    int debug2 = np.getValue();
+                    if(!deb1String.equals(deb2String)) {
+                        debug = values[np.getValue()]; //Funziona per l'ora
+                    }else{
+                        debug = valori[np.getValue()];
+                    }
                     debug3 =  format.format(datePickerFragment.getDate().getTime());
 
                     prenotazione.setAnnullata(false);
-                    prenotazione.setNum_giocatori(numGiocatori+1);
+                    prenotazione.setNum_giocatori(numGiocatori);
                     prenotazione.setCreatore(persona);
                     prenotazione.setData_evento(debug3);
                     prenotazione.setOra_evento(debug);
@@ -188,6 +212,8 @@ public class Nuova_partita_da_mappa extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 datePickerFragment.show(getSupportFragmentManager(), "date picker");
+                np.setVisibility(View.VISIBLE);
+                ora2.setVisibility(View.VISIBLE);
             }
         });
 
@@ -210,6 +236,37 @@ public class Nuova_partita_da_mappa extends AppCompatActivity {
                 // tramite il datepicker
                 SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
                 dataPartita.setText(format.format(date.getTime()));
+
+
+
+                Date deb1 = datePickerFragment.getDate().getTime();
+                Date deb2 = Calendar.getInstance().getTime();
+
+                String deb1String = format.format(deb1);
+                String deb2String = format.format(deb2);
+
+
+
+
+                if(deb1String.equals(deb2String)) {
+
+                    np.setMinValue(0);
+                    np.setMaxValue(valori.length - 1);
+                    //Gets whether the selector wheel wraps when reaching the min/max value.
+                    np.setWrapSelectorWheel(true);
+
+
+                    np.setDisplayedValues(valori);
+                }else {
+                    np.setDisplayedValues(null);
+                    np.setMinValue(0);
+                    int debugde= values.length;
+                    np.setMaxValue(values.length - 1);
+                    //Gets whether the selector wheel wraps when reaching the min/max value.
+                    np.setWrapSelectorWheel(true);
+                    np.setDisplayedValues(values);
+                }
+
             }
 
             @Override
@@ -300,7 +357,7 @@ public class Nuova_partita_da_mappa extends AppCompatActivity {
     }
 
     private boolean checkInput2(){
-       boolean errors=false;
+        boolean errors=false;
         if( PrenotazioneFactory.getInstance().checkCampoOccupato(prenotazione,listaPrenotazioni)){
             dataPartita.setError("Inserisci una data diversa");
             Context context = getApplicationContext();
@@ -357,5 +414,42 @@ public class Nuova_partita_da_mappa extends AppCompatActivity {
                 .create();
 
         return myQuittingDialogBox;
+    }
+
+    public  int get_indice_data(String ora){
+        int i=0;
+        switch (ora){
+            case "09":i=13;
+                break;
+            case  "10":i=12;
+                break;
+            case "11":i=11;
+                break;
+            case "12":i=10;
+                break;
+            case "13":i=9;
+                break;
+            case  "14":i=8;
+                break;
+            case "15":i=7;
+                break;
+            case "16":i=6;
+                break;
+            case "17":i=5;
+                break;
+            case  "18":i=4;
+                break;
+            case "19":i=3;
+                break;
+            case "20":i=2;
+                break;
+            case "21":i=1;
+                break;
+            case  "22":i=0;
+                break;
+
+        }
+
+        return i;
     }
 }

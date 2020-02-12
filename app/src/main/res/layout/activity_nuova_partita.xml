@@ -161,7 +161,7 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:scrollbarSize="20dp"
-                android:visibility="gone"/>
+                android:visibility="visible" />
 
 
 

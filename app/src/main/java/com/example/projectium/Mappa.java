@@ -169,10 +169,14 @@ public class Mappa extends FragmentActivity implements OnMapReadyCallback {
                 // Da qua prendo il dato del marker e lo passo nellìintend, posso passare gio che voglio, anche un ID volendo
                 String nomeCampo = marker.getTitle();
 
+                Intent showField = new Intent(Mappa.this, Informazioni_campo_da_mappa.class);
+                Intent intent = showField.putExtra(NOME_CAMPO_DA_PASSARE, nomeCampo);
+                showField.putExtra(PERSON_DA_PASSARE,persona);
 
-                AlertDialog diaBox = AskOption(nomeCampo);
-                diaBox.show();
+                startActivity(showField);
+                finish();
 
+                //TODO add here the intent to go into informazioni_campo_da_mappa
 
             }
         });
