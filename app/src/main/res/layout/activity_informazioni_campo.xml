@@ -69,8 +69,8 @@
 
                         <TextView
                             android:id="@+id/info_nome_campo"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:layout_gravity="center"
                             android:gravity="center"
                             android:padding="6dp"
@@ -114,7 +114,7 @@
                             android:gravity="center">
 
                             <LinearLayout
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical">
 
@@ -133,6 +133,7 @@
                                     android:padding="6dp"
                                     android:textColor="@color/nero"
                                     android:textSize="15dp"
+                                    app:autoSizeMaxTextSize="150dp"
                                     app:fontFamily="@font/bungee" />
                             </LinearLayout>
 
