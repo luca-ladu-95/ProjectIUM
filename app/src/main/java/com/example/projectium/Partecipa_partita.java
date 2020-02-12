@@ -39,7 +39,7 @@ public class Partecipa_partita extends AppCompatActivity {
     public Persona p1;
     TextView nessunaPartita;
     ArrayList<Prenotazione> prenotazioniInCorso;
-
+    String data_evento,current_data;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -97,15 +97,21 @@ public class Partecipa_partita extends AppCompatActivity {
         if(prenotazioniInCorso!= null && prenotazioniInCorso.size() > 0) {
             for (i = 0; i < prenotazioniInCorso.size(); i++) {
 
-
+                currentTime = Calendar.getInstance().getTime();
                 SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 
-                currentTime = Calendar.getInstance().getTime();
+                data_evento=prenotazioniInCorso.get(i).getData_evento();
+                current_data = format.format(currentTime);
+
+                if(!data_evento.equals(current_data)){
                 try {
                     dataEvento = format.parse(prenotazioniInCorso.get(i).getData_evento());
                     flagdata = dataEvento.after(currentTime);
                 } catch (ParseException e) {
                     e.printStackTrace();
+                }
+                }else{
+                    flagdata=true;
                 }
 
 

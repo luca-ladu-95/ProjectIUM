@@ -31,7 +31,7 @@ public class NuovaPartita extends AppCompatActivity {
     DatePickerFragment datePickerFragment;
     EditText nomePartita,dataPartita,descrizione;
     Button indietro;
-    Date currentTime;
+    Date data_di_oggi;
     int indice;
     TextView numeroGiocatori;
     SeekBar seekBar;
@@ -41,6 +41,9 @@ public class NuovaPartita extends AppCompatActivity {
     Button scegliCampo;
     String debug,debug3 ;
     Prenotazione prenotazione = new Prenotazione();
+
+
+
 
     int MinValue=1;
     int maxValue=10;
@@ -71,12 +74,16 @@ public class NuovaPartita extends AppCompatActivity {
         indietro= findViewById(R.id.button_return_nuova_partita);
         final NumberPicker np = findViewById(R.id.oraPicker);
 
+
+
         //Array che viene passato al numb picker per mascherare i valori effettivi
         final String[] values = {"9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00","17:00","18:00",
                 "19:00","20:00","21:00","22:00"};
 
 
         String currentTime = new SimpleDateFormat("HH", Locale.getDefault()).format(new Date());
+
+        data_di_oggi = Calendar.getInstance().getTime();
 
         //prendo ora attuale
         indice = get_indice_data(currentTime);
