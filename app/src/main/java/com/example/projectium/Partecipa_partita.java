@@ -208,6 +208,7 @@ public class Partecipa_partita extends AppCompatActivity {
             showHOME.putExtra(PERSON_DA_PASSARE, persona);
             //richiamo activity
             startActivity(showHOME);
+            //prova
             finish();
 
         }else {
