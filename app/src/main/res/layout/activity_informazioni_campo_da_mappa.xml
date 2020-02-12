@@ -107,14 +107,14 @@
 
                         <TableRow
                             android:id="@+id/indirizzo"
-                            android:layout_width="wrap_content"
+                            android:layout_width="402dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginTop="5dp"
                             android:gravity="center">
 
                             <LinearLayout
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical">
 
@@ -126,11 +126,16 @@
 
                                 <TextView
                                     android:id="@+id/info_via_campo"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
                                     android:layout_gravity="center"
+                                    android:layout_margin="0dp"
+                                    android:layout_marginLeft="30dp"
+                                    android:layout_marginTop="0dp"
+                                    android:layout_marginRight="30dp"
+                                    android:editable="false"
                                     android:gravity="center"
-                                    android:padding="6dp"
+                                    android:singleLine="false"
                                     android:textColor="@color/nero"
                                     android:textSize="15dp"
                                     app:fontFamily="@font/bungee" />
