@@ -194,17 +194,16 @@
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="30dp" />
+
             <Button
                 android:id="@+id/button_scegli_il_campo_nuova_partita"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/textbox"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
                 android:text="SCEGLI IL CAMPO"
-                app:fontFamily="@font/bungee"
+                android:textColor="#fff"
                 android:textSize="20sp"
-                android:textColor="#fff"/>
+                app:fontFamily="@font/bungee" />
 
             <Space
                 android:layout_width="match_parent"
