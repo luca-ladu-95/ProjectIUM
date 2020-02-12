@@ -37,6 +37,7 @@ public class NuovaPartita extends AppCompatActivity {
     SeekBar seekBar;
     NumberPicker np;
     TextView ora;
+    String[] valori = new String[2];
     Button scegliCampo;
     String debug,debug3 ;
     Prenotazione prenotazione = new Prenotazione();
@@ -71,8 +72,25 @@ public class NuovaPartita extends AppCompatActivity {
         final NumberPicker np = findViewById(R.id.oraPicker);
 
         //Array che viene passato al numb picker per mascherare i valori effettivi
-        final String[] values = {"8:00","9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00","17:00","18:00",
+        final String[] values = {"9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00","17:00","18:00",
                 "19:00","20:00","21:00","22:00"};
+
+
+        String currentTime = new SimpleDateFormat("HH", Locale.getDefault()).format(new Date());
+
+        //prendo ora attuale
+        indice = get_indice_data(currentTime);
+
+        valori = new String[indice];
+        //creo array con gli orari a cui puo entrare
+
+        int j = values.length - indice;
+
+        for (int i = 0; i < valori.length && j <= values.length; i++) {
+            valori[i] = values[j];
+            j++;
+        }
+
 
 
 
@@ -103,10 +121,22 @@ public class NuovaPartita extends AppCompatActivity {
                     // passare dopo alla successiva activity e solo dopo che si sceglie il campo creare una prenotazione
                     // con la funzione crea prenotazione
 
-                    int debug2 = np.getValue();
-                    debug = values[np.getValue()]; //Funziona per l'ora
+
+
                     SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 
+
+                    Date deb1 = datePickerFragment.getDate().getTime();
+                    Date deb2 = Calendar.getInstance().getTime();
+
+                    String deb1String = format.format(deb1);
+                    String deb2String = format.format(deb2);
+                    int debug2 = np.getValue();
+                    if(!deb1String.equals(deb2String)) {
+                        debug = values[np.getValue()]; //Funziona per l'ora
+                    }else{
+                        debug = valori[np.getValue()];
+                    }
                     debug3 =  format.format(datePickerFragment.getDate().getTime());
 
                     prenotazione.setAnnullata(false);
@@ -187,18 +217,6 @@ public class NuovaPartita extends AppCompatActivity {
 
 
                 if(deb1String.equals(deb2String)) {
-                    String currentTime = new SimpleDateFormat("HH", Locale.getDefault()).format(new Date());
-
-                    indice = get_indice_data(currentTime);
-
-                    String[] valori = new String[indice];
-
-                    int j = values.length - indice;
-
-                    for (int i = 0; i < valori.length && j <= values.length; i++) {
-                        valori[i] = values[j];
-                        j++;
-                    }
 
                     np.setMinValue(0);
                     np.setMaxValue(valori.length - 1);
@@ -298,8 +316,6 @@ public class NuovaPartita extends AppCompatActivity {
     public  int get_indice_data(String ora){
         int i=0;
         switch (ora){
-            case "08":i=14;
-            break;
             case "09":i=13;
                 break;
             case  "10":i=12;

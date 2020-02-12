@@ -212,13 +212,17 @@ public class PrenotazioneFactory  implements Serializable {
 
         ArrayList<CampoDaCalcio> campi = new ArrayList<>(listacampi);
         HashSet<CampoDaCalcio> ritorno = new HashSet<>();
+
+        boolean flag =  controlloDataOraNuovaPartita(prenotazioni,p,campi);
+
+        /*
         for(int i=0;i<prenotazioni.size();i++){
 
             if(!prenotazioni.get(i).isAnnullata()){
 
                 //Bisogna tassativamente rispettare l'ordine di inserimento nel controllo ...
                 //Il controllo in pratica se trova una corrsipondenza rimuove il duplicato dalla lista geneerale dei campi
-                if(controlloDataOraNuovaPartita(prenotazioni.get(i),p,campi)){
+                if(controlloDataOraNuovaPartita(prenotazioni,p,campi)){
 
                     //DEbug
                     String ora1 = prenotazioni.get(i).getOra_evento();
@@ -233,6 +237,8 @@ public class PrenotazioneFactory  implements Serializable {
             }
 
         }
+
+         */
         //Puo capitare che nessun campo sia in una prenotazone quindi lo aggiungo ... tanto se ce gia il set mi impedisce di aggiungerlo
         for(int i=0;i<campi.size();i++){
             ritorno.add(campi.get(i));
@@ -242,13 +248,19 @@ public class PrenotazioneFactory  implements Serializable {
 
 
     /*Prende due prenotazoni e la lista generale dei campi , se le prenotazioni sono alla stessa ora rimuovo il campo */
-    public boolean controlloDataOraNuovaPartita(Prenotazione p1 ,Prenotazione p2, ArrayList<CampoDaCalcio> campi){
+    public boolean controlloDataOraNuovaPartita(ArrayList<Prenotazione> prenotazioni ,Prenotazione p2, ArrayList<CampoDaCalcio> campi){
 
-        if(p1.getOra_evento().equals(p2.getOra_evento()) && p1.getData_evento().equals(p2.getData_evento())) {
-            campi.remove(p1.getCampo());
-            return false;
-        }else
-            return true;
+        boolean flag = true;
+
+        for(int i = 0 ;i < prenotazioni.size();i++){
+
+            if(prenotazioni.get(i).getOra_evento().equals(p2.getOra_evento()) && prenotazioni.get(i).getData_evento().equals(p2.getData_evento())){
+                campi.remove(prenotazioni.get(i).getCampo());
+
+            }
+        }
+        return flag;
+
 
     }
 
