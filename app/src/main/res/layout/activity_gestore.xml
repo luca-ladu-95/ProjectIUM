@@ -72,13 +72,13 @@
                     android:id="@+id/gestore_inserisci_campo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="dp"
                     android:background="@drawable/textbox"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
                     android:text="INSERISCI CAMPO"
-                    app:fontFamily="@font/bungee"
+                    android:textColor="#fff"
                     android:textSize="20sp"
-                    android:textColor="#fff" />
+                    app:fontFamily="@font/bungee" />
 
                 <Space
                     android:layout_width="wrap_content"
@@ -90,29 +90,30 @@
                     android:id="@+id/gestore_calendario"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="dp"
                     android:background="@drawable/textbox"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
                     android:text="PRENOTAZIONI"
-                    app:fontFamily="@font/bungee"
+                    android:textColor="#fff"
                     android:textSize="20sp"
-                    android:textColor="#fff" />
+                    app:fontFamily="@font/bungee" />
 
                 <Space
                     android:layout_width="wrap_content"
                     android:layout_height="15dp">
                 </Space>
+
                 <Button
                     android:id="@+id/gestore_profilo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="dp"
                     android:background="@drawable/textbox"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
                     android:text="PROFILO"
-                    app:fontFamily="@font/bungee"
+                    android:textColor="#fff"
                     android:textSize="20sp"
-                    android:textColor="#fff" />
+                    app:fontFamily="@font/bungee" />
 
 
 
@@ -126,14 +127,14 @@
                     android:id="@+id/gestore_esci"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="dp"
                     android:background="@drawable/textbox"
                     android:backgroundTint="@color/rosso"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
                     android:text="  ESCI  "
-                    app:fontFamily="@font/bungee"
+                    android:textColor="#fff"
                     android:textSize="20sp"
-                    android:textColor="#fff" />
+                    app:fontFamily="@font/bungee" />
 
 
 
