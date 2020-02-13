@@ -2,7 +2,6 @@ package com.example.projectium;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -59,13 +58,7 @@ public class PrenotazioneFactory  implements Serializable {
             Prenotazione p7 = creaPrenotazione(utentiStandard.get(2),campi.get(4),"Vecchia","Semplice calcio","21/03/2019",8,false,"13:00",false);
 
             Prenotazione p8 = creaPrenotazione(utentiStandard.get(2),campi.get(4),"Vecchia2","Semplice calcio","22/03/2019",8,false,"13:00",false);
-            /*
-            p1.getIscritti().add(utentiStandard.get(2));
-            p1.getIscritti().add(utentiStandard.get(3));
-            p2.getIscritti().add(utentiStandard.get(3));
-            p6.getIscritti().add(utentiStandard.get(3));
-            p5.getIscritti().add(utentiStandard.get(3));
-            */
+
             lista.add(p1);
             lista.add(p2);
             lista.add(p3);

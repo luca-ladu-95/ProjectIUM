@@ -22,7 +22,6 @@ import static com.example.projectium.Login.listaPrenotazioni;
 import static com.example.projectium.Mappa.NOME_CAMPO_DA_PASSARE;
 import static com.example.projectium.Prenotazione.PRENOTAZIONE;
 
-
 public class Prenota_da_Partecipa_partita extends AppCompatActivity {
 
     Persona persona;
@@ -49,23 +48,10 @@ public class Prenota_da_Partecipa_partita extends AppCompatActivity {
         home=findViewById(R.id.button_return_prenota_partita);
         campo = findViewById(R.id.prenota_partita_nome_campo);
 
-
-
-
-
-
-
-
         Intent intent = getIntent();
-
-
         Serializable obj = intent.getSerializableExtra(PERSON_DA_PASSARE_2);
-
-
         Serializable obj2 = intent.getSerializableExtra(PRENOTAZIONE);
-
         Serializable obj3 = intent.getSerializableExtra(BOOLEANO);
-
 
         if (obj instanceof Persona) {
             persona = (Persona) obj;
@@ -85,7 +71,6 @@ public class Prenota_da_Partecipa_partita extends AppCompatActivity {
             flag_prenotazione=false;
         }
 
-
         Integer numG = prenotazione.getNum_giocatori();
 
         nomeEvento.setText(prenotazione.getNome_evento());
@@ -100,7 +85,6 @@ public class Prenota_da_Partecipa_partita extends AppCompatActivity {
         final String message = "Sei sicuro di voler prenotare in data " + prenotazione.getData_evento() + (" per " +
                 "le ore "+prenotazione.getOra_evento()+" la partita: "+prenotazione.getNome_evento()+"?");
 
-
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,7 +97,6 @@ public class Prenota_da_Partecipa_partita extends AppCompatActivity {
                 startActivity(showCercaPartita);
                 finish();
                 }else{
-
                     Intent showCercaPartita = new Intent(Prenota_da_Partecipa_partita.this, Partecipa_partita.class);
                     //Inserisco la persona dentro l'intent
                     showCercaPartita.putExtra(PERSON_DA_PASSARE, persona);
@@ -122,7 +105,6 @@ public class Prenota_da_Partecipa_partita extends AppCompatActivity {
                     //richiamo activity
                     startActivity(showCercaPartita);
                     finish();
-
                 }
             }
         });
@@ -135,8 +117,6 @@ public class Prenota_da_Partecipa_partita extends AppCompatActivity {
                 diaBox.show();
             }
         });
-
-
     }
 
     private AlertDialog AskOption(String message)
@@ -144,17 +124,16 @@ public class Prenota_da_Partecipa_partita extends AppCompatActivity {
         AlertDialog myQuittingDialogBox = new AlertDialog.Builder(this)
                 // finestra di conferma eliminazione
                 .setTitle("Riepilogo prenotaziane")
-
                 .setMessage(message)
-
-
                 .setPositiveButton("Conferma", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int whichButton) {
                         //Aggiungo la persona alla prenotazione e lo riporto alla home
                         PrenotazioneFactory.getInstance().aggiungiPartecipante(listaPrenotazioni,prenotazione.getId(),persona);
                         Context context = getApplicationContext();
+
                         CharSequence text = "Prenotazione effettuata con successo ";
+
                         int duration = Toast.LENGTH_SHORT;
 
                         Toast toast = Toast.makeText(context, text, duration);
@@ -169,16 +148,13 @@ public class Prenota_da_Partecipa_partita extends AppCompatActivity {
                 })
                 .setNegativeButton("annulla", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-
                         dialog.dismiss();
-
                     }
                 })
                 .create();
 
         return myQuittingDialogBox;
     }
-
 
     @Override
     public void onBackPressed() {
@@ -190,7 +166,6 @@ public class Prenota_da_Partecipa_partita extends AppCompatActivity {
             startActivity(showCercaPartita);
             finish();
         }else{
-
             Intent showCercaPartita = new Intent(Prenota_da_Partecipa_partita.this, Partecipa_partita.class);
             //Inserisco la persona dentro l'intent
             showCercaPartita.putExtra(PERSON_DA_PASSARE, persona);
@@ -199,8 +174,6 @@ public class Prenota_da_Partecipa_partita extends AppCompatActivity {
             //richiamo activity
             startActivity(showCercaPartita);
             finish();
-
         }
-
     }
 }
