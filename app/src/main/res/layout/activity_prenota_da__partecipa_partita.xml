@@ -7,7 +7,6 @@
     tools:context=".Prenota_da_Partecipa_partita">
 
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,9 +16,9 @@
 
 
         <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/toolbar"
             android:background="@drawable/side_nav_bar"
             app:titleTextColor="@color/bianco"
 
@@ -32,58 +31,57 @@
                 android:background="@drawable/ic_arrow_back_black_24dp"
 
 
-
-
                 />
 
             <TextView
+                android:id="@+id/toolbar_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Info partita"
-                app:fontFamily="@font/bungee"
-                android:textSize="25dp"
-                android:textColor="@color/bianco"
                 android:layout_gravity="center"
-                android:id="@+id/toolbar_title" />
+                android:text="Info partita"
+                android:textColor="@color/bianco"
+                android:textSize="25dp"
+                app:fontFamily="@font/bungee" />
 
 
         </androidx.appcompat.widget.Toolbar>
 
 
-
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:scrollbars="none">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="10dp">
+                android:padding="0dp">
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="15dp" />
+                    android:layout_height="7dp" />
 
                 <TextView
                     android:id="@+id/riepilogo_partita_nome"
                     android:layout_width="match_parent"
-                    app:fontFamily="@font/bungee"
                     android:layout_height="wrap_content"
                     android:text=""
+                    android:textAlignment="center"
                     android:textColor="@color/nero"
                     android:textSize="30dp"
-                    android:textAlignment="center"
-                    />
+                    app:fontFamily="@font/bungee" />
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="15dp" />
+                    android:layout_height="7dp" />
 
                 <TextView
                     android:id="@+id/textView15"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:gravity="center"
                     android:text="Creatore partita"
                     android:textColor="@color/nero"
@@ -94,14 +92,15 @@
                     android:id="@+id/prenota_partita_nome_capo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/nero"
-                    android:background="@drawable/rounded_corner"
+                    android:layout_gravity="center"
+                    android:gravity="center"
                     android:padding="6dp"
+                    android:textColor="@color/nero"
                     android:textSize="20dp" />
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="5dp" />
+                    android:layout_height="7dp" />
 
                 <TextView
                     android:id="@+id/textView17"
@@ -117,14 +116,15 @@
                     android:id="@+id/prenota_partita_nome_campo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/nero"
-                    android:background="@drawable/rounded_corner"
+                    android:layout_gravity="center"
+                    android:gravity="center"
                     android:padding="6dp"
+                    android:textColor="@color/nero"
                     android:textSize="20dp" />
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="5dp" />
+                    android:layout_height="7dp" />
 
                 <TextView
                     android:id="@+id/textView19"
@@ -140,14 +140,15 @@
                     android:id="@+id/prenota_partita_data"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/nero"
-                    android:background="@drawable/rounded_corner"
+                    android:layout_gravity="center"
+                    android:gravity="center"
                     android:padding="6dp"
+                    android:textColor="@color/nero"
                     android:textSize="20dp" />
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="5dp" />
+                    android:layout_height="7dp" />
 
                 <TextView
                     android:id="@+id/textView21"
@@ -163,14 +164,15 @@
                     android:id="@+id/prenota_partita_ora"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/nero"
-                    android:background="@drawable/rounded_corner"
+                    android:layout_gravity="center"
+                    android:gravity="center"
                     android:padding="6dp"
+                    android:textColor="@color/nero"
                     android:textSize="20dp" />
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="5dp" />
+                    android:layout_height="7dp" />
 
                 <TextView
                     android:id="@+id/textView23"
@@ -187,14 +189,15 @@
                     android:id="@+id/prenota_partita_numero_G"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/nero"
-                    android:background="@drawable/rounded_corner"
+                    android:layout_gravity="center"
+                    android:gravity="center"
                     android:padding="6dp"
+                    android:textColor="@color/nero"
                     android:textSize="20dp" />
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="5dp" />
+                    android:layout_height="7dp" />
 
                 <TextView
                     android:id="@+id/Prezzo"
@@ -210,14 +213,17 @@
                     android:id="@+id/prenota_partita_prezzo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/nero"
-                    android:background="@drawable/rounded_corner"
+                    android:layout_gravity="center"
+                    android:gravity="center"
                     android:padding="6dp"
+                    android:textColor="@color/nero"
                     android:textSize="20dp" />
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="5dp" />
+                    android:layout_height="7dp"
+                    android:layout_gravity="center"
+                    android:foregroundGravity="center" />
 
                 <TextView
                     android:id="@+id/textView27"
@@ -233,16 +239,17 @@
                     android:id="@+id/prenota_partita_descrizione"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/nero"
-                    android:background="@drawable/rounded_corner"
+                    android:layout_gravity="center"
+                    android:gravity="center"
                     android:padding="6dp"
+                    android:textColor="@color/nero"
                     android:textSize="20dp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="15dp">
+                    android:padding="10dp">
 
 
                     <Space
@@ -255,18 +262,24 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:background="@drawable/textbox"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
                         android:text=" PRENOTATI "
                         android:textColor="#fff"
                         android:textSize="20sp"
                         app:fontFamily="@font/bungee" />
 
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="15dp" />
-
 
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
     </LinearLayout>
 </LinearLayout>
