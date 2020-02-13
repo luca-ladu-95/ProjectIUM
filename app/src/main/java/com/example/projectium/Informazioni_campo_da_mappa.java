@@ -41,6 +41,7 @@ public class Informazioni_campo_da_mappa extends AppCompatActivity {
 
         Intent intent = getIntent();
         Serializable obj2 = intent.getSerializableExtra(PRENOTAZIONE);
+        Serializable obj3 = intent.getSerializableExtra(PERSON_DA_PASSARE);
 
         campo_selezionato = new CampoDaCalcio();
 
@@ -64,6 +65,13 @@ public class Informazioni_campo_da_mappa extends AppCompatActivity {
         if (extras != null) {
             campo_da_intent = extras.getString(NOME_CAMPO_DA_PASSARE);
         }
+
+        if(obj3 instanceof Persona){
+            persona=(Persona) obj3;
+        }else{
+            persona=new Persona();
+        }
+
 
 
         for (CampoDaCalcio c : listaCampi) {
