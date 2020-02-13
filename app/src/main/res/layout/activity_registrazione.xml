@@ -40,6 +40,10 @@
                 android:transitionName="logo_text"
                 app:fontFamily="@font/bungee" />
 
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="7dp" />
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/inputUsername"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -55,6 +59,10 @@
                     android:inputType="text" />
 
             </com.google.android.material.textfield.TextInputLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="7dp" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/inputNome"
@@ -72,6 +80,10 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="7dp" />
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/inputCognome"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -87,6 +99,10 @@
                     android:inputType="text" />
 
             </com.google.android.material.textfield.TextInputLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="7dp" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/inputPass"
@@ -105,6 +121,10 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="7dp" />
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/inputCPass"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -121,6 +141,10 @@
                     android:inputType="textPassword" />
 
             </com.google.android.material.textfield.TextInputLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="7dp" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/inputEmail"
@@ -141,9 +165,7 @@
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="15dp">
-
-            </Space>
+                android:layout_height="7dp" />
 
             <RadioGroup
                 android:id="@+id/radio_group"

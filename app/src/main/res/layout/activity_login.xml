@@ -61,6 +61,10 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="7dp" />
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/editPassword"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"

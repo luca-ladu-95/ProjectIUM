@@ -82,7 +82,7 @@ public class Home extends AppCompatActivity   implements NavigationView.OnNaviga
             persona = new Persona();
         }
 
-        nomeCognome.setText("Benvenuto, "+persona.getNome());
+        nomeCognome.setText("Benvenuto\n"+persona.getNome());
 
 
 

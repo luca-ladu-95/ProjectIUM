@@ -42,25 +42,31 @@
                 android:orientation="vertical"
                 android:padding="10dp">
 
-                <Space
+                <ImageView
+                    android:id="@+id/imageView2"
                     android:layout_width="wrap_content"
-                    android:layout_height="30dp">
+                    android:layout_height="112dp"
+                    android:layout_marginTop="30dp"
+                    android:src="@drawable/calciatore2" />
 
-                </Space>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp" />
 
                 <TextView
                     android:id="@+id/nome_gestore"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:text=""
                     android:textAlignment="center"
                     android:textColor="@color/nero"
-                    android:textSize="25dp"
+                    android:textSize="30dp"
+                    android:textStyle="bold"
                     app:fontFamily="@font/bungee" />
-                <Space
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp">
 
-                </Space>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp" />
 
                 <Button
                     android:id="@+id/gestore_inserisci_campo"

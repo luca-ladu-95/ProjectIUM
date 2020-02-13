@@ -41,7 +41,7 @@ public class Gestore extends AppCompatActivity {
             persona = new Persona();
         }
 
-        nome.setText("Benvenuto, "+persona.getNome());
+        nome.setText("Benvenuto\n"+persona.getNome());
 
 
 
