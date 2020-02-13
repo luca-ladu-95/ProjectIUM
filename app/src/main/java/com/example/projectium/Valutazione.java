@@ -30,9 +30,8 @@ public class Valutazione extends AppCompatActivity {
     ImageView character;
     RatingBar rateStars;
     String valore;
-    Animation animation;
 
-    Integer value =1 ;
+    Integer value = 1 ;
     Persona persona;
     Prenotazione prenotazione;
     @Override
@@ -70,35 +69,38 @@ public class Valutazione extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                //todo -> aggiungi valutazione e porta indietro con persona
+                if (!(String.valueOf((int) (rateStars.getRating())).equals("0"))) {
+                    //todo -> aggiungi valutazione e porta indietro con persona
 
-                Valutazione_campo.getInstance().add_valutazione(value,prenotazione.getCampo());
+                    Valutazione_campo.getInstance().add_valutazione(value, prenotazione.getCampo());
 
-                Integer debug = value;
+                    Integer debug = value;
 
-                for(int i = 0;i< listaPrenotazioni.size();i++){
+                    for (int i = 0; i < listaPrenotazioni.size(); i++) {
 
-                    if(listaPrenotazioni.get(i).equals(prenotazione)){
-                        listaPrenotazioni.get(i).setValutata(true);
+                        if (listaPrenotazioni.get(i).equals(prenotazione)) {
+                            listaPrenotazioni.get(i).setValutata(true);
 
+                        }
                     }
+
+
+                    Context context = getApplicationContext();
+                    CharSequence text = "Valutazione registrata con successo";
+                    int duration = Toast.LENGTH_SHORT;
+
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
+
+                    Intent showCercaPartita = new Intent(Valutazione.this, PrenotazioniEffettuate.class);
+                    //Inserisco la persona dentro l'intent
+                    showCercaPartita.putExtra(PERSON_DA_PASSARE, persona);
+                    //richiamo activity
+                    startActivity(showCercaPartita);
+                    finish();
+                }else{
+                    Toast.makeText(getApplicationContext(), "Inserire una valutazione per continuare", Toast.LENGTH_SHORT).show();
                 }
-
-
-                Context context = getApplicationContext();
-                CharSequence text = "Valutazione registrata con successo";
-                int duration = Toast.LENGTH_SHORT;
-
-                Toast toast = Toast.makeText(context, text, duration);
-                toast.show();
-
-                Intent showCercaPartita = new Intent(Valutazione.this, PrenotazioniEffettuate.class);
-                //Inserisco la persona dentro l'intent
-                showCercaPartita.putExtra(PERSON_DA_PASSARE, persona);
-                //richiamo activity
-                startActivity(showCercaPartita);
-                finish();
-
 
             }
         });
@@ -111,30 +113,25 @@ public class Valutazione extends AppCompatActivity {
                 if(valore.equals("1")){
                     character.setImageResource(R.drawable.iconestar);
                     risultato.setText("Pessimo");
-                    value =1;
+                    value = 1;
 
                 } else if(valore.equals("2")){
                     character.setImageResource(R.drawable.ictwostar);
                     risultato.setText("Sufficiente");
-                    value=2;
+                    value = 2;
 
                 } else if(valore.equals("3")){
                     character.setImageResource(R.drawable.icthreestar);
                     risultato.setText("Buono");
-
-                    value=3;
+                    value = 3;
                 }else if(valore.equals("4")){
                     character.setImageResource(R.drawable.icfourstar);
                     risultato.setText("Ottimo");
-                    value=4;
-
+                    value = 4;
                 }else if(valore.equals("5")){
                     character.setImageResource(R.drawable.icfivestar);
                     risultato.setText("Magnifico");
-                    value=5;
-
-                }else{
-                    Toast.makeText(getApplicationContext(), "Nessuna Valutazione", Toast.LENGTH_SHORT).show();
+                    value = 5;
                 }
             }
         });

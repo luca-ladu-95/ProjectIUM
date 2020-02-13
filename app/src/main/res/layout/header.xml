@@ -1,45 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/header"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="250dp"
-    android:background="@drawable/side_nav_bar"
-    android:orientation="vertical">
+    android:layout_height="200dp"
+    android:background="#ea80fc"
+    android:gravity="bottom">
 
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profilePic"
-        android:layout_width="wrap_content"
-        android:layout_height="200dp"
-        android:adjustViewBounds="false"
-        android:elevation="6dp"
-        android:filterTouchesWhenObscured="true"
-        android:fitsSystemWindows="true"
-        android:forceDarkAllowed="false"
-        android:paddingLeft="10dp"
-        android:scaleX=".7"
-        android:scaleY=".7"
-        android:src="@drawable/beckam"
-        app:civ_border_color="@color/nero"
-        app:civ_border_width="2dp" />
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/calciatore2"/>
 
     <TextView
-        android:id="@+id/nomeNavigationBar"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center|fill|fill_vertical"
-        android:layout_marginTop="0dp"
-        android:gravity="center"
-        android:paddingLeft="10dp"
-        android:text="Benvenuto"
+        android:layout_marginLeft="10dp"
+        android:text="Menu"
         android:textColor="#fff"
-        android:textSize="25dp"
-        android:textStyle="bold"
-        android:visibility="visible"
-        app:fontFamily="@font/bungee" />
+        android:textSize="24sp"
+        app:fontFamily="@font/baloo" />
 
 </LinearLayout>
-
-
-

@@ -37,7 +37,7 @@ import static com.example.projectium.Prenotazione.PRENOTAZIONE;
 public class Calendario extends AppCompatActivity {
 
     CalendarView calendar;
-    TextView selectedDate;
+    //TextView selectedDate;
     Button indietro;
     Persona persona;
     LinearLayout linearLayout1;
@@ -55,7 +55,7 @@ public class Calendario extends AppCompatActivity {
         setContentView(R.layout.activity_calendario);
 
         calendar = findViewById(R.id.calendarView);
-        selectedDate = findViewById(R.id.textView4);
+        //selectedDate = findViewById(R.id.textView4); //textView4 punta alla stringa nome in profilo.xml
         indietro=findViewById(R.id.button_return_prenotazioni_effettuate);
         linearLayout1 = findViewById(R.id.layout_prenotazioni_del_giorno);
         nessunaP =findViewById(R.id.testo_nessuna_prenotazione1);

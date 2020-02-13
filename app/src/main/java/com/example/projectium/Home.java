@@ -5,6 +5,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentTransaction;
@@ -27,7 +28,7 @@ import java.util.Calendar;
 import static com.example.projectium.Login.PERSON_DA_PASSARE;
 import static com.example.projectium.Login.utenti;
 
-public class Home extends AppCompatActivity   implements NavigationView.OnNavigationItemSelectedListener {
+public class Home extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener {
 
 
     DrawerLayout drawerLayout;
@@ -37,8 +38,9 @@ public class Home extends AppCompatActivity   implements NavigationView.OnNaviga
     NavigationView navigationView;
     ActionBarDrawerToggle toggle;
 
-    Button nuovaPartita,cercaPartita,mappaCampi,prenotazioneEffettuate;
-    TextView nomeCognome,nomeNavigationBar;
+    CardView nuovaPartita, cercaPartita, mappaCampi, prenotazioneEffettuate;
+
+    TextView nomeCognome;
 
     public static final String PERSON_DA_PASSARE_2 = "package com.example.projectium";
 
@@ -48,30 +50,34 @@ public class Home extends AppCompatActivity   implements NavigationView.OnNaviga
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        nuovaPartita=findViewById(R.id.buttonNewPartita);
-        cercaPartita=findViewById(R.id.buttonFindPartita);
-        mappaCampi=findViewById(R.id.buttonMappaCampi);
-        prenotazioneEffettuate=findViewById(R.id.buttonPrenotazioni);
-        nomeCognome=findViewById(R.id.homeNome);
-        nomeNavigationBar=findViewById(R.id.nomeNavigationBar);
-        drawerLayout=findViewById(R.id.drawer);
+        nuovaPartita = findViewById(R.id.buttonNewPartita);
+        cercaPartita = findViewById(R.id.buttonFindPartita);
+        mappaCampi = findViewById(R.id.buttonMappaCampi);
+        prenotazioneEffettuate = findViewById(R.id.buttonPrenotazioni);
+        nomeCognome = findViewById(R.id.homeNome);
+        //nomeNavigationBar=findViewById(R.id.nomeNavigationBar);
+        drawerLayout = findViewById(R.id.drawer);
 
         /*Quando clicchi su un icona del menu a tendina bisogna aprire un fragment*/
-        navigationView=findViewById(R.id.navigationView);
+        navigationView = findViewById(R.id.navigationView);
 
-        navigationView.setNavigationItemSelectedListener(this);
 
         /*Parte del menu a scorrimento */
-        toolbar=findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        navigationView.bringToFront();
 
         toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.drawerOpen,R.string.drawerClose);
 
         drawerLayout.addDrawerListener(toggle);
 
-        toggle.setDrawerIndicatorEnabled(true);
+        //toggle.setDrawerIndicatorEnabled(true);
 
         toggle.syncState();
+
+        navigationView.setNavigationItemSelectedListener(this);
+
         /*Richiamo l'intent per recuperare i dati dell'utente*/
         Intent intent = getIntent();
         Serializable obj = intent.getSerializableExtra(PERSON_DA_PASSARE);
@@ -82,7 +88,7 @@ public class Home extends AppCompatActivity   implements NavigationView.OnNaviga
             persona = new Persona();
         }
 
-        nomeCognome.setText("Benvenuto\n"+persona.getNome());
+        nomeCognome.setText("Ciao, "+persona.getNome());
 
 
 

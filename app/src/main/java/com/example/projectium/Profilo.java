@@ -19,22 +19,23 @@ import static com.example.projectium.Login.utenti;
 public class Profilo extends AppCompatActivity {
 
     Persona persona;
-    TextView nome,cognome,email,passowrd,partite,nickname;
-    Button esci,eliminaProfilo;
+    TextView nomeCognome, email, passowrd, partite, nickname;
+    Button esci, eliminaProfilo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profilo);
 
 
-        nome=findViewById(R.id.nome_fragment_profilo);
-        cognome=findViewById(R.id.cognome_frament_prfilo);
-        email=findViewById(R.id.email_fragment_profilo);
-        passowrd=findViewById(R.id.password_fragment_profilo);
-        esci=findViewById(R.id.button_profilo_home);
-        partite=findViewById(R.id.partite_fragmewnt_profilo);
-        eliminaProfilo=findViewById(R.id.button_elimina_profilo);
-        nickname=findViewById(R.id.userName_fragment_profilo);
+        //nome = findViewById(R.id.nome_fragment_profilo);
+        //cognome = findViewById(R.id.cognome_fragment_prfilo);
+        nomeCognome = findViewById(R.id.nomeCognome_fragment_profilo);
+        email = findViewById(R.id.email_fragment_profilo);
+        passowrd = findViewById(R.id.password_fragment_profilo);
+        esci = findViewById(R.id.button_profilo_home);
+        partite = findViewById(R.id.partite_fragmewnt_profilo);
+        eliminaProfilo = findViewById(R.id.button_elimina_profilo);
+        nickname = findViewById(R.id.userName_fragment_profilo);
 
 
         Intent intent = getIntent();
@@ -47,8 +48,9 @@ public class Profilo extends AppCompatActivity {
         }
 
 
-        nome.setText(persona.getNome());
-        cognome.setText(persona.getCognome());
+        //nome.setText(persona.getNome());
+        //cognome.setText(persona.getCognome());
+        nomeCognome.setText(persona.getNome() + " " + persona.getCognome());
         email.setText(persona.getEmail());
         passowrd.setText(persona.getPassword());
         partite.setText(persona.getPartite());
