@@ -66,7 +66,7 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
 
 
         /*Recupero le partite in corso e le partite annullate lista prenotazioni sono quelle di default
-        * poi dovra essere sostituito con un altro */
+         * poi dovra essere sostituito con un altro */
         prenotazioni = PrenotazioneFactory.getInstance().getPrenotazioneUtente(listaPrenotazioni,persona);
 
         /*Creo dinamicamente un bottone per ogni evento  ed un click on view*/
@@ -126,9 +126,9 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
                 }else{
 
                     if(prenotazioni.get(i).isAnnullata() && flagdata){
-                    linearLayout2.addView(bottone);
-                    linearLayout2.addView(space);
-                }else {
+                        linearLayout2.addView(bottone);
+                        linearLayout2.addView(space);
+                    }else {
 
 
                         if(!prenotazioni.get(i).isValutata()) {
@@ -169,7 +169,7 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
 
                             if(debug1.equals(debug2)) flagdata=true;
                             else
-                            flagdata = dataEvento2.after(currentTime) ;
+                                flagdata = dataEvento2.after(currentTime) ;
                         } catch (ParseException e) {
                             e.printStackTrace();
                         }

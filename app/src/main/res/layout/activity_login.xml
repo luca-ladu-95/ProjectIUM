@@ -22,8 +22,8 @@
 
             <ImageView
                 android:id="@+id/logo_image"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="386dp"
+                android:layout_height="315dp"
                 android:layout_gravity="center"
                 android:src="@drawable/calciatore2"
                 android:transitionName="logo_image" />

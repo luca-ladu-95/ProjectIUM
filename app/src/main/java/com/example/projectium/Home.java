@@ -72,7 +72,7 @@ public class Home extends AppCompatActivity   implements NavigationView.OnNaviga
         toggle.setDrawerIndicatorEnabled(true);
 
         toggle.syncState();
-         /*Richiamo l'intent per recuperare i dati dell'utente*/
+        /*Richiamo l'intent per recuperare i dati dell'utente*/
         Intent intent = getIntent();
         Serializable obj = intent.getSerializableExtra(PERSON_DA_PASSARE);
 
@@ -110,7 +110,7 @@ public class Home extends AppCompatActivity   implements NavigationView.OnNaviga
                 //richiamo activity
                 startActivity(showMappa);
                 finish();
-                }
+            }
         });
 
 
@@ -156,7 +156,7 @@ public class Home extends AppCompatActivity   implements NavigationView.OnNaviga
 
     @Override
     /*Questa è la funzione dei tasti del menu a tendina , funziona come un onclicklistener
-    * nello switch metti gli ID dei cosi del menu*/
+     * nello switch metti gli ID dei cosi del menu*/
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()){
             case R.id.nav_home:

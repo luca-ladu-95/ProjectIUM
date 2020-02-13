@@ -17,135 +17,135 @@
     </FrameLayout>
 
 
-        <ScrollView
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
 
 
-    <androidx.appcompat.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/toolbar"
-        android:background="@drawable/side_nav_bar"
-        app:titleTextColor="@color/bianco"
-
-        >
-
-    </androidx.appcompat.widget.Toolbar>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="40dp" />
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
-            android:layout_height="112dp"
-            android:layout_marginTop="30dp"
-            android:src="@drawable/calciatore2" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="25dp" />
-
-        <TextView
-            android:id="@+id/homeNome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textAlignment="center"
-            android:textColor="@color/nero"
-            android:textSize="30dp"
-            android:textStyle="bold"
-            app:fontFamily="@font/bungee" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="20dp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-
-            >
-
-
-            <Button
-                android:id="@+id/buttonNewPartita"
+            <androidx.appcompat.widget.Toolbar
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:background="@drawable/textbox"
-                android:text="NUOVA PARTITA"
-                android:textColor="#fff"
-                android:textSize="20sp"
-                app:fontFamily="@font/bungee" />
+                android:id="@+id/toolbar"
+                android:background="@drawable/side_nav_bar"
+                app:titleTextColor="@color/bianco"
 
-            <Space
+                >
+
+            </androidx.appcompat.widget.Toolbar>
+
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="15dp" />
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-            <Button
-                android:id="@+id/buttonFindPartita"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:background="@drawable/textbox"
-                android:text="CERCA PARTITA"
-                android:textColor="#fff"
-                android:textSize="20sp"
-                app:fontFamily="@font/bungee" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp" />
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="112dp"
+                    android:layout_marginTop="30dp"
+                    android:src="@drawable/calciatore2" />
 
-            <Button
-                android:id="@+id/buttonMappaCampi"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:background="@drawable/textbox"
-                android:text="MAPPA DEI CAMPI"
-                android:textColor="#fff"
-                android:textSize="20sp"
-                app:fontFamily="@font/bungee" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp" />
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
+                <TextView
+                    android:id="@+id/homeNome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textAlignment="center"
+                    android:textColor="@color/nero"
+                    android:textSize="30dp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/bungee" />
 
-            <Button
-                android:id="@+id/buttonPrenotazioni"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:background="@drawable/textbox"
-                android:text="PRENOTAZIONI EFFETTUATE"
-                android:textColor="#fff"
-                android:textSize="20sp"
-                app:fontFamily="@font/bungee" />
-        </LinearLayout>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+
+                    >
 
 
-    </LinearLayout>
+                    <Button
+                        android:id="@+id/buttonNewPartita"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:background="@drawable/textbox"
+                        android:text="NUOVA PARTITA"
+                        android:textColor="#fff"
+                        android:textSize="20sp"
+                        app:fontFamily="@font/bungee" />
 
-</RelativeLayout>
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="15dp" />
+
+                    <Button
+                        android:id="@+id/buttonFindPartita"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:background="@drawable/textbox"
+                        android:text="CERCA PARTITA"
+                        android:textColor="#fff"
+                        android:textSize="20sp"
+                        app:fontFamily="@font/bungee" />
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="15dp" />
+
+                    <Button
+                        android:id="@+id/buttonMappaCampi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:background="@drawable/textbox"
+                        android:text="MAPPA DEI CAMPI"
+                        android:textColor="#fff"
+                        android:textSize="20sp"
+                        app:fontFamily="@font/bungee" />
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="15dp" />
+
+                    <Button
+                        android:id="@+id/buttonPrenotazioni"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:background="@drawable/textbox"
+                        android:text="PRENOTAZIONI EFFETTUATE"
+                        android:textColor="#fff"
+                        android:textSize="20sp"
+                        app:fontFamily="@font/bungee" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
 
     </ScrollView>
 
