@@ -110,7 +110,11 @@ public class Valutazione extends AppCompatActivity {
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
                 valore = String.valueOf((int) (rateStars.getRating()));
 
-                if(valore.equals("1")){
+                if(valore.equals("0")){
+                    character.setImageResource(R.drawable.iczerostar);
+                    risultato.setText("Errore");
+                    value = 1;
+                } else if(valore.equals("1")){
                     character.setImageResource(R.drawable.iconestar);
                     risultato.setText("Pessimo");
                     value = 1;
