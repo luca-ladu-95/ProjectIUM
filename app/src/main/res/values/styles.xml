@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
@@ -14,5 +14,14 @@
         <item name="colorControlActivated">@color/colorStand</item>
     </style>
 
+
+    <style name="CalendarWeekDatText" parent="TextAppearance.AppCompat.Button">
+        <item name="android:textColor">@color/nero</item>
+    </style>
+
+    <style name="CalendarWeekDatTextAccent" parent="TextAppearance.AppCompat.Button">
+        <item name="colorAccent">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/nero</item>
+    </style>
 
 </resources>
