@@ -1,15 +1,20 @@
 package com.example.projectium;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Layout;
 import android.text.format.DateFormat;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Space;
@@ -45,6 +50,7 @@ public class Partecipa_partita extends AppCompatActivity {
     Boolean flag_prenotazione;
      String nomeCampo;
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -52,6 +58,13 @@ public class Partecipa_partita extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_partecipa_partita);
+
+        //Setta il colore della status bar
+        Window window = Partecipa_partita.this.getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.setStatusBarColor(ContextCompat.getColor(Partecipa_partita.this, R.color.colorPrimaryDark));
+        // infe colore della status bar
 
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.lineraDinamicCercaPartita);
 

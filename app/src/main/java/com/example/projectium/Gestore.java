@@ -1,13 +1,18 @@
 package com.example.projectium;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -21,11 +26,18 @@ public class Gestore extends AppCompatActivity {
     Persona persona;
     TextView nome;
     CardView prenotazioni,inserisci_campo,indietro,profilo;
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gestore);
 
+        //Setta il colore della status bar
+        Window window = Gestore.this.getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.setStatusBarColor(ContextCompat.getColor(Gestore.this, R.color.colorPrimaryDark));
+        // infe colore della status bar
 
         prenotazioni = findViewById(R.id.gestore_calendario);
         inserisci_campo = findViewById(R.id.gestore_inserisci_campo);

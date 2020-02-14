@@ -53,6 +53,8 @@ public class Login extends AppCompatActivity {
             }
         }
 
+
+
         /*Gli popolo solo se prima erano vuoti */
         if(listaCampi== null || listaCampi.isEmpty()) {
             CampoDaCalcioFactory.getInstance().setCampiDefault(listaCampi);

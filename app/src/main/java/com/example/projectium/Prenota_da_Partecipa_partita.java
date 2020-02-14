@@ -1,13 +1,18 @@
 package com.example.projectium;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,10 +35,18 @@ public class Prenota_da_Partecipa_partita extends AppCompatActivity {
     Button prenotati,home;
     Boolean flag_prenotazione;
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prenota_da__partecipa_partita);
+
+        //Setta il colore della status bar
+        Window window = Prenota_da_Partecipa_partita.this.getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.setStatusBarColor(ContextCompat.getColor(Prenota_da_Partecipa_partita.this, R.color.colorPrimaryDark));
+        // infe colore della status bar
 
         /*Associo le text e i bottoni*/
 

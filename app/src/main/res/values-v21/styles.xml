@@ -16,4 +16,6 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:colorPrimaryDark">#ea80fc</item>
     </style>
+
+
 </resources>

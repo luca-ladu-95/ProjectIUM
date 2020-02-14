@@ -1,11 +1,16 @@
 package com.example.projectium;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -34,10 +39,19 @@ public class Valutazione extends AppCompatActivity {
     Integer value = 1 ;
     Persona persona;
     Prenotazione prenotazione;
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_valutazione);
+
+
+        //Setta il colore della status bar
+        Window window = Valutazione.this.getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.setStatusBarColor(ContextCompat.getColor(Valutazione.this, R.color.colorPrimaryDark));
+        // infe colore della status bar
 
         titolo = findViewById(R.id.titleRating);
         risultato = findViewById(R.id.resultRate);

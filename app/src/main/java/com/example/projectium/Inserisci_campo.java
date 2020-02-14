@@ -1,13 +1,18 @@
 package com.example.projectium;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -35,10 +40,18 @@ public class Inserisci_campo extends AppCompatActivity {
     int maxValue=5;
     int modValue=0;
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inserisci_campo);
+
+        //Setta il colore della status bar
+        Window window = Inserisci_campo.this.getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.setStatusBarColor(ContextCompat.getColor(Inserisci_campo.this, R.color.colorPrimaryDark));
+        // infe colore della status bar
 
         nomeCampo = findViewById(R.id.gestore_nome_campo);
         viaCampo = findViewById(R.id.gestore_via_campo);

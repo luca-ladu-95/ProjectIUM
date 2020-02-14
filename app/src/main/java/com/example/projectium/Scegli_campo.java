@@ -1,12 +1,17 @@
 package com.example.projectium;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Space;
@@ -28,10 +33,19 @@ public class Scegli_campo extends AppCompatActivity {
     TextView nessunCampo;
     ArrayList<CampoDaCalcio> campiDaCalcio;
     Button indietro;
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scegli_campo);
+
+
+        //Setta il colore della status bar
+        Window window = Scegli_campo.this.getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.setStatusBarColor(ContextCompat.getColor(Scegli_campo.this, R.color.colorPrimaryDark));
+        // infe colore della status bar
 
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.layout_campi_disponibili);
 

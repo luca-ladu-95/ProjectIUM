@@ -2,6 +2,7 @@ package com.example.projectium;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import android.content.Context;
@@ -15,6 +16,8 @@ import android.location.Geocoder;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -43,6 +46,7 @@ public class Mappa extends FragmentActivity implements OnMapReadyCallback {
 
     public static final String NOME_CAMPO_DA_PASSARE = "package com.example.projectium.mappa";
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -55,6 +59,12 @@ public class Mappa extends FragmentActivity implements OnMapReadyCallback {
 
         back = findViewById(R.id.button_return_mappa);
 
+        //Setta il colore della status bar
+        Window window = Mappa.this.getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.setStatusBarColor(ContextCompat.getColor(Mappa.this, R.color.colorPrimaryDark));
+        // infe colore della status bar
 
         final Intent intent = getIntent();
 
