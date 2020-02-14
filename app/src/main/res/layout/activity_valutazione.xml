@@ -4,9 +4,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ea80fc"
+    android:background="#fff"
     tools:context=".Valutazione"
     android:orientation="vertical">
+
+    <Button
+        android:id="@+id/indietroPrenotazioni"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="7dp"
+        android:background="@drawable/arrow"
+        app:layout_constraintStart_toStartOf="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ea80fc"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ToolbarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="VALUTAZIONE"
+            android:textColor="@color/bianco"
+            android:textSize="25dp"
+            app:fontFamily="@font/baloo" />
+
+    </androidx.appcompat.widget.Toolbar>
 
 
     <ImageView
@@ -15,14 +49,13 @@
         android:layout_height="324dp"
         android:layout_marginStart="30dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"
         android:layout_marginEnd="30dp"
         android:layout_marginRight="30dp"
         android:src="@drawable/iconestar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.481"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -30,15 +63,17 @@
         android:layout_height="190dp"
         android:layout_marginStart="30dp"
         android:layout_marginLeft="30dp"
+        android:layout_marginTop="29dp"
         android:layout_marginEnd="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginBottom="132dp"
-        android:background="@drawable/back_box"
+        android:background="@drawable/textbox"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/icon">
 
         <TextView
             android:id="@+id/titleRating"
@@ -48,6 +83,7 @@
             android:text="Valuta il campo"
             android:textAlignment="center"
             android:textSize="20sp"
+            android:textColor="#fff"
             app:fontFamily="@font/baloo" />
 
         <RatingBar
@@ -58,8 +94,8 @@
             android:layout_marginTop="20dp"
             android:numStars="5"
             android:rating="1"
-            android:theme="@style/RatingBar"
-            android:stepSize="1" />
+            android:stepSize="1"
+            android:theme="@style/RatingBar" />
 
         <TextView
             android:id="@+id/resultRate"
@@ -67,6 +103,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
             android:text="Pessimo"
+            android:textColor="#fff"
             android:textAlignment="center"
             android:textSize="25sp"
             app:fontFamily="@font/baloo" />

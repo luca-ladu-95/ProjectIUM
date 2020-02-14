@@ -15,26 +15,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/toolbar"
-            android:background="@drawable/side_nav_bar"
-            app:titleTextColor="@color/bianco"
-
-            >
+            android:background="#ea80fc">
 
             <Button
                 android:id="@+id/button_return_riepilogo_prenotazioni"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@drawable/ic_arrow_back_black_24dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@drawable/arrow"/>
 
-
-
-                />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Riepilogo"
-                android:textSize="25dp"
-                app:fontFamily="@font/bungee"
+                android:text="RIEPILOGO"
+                android:textSize="25sp"
+                app:fontFamily="@font/baloo"
                 android:textColor="@color/bianco"
                 android:layout_gravity="center"
                 android:id="@+id/toolbar_title" />
@@ -57,12 +51,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text=""
-
                     android:textColor="@color/nero"
-                    android:textSize="30dp"
+                    android:textSize="30sp"
                     app:fontFamily="@font/bungee"
-                    android:textAlignment="center"
-                    />
+                    android:textAlignment="center" />
 
                 <Space
                     android:layout_width="match_parent"
@@ -73,10 +65,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Creatore partita"
+                    android:text="CREATORE PARTITA"
                     android:textColor="@color/nero"
-                    android:textSize="25dp"
-                    app:fontFamily="@font/bungee" />
+                    android:textSize="25sp"
+                    app:fontFamily="@font/baloo" />
 
                 <TextView
                     android:id="@+id/riepilogo_partita_nome_capo"
@@ -85,21 +77,22 @@
                     android:gravity="center"
                     android:padding="6dp"
                     android:textColor="@color/nero"
-                    android:textSize="20dp" />
+                    android:textSize="20sp"
+                    app:fontFamily="@font/aclonica"/>
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="5dp" />
+                    android:layout_height="10dp" />
 
                 <TextView
                     android:id="@+id/textView17"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Campo da gioco"
+                    android:text="CAMPO DA GIOCO"
                     android:textColor="@color/nero"
-                    android:textSize="25dp"
-                    app:fontFamily="@font/bungee" />
+                    android:textSize="25sp"
+                    app:fontFamily="@font/baloo" />
 
                 <TextView
                     android:id="@+id/riepilogo_partita_nome_campo"
@@ -108,21 +101,22 @@
                     android:gravity="center"
                     android:padding="6dp"
                     android:textColor="@color/nero"
-                    android:textSize="20dp" />
+                    android:textSize="20sp"
+                    app:fontFamily="@font/aclonica"/>
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="5dp" />
+                    android:layout_height="10dp" />
 
                 <TextView
                     android:id="@+id/textView19"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Data partita"
+                    android:text="DATA PARTITA"
                     android:textColor="@color/nero"
-                    android:textSize="25dp"
-                    app:fontFamily="@font/bungee" />
+                    android:textSize="25sp"
+                    app:fontFamily="@font/baloo" />
 
                 <TextView
                     android:id="@+id/riepilogo_partita_data"
@@ -131,21 +125,22 @@
                     android:gravity="center"
                     android:padding="6dp"
                     android:textColor="@color/nero"
-                    android:textSize="20dp" />
+                    android:textSize="20sp"
+                    app:fontFamily="@font/aclonica"/>
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="5dp" />
+                    android:layout_height="10dp" />
 
                 <TextView
                     android:id="@+id/textView21"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Ora partita"
+                    android:text="ORA PARTITA"
                     android:textColor="@color/nero"
-                    android:textSize="25dp"
-                    app:fontFamily="@font/bungee" />
+                    android:textSize="25sp"
+                    app:fontFamily="@font/baloo" />
 
                 <TextView
                     android:id="@+id/rieplogo_partita_ora"
@@ -154,21 +149,22 @@
                     android:gravity="center"
                     android:padding="6dp"
                     android:textColor="@color/nero"
-                    android:textSize="20dp" />
+                    android:textSize="20sp"
+                    app:fontFamily="@font/aclonica"/>
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="5dp" />
+                    android:layout_height="10dp" />
 
                 <TextView
                     android:id="@+id/textView23"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Numero Giocatori"
+                    android:text="NUMERO GIOCATORI"
                     android:textColor="@color/nero"
-                    android:textSize="25dp"
-                    app:fontFamily="@font/bungee" />
+                    android:textSize="25sp"
+                    app:fontFamily="@font/baloo" />
 
                 <TextView
                     android:id="@+id/riepilogo_partita_numero_G"
@@ -177,21 +173,22 @@
                     android:gravity="center"
                     android:padding="6dp"
                     android:textColor="@color/nero"
-                    android:textSize="20dp" />
+                    android:textSize="20sp"
+                    app:fontFamily="@font/aclonica"/>
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="5dp" />
+                    android:layout_height="10dp" />
 
                 <TextView
                     android:id="@+id/Prezzo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Prezzo"
+                    android:text="PREZZO"
                     android:textColor="@color/nero"
-                    android:textSize="25dp"
-                    app:fontFamily="@font/bungee" />
+                    android:textSize="25sp"
+                    app:fontFamily="@font/baloo" />
 
                 <TextView
                     android:id="@+id/riepilogo_partita_prezzo"
@@ -200,21 +197,22 @@
                     android:gravity="center"
                     android:padding="6dp"
                     android:textColor="@color/nero"
-                    android:textSize="20dp" />
+                    android:textSize="20sp"
+                    app:fontFamily="@font/aclonica"/>
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="5dp" />
+                    android:layout_height="10dp" />
 
                 <TextView
                     android:id="@+id/textView27"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Descrizione"
+                    android:text="DESCRIZIONE"
                     android:textColor="@color/nero"
-                    android:textSize="25dp"
-                    app:fontFamily="@font/bungee" />
+                    android:textSize="25sp"
+                    app:fontFamily="@font/baloo" />
 
                 <TextView
                     android:id="@+id/riepilogo_partita_descrizione"
@@ -223,7 +221,8 @@
                     android:gravity="center"
                     android:padding="6dp"
                     android:textColor="@color/nero"
-                    android:textSize="20dp" />
+                    android:textSize="20sp"
+                    app:fontFamily="@font/aclonica"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -240,12 +239,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginLeft="0dp"
+                        android:layout_marginLeft="50dp"
                         android:layout_marginTop="30dp"
-                        android:layout_marginRight="0dp"
+                        android:layout_marginRight="50dp"
                         android:background="@drawable/textbox"
                         android:backgroundTint="@color/rosso"
-                        android:text="  ANNULLA PRENOTAZIONE  "
+                        android:text="DISDICI"
                         android:textColor="#fff"
                         android:textSize="20sp"
                         app:fontFamily="@font/bungee" />

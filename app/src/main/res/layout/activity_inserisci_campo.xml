@@ -16,26 +16,23 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/side_nav_bar"
-            app:titleTextColor="@color/bianco"
-
-            >
+            android:background="#ea80fc">
 
             <Button
                 android:id="@+id/button_return_gestore_inserisci_campo"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@drawable/ic_arrow_back_black_24dp" />
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@drawable/arrow"  />
 
             <TextView
                 android:id="@+id/toolbar_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Inserisci campo"
+                android:text="INSERISCI CAMPO"
                 android:textColor="@color/bianco"
-                android:textSize="30dp"
-                app:fontFamily="@font/bungee" />
+                android:textSize="25sp"
+                app:fontFamily="@font/baloo" />
         </androidx.appcompat.widget.Toolbar>
 
 
@@ -56,7 +53,7 @@
                 android:id="@+id/prezzo_campo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text" />
+                android:inputType="number" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -78,7 +75,7 @@
                 android:id="@+id/telefono"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text" />
+                android:inputType="phone" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -115,7 +112,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:hint="Erbetta,sintetico,altro"
+            android:hint="Erba, sintetico, altro"
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -157,9 +154,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="50dp"
             android:layout_marginTop="30dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginRight="50dp"
             android:background="@drawable/textbox"
             android:text="CONFERMA"
             android:textColor="#fff"

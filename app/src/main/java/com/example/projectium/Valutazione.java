@@ -26,7 +26,7 @@ import static com.example.projectium.Prenotazione.PRENOTAZIONE;
 public class Valutazione extends AppCompatActivity {
 
     TextView titolo, risultato;
-    Button feedback;
+    Button feedback, esci;
     ImageView character;
     RatingBar rateStars;
     String valore;
@@ -44,7 +44,7 @@ public class Valutazione extends AppCompatActivity {
         feedback = findViewById(R.id.button_feed);
         character = findViewById(R.id.icon);
         rateStars = findViewById(R.id.ratingStars);
-
+        esci = findViewById(R.id.indietroPrenotazioni);
 
         Intent intent = getIntent();
 
@@ -63,6 +63,21 @@ public class Valutazione extends AppCompatActivity {
         } else {
             prenotazione = new Prenotazione();
         }
+
+        esci.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                {
+                    Intent showHOME = new Intent(Valutazione.this, PrenotazioniEffettuate.class);
+                    //Inserisco la persona dentro l'intent
+                    //ATTENZIONE ho messo person_da_passare e NON person_da_passare2 perchè il login va a pescare sul primo
+                    showHOME.putExtra(PERSON_DA_PASSARE, persona);
+                    //richiamo activity
+                    startActivity(showHOME);
+                    finish();
+                }
+            }
+        });
 
 
         feedback.setOnClickListener(new View.OnClickListener() {

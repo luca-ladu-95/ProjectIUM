@@ -16,26 +16,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/toolbar"
-            android:background="@drawable/side_nav_bar"
-            app:titleTextColor="@color/bianco"
-
-            >
+            android:background="#ea80fc"
+            app:titleTextColor="@color/bianco">
 
             <Button
                 android:id="@+id/button_return_info_campo"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@drawable/ic_arrow_back_black_24dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@drawable/arrow"/>
 
-
-
-                />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Info campo"
-                android:textSize="25dp"
-                app:fontFamily="@font/bungee"
+                android:text="INFO CAMPO"
+                android:textSize="25sp"
+                app:fontFamily="@font/baloo"
                 android:textColor="@color/bianco"
                 android:layout_gravity="center"
                 android:id="@+id/toolbar_title" />
@@ -76,7 +71,7 @@
                             android:padding="6dp"
                             android:textAlignment="center"
                             android:textColor="@color/nero"
-                            android:textSize="30dp"
+                            android:textSize="30sp"
                             app:fontFamily="@font/bungee" />
                     </TableRow>
 
@@ -96,12 +91,12 @@
 
                             <ImageView
                                 android:id="@+id/immagine"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_width="wrap_content"
+                                android:layout_height="243dp"
                                 android:layout_marginTop="5dp"
                                 android:layout_marginBottom="5dp"
                                 app:srcCompat="@drawable/stadio"
-                                tools:ignore="DuplicateIds"></ImageView>
+                                tools:ignore="DuplicateIds" />
 
                         </TableRow>
 
@@ -305,7 +300,9 @@
                             android:text="PARTECIPA"
                             android:textColor="#fff"
                             android:textSize="20sp"
-                            app:fontFamily="@font/bungee" />
+                            app:fontFamily="@font/bungee"
+                            android:layout_marginLeft="50dp"
+                            android:layout_marginRight="50dp"/>
 
                     </TableRow>
 
@@ -323,7 +320,9 @@
                             android:text="NUOVA PARTITA"
                             android:textColor="#fff"
                             android:textSize="20sp"
-                            app:fontFamily="@font/bungee" />
+                            app:fontFamily="@font/bungee"
+                            android:layout_marginLeft="50dp"
+                            android:layout_marginRight="50dp"/>
                     </TableRow>
 
                 </LinearLayout>

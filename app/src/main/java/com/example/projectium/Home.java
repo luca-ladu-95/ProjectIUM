@@ -146,18 +146,7 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
                 finish();
             }
         });
-
-
-
-
-
-
-
     }
-
-
-
-
 
 
     @Override

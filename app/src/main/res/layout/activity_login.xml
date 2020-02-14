@@ -87,9 +87,9 @@
                 android:id="@+id/buttonLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="50dp"
                 android:layout_marginTop="30dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginRight="50dp"
                 android:background="@drawable/textbox"
                 android:text="ACCEDI"
                 android:textColor="#fff"
@@ -105,7 +105,7 @@
                 android:text="Registrati"
                 android:textAlignment="center"
                 android:textColor="#000"
-                android:textSize="15dp"
+                android:textSize="15sp"
                 android:transitionName="reg_transition"
                 app:fontFamily="@font/bungee" />
 

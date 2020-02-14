@@ -16,28 +16,23 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/side_nav_bar"
-            app:titleTextColor="@color/bianco"
-
-            >
+            android:background="#ea80fc">
 
             <Button
                 android:id="@+id/button_return_prenotazioni_effettuate"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@drawable/ic_arrow_back_black_24dp"
-
-
-                />
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@drawable/arrow" />
 
             <TextView
                 android:id="@+id/toolbar_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Prenotazioni "
+                android:text="PRENOTAZIONI"
                 android:textColor="@color/bianco"
-                android:textSize="30dp" />
+                android:fontFamily="@font/baloo"
+                android:textSize="30sp" />
 
 
         </androidx.appcompat.widget.Toolbar>
@@ -76,7 +71,9 @@
                         android:id="@+id/layout_prenotazioni_del_giorno"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginRight="50dp">
 
                         <Space
                             android:layout_width="match_parent"

@@ -18,30 +18,23 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/side_nav_bar"
-            app:titleTextColor="@color/bianco"
-
-            >
+            android:background="#ea80fc">
 
             <Button
                 android:id="@+id/button_return_prenotazioni_effettuate"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@drawable/ic_arrow_back_black_24dp"
-
-
-                />
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@drawable/arrow"/>
 
             <TextView
                 android:id="@+id/toolbar_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Prenotazioni "
+                android:text="PRENOTAZIONI "
                 android:textColor="@color/bianco"
-                android:textSize="25dp"
-                app:fontFamily="@font/bungee" />
-
+                android:textSize="25sp"
+                app:fontFamily="@font/baloo" />
 
         </androidx.appcompat.widget.Toolbar>
 
@@ -78,8 +71,8 @@
                         android:layout_gravity="center"
                         android:text="Prenotazioni in corso"
                         android:textColor="@color/nero"
-                        android:textSize="25dp"
-                        app:fontFamily="@font/bungee" />
+                        android:textSize="25sp"
+                        app:fontFamily="@font/baloo" />
 
                     <TextView
                         android:id="@+id/testo_nessuna_prenotazione1"
@@ -88,7 +81,8 @@
                         android:text=""
                         android:textAlignment="center"
                         android:textColor="@color/nero"
-                        android:textSize="25dp" />
+                        android:textSize="25sp"
+                        app:fontFamily="@font/aclonica"/>
 
 
                 </LinearLayout>
@@ -122,8 +116,8 @@
                         android:layout_gravity="center"
                         android:text="Prenotazioni annullate"
                         android:textColor="@color/rosso"
-                        android:textSize="23dp"
-                        app:fontFamily="@font/bungee" />
+                        android:textSize="23sp"
+                        app:fontFamily="@font/baloo" />
 
 
                     <TextView
@@ -133,7 +127,8 @@
                         android:text=""
                         android:textAlignment="center"
                         android:textColor="@color/nero"
-                        android:textSize="25dp" />
+                        android:textSize="25sp"
+                        app:fontFamily="@font/aclonica"/>
 
 
                 </LinearLayout>
@@ -166,8 +161,8 @@
                         android:layout_gravity="center"
                         android:text="Valutazioni"
                         android:textColor="@color/nero"
-                        android:textSize="23dp"
-                        app:fontFamily="@font/bungee" />
+                        android:textSize="23sp"
+                        app:fontFamily="@font/baloo" />
 
 
                     <TextView
@@ -177,7 +172,10 @@
                         android:text=""
                         android:textAlignment="center"
                         android:textColor="@color/nero"
-                        android:textSize="25dp" />
+                        android:textSize="25sp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginRight="50dp"
+                        app:fontFamily="@font/bungee"/>
 
                 </LinearLayout>
 

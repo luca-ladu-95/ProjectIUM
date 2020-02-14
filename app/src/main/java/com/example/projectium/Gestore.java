@@ -2,6 +2,7 @@ package com.example.projectium;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -19,18 +20,18 @@ public class Gestore extends AppCompatActivity {
 
     Persona persona;
     TextView nome;
-    Button prenotazioni,inserisci_campo,indietro,profilo;
+    CardView prenotazioni,inserisci_campo,indietro,profilo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gestore);
 
 
-        prenotazioni=findViewById(R.id.gestore_calendario);
-        inserisci_campo=findViewById(R.id.gestore_inserisci_campo);
+        prenotazioni = findViewById(R.id.gestore_calendario);
+        inserisci_campo = findViewById(R.id.gestore_inserisci_campo);
         nome = findViewById(R.id.nome_gestore);
-        indietro=findViewById(R.id.gestore_esci);
-        profilo=findViewById(R.id.gestore_profilo);
+        indietro = findViewById(R.id.gestore_esci);
+        profilo = findViewById(R.id.gestore_profilo);
 
         Intent intent = getIntent();
         Serializable obj = intent.getSerializableExtra(PERSON_DA_PASSARE);
@@ -41,7 +42,7 @@ public class Gestore extends AppCompatActivity {
             persona = new Persona();
         }
 
-        nome.setText("Benvenuto\n"+persona.getNome());
+        nome.setText("Ciao, " + persona.getNome());
 
 
 

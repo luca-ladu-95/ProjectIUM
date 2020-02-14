@@ -20,27 +20,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/toolbar"
-                android:background="@drawable/side_nav_bar"
-                app:titleTextColor="@color/bianco"
-
-                >
+                android:background="#ea80fc">
 
                 <Button
                     android:id="@+id/button_return_nuova_partita_da_mappa"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/ic_arrow_back_black_24dp"
-
-
-
-                    />
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/arrow"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nuova Partita"
-                    android:textSize="25dp"
-                    app:fontFamily="@font/bungee"
+                    android:text="NUOVA PARTITA"
+                    android:textSize="25sp"
+                    app:fontFamily="@font/baloo"
                     android:textColor="@color/bianco"
                     android:layout_gravity="center"
                     android:id="@+id/toolbar_title" />
@@ -206,13 +199,13 @@
                     android:id="@+id/button_conferma_prenotazione_da_mappa"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="0dp"
-                    android:layout_marginRight="0dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
                     android:background="@drawable/textbox"
                     android:text="CONFERMA"
                     android:textColor="#fff"
                     android:textSize="20sp"
-                    app:fontFamily="@font/bungee" />
+                    app:fontFamily="@font/bungee"/>
                 <Space
                     android:layout_width="match_parent"
                     android:layout_height="15dp" />
