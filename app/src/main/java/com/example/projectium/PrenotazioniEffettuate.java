@@ -40,7 +40,8 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
 
     String current,events;
     ArrayList<Prenotazione> prenotazioni;
-    TextView nessunaP,nessunaP2;
+    TextView nessunaP,nessunaP2,nessuaValutazione;
+    ArrayList<Button> in_corso,annullate,da_valutare;
     Button indietro;
     boolean flagdata;
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -56,6 +57,9 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
         window.setStatusBarColor(ContextCompat.getColor(PrenotazioniEffettuate.this, R.color.colorPrimaryDark));
         // infe colore della status bar
 
+        in_corso = new ArrayList<>();
+        annullate = new ArrayList<>();
+        da_valutare = new ArrayList<>();
 
         String currentHours = new SimpleDateFormat("HH:mm", Locale.getDefault()).format(new Date());
         /*Recupero i lay dove stampare dinamicamente i bottoni degli eventi */
@@ -64,6 +68,7 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
         LinearLayout linearLayout3 = (LinearLayout) findViewById(R.id.layout_prenotazioni_da_valutare);
         nessunaP=findViewById(R.id.testo_nessuna_prenotazione1);
         nessunaP2=findViewById(R.id.testo_nessuna_prenotazione2);
+        nessuaValutazione=findViewById(R.id.testo_nessuna_valutazione);
         indietro=findViewById(R.id.button_return_prenotazioni_effettuate);
         int i=0;
 
@@ -89,11 +94,11 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
 
             //Controllo prenotazioni annullate fa schifo questa funzione, era gia fatta e la ho usata
             // in pratica controllo le lunghezze delle due liste , se sono uguli vuol dire che sono tutte annullate
-            if(PrenotazioneFactory.getInstance().getPrenotazioniAnnullate(prenotazioni).size()==prenotazioni.size()){
+           /* if(PrenotazioneFactory.getInstance().getPrenotazioniAnnullate(prenotazioni).size()==prenotazioni.size()){
                 nessunaP.setText("Nessuna prenotazione presente");
 
             }
-
+*/
             for (i = 0; i < prenotazioni.size(); i++) {
 
 
@@ -137,21 +142,27 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
 
                     linearLayout1.addView(bottone);
                     linearLayout1.addView(space);
+                    in_corso.add(bottone);
                 }else{
 
                     if(prenotazioni.get(i).isAnnullata() && flagdata){
                         linearLayout2.addView(bottone);
                         linearLayout2.addView(space);
+                        annullate.add(bottone);
                     }else {
 
 
                         if(!prenotazioni.get(i).isValutata()) {
                             linearLayout3.addView(bottone);
                             linearLayout3.addView(space);
+                            da_valutare.add(bottone);
                         }
 
                     }
                 }
+
+
+
 
 
                 final Prenotazione p = prenotazioni.get(i);
@@ -247,11 +258,19 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
             }
         }else{
 
-            nessunaP.setText("Nessuna prenotazione presente");
-            nessunaP2.setText("Nessuna prenotazione presente");
+        }
 
 
+        if(in_corso==null || in_corso.isEmpty()){
+            nessunaP.setText("Nessuna prenotazione disponibile");
+        }
 
+        if(annullate==null || annullate.isEmpty()){
+            nessunaP2.setText("Nessuna partita annullata");
+        }
+
+        if(da_valutare == null || da_valutare.isEmpty()){
+            nessuaValutazione.setText("Nessuna valutazione disponibile");
         }
 
 

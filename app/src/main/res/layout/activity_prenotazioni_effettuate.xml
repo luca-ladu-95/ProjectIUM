@@ -173,9 +173,7 @@
                         android:textAlignment="center"
                         android:textColor="@color/nero"
                         android:textSize="25sp"
-                        android:layout_marginLeft="50dp"
-                        android:layout_marginRight="50dp"
-                        app:fontFamily="@font/bungee"/>
+                        app:fontFamily="@font/aclonica" />
 
                 </LinearLayout>
 
