@@ -66,7 +66,7 @@
                 android:layout_marginRight="30dp"
                 android:ems="10"
                 android:gravity="center"
-                android:hint="inserisci il nome della partita"
+                android:hint="Inserisci il nome della partita"
                 android:inputType="textPersonName"
                 android:paddingLeft="0dp"
                 android:paddingRight="0dp" />
@@ -152,7 +152,6 @@
                 android:visibility="gone"
                 app:fontFamily="@font/bungee" />
 
-
             <NumberPicker
                 android:id="@+id/oraPicker"
                 android:layout_width="150dp"
@@ -161,8 +160,6 @@
                 android:gravity="center"
                 android:scrollbarSize="20dp"
                 android:visibility="visible" />
-
-
 
             <TextView
                 android:id="@+id/textView9"

@@ -30,13 +30,11 @@ public class Login extends AppCompatActivity {
     TextInputLayout username,password;
     TextView logo_text, registrati;
     Persona utente;
-/*ATTENZIONE QUESTE SONO LE 3 STRUTTURE DATI SU CUI SI APPOGGIA TUTTO IL PROGRAMMA  */
+
+    /* ATTENZIONE QUESTE SONO LE 3 STRUTTURE DATI SU CUI SI APPOGGIA TUTTO IL PROGRAMMA  */
     static HashMap<String, Persona> utenti = new HashMap<String, Persona>(); //Contiente tutti gli utenti
     static HashSet<CampoDaCalcio> listaCampi = new HashSet<>(); // Contiente tutti i campi
     static ArrayList<Prenotazione> listaPrenotazioni = new ArrayList<>();
-
-
-
 
     public static final String PERSON_DA_PASSARE = "package com.example.projectium";
 
@@ -69,10 +67,7 @@ public class Login extends AppCompatActivity {
         }
 
 
-
-
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
 
         utente = new Persona();
