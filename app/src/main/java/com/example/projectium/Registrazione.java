@@ -157,13 +157,13 @@ public class Registrazione extends AppCompatActivity {
         }
 
         //controllo per l'email da rimettere
-        //String emailPattern = "[a-zA-Z-9._-]+@[a-z]+\\.+[a-z]+";
+        String emailPattern = "[a-zA-Z-9._-]+@[a-z]+\\.+[a-z]+";
         if(email.getEditText().getText() == null || email.getEditText().getText().length() == 0){
             email.setError("Inserire email");
             errors = true;
-        //}else if (!email.getEditText().getText().toString().matches(emailPattern)){
-           // email.setError("L'email inserita non è valida");
-           // errors = true;
+        }else if (!email.getEditText().getText().toString().matches(emailPattern)){
+            email.setError("L'email inserita non è valida");
+            errors = true;
         }else{
             email.setError(null);
         }

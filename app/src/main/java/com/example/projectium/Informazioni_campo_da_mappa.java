@@ -112,7 +112,7 @@ public class Informazioni_campo_da_mappa extends AppCompatActivity {
                 Intent showCampo = new Intent(Informazioni_campo_da_mappa.this, Mappa.class);
                 //Inserisco la persona dentro l'intent
 
-
+                showCampo.putExtra(PERSON_DA_PASSARE, persona);
                 //richiamo activity
                 startActivity(showCampo);
                 finish();
@@ -127,7 +127,6 @@ public class Informazioni_campo_da_mappa extends AppCompatActivity {
                 Intent showField = new Intent(Informazioni_campo_da_mappa.this, Nuova_partita_da_mappa.class);
                 showField.putExtra(NOME_CAMPO_DA_PASSARE, campo_da_intent);
                 showField.putExtra(PERSON_DA_PASSARE, persona);
-
 
                 startActivity(showField);
                 finish();
