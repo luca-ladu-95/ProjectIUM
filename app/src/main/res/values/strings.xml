@@ -3,5 +3,6 @@
     <string name="drawerOpen">open</string>
     <string name="drawerClose">close</string>
     <string name="title_activity_inserisci_campo2">Map</string>
+    <string name="titolo_toolbar">MAPPA</string>
 
 </resources>

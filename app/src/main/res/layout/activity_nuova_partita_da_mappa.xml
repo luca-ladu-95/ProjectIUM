@@ -58,20 +58,22 @@
                     android:gravity="center"
                     android:text="Nome evento"
                     android:textColor="@color/nero"
-                    android:textSize="25dp"
+                    android:textSize="25sp"
                     app:fontFamily="@font/bungee" />
 
                 <EditText
                     android:id="@+id/edit_nome_partita_da_mappa"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
+                    android:layout_height="51dp"
+                    android:layout_gravity="center"
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="30dp"
+                    android:layout_marginTop="5dp"
                     android:ems="10"
                     android:gravity="center"
-                    android:hint="inserisci il nome della partita"
-                    android:inputType="textPersonName" />
+                    android:hint="Inserisci il nome della partita"
+                    android:background="@drawable/edit_text_frame"
+                    android:inputType="text"/>
 
                 <Space
                     android:layout_width="match_parent"
@@ -84,7 +86,7 @@
                     android:gravity="center"
                     android:text="Numero di giocatori"
                     android:textColor="@color/nero"
-                    android:textSize="25dp"
+                    android:textSize="25sp"
                     app:fontFamily="@font/bungee" />
 
                 <Space
@@ -97,6 +99,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="30dp"
+                    android:layout_marginTop="5dp"
                     android:max="10" />
 
                 <TextView
@@ -117,21 +120,24 @@
                     android:gravity="center"
                     android:text="Data evento"
                     android:textColor="@color/nero"
-                    android:textSize="25dp"
+                    android:textSize="25sp"
                     app:fontFamily="@font/bungee" />
 
                 <EditText
                     android:id="@+id/input_data_evento_nuovaP_da_mappa"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="51dp"
+                    android:layout_gravity="center"
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="30dp"
+                    android:layout_marginTop="5dp"
                     android:focusableInTouchMode="false"
                     android:gravity="center"
                     android:hint="es. 01/01/1995"
                     android:inputType="date"
+                    android:background="@drawable/edit_text_frame"
                     android:textColor="@color/nero"
-                    android:textSize="25dp" />
+                    android:textSize="25sp" />
 
                 <Space
                     android:layout_width="match_parent"
@@ -144,7 +150,7 @@
                     android:gravity="center"
                     android:text="Ora"
                     android:textColor="@color/nero"
-                    android:textSize="25dp"
+                    android:textSize="25sp"
                     app:fontFamily="@font/bungee"
                     android:visibility="gone"/>
 
@@ -158,7 +164,6 @@
                     android:scrollbarSize="20dp"
                     android:visibility="gone" />
 
-
             </LinearLayout>
 
             <LinearLayout
@@ -167,7 +172,6 @@
                 android:orientation="vertical"
                 android:padding="15dp">
 
-
                 <TextView
                     android:id="@+id/textView9"
                     android:layout_width="match_parent"
@@ -175,21 +179,28 @@
                     android:gravity="center"
                     android:text="Descrizione"
                     android:textColor="@color/nero"
-                    android:textSize="25dp"
+                    android:textSize="25sp"
                     app:fontFamily="@font/bungee" />
 
                 <EditText
                     android:id="@+id/descrizione_nuova_partita_da_mappa"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="51dp"
+                    android:layout_gravity="center"
                     android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="5dp"
                     android:ems="10"
                     android:gravity="center"
                     android:hint="es. partita tra amici"
-                    android:inputType="textPersonName"
+                    android:maxLines = "10"
                     android:textColor="@color/nero"
-                    android:textSize="20dp"
-                    android:layout_marginRight="30dp" />
+                    android:inputType="textMultiLine"
+                    android:textSize="20sp"
+                    android:overScrollMode="always"
+                    android:scrollbarStyle="insideInset"
+                    android:scrollbars="vertical"
+                    android:background="@drawable/edit_text_frame"  />
 
                 <Space
                     android:layout_width="match_parent"

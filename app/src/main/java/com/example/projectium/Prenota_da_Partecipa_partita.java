@@ -52,15 +52,15 @@ public class Prenota_da_Partecipa_partita extends AppCompatActivity {
 
         /*Associo le text e i bottoni*/
 
-        nomeEvento=findViewById(R.id.riepilogo_partita_nome);
-        data=findViewById(R.id.prenota_partita_data);
-        nomeCreatore=findViewById(R.id.prenota_partita_nome_capo);
-        ora=findViewById(R.id.prenota_partita_ora);
-        numeroGiocatori=findViewById(R.id.prenota_partita_numero_G);
-        prezzo=findViewById(R.id.prenota_partita_prezzo);
-        descrizione=findViewById(R.id.prenota_partita_descrizione);
-        prenotati=findViewById(R.id.button_prenota_partita);
-        home=findViewById(R.id.button_return_prenota_partita);
+        nomeEvento = findViewById(R.id.riepilogo_partita_nome);
+        data = findViewById(R.id.prenota_partita_data);
+        nomeCreatore = findViewById(R.id.prenota_partita_nome_capo);
+        ora = findViewById(R.id.prenota_partita_ora);
+        numeroGiocatori = findViewById(R.id.prenota_partita_numero_G);
+        prezzo = findViewById(R.id.prenota_partita_prezzo);
+        descrizione = findViewById(R.id.prenota_partita_descrizione);
+        prenotati = findViewById(R.id.button_prenota_partita);
+        home = findViewById(R.id.button_return_prenota_partita);
         campo = findViewById(R.id.prenota_partita_nome_campo);
 
         Intent intent = getIntent();

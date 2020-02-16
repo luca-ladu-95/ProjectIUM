@@ -4,9 +4,11 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.TypedValue;
@@ -55,8 +57,6 @@ public class Calendario extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendario);
-
-
 
         //Setta il colore della status bar
         Window window = Calendario.this.getWindow();
@@ -111,6 +111,9 @@ public class Calendario extends AppCompatActivity {
                 if(persona.isGestore()) {
                     for (int i = 0; i < listaPrenotazioni.size(); i++) {
 
+                        //Imposto un font da utilizzare sui bottoni generati dinamicamente
+                        Typeface typeface = ResourcesCompat.getFont(getBaseContext(), R.font.baloo);
+
                         space = new Space(Calendario.this);
                         bottone = new Button(Calendario.this);
 
@@ -121,7 +124,7 @@ public class Calendario extends AppCompatActivity {
                         bottone.setGravity(Gravity.CENTER);
                         bottone.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 25);
                         bottone.setId(i);
-
+                        bottone.setTypeface(typeface);
                         bottone.setText(listaPrenotazioni.get(i).getNome_evento());
 
                         if (!listaPrenotazioni.get(i).isAnnullata() && listaPrenotazioni.get(i).getData_evento().equals(giornoPremuto)) {
@@ -162,6 +165,9 @@ public class Calendario extends AppCompatActivity {
                     ArrayList<Prenotazione> listaPrenotazione_Utente =  PrenotazioneFactory.getInstance().getPrenotazioniInCorso(listaPrenotazioni, persona);
                     for (int i = 0; i < listaPrenotazione_Utente.size(); i++) {
 
+                        //Imposto un font da utilizzare sui bottoni generati dinamicamente
+                        Typeface typeface = ResourcesCompat.getFont(getBaseContext(), R.font.baloo);
+
                         space = new Space(Calendario.this);
                         bottone = new Button(Calendario.this);
 
@@ -172,7 +178,7 @@ public class Calendario extends AppCompatActivity {
                         bottone.setGravity(Gravity.CENTER);
                         bottone.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 25);
                         bottone.setId(i);
-
+                        bottone.setTypeface(typeface);
                         bottone.setText(listaPrenotazione_Utente.get(i).getNome_evento());
 
                         // CONFRONTO LE DATE DEGLI EVENTI A QUELLA ODIERNA SE SONO PASSATE SONO DA VALUTARE

@@ -129,7 +129,7 @@ public class Riepilogo_partita extends AppCompatActivity {
     {
         AlertDialog myQuittingDialogBox = new AlertDialog.Builder(this)
                 // finestra di conferma eliminazione
-                .setTitle("Disdici evento")
+                .setTitle("Disdici Evento")
 
                 .setMessage(message)
 

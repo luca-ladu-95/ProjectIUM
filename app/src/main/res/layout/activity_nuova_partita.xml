@@ -8,36 +8,40 @@
     tools:context=".NuovaPartita">
 
 
-
-    <androidx.appcompat.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/toolbar"
-        android:background="#ea80fc">
-
-        <Button
-            android:id="@+id/button_return_nuova_partita"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:background="@drawable/arrow" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="NUOVA PARTITA"
-            app:fontFamily="@font/baloo"
-            android:textSize="25sp"
-            android:textColor="@color/bianco"
-            android:layout_gravity="center"
-            android:id="@+id/toolbar_title" />
-
-    </androidx.appcompat.widget.Toolbar>
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/toolbar"
+                android:background="#ea80fc">
+
+                <Button
+                    android:id="@+id/button_return_nuova_partita"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/arrow" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NUOVA PARTITA"
+                    app:fontFamily="@font/baloo"
+                    android:textSize="25sp"
+                    android:textColor="@color/bianco"
+                    android:layout_gravity="center"
+                    android:id="@+id/toolbar_title" />
+
+            </androidx.appcompat.widget.Toolbar>
+
+            <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -60,16 +64,16 @@
             <EditText
                 android:id="@+id/edit_nome_partita"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="51dp"
                 android:layout_gravity="center"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
+                android:layout_marginTop="5dp"
                 android:ems="10"
                 android:gravity="center"
                 android:hint="Inserisci il nome della partita"
-                android:inputType="textPersonName"
-                android:paddingLeft="0dp"
-                android:paddingRight="0dp" />
+                android:background="@drawable/edit_text_frame"
+                android:inputType="text"/>
 
             <Space
                 android:layout_width="match_parent"
@@ -96,9 +100,8 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                android:max="9"
-                android:paddingLeft="0dp"
-                android:paddingRight="0dp"/>
+                android:layout_marginTop="5dp"
+                android:max="9"/>
 
             <TextView
                 android:id="@+id/seekNumeroGiocatori"
@@ -118,24 +121,24 @@
                 android:gravity="center"
                 android:text="Data evento"
                 android:textColor="@color/nero"
-                android:textSize="25dp"
+                android:textSize="25sp"
                 app:fontFamily="@font/bungee" />
 
             <EditText
                 android:id="@+id/input_data_evento_nuovaP"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="51dp"
                 android:layout_gravity="center"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
+                android:layout_marginTop="5dp"
                 android:focusableInTouchMode="false"
                 android:gravity="center"
                 android:hint="es. 01/01/1995"
                 android:inputType="date"
-                android:paddingLeft="0dp"
-                android:paddingRight="0dp"
+                android:background="@drawable/edit_text_frame"
                 android:textColor="@color/nero"
-                android:textSize="25dp" />
+                android:textSize="25sp" />
 
             <Space
                 android:layout_width="match_parent"
@@ -148,7 +151,7 @@
                 android:gravity="center"
                 android:text="Ora"
                 android:textColor="@color/nero"
-                android:textSize="25dp"
+                android:textSize="25sp"
                 android:visibility="gone"
                 app:fontFamily="@font/bungee" />
 
@@ -159,7 +162,15 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:scrollbarSize="20dp"
-                android:visibility="visible" />
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="15dp">
 
             <TextView
                 android:id="@+id/textView9"
@@ -168,24 +179,28 @@
                 android:gravity="center"
                 android:text="Descrizione"
                 android:textColor="@color/nero"
-                android:textSize="25dp"
+                android:textSize="25sp"
                 app:fontFamily="@font/bungee" />
 
             <EditText
                 android:id="@+id/descrizione_nuova_partita"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="51dp"
                 android:layout_gravity="center"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
+                android:layout_marginTop="5dp"
                 android:ems="10"
                 android:gravity="center"
                 android:hint="es. partita tra amici"
-                android:inputType="textPersonName"
-                android:paddingLeft="0dp"
-                android:paddingRight="0dp"
+                android:maxLines = "10"
                 android:textColor="@color/nero"
-                android:textSize="20dp" />
+                android:inputType="textMultiLine"
+                android:textSize="20sp"
+                android:overScrollMode="always"
+                android:scrollbarStyle="insideInset"
+                android:scrollbars="vertical"
+                android:background="@drawable/edit_text_frame" />
 
             <Space
                 android:layout_width="match_parent"
@@ -208,7 +223,7 @@
                 android:layout_height="40dp" />
 
 
-
+        </LinearLayout>
 
 
         </LinearLayout>

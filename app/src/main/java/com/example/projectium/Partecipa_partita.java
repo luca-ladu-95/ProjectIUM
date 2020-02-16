@@ -3,8 +3,10 @@ package com.example.projectium;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -53,11 +55,11 @@ public class Partecipa_partita extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_partecipa_partita);
+
+        //Imposto un font da utilizzare sui bottoni generati dinamicamente
+        Typeface typeface = ResourcesCompat.getFont(getBaseContext(), R.font.baloo);
 
         //Setta il colore della status bar
         Window window = Partecipa_partita.this.getWindow();
@@ -148,7 +150,8 @@ public class Partecipa_partita extends AppCompatActivity {
                     bottone.setGravity(Gravity.CENTER);
                     bottone.setTextColor(getResources().getColor(R.color.bianco));
                     bottone.setBackgroundResource(R.drawable.textbox);
-                    bottone.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 25);
+                    bottone.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20);
+                    bottone.setTypeface(typeface);
                     bottone.setId(i);
                     bottone.setText(prenotazioniInCorso.get(i).getNome_evento());
                     String debug = prenotazioniInCorso.get(i).getNome_evento();

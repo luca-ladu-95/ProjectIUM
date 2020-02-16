@@ -194,8 +194,6 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
                 finish();
                 break;
 
-
-
             case  R.id.nav_Impostazioni:
                 break;
 
@@ -219,11 +217,11 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
     {
         AlertDialog myQuittingDialogBox = new AlertDialog.Builder(this)
                 // finestra di conferma eliminazione
-                .setTitle("Esci")
-                .setMessage("Sei sicuro di voler uscire?")
+                .setTitle("Logout")
+                .setMessage("Sei sicuro di voler effettuare il logout?")
 
 
-                .setPositiveButton("esci", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int whichButton) {
                         persona = null;
@@ -249,7 +247,6 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
 
         return myQuittingDialogBox;
     }
-
 
     @Override
     public void onBackPressed() {

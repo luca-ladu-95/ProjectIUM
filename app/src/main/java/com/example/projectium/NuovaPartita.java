@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -34,7 +36,7 @@ public class NuovaPartita extends AppCompatActivity {
 
     Persona persona;
     DatePickerFragment datePickerFragment;
-    EditText nomePartita,dataPartita,descrizione;
+    EditText nomePartita, dataPartita, descrizione;
     Button indietro;
     Date data_di_oggi;
     int indice;
@@ -57,6 +59,7 @@ public class NuovaPartita extends AppCompatActivity {
 
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,19 +75,19 @@ public class NuovaPartita extends AppCompatActivity {
         nomePartita = findViewById(R.id.edit_nome_partita);
         datePickerFragment = new DatePickerFragment();
 
-        descrizione=findViewById(R.id.descrizione_nuova_partita);
+        descrizione = findViewById(R.id.descrizione_nuova_partita);
 
         scegliCampo = findViewById(R.id.button_scegli_il_campo_nuova_partita);
 
-        dataPartita=findViewById(R.id.input_data_evento_nuovaP);
+        dataPartita = findViewById(R.id.input_data_evento_nuovaP);
 
-        seekBar=findViewById(R.id.seekBarGiocatori);
+        seekBar = findViewById(R.id.seekBarGiocatori);
 
-        ora=findViewById(R.id.tv);
+        ora = findViewById(R.id.tv);
 
         numeroGiocatori = findViewById(R.id.seekNumeroGiocatori);
 
-        indietro= findViewById(R.id.button_return_nuova_partita);
+        indietro = findViewById(R.id.button_return_nuova_partita);
         final NumberPicker np = findViewById(R.id.oraPicker);
 
 
@@ -233,9 +236,6 @@ public class NuovaPartita extends AppCompatActivity {
                 String deb1String = format.format(deb1);
                 String deb2String = format.format(deb2);
 
-
-
-
                 if(deb1String.equals(deb2String)) {
 
                     np.setMinValue(0);
@@ -279,7 +279,24 @@ public class NuovaPartita extends AppCompatActivity {
             public void onStopTrackingTouch(SeekBar seekBar) {
             }
         });
+
+
+        descrizione.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                if (descrizione.hasFocus()) {
+                    v.getParent().requestDisallowInterceptTouchEvent(true);
+                    switch (event.getAction() & MotionEvent.ACTION_MASK){
+                        case MotionEvent.ACTION_SCROLL:
+                            v.getParent().requestDisallowInterceptTouchEvent(false);
+                            return true;
+                    }
+                }
+                return false;
+            }
+        });
+
     }
+
 
     protected void UpdateValue(int newVal){
 

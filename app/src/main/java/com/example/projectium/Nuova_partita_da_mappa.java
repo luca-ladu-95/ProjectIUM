@@ -6,11 +6,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -62,6 +64,7 @@ public class Nuova_partita_da_mappa extends AppCompatActivity {
 
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,18 +81,18 @@ public class Nuova_partita_da_mappa extends AppCompatActivity {
         nomePartita = findViewById(R.id.edit_nome_partita_da_mappa);
         datePickerFragment = new DatePickerFragment();
 
-        descrizione=findViewById(R.id.descrizione_nuova_partita_da_mappa);
+        descrizione = findViewById(R.id.descrizione_nuova_partita_da_mappa);
 
         scegliCampo = findViewById(R.id.button_conferma_prenotazione_da_mappa);
 
-        dataPartita=findViewById(R.id.input_data_evento_nuovaP_da_mappa);
+        dataPartita = findViewById(R.id.input_data_evento_nuovaP_da_mappa);
 
-        seekBar=findViewById(R.id.seekBarGiocatori_da_mappa);
+        seekBar = findViewById(R.id.seekBarGiocatori_da_mappa);
 
         numeroGiocatori = findViewById(R.id.seekNumeroGiocatori_da_mappa);
 
-        indietro= findViewById(R.id.button_return_nuova_partita_da_mappa);
-        ora2=findViewById(R.id.tv);
+        indietro = findViewById(R.id.button_return_nuova_partita_da_mappa);
+        ora2 = findViewById(R.id.tv);
 
         final NumberPicker np = findViewById(R.id.oraPicker_da_mappa);
 
@@ -113,16 +116,10 @@ public class Nuova_partita_da_mappa extends AppCompatActivity {
             j++;
         }
 
-
-
-
         seekBar.setMax(10);
 
         seekBar.setProgress(1);
         numeroGiocatori.setText("1");
-
-
-
 
         Intent intent = getIntent();
         Serializable obj = intent.getSerializableExtra(PERSON_DA_PASSARE);
@@ -135,13 +132,11 @@ public class Nuova_partita_da_mappa extends AppCompatActivity {
             nomeCampo = null;
         }
 
-
         if (obj instanceof Persona) {
             persona = (Persona) obj;
         } else {
             persona = new Persona();
         }
-
 
         if(nomeCampo!=null && !nomeCampo.isEmpty()){
             for(int i =0 ;i < CAMPI.size();i++){
@@ -149,9 +144,6 @@ public class Nuova_partita_da_mappa extends AppCompatActivity {
                     campo=CAMPI.get(i);
             }
         }
-
-
-
         scegliCampo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -163,10 +155,7 @@ public class Nuova_partita_da_mappa extends AppCompatActivity {
                     // passare dopo alla successiva activity e solo dopo che si sceglie il campo creare una prenotazione
                     // con la funzione crea prenotazione
 
-
-
                     SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-
 
                     Date deb1 = datePickerFragment.getDate().getTime();
                     Date deb2 = Calendar.getInstance().getTime();
@@ -251,16 +240,11 @@ public class Nuova_partita_da_mappa extends AppCompatActivity {
                 SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
                 dataPartita.setText(format.format(date.getTime()));
 
-
-
                 Date deb1 = datePickerFragment.getDate().getTime();
                 Date deb2 = Calendar.getInstance().getTime();
 
                 String deb1String = format.format(deb1);
                 String deb2String = format.format(deb2);
-
-
-
 
                 if(deb1String.equals(deb2String)) {
 
@@ -308,11 +292,19 @@ public class Nuova_partita_da_mappa extends AppCompatActivity {
             }
         });
 
-
-
-
-
-
+        descrizione.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                if (descrizione.hasFocus()) {
+                    v.getParent().requestDisallowInterceptTouchEvent(true);
+                    switch (event.getAction() & MotionEvent.ACTION_MASK){
+                        case MotionEvent.ACTION_SCROLL:
+                            v.getParent().requestDisallowInterceptTouchEvent(false);
+                            return true;
+                    }
+                }
+                return false;
+            }
+        });
     }
 
     protected void UpdateValue(int newVal){

@@ -6,13 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".Partecipa_partita">
 
-
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -40,8 +36,6 @@
                     android:textColor="@color/bianco"
                     android:layout_gravity="center"
                     android:id="@+id/toolbar_title" />
-
-
             </androidx.appcompat.widget.Toolbar>
 
 
@@ -52,15 +46,20 @@
                 android:textColor="@color/nero"
                 android:textSize="25sp"
                 android:textAlignment="center"
-                android:text=""/>
+                android:layout_marginTop="20dp"
+                android:text=""
+                app:fontFamily="@font/aclonica"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:padding="15dp"
-                android:id="@+id/lineraDinamicCercaPartita">
+                android:id="@+id/lineraDinamicCercaPartita"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp">
             </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

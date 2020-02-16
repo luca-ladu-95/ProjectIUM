@@ -4,10 +4,12 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
 
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.TypedValue;
@@ -49,6 +51,9 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prenotazioni_effettuate);
+
+        //Imposto un font da utilizzare sui bottoni generati dinamicamente
+        Typeface typeface = ResourcesCompat.getFont(getBaseContext(), R.font.baloo);
 
         //Setta il colore della status bar
         Window window = PrenotazioniEffettuate.this.getWindow();
@@ -109,9 +114,9 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
                 bottone.setTextColor(getResources().getColor(R.color.bianco));
                 bottone.setBackgroundResource(R.drawable.textbox);
                 bottone.setGravity(Gravity.CENTER);
-                bottone.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 25);
+                bottone.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20);
                 bottone.setId(i);
-
+                bottone.setTypeface(typeface);
                 bottone.setText(prenotazioni.get(i).getNome_evento());
 
 

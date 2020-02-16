@@ -57,7 +57,9 @@
                     android:id="@+id/layout_prenotazioni_del_giorno"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp">
 
                     <Space
                         android:layout_width="match_parent"
@@ -100,7 +102,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp">
 
 
                     <Space
@@ -116,7 +120,7 @@
                         android:layout_gravity="center"
                         android:text="Prenotazioni annullate"
                         android:textColor="@color/rosso"
-                        android:textSize="23sp"
+                        android:textSize="25sp"
                         app:fontFamily="@font/baloo" />
 
 
@@ -145,7 +149,9 @@
                     android:id="@+id/layout_prenotazioni_da_valutare"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp">
 
 
                     <Space
@@ -161,7 +167,7 @@
                         android:layout_gravity="center"
                         android:text="Valutazioni"
                         android:textColor="@color/nero"
-                        android:textSize="23sp"
+                        android:textSize="25sp"
                         app:fontFamily="@font/baloo" />
 
 

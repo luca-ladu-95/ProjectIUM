@@ -3,8 +3,10 @@ package com.example.projectium;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.TypedValue;
@@ -39,6 +41,8 @@ public class Scegli_campo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scegli_campo);
 
+        //Imposto un font da utilizzare sui bottoni generati dinamicamente
+        Typeface typeface = ResourcesCompat.getFont(getBaseContext(), R.font.baloo);
 
         //Setta il colore della status bar
         Window window = Scegli_campo.this.getWindow();
@@ -93,8 +97,9 @@ public class Scegli_campo extends AppCompatActivity {
                 bottone.setTextColor(getResources().getColor(R.color.bianco));
                 bottone.setBackgroundResource(R.drawable.textbox);
                 bottone.setGravity(Gravity.CENTER);
-                bottone.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 25);
+                bottone.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20);
                 bottone.setId(i);
+                bottone.setTypeface(typeface);
                 String debug = campiDaCalcio.get(i).getNome();
                 bottone.setText(campiDaCalcio.get(i).getNome());
                 linearLayout.addView(bottone);
