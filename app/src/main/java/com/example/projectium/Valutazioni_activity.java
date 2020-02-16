@@ -7,7 +7,6 @@ import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Build;
@@ -31,52 +30,53 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
+import static com.example.projectium.Calendario.BOOLEANO_CALENDARIO;
 import static com.example.projectium.Home.PERSON_DA_PASSARE_2;
+import static com.example.projectium.Informazioni_campo_da_mappa.BOOLEANO;
 import static com.example.projectium.Login.PERSON_DA_PASSARE;
+
 import static com.example.projectium.Login.listaPrenotazioni;
+import static com.example.projectium.Mappa.NOME_CAMPO_DA_PASSARE;
 import static com.example.projectium.Prenotazione.PRENOTAZIONE;
 
-public class PrenotazioniEffettuate extends AppCompatActivity {
-    Date currentTime,dataEvento;
+public class Valutazioni_activity extends AppCompatActivity {
     Persona persona;
-
-    String current,events;
+    Prenotazione prenotazione;
+    Date currentTime,dataEvento;
     ArrayList<Prenotazione> prenotazioni;
-    TextView nessunaP,nessunaP2,nessuaValutazione;
+    boolean flagdata;
+    TextView nessuaValutazione;
     ArrayList<Button> in_corso,annullate,da_valutare;
     Button indietro;
-    boolean flagdata;
+    Button bottone;
+
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_prenotazioni_effettuate);
+        setContentView(R.layout.activity_valutazioni_activity);
+
+        //Setta il colore della status bar
+        Window window = Valutazioni_activity.this.getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.setStatusBarColor(ContextCompat.getColor(Valutazioni_activity.this, R.color.colorPrimaryDark));
+        // infe colore della status bar
 
         //Imposto un font da utilizzare sui bottoni generati dinamicamente
         Typeface typeface = ResourcesCompat.getFont(getBaseContext(), R.font.baloo);
 
-        //Setta il colore della status bar
-        Window window = PrenotazioniEffettuate.this.getWindow();
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.setStatusBarColor(ContextCompat.getColor(PrenotazioniEffettuate.this, R.color.colorPrimaryDark));
-        // infe colore della status bar
-
-        in_corso = new ArrayList<>();
-        annullate = new ArrayList<>();
         da_valutare = new ArrayList<>();
 
+        int i =0;
+
         String currentHours = new SimpleDateFormat("HH:mm", Locale.getDefault()).format(new Date());
-        /*Recupero i lay dove stampare dinamicamente i bottoni degli eventi */
-        LinearLayout linearLayout1 = (LinearLayout) findViewById(R.id.layout_prenotazioni_del_giorno);
-        LinearLayout linearLayout2 = (LinearLayout) findViewById(R.id.layout_prenotazioni_annullate);
+
         LinearLayout linearLayout3 = (LinearLayout) findViewById(R.id.layout_prenotazioni_da_valutare);
-        nessunaP=findViewById(R.id.testo_nessuna_prenotazione1);
-        nessunaP2=findViewById(R.id.testo_nessuna_prenotazione2);
 
+
+        nessuaValutazione=findViewById(R.id.testo_nessuna_valutazione);
         indietro=findViewById(R.id.button_return_prenotazioni_effettuate);
-        int i=0;
-
 
         /*Richiamo l'intent per recuperare i dati dell'utente*/
         final Intent intent = getIntent();
@@ -87,6 +87,8 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
         } else {
             persona = new Persona();
         }
+
+
 
 
         /*Recupero le partite in corso e le partite annullate lista prenotazioni sono quelle di default
@@ -106,10 +108,9 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
 */
             for (i = 0; i < prenotazioni.size(); i++) {
 
-
                 Space space = new Space(this);
                 space.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,20));
-                Button bottone = new Button(this);
+                bottone = new Button(this);
                 bottone.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
                 bottone.setTextColor(getResources().getColor(R.color.bianco));
                 bottone.setBackgroundResource(R.drawable.textbox);
@@ -118,6 +119,8 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
                 bottone.setId(i);
                 bottone.setTypeface(typeface);
                 bottone.setText(prenotazioni.get(i).getNome_evento());
+
+
 
 
 // CONFRONTO LE DATE DEGLI EVENTI A QUELLA ODIERNA SE SONO PASSATE SONO DA VALUTARE
@@ -145,19 +148,21 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
 //FINE CONFRONTO DATE
                 if(!prenotazioni.get(i).isAnnullata() && flagdata){
 
-                    linearLayout1.addView(bottone);
-                    linearLayout1.addView(space);
-                    in_corso.add(bottone);
+                  //NULLA
                 }else{
 
                     if(prenotazioni.get(i).isAnnullata() && flagdata){
-                        linearLayout2.addView(bottone);
-                        linearLayout2.addView(space);
-                        annullate.add(bottone);
+                        //NULLA
                     }else {
 
 
+                        if(!prenotazioni.get(i).isValutata()) {
 
+
+                            da_valutare.add(bottone);
+                            linearLayout3.addView(bottone);
+                            linearLayout3.addView(space);
+                        }
 
                     }
                 }
@@ -206,27 +211,34 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
 
 
                         if(!p.isAnnullata() && flagdata) {
-                            Intent showRiepilogo_partita = new Intent(PrenotazioniEffettuate.this, Riepilogo_partita.class);
-                            //Inserisco la persona dentro l'intent
-
-
-                            showRiepilogo_partita.putExtra(PERSON_DA_PASSARE_2, persona);
-                            showRiepilogo_partita.putExtra(PRENOTAZIONE, p);
-
-
-                            startActivity(showRiepilogo_partita);
-                            finish();
+                            //NULLA
                         }else {
                             if(p.isAnnullata()){
                                 //Faccio vedere il motivo dell'annullamento
 
-                                final String message = "Prenotazione del " + p.getData_evento() + (" per " +
-                                        "le ore " + p.getOra_evento() + ",campo: " + p.getCampo().getNome());
-
-                                AlertDialog diaBox = AskOption(message);
-                                diaBox.show();
                             }else {
 
+                                if(p.isValutata()){
+
+                                    Context context = getApplicationContext();
+                                    CharSequence text = "Hai già valutato questo evento";
+                                    int duration = Toast.LENGTH_SHORT;
+
+                                    Toast toast = Toast.makeText(context, text, duration);
+                                    toast.show();
+                                }else{
+
+                                    Intent showValutazione_partita = new Intent(Valutazioni_activity.this, Valutazione.class);
+                                    //Inserisco la persona dentro l'intent
+
+
+                                    showValutazione_partita.putExtra(PERSON_DA_PASSARE_2, persona);
+                                    showValutazione_partita.putExtra(PRENOTAZIONE, p);
+
+
+                                    startActivity( showValutazione_partita);
+                                    finish();
+                                }
 
                             }
                         }
@@ -241,20 +253,16 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
         }
 
 
-        if(in_corso==null || in_corso.isEmpty()){
-            nessunaP.setText("Nessuna prenotazione disponibile");
-        }
 
-        if(annullate==null || annullate.isEmpty()){
-            nessunaP2.setText("Nessuna partita annullata");
+        if(da_valutare == null || da_valutare.isEmpty()){
+            nessuaValutazione.setText("Nessuna valutazione disponibile");
         }
-
 
 
         indietro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent showHOME = new Intent(PrenotazioniEffettuate.this, Home.class);
+                Intent showHOME = new Intent(Valutazioni_activity.this, Home.class);
                 //Inserisco la persona dentro l'intent
                 //ATTENZIONE ho messo person_da_passare e NON person_da_passare2 perchè il login va a pescare sul primo
                 showHOME.putExtra(PERSON_DA_PASSARE, persona);
@@ -265,80 +273,16 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
         });
 
 
+
     }
 
     public void onBackPressed(){
-        Intent showHOME = new Intent(PrenotazioniEffettuate.this, Home.class);
+        Intent showHOME = new Intent(Valutazioni_activity.this, Home.class);
         //Inserisco la persona dentro l'intent
         //ATTENZIONE ho messo person_da_passare e NON person_da_passare2 perchè il login va a pescare sul primo
         showHOME.putExtra(PERSON_DA_PASSARE, persona);
         //richiamo activity
         startActivity(showHOME);
         finish();
-    }
-
-
-    private AlertDialog AskOption(String message)
-    {
-        AlertDialog myQuittingDialogBox = new AlertDialog.Builder(this)
-                // finestra di conferma eliminazione
-                .setTitle("Partita annullata")
-                .setMessage(message)
-
-
-
-                .setNegativeButton("indietro", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-
-                        dialog.dismiss();
-
-                    }
-                })
-                .create();
-
-
-
-        return myQuittingDialogBox;
-    }
-
-    public  int get_int_ora(String ora){
-        int i=0;
-        switch (ora){
-            case "09:00":i=9;
-                break;
-            case  "10:00":i=10;
-                break;
-            case "11:00":i=11;
-                break;
-            case "12:00":i=12;
-                break;
-            case "13:00":i=13;
-                break;
-            case  "14:00":i=14;
-                break;
-            case "15:00":i=15;
-                break;
-            case "16:00":i=16;
-                break;
-            case "17:00":i=17;
-                break;
-            case  "18:00":i=18;
-                break;
-            case "19:00":i=19;
-                break;
-            case "20:00":i=20;
-                break;
-            case "21:00":i=21;
-                break;
-            case  "22:00":i=22;
-                break;
-
-        }
-
-        return i;
-    }
-
-    public  boolean confronto_ora(Integer ora_1 ,Integer ora_2){
-        return ora_1>ora_2;
     }
 }

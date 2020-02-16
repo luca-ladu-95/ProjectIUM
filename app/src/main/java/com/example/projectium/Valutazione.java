@@ -82,7 +82,7 @@ public class Valutazione extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 {
-                    Intent showHOME = new Intent(Valutazione.this, PrenotazioniEffettuate.class);
+                    Intent showHOME = new Intent(Valutazione.this, Valutazioni_activity.class);
                     //Inserisco la persona dentro l'intent
                     //ATTENZIONE ho messo person_da_passare e NON person_da_passare2 perchè il login va a pescare sul primo
                     showHOME.putExtra(PERSON_DA_PASSARE, persona);
@@ -121,7 +121,7 @@ public class Valutazione extends AppCompatActivity {
                     Toast toast = Toast.makeText(context, text, duration);
                     toast.show();
 
-                    Intent showCercaPartita = new Intent(Valutazione.this, PrenotazioniEffettuate.class);
+                    Intent showCercaPartita = new Intent(Valutazione.this, Valutazioni_activity.class);
                     //Inserisco la persona dentro l'intent
                     showCercaPartita.putExtra(PERSON_DA_PASSARE, persona);
                     //richiamo activity
@@ -172,7 +172,7 @@ public class Valutazione extends AppCompatActivity {
     }
 
     public void onBackPressed() {
-        Intent showHOME = new Intent(Valutazione.this, PrenotazioniEffettuate.class);
+        Intent showHOME = new Intent(Valutazione.this, Valutazioni_activity.class);
         //Inserisco la persona dentro l'intent
 
 

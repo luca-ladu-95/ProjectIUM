@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PrenotazioniEffettuate">
+    tools:context=".Valutazioni_activity">
 
 
     <LinearLayout
@@ -31,7 +31,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="PRENOTAZIONI "
+                android:text="VALUTAZIONI "
                 android:textColor="@color/bianco"
                 android:textSize="25sp"
                 app:fontFamily="@font/baloo" />
@@ -53,96 +53,8 @@
                 android:padding="10dp">
 
 
-                <LinearLayout
-                    android:id="@+id/layout_prenotazioni_del_giorno"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginLeft="50dp"
-                    android:layout_marginRight="50dp">
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="10dp">
-
-                    </Space>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Prenotazioni in corso"
-                        android:textColor="@color/nero"
-                        android:textSize="25sp"
-                        app:fontFamily="@font/baloo" />
-
-                    <TextView
-                        android:id="@+id/testo_nessuna_prenotazione1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text=""
-                        android:textAlignment="center"
-                        android:textColor="@color/nero"
-                        android:textSize="25sp"
-                        app:fontFamily="@font/aclonica"/>
 
 
-                </LinearLayout>
-
-
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp">
-
-                </Space>
-
-                <LinearLayout
-                    android:id="@+id/layout_prenotazioni_annullate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:layout_marginLeft="50dp"
-                    android:layout_marginRight="50dp">
-
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="10dp">
-
-                    </Space>
-
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Prenotazioni annullate"
-                        android:textColor="@color/rosso"
-                        android:textSize="25sp"
-                        app:fontFamily="@font/baloo" />
-
-
-                    <TextView
-                        android:id="@+id/testo_nessuna_prenotazione2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text=""
-                        android:textAlignment="center"
-                        android:textColor="@color/nero"
-                        android:textSize="25sp"
-                        app:fontFamily="@font/aclonica"/>
-
-
-                </LinearLayout>
-
-
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp">
-
-                </Space>
 
 
                 <LinearLayout
@@ -161,7 +73,25 @@
                     </Space>
 
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Valutazioni"
+                        android:textColor="@color/nero"
+                        android:textSize="25sp"
+                        app:fontFamily="@font/baloo" />
 
+
+                    <TextView
+                        android:id="@+id/testo_nessuna_valutazione"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textAlignment="center"
+                        android:textColor="@color/nero"
+                        android:textSize="25sp"
+                        app:fontFamily="@font/aclonica" />
 
                 </LinearLayout>
 
