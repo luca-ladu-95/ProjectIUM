@@ -49,12 +49,14 @@ public class Calendario extends AppCompatActivity {
     Date currentTime,dataEvento;
     boolean flagdata;
 
-
+    public static final String BOOLEANO_CALENDARIO = "package com.example.projectium.Calendario";
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendario);
+
+
 
         //Setta il colore della status bar
         Window window = Calendario.this.getWindow();
@@ -205,6 +207,7 @@ public class Calendario extends AppCompatActivity {
                                     //Inserisco la persona dentro l'intent
                                     showRiepilogo_partita.putExtra(PERSON_DA_PASSARE_2, persona);
                                     showRiepilogo_partita.putExtra(PRENOTAZIONE, p);
+                                    showRiepilogo_partita.putExtra(BOOLEANO_CALENDARIO,true);
                                     startActivity(showRiepilogo_partita);
                                     finish();
                                 } else {
