@@ -208,6 +208,15 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
                 finish();
                 break;
 
+                case R.id.nav_Valutazioni:
+                Intent showValutazioni = new Intent(Home.this, Valutazioni_activity.class);
+                //Inserisco la persona dentro l'intent
+                showValutazioni.putExtra(PERSON_DA_PASSARE_2, persona);
+                //richiamo activity
+                startActivity(showValutazioni);
+                finish();
+                break;
+
             case  R.id.nav_Impostazioni:
                 break;
 

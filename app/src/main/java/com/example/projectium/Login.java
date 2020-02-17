@@ -1,5 +1,6 @@
 package com.example.projectium;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -8,6 +9,7 @@ import android.Manifest;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Pair;
 import android.view.View;
@@ -181,9 +183,10 @@ public class Login extends AppCompatActivity {
         return flag;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     public void onBackPressed() {
-
-        finish();
+        finishAffinity();
     }
+
 
 }

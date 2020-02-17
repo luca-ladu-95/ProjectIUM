@@ -19,6 +19,13 @@
             android:icon="@drawable/ic_place_black_24dp"
             android:title="Mappa"
             />
+
+        <item
+            android:id="@+id/nav_Valutazioni"
+            android:icon="@drawable/ic_star_black_24dp"
+            android:title="Valutazioni"
+            />
+
         <item
             android:id="@+id/nav_Impostazioni"
             android:icon="@drawable/ic_settings_black_24dp"

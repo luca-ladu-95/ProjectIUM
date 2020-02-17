@@ -45,7 +45,7 @@ public class Valutazioni_activity extends AppCompatActivity {
     Date currentTime,dataEvento;
     ArrayList<Prenotazione> prenotazioni;
     boolean flagdata;
-    TextView nessuaValutazione;
+    TextView nessunaValutazione;
     ArrayList<Button> in_corso,annullate,da_valutare;
     Button indietro;
     Button bottone;
@@ -75,7 +75,7 @@ public class Valutazioni_activity extends AppCompatActivity {
         LinearLayout linearLayout3 = (LinearLayout) findViewById(R.id.layout_prenotazioni_da_valutare);
 
 
-        nessuaValutazione=findViewById(R.id.testo_nessuna_valutazione);
+        nessunaValutazione=findViewById(R.id.testo_nessuna_valutazione);
         indietro=findViewById(R.id.button_return_prenotazioni_effettuate);
 
         /*Richiamo l'intent per recuperare i dati dell'utente*/
@@ -255,7 +255,7 @@ public class Valutazioni_activity extends AppCompatActivity {
 
 
         if(da_valutare == null || da_valutare.isEmpty()){
-            nessuaValutazione.setText("Nessuna valutazione disponibile");
+            nessunaValutazione.setText("Nessuna valutazione disponibile");
         }
 
 
