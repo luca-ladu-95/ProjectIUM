@@ -35,6 +35,8 @@ public class Inserisci_campo extends AppCompatActivity {
     SeekBar seekBarValutazione;
     TextView valoreValutazione;
     CampoDaCalcio campo;
+    String prezzoCampo;     //Prezzo finale dopo i controlli
+    String prezzoProv;      //Prezzo provvisorio per i controlli
 
     int MinValue=0;
     int maxValue=5;
@@ -84,11 +86,46 @@ public class Inserisci_campo extends AppCompatActivity {
                     coordinate = locationAddress.getAddressFromLocation(via,
                             getApplicationContext());
 
+                    //CONTROLLI IMPORTO CAMPO
+                    prezzoCampo = importoCampo.getEditText().getText().toString();
+                    String prezzoFin = prezzoCampo;
+
+
+                    if(prezzoCampo.length() < 2)    //Il prezzo inserito ha una sola cifra(ES "2")
+                        prezzoFin = prezzoCampo.concat(".00");
+                    else{
+                        //La stringa dell'importo del campo viene copiata in un array di caratteri per scomporla
+                        final char[] pr = new char[prezzoCampo.length()];
+                        prezzoCampo.getChars(0, (prezzoCampo.length()), pr, 0);
+                        prezzoCampo = String.valueOf(pr);
+
+                        for(int i = 0; i < prezzoCampo.length(); i++){
+                            if(String.valueOf(pr[i]).equals(".")){      //Nell'importo è stato inserito il punto
+                                if(i + 1 == prezzoCampo.length())   //Nell'importo inserito, non è presente nessuna cifra dopo il punto
+                                    prezzoFin = prezzoCampo.concat("00");
+                                else{
+                                    if((prezzoCampo.length() - i) == 3){    //L'importo inserito rispetta i controlli
+                                        prezzoFin = prezzoCampo;
+                                        i = prezzoCampo.length();
+                                    }else if((prezzoCampo.length() - i) == 2){  //L'importo inserito ha solo una cifra dopo il punto
+                                        prezzoFin = prezzoCampo.concat("0");
+                                    }else{      //L'importo inserito ha più di 2 cifre dopo il punto
+                                        prezzoProv = String.valueOf(pr[0]);
+                                        prezzoFin = prezzoProv.concat(".").concat(String.valueOf(pr[i + 1]).concat(String.valueOf(pr[i + 2])));
+                                        i = prezzoCampo.length();
+                                    }
+                                }
+                            }else if(i + 1 == prezzoCampo.length()){
+                                prezzoFin = prezzoCampo.concat(".00");
+                            }
+                        }
+                    }
+                    //FINE CONTROLLI IMPORTO CAMPO
 
 
                     campo = CampoDaCalcioFactory.getInstance().creaCampo(
                             nomeCampo.getEditText().getText().toString(),
-                            importoCampo.getEditText().getText().toString(),
+                            prezzoFin,
                             10,viaCampo.getEditText().getText().toString(),
                             telefono.getEditText().getText().toString(),
                             materiale.getEditText().getText().toString(),
