@@ -81,7 +81,7 @@
                 android:layout_marginLeft="50dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginRight="50dp"
-                android:background="@color/colorPrimaryDark"
+                android:background="@drawable/textbox"
                 android:text="ACCEDI"
                 android:textColor="#fff"
                 android:textSize="20sp"
