@@ -15,8 +15,8 @@
     <!-- ________________________________________________ -->
     <!-- Color to change all the application color scheme -->
 
-    <color name="colorPrimaryDark">#F44336</color>
-    <color name="colorPrimaryDarkStatusBar">#BD3127</color>
+    <color name="colorPrimaryDark">#ea80fc</color>
+    <color name="colorPrimaryDarkStatusBar">#A559B8</color>
 
     <!-- ________________________________________________ -->
 
