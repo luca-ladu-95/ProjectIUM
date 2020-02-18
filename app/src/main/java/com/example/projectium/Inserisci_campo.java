@@ -59,15 +59,10 @@ public class Inserisci_campo extends AppCompatActivity {
         nomeCampo = findViewById(R.id.gestore_nome_campo);
         viaCampo = findViewById(R.id.gestore_via_campo);
         importoCampo=findViewById(R.id.gestore_prezzo_campo);
-
         materiale=findViewById(R.id.gestore_materiale_campo);
         telefono=findViewById(R.id.gestore_telefono);
         conferma=findViewById(R.id.button_gestore_conferma);
-
-
         indietro=findViewById(R.id.button_return_gestore_inserisci_campo);
-
-
 
         Intent intent = getIntent();
         Serializable obj = intent.getSerializableExtra(PERSON_DA_PASSARE);
@@ -148,11 +143,7 @@ public class Inserisci_campo extends AppCompatActivity {
 
                         startActivity(showHOME);
                         finish();
-
                     }
-
-
-
                 }
             }
         });
@@ -275,7 +266,6 @@ public class Inserisci_campo extends AppCompatActivity {
                         }else{      //L'importo inserito ha più di 2 cifre dopo il punto
                             prezzoProv = String.valueOf(pr[0]);
                             return prezzoProv.concat(".").concat(String.valueOf(pr[i + 1]).concat(String.valueOf(pr[i + 2])));
-
                         }
                     }
                 }else if(i + 1 == prezzo.length()){

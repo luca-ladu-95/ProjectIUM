@@ -192,7 +192,7 @@ public class Mappa extends FragmentActivity implements OnMapReadyCallback {
         });
 
 
-
+/*
         // ----------------------------------------------------------------------------------------------------------------------------
         //TODO questo listener permette di inserire un marker tenendo premuto sulla mappa (in caso vogliamo mettere la posizione da account Admin )
         mMap.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
@@ -205,6 +205,7 @@ public class Mappa extends FragmentActivity implements OnMapReadyCallback {
             }
         });
         // ----------------------------------------------------------------------------------------------------------------------------
+  */
     }
 
     @Override
