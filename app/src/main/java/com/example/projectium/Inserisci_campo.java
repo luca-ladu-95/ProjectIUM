@@ -82,9 +82,15 @@ public class Inserisci_campo extends AppCompatActivity {
         conferma.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!checkInput() && !checkTel(telefono.getEditText().getText().toString()) && !checkCoordinates(locationAddress.getAddressFromLocation(viaCampo.getEditText().getText().toString(), getApplicationContext()))){
+
+                if(!checkInput()
+                        && !checkTel(telefono.getEditText().getText().toString())
+                        && !checkCoordinates(locationAddress.getAddressFromLocation(viaCampo.getEditText().getText().toString()
+                        , getApplicationContext()))){
 
                     String via = viaCampo.getEditText().getText().toString();
+
+                    via = checkAdrres(via);
 
                     coordinate = locationAddress.getAddressFromLocation(via,
                             getApplicationContext());
@@ -121,7 +127,8 @@ public class Inserisci_campo extends AppCompatActivity {
                     campo = CampoDaCalcioFactory.getInstance().creaCampo(
                             nomeCampo.getEditText().getText().toString(),
                             prezzoCampo,
-                            10,viaCampo.getEditText().getText().toString(),
+                            10,
+                            via,
                             telFin,
                             materiale.getEditText().getText().toString(),
                             coordinate.latitude,
@@ -339,6 +346,20 @@ public class Inserisci_campo extends AppCompatActivity {
             viaCampo.setError(null);
 
         return flag;
+    }
+
+    public String checkAdrres(String address){
+
+        if (address.contains("Cagliari")
+                || address.contains("cagliari")
+                || address.contains(",Cagliari")
+                || address.contains(",cagliari")
+                || address.contains(", Cagliari")
+                || address.contains(", cagliari")){
+            return address;
+        }else{
+            return (address + ", Cagliari");
+        }
     }
 
     public void onBackPressed(){

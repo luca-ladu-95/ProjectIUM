@@ -8,17 +8,6 @@
     tools:context=".Valutazione"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/indietroPrenotazioni"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="7dp"
-        android:layout_marginLeft="7dp"
-        android:layout_marginTop="7dp"
-        android:background="@drawable/arrow"
-        app:layout_constraintStart_toStartOf="@+id/toolbar"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -42,6 +31,18 @@
 
     </androidx.appcompat.widget.Toolbar>
 
+
+    <Button
+        android:id="@+id/indietroPrenotazioni"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/arrow"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/icon"
