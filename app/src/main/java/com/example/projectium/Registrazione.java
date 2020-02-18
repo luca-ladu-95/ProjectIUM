@@ -4,16 +4,19 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Pair;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
@@ -26,6 +29,7 @@ public class Registrazione extends AppCompatActivity {
 
     TextInputLayout username, nome, cognome, pass, cpass, email;
     Button registrati;
+    TextView login;
     Persona utente;
     RadioButton button_gestore,button_utente;
     RadioGroup radioGroup;
@@ -62,6 +66,7 @@ public class Registrazione extends AppCompatActivity {
         cpass = findViewById(R.id.inputCPass);
         email = findViewById(R.id.inputEmail);
         registrati = findViewById(R.id.button_gestore_conferma);
+        login = findViewById(R.id.back_login);
 
 
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
@@ -109,6 +114,15 @@ public class Registrazione extends AppCompatActivity {
 
                     finish();
                 }
+            }
+        });
+
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent( Registrazione.this, Login.class);
+                startActivity(intent);
+                finish();
             }
         });
     }

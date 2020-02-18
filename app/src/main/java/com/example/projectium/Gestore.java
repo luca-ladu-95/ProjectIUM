@@ -110,11 +110,11 @@ public class Gestore extends AppCompatActivity {
     {
         AlertDialog myQuittingDialogBox = new AlertDialog.Builder(this)
                 // finestra di conferma eliminazione
-                .setTitle("Esci")
-                .setMessage("Sei sicuro di voler uscire?")
+                .setTitle("Logout")
+                .setMessage("Sei sicuro di voler effettuare il logout?")
 
 
-                .setPositiveButton("esci", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int whichButton) {
                         persona = null;

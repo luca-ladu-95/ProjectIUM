@@ -43,7 +43,7 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
     NavigationView navigationView;
     ActionBarDrawerToggle toggle;
 
-    CardView nuovaPartita, cercaPartita, mappaCampi, prenotazioneEffettuate, valutazioni;
+    CardView nuovaPartita, cercaPartita, mappaCampi, prenotazioneEffettuate;
 
 
     TextView nomeCognome;
@@ -67,7 +67,6 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
         nuovaPartita = findViewById(R.id.buttonNewPartita);
         cercaPartita = findViewById(R.id.buttonFindPartita);
         mappaCampi = findViewById(R.id.buttonMappaCampi);
-        valutazioni = findViewById(R.id.buttonValutazioni);
         prenotazioneEffettuate = findViewById(R.id.buttonPrenotazioni);
         nomeCognome = findViewById(R.id.homeNome);
         //nomeNavigationBar=findViewById(R.id.nomeNavigationBar);
@@ -118,19 +117,6 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
                 startActivity(showNuovaPartita);
                 finish();
 
-            }
-        });
-
-
-        valutazioni.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent showNuovaPartita = new Intent(Home.this, Valutazioni_activity.class);
-                //Inserisco la persona dentro l'intent
-                showNuovaPartita.putExtra(PERSON_DA_PASSARE_2, persona);
-                //richiamo activity
-                startActivity(showNuovaPartita);
-                finish();
             }
         });
 

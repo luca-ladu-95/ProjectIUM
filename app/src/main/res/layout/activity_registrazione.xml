@@ -212,6 +212,18 @@
                 android:textSize="20sp"
                 app:fontFamily="@font/bungee" />
 
+            <TextView
+                android:id="@+id/back_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Login"
+                android:textAlignment="center"
+                android:textColor="#000"
+                android:textSize="15sp"
+                android:transitionName="reg_transition"
+                app:fontFamily="@font/bungee" />
+
 
         </LinearLayout>
 
