@@ -61,7 +61,7 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
         Window window = Home.this.getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.setStatusBarColor(ContextCompat.getColor(Home.this, R.color.colorPrimaryDark));
+        window.setStatusBarColor(ContextCompat.getColor(Home.this, R.color.colorPrimaryDarkStatusBar));
         // infe colore della status bar
 
         nuovaPartita = findViewById(R.id.buttonNewPartita);

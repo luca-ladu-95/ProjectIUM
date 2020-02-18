@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/toolbar"
-            android:background="#ea80fc">
+            android:background="@color/colorPrimaryDark">
 
             <Button
                 android:id="@+id/button_return_riepilogo_prenotazioni"

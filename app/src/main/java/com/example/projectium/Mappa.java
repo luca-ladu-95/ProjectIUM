@@ -63,7 +63,7 @@ public class Mappa extends FragmentActivity implements OnMapReadyCallback {
         Window window = Mappa.this.getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.setStatusBarColor(ContextCompat.getColor(Mappa.this, R.color.colorPrimaryDark));
+        window.setStatusBarColor(ContextCompat.getColor(Mappa.this, R.color.colorPrimaryDarkStatusBar));
         // infe colore della status bar
 
         final Intent intent = getIntent();

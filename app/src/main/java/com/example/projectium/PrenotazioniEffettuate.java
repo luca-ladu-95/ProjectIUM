@@ -59,7 +59,7 @@ public class PrenotazioniEffettuate extends AppCompatActivity {
         Window window = PrenotazioniEffettuate.this.getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.setStatusBarColor(ContextCompat.getColor(PrenotazioniEffettuate.this, R.color.colorPrimaryDark));
+        window.setStatusBarColor(ContextCompat.getColor(PrenotazioniEffettuate.this, R.color.colorPrimaryDarkStatusBar));
         // infe colore della status bar
 
         in_corso = new ArrayList<>();

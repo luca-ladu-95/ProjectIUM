@@ -48,7 +48,7 @@ public class Informazioni_campo_da_mappa extends AppCompatActivity {
         Window window = Informazioni_campo_da_mappa.this.getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.setStatusBarColor(ContextCompat.getColor(Informazioni_campo_da_mappa.this, R.color.colorPrimaryDark));
+        window.setStatusBarColor(ContextCompat.getColor(Informazioni_campo_da_mappa.this, R.color.colorPrimaryDarkStatusBar));
         // infe colore della status bar
 
         Intent intent = getIntent();

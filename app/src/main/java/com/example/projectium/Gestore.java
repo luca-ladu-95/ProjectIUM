@@ -36,7 +36,7 @@ public class Gestore extends AppCompatActivity {
         Window window = Gestore.this.getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.setStatusBarColor(ContextCompat.getColor(Gestore.this, R.color.colorPrimaryDark));
+        window.setStatusBarColor(ContextCompat.getColor(Gestore.this, R.color.colorPrimaryDarkStatusBar));
         // infe colore della status bar
 
         prenotazioni = findViewById(R.id.gestore_calendario);

@@ -47,7 +47,7 @@ public class Prenota_da_Partecipa_partita extends AppCompatActivity {
         Window window = Prenota_da_Partecipa_partita.this.getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.setStatusBarColor(ContextCompat.getColor(Prenota_da_Partecipa_partita.this, R.color.colorPrimaryDark));
+        window.setStatusBarColor(ContextCompat.getColor(Prenota_da_Partecipa_partita.this, R.color.colorPrimaryDarkStatusBar));
         // infe colore della status bar
 
         /*Associo le text e i bottoni*/

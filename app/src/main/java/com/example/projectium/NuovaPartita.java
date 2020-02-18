@@ -69,7 +69,7 @@ public class NuovaPartita extends AppCompatActivity {
         Window window = NuovaPartita.this.getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.setStatusBarColor(ContextCompat.getColor(NuovaPartita.this, R.color.colorPrimaryDark));
+        window.setStatusBarColor(ContextCompat.getColor(NuovaPartita.this, R.color.colorPrimaryDarkStatusBar));
         // infe colore della status bar
 
         nomePartita = findViewById(R.id.edit_nome_partita);

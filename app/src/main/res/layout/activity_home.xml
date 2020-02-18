@@ -33,7 +33,7 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#ea80fc"
+                android:background="@color/colorPrimaryDark"
                 android:minHeight="?attr/actionBarSize"
                 android:theme="@style/ToolbarTheme"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -110,7 +110,7 @@
                         app:cardElevation="6dp"
                         app:cardCornerRadius="20dp"
                         android:layout_margin="12dp"
-                        app:cardBackgroundColor="#ea80fc">
+                        app:cardBackgroundColor="@color/colorPrimaryDark">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -150,7 +150,7 @@
                         app:cardElevation="6dp"
                         app:cardCornerRadius="20dp"
                         android:layout_margin="12dp"
-                        app:cardBackgroundColor="#ea80fc">
+                        app:cardBackgroundColor="@color/colorPrimaryDark">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -188,7 +188,7 @@
                         app:cardElevation="6dp"
                         app:cardCornerRadius="20dp"
                         android:layout_margin="12dp"
-                        app:cardBackgroundColor="#ea80fc">
+                        app:cardBackgroundColor="@color/colorPrimaryDark">
 
 
                         <LinearLayout
@@ -227,7 +227,7 @@
                         app:cardElevation="6dp"
                         app:cardCornerRadius="20dp"
                         android:layout_margin="12dp"
-                        app:cardBackgroundColor="#ea80fc">
+                        app:cardBackgroundColor="@color/colorPrimaryDark">
 
 
                         <LinearLayout
@@ -267,7 +267,7 @@
                         app:cardElevation="6dp"
                         app:cardCornerRadius="20dp"
                         android:layout_margin="12dp"
-                        app:cardBackgroundColor="#ea80fc">
+                        app:cardBackgroundColor="@color/colorPrimaryDark">
 
 
                         <LinearLayout

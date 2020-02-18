@@ -1,20 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <color name="bianco">#FFFF</color>
-    <color name="giallo">	#ffff00</color>
-    <color name="nero">#000</color>
-    <color name="grigio">#808080</color>
-    <color name="blu">#0000ff</color>
-    <color name="giallo2">#FCC702</color>
-    <color name="rosso">#cb3234</color>
-
+    <color name="bianco"    >#FFFF</color>
+    <color name="giallo"    >#ffff00</color>
+    <color name="nero"      >#000</color>
+    <color name="grigio"    >#808080</color>
+    <color name="blu"       >#0000ff</color>
+    <color name="giallo2"   >#FCC702</color>
+    <color name="rosso"     >#cb3234</color>
     <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#e040fb</color>
-    <color name="colorAccent">#D81B60</color>
+    <!-- Original Pink Color -->
+    <!--    <color name="colorPrimaryDark">#ea80fc</color>  /-->
+    <!-- Original Pink Color -->
 
+    <!-- ________________________________________________ -->
+    <!-- Color to change all the application color scheme -->
+
+    <color name="colorPrimaryDark">#F44336</color>
+    <color name="colorPrimaryDarkStatusBar">#BD3127</color>
+
+    <!-- ________________________________________________ -->
+
+
+    <color name="colorAccent">#D81B60</color>
     <color name="colorActive">#d4d4d4</color>
     <color name="colorStand">#ffea00</color>
-
-
 </resources>

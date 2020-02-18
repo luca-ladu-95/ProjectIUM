@@ -62,7 +62,7 @@ public class Calendario extends AppCompatActivity {
         Window window = Calendario.this.getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.setStatusBarColor(ContextCompat.getColor(Calendario.this, R.color.colorPrimaryDark));
+        window.setStatusBarColor(ContextCompat.getColor(Calendario.this, R.color.colorPrimaryDarkStatusBar));
         // infe colore della status bar
 
 

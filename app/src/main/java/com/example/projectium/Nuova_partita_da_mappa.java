@@ -74,7 +74,7 @@ public class Nuova_partita_da_mappa extends AppCompatActivity {
         Window window = Nuova_partita_da_mappa.this.getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.setStatusBarColor(ContextCompat.getColor(Nuova_partita_da_mappa.this, R.color.colorPrimaryDark));
+        window.setStatusBarColor(ContextCompat.getColor(Nuova_partita_da_mappa.this, R.color.colorPrimaryDarkStatusBar));
         // infe colore della status bar
 
 

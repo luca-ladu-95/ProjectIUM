@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff"
+    android:background="@color/bianco"
     android:orientation="vertical"
     tools:context=".Login">
 
@@ -81,7 +81,7 @@
                 android:layout_marginLeft="50dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginRight="50dp"
-                android:background="@drawable/textbox"
+                android:background="@color/colorPrimaryDark"
                 android:text="ACCEDI"
                 android:textColor="#fff"
                 android:textSize="20sp"

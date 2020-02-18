@@ -60,7 +60,7 @@ public class Valutazioni_activity extends AppCompatActivity {
         Window window = Valutazioni_activity.this.getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.setStatusBarColor(ContextCompat.getColor(Valutazioni_activity.this, R.color.colorPrimaryDark));
+        window.setStatusBarColor(ContextCompat.getColor(Valutazioni_activity.this, R.color.colorPrimaryDarkStatusBar));
         // infe colore della status bar
 
         //Imposto un font da utilizzare sui bottoni generati dinamicamente
