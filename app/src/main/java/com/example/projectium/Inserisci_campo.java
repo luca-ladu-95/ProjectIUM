@@ -43,6 +43,8 @@ public class Inserisci_campo extends AppCompatActivity {
     int maxValue=5;
     int modValue=0;
 
+    GeocodingLocation locationAddress = new GeocodingLocation();
+
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,10 +61,15 @@ public class Inserisci_campo extends AppCompatActivity {
         nomeCampo = findViewById(R.id.gestore_nome_campo);
         viaCampo = findViewById(R.id.gestore_via_campo);
         importoCampo=findViewById(R.id.gestore_prezzo_campo);
+
         materiale=findViewById(R.id.gestore_materiale_campo);
         telefono=findViewById(R.id.gestore_telefono);
         conferma=findViewById(R.id.button_gestore_conferma);
+
+
         indietro=findViewById(R.id.button_return_gestore_inserisci_campo);
+
+
 
         Intent intent = getIntent();
         Serializable obj = intent.getSerializableExtra(PERSON_DA_PASSARE);
@@ -75,9 +82,8 @@ public class Inserisci_campo extends AppCompatActivity {
         conferma.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!checkInput() && !checkTel(telefono.getEditText().getText().toString())){
+                if(!checkInput() && !checkTel(telefono.getEditText().getText().toString()) && !checkCoordinates(locationAddress.getAddressFromLocation(viaCampo.getEditText().getText().toString(), getApplicationContext()))){
 
-                    GeocodingLocation locationAddress = new GeocodingLocation();
                     String via = viaCampo.getEditText().getText().toString();
 
                     coordinate = locationAddress.getAddressFromLocation(via,
@@ -96,6 +102,7 @@ public class Inserisci_campo extends AppCompatActivity {
                     //La stringa del numero di telefono viene copiata in un array di caratteri per scomporla
                     final char[] t = new char[telProv.length()];
                     telProv.getChars(0, (telProv.length()), t, 0);
+
                     if(telProv.length() == 9){  //Il numero inserito ha 9 cifre (NUMERO FISSO)
                         if(String.valueOf(t[0]).concat(String.valueOf(t[1])).concat(String.valueOf(t[2])).equals("070")){   //Il numero inserito è valido (ES: 070 92 12 30)
                             telFin = telProv;
@@ -143,7 +150,11 @@ public class Inserisci_campo extends AppCompatActivity {
 
                         startActivity(showHOME);
                         finish();
+
                     }
+
+
+
                 }
             }
         });
@@ -187,6 +198,7 @@ public class Inserisci_campo extends AppCompatActivity {
         newVal = newVal > maxValue ? maxValue : newVal;
 
         newVal = newVal < MinValue ? MinValue : newVal;
+
         this.modValue = newVal;
 
         valoreValutazione.setText(""+this.modValue);
@@ -266,6 +278,7 @@ public class Inserisci_campo extends AppCompatActivity {
                         }else{      //L'importo inserito ha più di 2 cifre dopo il punto
                             prezzoProv = String.valueOf(pr[0]);
                             return prezzoProv.concat(".").concat(String.valueOf(pr[i + 1]).concat(String.valueOf(pr[i + 2])));
+
                         }
                     }
                 }else if(i + 1 == prezzo.length()){
@@ -285,6 +298,7 @@ public class Inserisci_campo extends AppCompatActivity {
         //La stringa del numero di telefono viene copiata in un array di caratteri per scomporla
         final char[] t = new char[tel.length()];
         tel.getChars(0, (tel.length()), t, 0);
+
         if(tel.length() == 9){  //Il numero inserito ha 9 cifre (NUMERO FISSO)
             if(String.valueOf(t[0]).concat(String.valueOf(t[1])).concat(String.valueOf(t[2])).equals("070")){   //Il numero inserito è valido (ES: 070 92 12 30)
                 telefono.setError(null);
