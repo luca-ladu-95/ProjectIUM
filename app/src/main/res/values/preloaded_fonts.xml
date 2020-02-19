@@ -3,6 +3,9 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/aclonica</item>
         <item>@font/baloo</item>
+        <item>@font/droid_sans_mono</item>
+        <item>@font/faster_one</item>
+        <item>@font/jockey_one</item>
         <item>@font/roboto</item>
     </array>
 </resources>
