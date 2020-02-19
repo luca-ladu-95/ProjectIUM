@@ -37,11 +37,11 @@ public class PersonaFactory {
          boolean gestore = true;
          boolean utente = false;
 
-        Persona persona1 = this.creaPersona("luca","Luca","Ladu","1234","1234","laduluca95@hotm.it","0",utente);
-        Persona persona2 = this.creaPersona("frank","Francesco","Podda","1234","1234","frk@hotmail.it","0",utente);
-        Persona persona3 = this.creaPersona("d","Daniele","Stochino","d","d","Dshot92@hotmail.it","3",utente);
-        Persona persona4 = this.creaPersona("Jorge","Giorgio","Fanni","1234","1234","Gf96@hotm.it","23",utente);
-        Persona persona5 = this.creaPersona("Z","Admin","admin","admin","admin","Gf96@hotm.it","23",gestore);
+        Persona persona1 = this.creaPersona("luca","Luca","Ladu","1234","1234","laduluca95@hotm.it","6",utente);
+        Persona persona2 = this.creaPersona("frank","Francesco","Podda","1234","1234","frk@hotmail.it","5",utente);
+        Persona persona3 = this.creaPersona("d","Daniele","Stochino","d","d","dshot@yahoo.it","4",utente);
+        Persona persona4 = this.creaPersona("Jorge","Giorgio","Fanni","1234","1234","Gf96@hotmail.it","3",utente);
+        Persona persona5 = this.creaPersona("Z","Admin","admin","admin","admin","admin@rentakik.com","1",gestore);
 
         map.put(persona1.getUserId(),persona1);
         map.put(persona2.getUserId(),persona2);

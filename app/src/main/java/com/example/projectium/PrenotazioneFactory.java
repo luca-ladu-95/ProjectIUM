@@ -49,24 +49,61 @@ public class PrenotazioneFactory  implements Serializable {
             ArrayList<Persona> utentiStandard = PersonaFactory.getInstance().getUtentiArray(utenti);
             ArrayList<CampoDaCalcio> campi = CampoDaCalcioFactory.getInstance().getCampiDefault();
 
-            Prenotazione p1 = creaPrenotazione(utentiStandard.get(1),campi.get(1),"Prova1","Semplice calcio","22/03/2020",7,false,"11:00",false);
-            Prenotazione p2 = creaPrenotazione(utentiStandard.get(2),campi.get(2),"Prova2","Semplice calcio","21/03/2020",8,false,"13:00",false);
-            Prenotazione p3 = creaPrenotazione(utentiStandard.get(2),campi.get(1),"Prova3","Annullata per infortunio","22/03/2020",10,true,"13:00",false);
-            Prenotazione p4 = creaPrenotazione(utentiStandard.get(3),campi.get(3),"Prova4","Semplice calcio","12/03/2020",9,false,"15:00",false);
-            Prenotazione p5 = creaPrenotazione(utentiStandard.get(2),campi.get(1),"Prova5","Annullata per mancanza giocatori","2/03/2020",10,true,"11:00",false);
-            Prenotazione p6 = creaPrenotazione(utentiStandard.get(0),campi.get(1),"Prova Annullata","Annullata per mal tempo","2/03/2020",9,true,"11:00",false);
-            Prenotazione p7 = creaPrenotazione(utentiStandard.get(2),campi.get(4),"Vecchia","Semplice calcio","21/03/2019",8,false,"13:00",false);
+            /*
+            *   FRANK = 0
+            * DANIELE = 1
+            *    LUCA = 2
+            *   JORGE = 4
+            * */
 
-            Prenotazione p8 = creaPrenotazione(utentiStandard.get(2),campi.get(4),"Vecchia2","Semplice calcio","22/03/2019",8,false,"13:00",false);
-
+            // FRANK
+            Prenotazione p1 = creaPrenotazione(utentiStandard.get(0),campi.get(1),"Prova1 Annullata","Annullata per mal tempo","2/03/2020",9,true,"11:00",false);
             lista.add(p1);
+            Prenotazione p2 = creaPrenotazione(utentiStandard.get(0),campi.get(2),"Prova2 Annullata","Annullata per mal tempo","2/03/2020",9,true,"12:00",false);
             lista.add(p2);
+            Prenotazione p3 = creaPrenotazione(utentiStandard.get(0),campi.get(3),"Vamonos!","Annullata per mal tempo","2/03/2020",9,false,"13:00",false);
             lista.add(p3);
+            Prenotazione p4 = creaPrenotazione(utentiStandard.get(0),campi.get(4),"Prova4 Annullata","Annullata per mal tempo","2/03/2020",9,true,"14:00",false);
             lista.add(p4);
+            Prenotazione p5 = creaPrenotazione(utentiStandard.get(0),campi.get(5),"Prova5 Annullata","Annullata per mal tempo","2/03/2020",9,true,"15:00",false);
             lista.add(p5);
+            Prenotazione p6 = creaPrenotazione(utentiStandard.get(0),campi.get(5),"Calcio Champagne","Puro Divertimento","3/03/2020",9,false,"15:00",false);
             lista.add(p6);
-            lista.add(p7);
-            lista.add(p8);
+
+            // DANIELE
+            Prenotazione p10 = creaPrenotazione(utentiStandard.get(1),campi.get(1),"Prova10","Semplice calcio","22/03/2020",7,false,"11:00",false);
+            lista.add(p10);
+            Prenotazione p11 = creaPrenotazione(utentiStandard.get(1),campi.get(2),"Prova11","Semplice calcio","23/03/2020",4,false,"10:00",false);
+            lista.add(p11);
+            Prenotazione p12 = creaPrenotazione(utentiStandard.get(1),campi.get(6),"Da Aimone","Il terzo tempo conta piu dei primi due","24/03/2020",9,false,"22:00",true);
+            lista.add(p12);
+            Prenotazione p13 = creaPrenotazione(utentiStandard.get(1),campi.get(2),"Joga Bonito","Olè!","25/03/2020",7, true,"21:00",false);
+            lista.add(p13);
+
+
+            // LUCA
+            Prenotazione p20 = creaPrenotazione(utentiStandard.get(2),campi.get(1),"Prova3","Annullata per infortunio","22/03/2020",10,true,"13:00",false);
+            lista.add(p20);
+            Prenotazione p21 = creaPrenotazione(utentiStandard.get(2),campi.get(1),"Prova5","Annullata per mancanza giocatori","2/03/2020",10,true,"11:00",false);
+            lista.add(p21);
+            Prenotazione p22 = creaPrenotazione(utentiStandard.get(2),campi.get(2),"Prova2","Semplice calcio","21/03/2020",8,false,"13:00",false);
+            lista.add(p22);
+            Prenotazione p23 = creaPrenotazione(utentiStandard.get(2),campi.get(4),"Vecchia","Semplice calcio","21/03/2019",8,false,"13:00",false);
+            lista.add(p23);
+            Prenotazione p24 = creaPrenotazione(utentiStandard.get(2),campi.get(4),"Vecchia2","Semplice calcio","22/03/2019",8,false,"13:00",false);
+            lista.add(p24);
+
+            // JORGE
+            Prenotazione p30 = creaPrenotazione(utentiStandard.get(4),campi.get(3),"Partitona Sbronza","Calcio sbronzo","29/02/2020",9,false,"15:00",false);
+            lista.add(p30);
+            Prenotazione p31 = creaPrenotazione(utentiStandard.get(4),campi.get(4),"MESSIng about","Tiki Taka","13/03/2020",4,false,"16:00",false);
+            lista.add(p31);
+            Prenotazione p32 = creaPrenotazione(utentiStandard.get(4),campi.get(3),"Prova4","Semplice calcio","28/02/2020",10,false,"19:00",false);
+            lista.add(p32);
+            Prenotazione p33 = creaPrenotazione(utentiStandard.get(4),campi.get(7),"episcoPALI","San pietro","23/03/2020",3,true,"20:00",true);
+            lista.add(p33);
+            Prenotazione p34 = creaPrenotazione(utentiStandard.get(4),campi.get(7),"Prova4","Semplice calcio","25/03/2020",4,true,"20:00",false);
+            lista.add(p34);
         }
     }
 
@@ -278,25 +315,62 @@ public ArrayList<Prenotazione> setPrenotazioniComplete(){
         ArrayList<Persona> utentiStandard = PersonaFactory.getInstance().getUtentiArray(utenti);
         ArrayList<CampoDaCalcio> campi = CampoDaCalcioFactory.getInstance().getCampiDefault();
 
-        Prenotazione p1 = creaPrenotazione(utentiStandard.get(1),campi.get(1),"Prova1","Semplice calcio","22/03/2020",7,false,"11:00",false);
-        Prenotazione p2 = creaPrenotazione(utentiStandard.get(2),campi.get(2),"Prova2","Semplice calcio","21/03/2020",8,false,"13:00",false);
-        Prenotazione p3 = creaPrenotazione(utentiStandard.get(2),campi.get(1),"Prova3","Annullata per infortunio","22/03/2020",10,true,"13:00",false);
-        Prenotazione p4 = creaPrenotazione(utentiStandard.get(3),campi.get(3),"Prova4","Semplice calcio","12/03/2020",9,false,"15:00",false);
-        Prenotazione p5 = creaPrenotazione(utentiStandard.get(2),campi.get(1),"Prova5","Annullata per mancanza giocatori","2/03/2020",10,true,"11:00",false);
+    Prenotazione p1 = creaPrenotazione(utentiStandard.get(0),campi.get(1),"Prova1 Annullata","Annullata per mal tempo","2/03/2020",9,true,"11:00",false);
+    lista.add(p1);
+    Prenotazione p2 = creaPrenotazione(utentiStandard.get(0),campi.get(2),"Prova2 Annullata","Annullata per mal tempo","2/03/2020",9,true,"12:00",false);
+    lista.add(p2);
+    Prenotazione p3 = creaPrenotazione(utentiStandard.get(0),campi.get(3),"Prova3 Annullata","Annullata per mal tempo","2/03/2020",9,true,"13:00",false);
+    lista.add(p3);
+    Prenotazione p4 = creaPrenotazione(utentiStandard.get(0),campi.get(4),"Prova4 Annullata","Annullata per mal tempo","2/03/2020",9,true,"14:00",false);
+    lista.add(p4);
+    Prenotazione p5 = creaPrenotazione(utentiStandard.get(0),campi.get(5),"Prova5 Annullata","Annullata per mal tempo","2/03/2020",9,true,"15:00",false);
+    lista.add(p5);
+    Prenotazione p6 = creaPrenotazione(utentiStandard.get(0),campi.get(5),"Calcio Champagne","Puro Divertimento","3/03/2020",9,false,"15:00",false);
+    lista.add(p6);
+
+    Prenotazione p10 = creaPrenotazione(utentiStandard.get(1),campi.get(1),"Prova10","Semplice calcio","22/03/2020",7,false,"11:00",false);
+    lista.add(p10);
+    Prenotazione p11 = creaPrenotazione(utentiStandard.get(1),campi.get(2),"Prova11","Semplice calcio","23/03/2020",4,false,"10:00",false);
+    lista.add(p11);
+    Prenotazione p12 = creaPrenotazione(utentiStandard.get(1),campi.get(4),"Prova12","Semplice calcio","24/03/2020",7,false,"18:00",false);
+    lista.add(p12);
+
+    Prenotazione p20 = creaPrenotazione(utentiStandard.get(2),campi.get(1),"Prova3","Annullata per infortunio","22/03/2020",10,true,"13:00",false);
+    lista.add(p20);
+    Prenotazione p21 = creaPrenotazione(utentiStandard.get(2),campi.get(1),"Prova5","Annullata per mancanza giocatori","2/03/2020",10,true,"11:00",false);
+    lista.add(p21);
+    Prenotazione p22 = creaPrenotazione(utentiStandard.get(2),campi.get(2),"Prova2","Semplice calcio","21/03/2020",8,false,"13:00",false);
+    lista.add(p22);
+    Prenotazione p23 = creaPrenotazione(utentiStandard.get(2),campi.get(4),"Vecchia","Semplice calcio","21/03/2019",8,false,"13:00",false);
+    lista.add(p23);
+    Prenotazione p24 = creaPrenotazione(utentiStandard.get(2),campi.get(4),"Vecchia2","Semplice calcio","22/03/2019",8,false,"13:00",false);
+    lista.add(p24);
+    Prenotazione p25 = creaPrenotazione(utentiStandard.get(1),campi.get(4),"Prova12","Semplice calcio","24/03/2020",7,false,"18:00",false);
+    lista.add(p25);
+
+
+    Prenotazione p30 = creaPrenotazione(utentiStandard.get(3),campi.get(3),"Prova4","Semplice calcio","12/03/2020",9,false,"15:00",false);
+    lista.add(p30);
+    Prenotazione p31 = creaPrenotazione(utentiStandard.get(3),campi.get(4),"Prova4","Semplice calcio","13/03/2020",4,false,"16:00",false);
+    lista.add(p31);
+    Prenotazione p32 = creaPrenotazione(utentiStandard.get(1),campi.get(4),"Prova12","Semplice calcio","24/03/2020",7,false,"18:00",false);
+    lista.add(p32);
+
+
+        /*
         Prenotazione p6 = creaPrenotazione(utentiStandard.get(0),campi.get(1),"Prova Annullata","Annullata per mal tempo","2/03/2020",9,true,"11:00",true);
-            /*
-            p1.getIscritti().add(utentiStandard.get(2));
-            p1.getIscritti().add(utentiStandard.get(3));
-            p2.getIscritti().add(utentiStandard.get(3));
-            p6.getIscritti().add(utentiStandard.get(3));
-            p5.getIscritti().add(utentiStandard.get(3));
-            */
+        Prenotazione p1 = creaPrenotazione(utentiStandard.get(1),campi.get(1),"Prova1","Semplice calcio","22/03/2020",7,false,"11:00",false);
+        Prenotazione p3 = creaPrenotazione(utentiStandard.get(2),campi.get(1),"Prova3","Annullata per infortunio","22/03/2020",10,true,"13:00",false);
+        Prenotazione p5 = creaPrenotazione(utentiStandard.get(2),campi.get(1),"Prova5","Annullata per mancanza giocatori","2/03/2020",10,true,"11:00",false);
+        Prenotazione p2 = creaPrenotazione(utentiStandard.get(2),campi.get(2),"Prova2","Semplice calcio","21/03/2020",8,false,"13:00",false);
+        Prenotazione p4 = creaPrenotazione(utentiStandard.get(3),campi.get(3),"Prova4","Semplice calcio","12/03/2020",9,false,"15:00",false);
         lista.add(p1);
         lista.add(p2);
         lista.add(p3);
         lista.add(p4);
         lista.add(p5);
         lista.add(p6);
+        */
 
         return lista;
     }
