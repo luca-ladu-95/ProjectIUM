@@ -52,6 +52,7 @@ public class DatePickerFragment extends DialogFragment {
                 date.set(Calendar.MONTH, datePicker.getMonth());
                 date.set(Calendar.DAY_OF_MONTH, datePicker.getDayOfMonth());
 
+
                 if (listener != null) {
                     listener.onDatePickerFragmentOkButton(DatePickerFragment.this, date); //genera l'evento che aggiorna i valori
                     //della data nella text view

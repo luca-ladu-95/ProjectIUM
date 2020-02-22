@@ -73,7 +73,7 @@
                         android:layout_gravity="center"
                         android:text="Prenotazioni in corso"
                         android:textColor="@color/nero"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         app:fontFamily="@font/baloo" />
 
                     <TextView
@@ -120,7 +120,7 @@
                         android:layout_gravity="center"
                         android:text="Prenotazioni annullate"
                         android:textColor="@color/rosso"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         app:fontFamily="@font/baloo" />
 
 
@@ -131,8 +131,8 @@
                         android:text=""
                         android:textAlignment="center"
                         android:textColor="@color/nero"
-                        android:textSize="25sp"
-                        app:fontFamily="@font/aclonica"/>
+                        android:textSize="20sp"
+                        app:fontFamily="@font/roboto" />
 
 
                 </LinearLayout>

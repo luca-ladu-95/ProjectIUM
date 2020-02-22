@@ -167,7 +167,7 @@
                         android:text=""
                         android:textColor="#000"
                         android:textStyle="italic"
-                        app:fontFamily="@font/aclonica" />
+                        app:fontFamily="@font/roboto" />
                 </LinearLayout>
 
                 <Space
@@ -193,7 +193,7 @@
                         android:text=""
                         android:textColor="#000"
                         android:textStyle="italic"
-                        app:fontFamily="@font/aclonica" />
+                        app:fontFamily="@font/roboto" />
 
                 </LinearLayout>
 
@@ -220,7 +220,7 @@
                         android:text=""
                         android:textColor="#000"
                         android:textStyle="italic"
-                        app:fontFamily="@font/aclonica" />
+                        app:fontFamily="@font/roboto" />
 
                 </LinearLayout>
 
