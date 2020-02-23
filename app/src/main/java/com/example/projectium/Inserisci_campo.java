@@ -314,7 +314,8 @@ public class Inserisci_campo extends AppCompatActivity {
                 flag = true;
             }
         }else if(tel.length() == 10){     //Il numero inserito ha 10 cifre (NUMERO DEL CELLULARE SENZA PREFISSO +39)
-            if(String.valueOf(t[0]).concat(String.valueOf(t[1])).concat(String.valueOf(t[2])).equals("+39")) {    //Il numero inserito non è valido
+
+            if(!(String.valueOf(t[0]).equals("3")) || String.valueOf(t[0]).concat(String.valueOf(t[1])).concat(String.valueOf(t[2])).equals("+39")){    //Il numero inserito non è valido
                 telefono.setError("Inserisci un numero di telefono valido");
                 flag = true;
             }else{       //Il numero inserito è valido e viene aggiunto il prefisso
@@ -322,7 +323,12 @@ public class Inserisci_campo extends AppCompatActivity {
             }
         }else if(tel.length() == 13){   //Il numero inserito ha 13 cifre (NUMERO DEL CELLULARE CON PREFISSO +39)
             if(String.valueOf(t[0]).concat(String.valueOf(t[1])).concat(String.valueOf(t[2])).equals("+39"))    //Il numero inserito è valido
-                telefono.setError(null);
+                if(String.valueOf(t[3]).equals("3"))    //Il numero di telefono è valido
+                    telefono.setError(null);
+                else{   //Il numero di telefono non è valido
+                    telefono.setError("Inserisci un numero di telefono valido");
+                    flag = true;
+                }
             else{       //Il numero inserito non è valido
                 telefono.setError("Inserisci un numero di telefono valido");
                 flag = true;
