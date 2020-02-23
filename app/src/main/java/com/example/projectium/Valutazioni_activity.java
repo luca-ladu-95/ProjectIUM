@@ -156,7 +156,7 @@ public class Valutazioni_activity extends AppCompatActivity {
                     }else {
 
 
-                        if(!prenotazioni.get(i).isValutata()) {
+                        if(!prenotazioni.get(i).isValutata() && !prenotazioni.get(i).isAnnullata()) {
 
 
                             da_valutare.add(bottone);

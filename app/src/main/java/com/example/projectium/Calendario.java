@@ -70,7 +70,7 @@ public class Calendario extends AppCompatActivity {
         //selectedDate = findViewById(R.id.textView4); //textView4 punta alla stringa nome in profilo.xml
         indietro=findViewById(R.id.button_return_prenotazioni_effettuate);
         linearLayout1 = findViewById(R.id.layout_prenotazioni_del_giorno);
-        nessunaP =findViewById(R.id.testo_nessuna_prenotazione1);
+        nessunaP =findViewById(R.id.calendario_nessunaP);
 
 
         Intent intent = getIntent();
@@ -134,7 +134,13 @@ public class Calendario extends AppCompatActivity {
                         }
 
                         //SVUOTA LISTA SE NON CI SONO PRENOTAZIONI
-                        if (conto_partite_prenotate == 0) linearLayout1.removeAllViews();
+                        if (conto_partite_prenotate == 0){
+                            linearLayout1.removeAllViews();
+                            nessunaP.setText("Nessuna prenotazione");
+
+                        }else{
+                            nessunaP.setText("");
+                        }
 
                         final Prenotazione p = listaPrenotazioni.get(i);
 
@@ -199,7 +205,13 @@ public class Calendario extends AppCompatActivity {
                         }
 
                         //SVUOTA LISTA SE NON CI SONO PRENOTAZIONI
-                        if (conto_partite_prenotate == 0) linearLayout1.removeAllViews();
+                        if (conto_partite_prenotate == 0){
+                            linearLayout1.removeAllViews();
+                            nessunaP.setText("Nessuna prenotazione");
+
+                        }else{
+                            nessunaP.setText("");
+                        }
 
                         final Prenotazione p = listaPrenotazione_Utente.get(i);
 
