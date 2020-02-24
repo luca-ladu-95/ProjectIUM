@@ -39,9 +39,9 @@ public class Inserisci_campo extends AppCompatActivity {
     String telProv;         //Numero di telefono provvisorio dopo i controlli
     String telFin;          //Numero di telefono dopo i controlli
 
-    int MinValue=0;
-    int maxValue=5;
-    int modValue=0;
+    int MinValue = 0;
+    int maxValue = 5;
+    int modValue = 0;
 
     GeocodingLocation locationAddress = new GeocodingLocation();
 
@@ -60,11 +60,11 @@ public class Inserisci_campo extends AppCompatActivity {
 
         nomeCampo = findViewById(R.id.gestore_nome_campo);
         viaCampo = findViewById(R.id.gestore_via_campo);
-        importoCampo=findViewById(R.id.gestore_prezzo_campo);
+        importoCampo = findViewById(R.id.gestore_prezzo_campo);
 
-        materiale=findViewById(R.id.gestore_materiale_campo);
-        telefono=findViewById(R.id.gestore_telefono);
-        conferma=findViewById(R.id.button_gestore_conferma);
+        materiale = findViewById(R.id.gestore_materiale_campo);
+        telefono = findViewById(R.id.gestore_telefono);
+        conferma = findViewById(R.id.button_gestore_conferma);
 
 
         indietro=findViewById(R.id.button_return_gestore_inserisci_campo);
@@ -83,17 +83,14 @@ public class Inserisci_campo extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(!checkInput()
-                        && !checkTel(telefono.getEditText().getText().toString())
-                        && !checkCoordinates(locationAddress.getAddressFromLocation(viaCampo.getEditText().getText().toString()
-                        , getApplicationContext()))){
+                if(!checkInput() && !checkTel(telefono.getEditText().getText().toString())
+                        && !checkCoordinates(locationAddress.getAddressFromLocation(viaCampo.getEditText().getText().toString(), getApplicationContext()))){
 
                     String via = viaCampo.getEditText().getText().toString();
 
                     via = checkAdrres(via);
 
-                    coordinate = locationAddress.getAddressFromLocation(via,
-                            getApplicationContext());
+                    coordinate = locationAddress.getAddressFromLocation(via, getApplicationContext());
 
                     //CONTROLLI IMPORTO CAMPO
                     prezzoCampo = importoCampo.getEditText().getText().toString();
@@ -159,9 +156,6 @@ public class Inserisci_campo extends AppCompatActivity {
                         finish();
 
                     }
-
-
-
                 }
             }
         });
@@ -235,7 +229,7 @@ public class Inserisci_campo extends AppCompatActivity {
 
         if(importoCampo.getEditText().getText()==null || importoCampo.getEditText().getText().length()==0){
 
-            importoCampo.setError("Inserire l' importo");
+            importoCampo.setError("Inserire l'importo");
             flag = true;
         }else
             importoCampo.setError(null);
